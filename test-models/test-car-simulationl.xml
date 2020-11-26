@@ -1,0 +1,90 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE entity PUBLIC "-//UC Berkeley//DTD MoML 1//EN"
+    "http://ptolemy.eecs.berkeley.edu/xml/dtd/MoML_1.dtd">
+<entity name="test-car-simulationl" class="ptolemy.actor.TypedCompositeActor">
+    <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="11.0.1_20180619">
+    </property>
+    <property name="DE Director" class="ptolemy.domains.de.kernel.DEDirector">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{150, 130}">
+        </property>
+    </property>
+    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={467, 256, 928, 618}, maximized=false}">
+    </property>
+    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 501]">
+    </property>
+    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.0000000000000013">
+    </property>
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{339.9999999999999, 240.32000000000028}">
+    </property>
+    <entity name="Arrival" class="ptolemy.actor.lib.DiscreteClock">
+        <property name="stopTime" class="ptolemy.data.expr.Parameter" value="117.0">
+        </property>
+        <property name="period" class="ptolemy.actor.parameters.PortParameter" value="Infinity">
+        </property>
+        <property name="offsets" class="ptolemy.data.expr.Parameter" value="{0.0,1.3255225409,1.5514828083,3.143669637,3.2168567202,5.0299194824,5.6643715782,5.8615222579,6.1100480767,6.3978578378,8.5853688293,9.110258097,11.1441186357,11.4403116094,14.0664186398,14.1704695273,16.8064358027,20.4379383512,23.4514820815,23.9450154903,26.7767495295,26.8052485228,27.8055392137,27.945452584,28.2418248306,29.6477237097,29.6862715711,29.8102120162,29.9631597705,30.9785445645,31.718988027,32.1522171317,32.6565876364,35.0280229329,35.1727255426,35.8280448831,36.8068921259,37.6308955318,37.7674345115,38.1740186541,39.9831671228,40.9147435744,41.6948938549,46.8677844949,47.459776788,50.4204367732,51.1568054474,53.6983926479,53.7699164801,54.042095304,54.2733636178,54.8619553372,56.1273502112,58.548594908,59.4123316267,59.8800289782,60.0668238826,61.8140377405,62.7155483955,63.5226745797,63.831126081,64.0460597882,64.4275509335,67.8316332753,69.853083613,72.6281717777,73.3556198613,73.7820716821,73.853524647,74.1169784904,74.6023572666,75.0710342214,78.2396590252,79.528186638,80.450886114,80.6672249153,83.537355896,85.7017437562,90.0642854947,90.6000065836,90.8134601012,94.3469772458,94.7389512869,96.0279968271,96.2658242641,96.6974832915,98.3909177958,105.801891328,109.9706860777,110.3482042455,111.8163027156,111.8912684386,112.3322473754,112.3633192539,113.8148906322,114.2568399429,115.0864170471,115.107511563,115.9608652174,116.1442587074}">
+        </property>
+        <property name="values" class="ptolemy.data.expr.Parameter" value="{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}">
+        </property>
+        <doc>Create periodic timed events.</doc>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[170.0, 240.0]">
+        </property>
+    </entity>
+    <entity name="CarInput" class="ptolemy.carsim.CarInput">
+        <property name="carInputId" class="ptolemy.data.expr.Parameter" value="0">
+        </property>
+        <property name="connectedIntersections" class="ptolemy.data.expr.Parameter" value="{1,2,3}">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[420.0, 240.0]">
+        </property>
+    </entity>
+    <entity name="CSVReader" class="ptolemy.actor.lib.io.CSVReader">
+        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="D:\Program Files\Ptolemy\ptolemy\carsim\Cars.txt">
+        </property>
+        <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
+        </property>
+        <property name="trimSpaces" class="ptolemy.data.expr.Parameter" value="true">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{290.0, 245.0}">
+        </property>
+    </entity>
+    <entity name="Intersection" class="ptolemy.carsim.Intersection">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[560.0, 230.0]">
+        </property>
+    </entity>
+    <entity name="Destination" class="ptolemy.carsim.Destination">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[650.0, 320.0]">
+        </property>
+    </entity>
+    <entity name="Intersection2" class="ptolemy.carsim.Intersection">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[535.0, 305.0]">
+        </property>
+    </entity>
+    <entity name="Intersection3" class="ptolemy.carsim.Intersection">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[515.0, 390.0]">
+        </property>
+    </entity>
+    <entity name="Destination2" class="ptolemy.carsim.Destination">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[620.0, 410.0]">
+        </property>
+    </entity>
+    <entity name="Destination3" class="ptolemy.carsim.Destination">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{368.99999999999983, 394.8200000000001}">
+        </property>
+    </entity>
+    <relation name="relation" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation2" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation3" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation4" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <link port="Arrival.output" relation="relation"/>
+    <link port="CarInput.input" relation="relation2"/>
+    <link port="CarInput.output" relation="relation3"/>
+    <link port="CSVReader.output" relation="relation2"/>
+    <link port="CSVReader.trigger" relation="relation"/>
+    <link port="Intersection.input" relation="relation3"/>
+    <link port="Intersection.eastOutput" relation="relation4"/>
+    <link port="Destination.input" relation="relation4"/>
+</entity>

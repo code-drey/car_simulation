@@ -1,0 +1,4 @@
+carId roadMap  carSpeed	fuel
+1	{1,4}	10	20
+2	{2,5}	1300	1540
+3	{3,6}	1230	1230

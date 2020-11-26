@@ -1,0 +1,5 @@
+Meeting notes 26/11/2020:
+for milestone 2:
+- try to improve Intersection
+- how to handle "RoadModel" (Queue)
+- do we need "self-made" director or can we use the dedirector?
