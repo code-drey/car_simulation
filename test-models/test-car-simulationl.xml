@@ -4,17 +4,17 @@
 <entity name="test-car-simulationl" class="ptolemy.actor.TypedCompositeActor">
     <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="11.0.1_20180619">
     </property>
-    <property name="DE Director" class="ptolemy.domains.de.kernel.DEDirector">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{150, 130}">
+    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={379, 151, 1068, 618}, maximized=false}">
+    </property>
+    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[840, 501]">
+    </property>
+    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.0000000000000016">
+    </property>
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{608.259029522613, 284.97927135678395}">
+    </property>
+    <property name="CarDirector" class="ptolemy.carsim.kernel.CarDirector">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[200.0, 100.0]">
         </property>
-    </property>
-    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={467, 256, 928, 618}, maximized=false}">
-    </property>
-    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 501]">
-    </property>
-    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.0000000000000013">
-    </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{339.9999999999999, 240.32000000000028}">
     </property>
     <entity name="Arrival" class="ptolemy.actor.lib.DiscreteClock">
         <property name="stopTime" class="ptolemy.data.expr.Parameter" value="117.0">
@@ -38,7 +38,7 @@
         </property>
     </entity>
     <entity name="CSVReader" class="ptolemy.actor.lib.io.CSVReader">
-        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="D:\Program Files\Ptolemy\ptolemy\carsim\Cars.txt">
+        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="C:/Users/Drey/Desktop/ptolemy/car_simulation/java/Cars.txt">
         </property>
         <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
         </property>
@@ -46,45 +46,137 @@
         </property>
         <property name="_location" class="ptolemy.kernel.util.Location" value="{290.0, 245.0}">
         </property>
-    </entity>
-    <entity name="Intersection" class="ptolemy.carsim.Intersection">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[560.0, 230.0]">
-        </property>
-    </entity>
-    <entity name="Destination" class="ptolemy.carsim.Destination">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[650.0, 320.0]">
-        </property>
-    </entity>
-    <entity name="Intersection2" class="ptolemy.carsim.Intersection">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[535.0, 305.0]">
-        </property>
+        <port name="output" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_type" class="ptolemy.actor.TypeAttribute" value="{carId = int, carSpeed = int, fuel = int,  roadMap = arrayType(int, 2)}">
+            </property>
+        </port>
     </entity>
     <entity name="Intersection3" class="ptolemy.carsim.Intersection">
+        <property name="intersectionId" class="ptolemy.data.expr.Parameter" value="3">
+        </property>
+        <property name="neighbors" class="ptolemy.data.expr.Parameter" value="{-1,6,-1}">
+            <display name="neighbors{North,East,South"/>
+        </property>
         <property name="_location" class="ptolemy.kernel.util.Location" value="[515.0, 390.0]">
         </property>
     </entity>
+    <entity name="Intersection2" class="ptolemy.carsim.Intersection">
+        <property name="intersectionId" class="ptolemy.data.expr.Parameter" value="2">
+        </property>
+        <property name="neighbors" class="ptolemy.data.expr.Parameter" value="{-1,5,-1}">
+            <display name="neighbors{North,East,South"/>
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[535.0, 305.0]">
+        </property>
+    </entity>
+    <entity name="Intersection" class="ptolemy.carsim.Intersection">
+        <property name="intersectionId" class="ptolemy.data.expr.Parameter" value="1">
+        </property>
+        <property name="neighbors" class="ptolemy.data.expr.Parameter" value="{-1,4,-1}">
+            <display name="neighbors{North,East,South"/>
+        </property>
+        <property name="stormy" class="ptolemy.data.expr.Parameter" value="">
+        </property>
+        <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
+            <property name="_trackShape" class="ptolemy.vergil.kernel.attributes.ResizablePolygonAttribute">
+                <property name="fillColor" class="ptolemy.actor.gui.ColorAttribute" value="{0.4750887166689, 0.1998209648848, 0.0057677919699, 1.0}">
+                </property>
+            </property>
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[560.0, 230.0]">
+        </property>
+    </entity>
     <entity name="Destination2" class="ptolemy.carsim.Destination">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[620.0, 410.0]">
+        <property name="destinationId" class="ptolemy.data.expr.Parameter" value="5">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[730.0, 300.0]">
+        </property>
+    </entity>
+    <entity name="Destination" class="ptolemy.carsim.Destination">
+        <property name="destinationId" class="ptolemy.data.expr.Parameter" value="4">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[730.0, 225.0]">
         </property>
     </entity>
     <entity name="Destination3" class="ptolemy.carsim.Destination">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{368.99999999999983, 394.8200000000001}">
+        <property name="destinationId" class="ptolemy.data.expr.Parameter" value="6">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[740.0, 390.0]">
+        </property>
+    </entity>
+    <entity name="Display" class="ptolemy.actor.lib.gui.Display">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute">
+        </property>
+        <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{835, 210}">
+        </property>
+    </entity>
+    <entity name="Display2" class="ptolemy.actor.lib.gui.Display">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute">
+        </property>
+        <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[865.0, 300.0]">
+        </property>
+    </entity>
+    <entity name="Display3" class="ptolemy.actor.lib.gui.Display">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute">
+        </property>
+        <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[880.0, 410.0]">
         </property>
     </entity>
     <relation name="relation" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation2" class="ptolemy.actor.TypedIORelation">
     </relation>
+    <relation name="relation6" class="ptolemy.actor.TypedIORelation">
+        <property name="width" class="ptolemy.data.expr.Parameter" value="1">
+        </property>
+    </relation>
+    <relation name="relation5" class="ptolemy.actor.TypedIORelation">
+        <property name="width" class="ptolemy.data.expr.Parameter" value="1">
+        </property>
+    </relation>
     <relation name="relation3" class="ptolemy.actor.TypedIORelation">
+        <property name="width" class="ptolemy.data.expr.Parameter" value="1">
+        </property>
+    </relation>
+    <relation name="relation7" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation8" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation4" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation10" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation11" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation9" class="ptolemy.actor.TypedIORelation">
     </relation>
     <link port="Arrival.output" relation="relation"/>
     <link port="CarInput.input" relation="relation2"/>
     <link port="CarInput.output" relation="relation3"/>
+    <link port="CarInput.output" relation="relation6"/>
+    <link port="CarInput.output" relation="relation5"/>
     <link port="CSVReader.output" relation="relation2"/>
     <link port="CSVReader.trigger" relation="relation"/>
+    <link port="Intersection3.input" relation="relation6"/>
+    <link port="Intersection3.eastOutput" relation="relation7"/>
+    <link port="Intersection2.input" relation="relation5"/>
+    <link port="Intersection2.eastOutput" relation="relation8"/>
     <link port="Intersection.input" relation="relation3"/>
     <link port="Intersection.eastOutput" relation="relation4"/>
+    <link port="Destination2.input" relation="relation8"/>
+    <link port="Destination2.output" relation="relation10"/>
     <link port="Destination.input" relation="relation4"/>
+    <link port="Destination.output" relation="relation11"/>
+    <link port="Destination3.input" relation="relation7"/>
+    <link port="Destination3.output" relation="relation9"/>
+    <link port="Display.input" relation="relation11"/>
+    <link port="Display2.input" relation="relation10"/>
+    <link port="Display3.input" relation="relation9"/>
 </entity>

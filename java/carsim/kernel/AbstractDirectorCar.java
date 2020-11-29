@@ -25,10 +25,13 @@
  COPYRIGHTENDKEY
 
  */
-package ptolemy.carsim;
+package ptolemy.carsim.kernel;
 
 import java.util.Map;
 
+import ptolemy.carsim.CarInput;
+import ptolemy.carsim.Destination;
+import ptolemy.carsim.Intersection;
 import ptolemy.data.ArrayToken;
 import ptolemy.data.RecordToken;
 import ptolemy.data.Token;
@@ -80,14 +83,14 @@ public abstract class AbstractDirectorCar extends DEDirector {
      *  @param track The track.
      *  @exception IllegalActionException Not thrown in this base class.
      */
-    public abstract void handleTrackAttributeChanged(Intersection intersection)
+    public abstract void handleIntersectionAttributeChanged(Intersection intersection)
             throws IllegalActionException;
 
     /** Put an entry into _neighbors , _stormyTrack  and _inTransit for the initialized track.
      *  @param track The track.
      *  @exception IllegalActionException Not thrown in this base class.
      */
-    public abstract void handleInitializedTrack(Intersection intersection)
+    public abstract void handleInitializedIntersection(Intersection intersection)
             throws IllegalActionException;
 
     /** Routing an aircraft based on its flight map.
@@ -103,14 +106,14 @@ public abstract class AbstractDirectorCar extends DEDirector {
      *  @param trackId The trackid.
      *  @return The status of the track.
      */
-    public abstract boolean returnTrackStatus(Token carId);
+    public abstract boolean returnIntersectionStatus(Token carId);
 
     /** Update inTransit status of a track.
      *  @param trackId The trackid
      *  @param trackStatus The status
      *  @exception IllegalActionException Not thrown in this base class.
      */
-    public abstract void setInTransitStatusOfTrack(Token carId,
+    public abstract void setInTransitStatusOfIntersection(Token carId,
             boolean carStatus) throws IllegalActionException;
 
     /** Reroute an aircraft.
@@ -118,7 +121,7 @@ public abstract class AbstractDirectorCar extends DEDirector {
      *  @return a Map of rerouted aircraft.
      *  @exception IllegalActionException Not thrown in this base class.
      */
-    public abstract Map<String, Token> rerouteUnacceptedAircraft(Token car)
+    public abstract Map<String, Token> rerouteUnacceptedCar(Token car)
             throws IllegalActionException;
 
     /** Return airplane's color. If the airplane has not color, set a color for that and store it.
@@ -126,14 +129,14 @@ public abstract class AbstractDirectorCar extends DEDirector {
      *  @return The color of the airplane.
      *  @exception IllegalActionException Not thrown in this base class.
      */
-    public abstract ArrayToken handleAirplaneColor(int id)
+    public abstract ArrayToken handleCarColor(int id)
             throws IllegalActionException;
 
     /** Handle initializing of an airport.
      *  @param airport The airport
      *  @exception IllegalActionException Not thrown in this base class.
      */
-    public abstract void handleInitializedAirport(CarInput carInput)
+    public abstract void handleInitializedCarInput(CarInput carInput)
             throws IllegalActionException;
 
     /** Handle initializing of a destination airport. This function stores airport id in _airportsId
