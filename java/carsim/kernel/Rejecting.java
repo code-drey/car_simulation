@@ -25,7 +25,7 @@
  COPYRIGHTENDKEY
 
  */
-package ptolemy.carsim;
+package ptolemy.carsim.kernel;
 
 import ptolemy.actor.IOPort;
 import ptolemy.data.Token;

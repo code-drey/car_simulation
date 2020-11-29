@@ -32,6 +32,7 @@ import ptolemy.actor.IOPort;
 import ptolemy.actor.TypedAtomicActor;
 import ptolemy.actor.TypedIOPort;
 import ptolemy.actor.util.Time;
+import ptolemy.carsim.kernel.AbstractDirectorCar;
 import ptolemy.data.ArrayToken;
 import ptolemy.data.DoubleToken;
 import ptolemy.data.IntToken;
@@ -42,7 +43,6 @@ import ptolemy.data.type.ArrayType;
 import ptolemy.data.type.BaseType;
 import ptolemy.data.type.RecordType;
 import ptolemy.data.type.Type;
-import ptolemy.domains.atc.kernel.AbstractATCDirector;
 import ptolemy.domains.atc.kernel.Rejecting;
 import ptolemy.kernel.CompositeEntity;
 import ptolemy.kernel.util.IllegalActionException;
@@ -78,9 +78,9 @@ public class Destination extends TypedAtomicActor implements Rejecting {
         output = new TypedIOPort(this, "output", false, true);
         output.setTypeEquals(new RecordType(_lables, _types));
 
-        carId = new Parameter(this, "carId");
-        carId.setTypeEquals(BaseType.INT);
-        carId.setExpression("-1");
+        destinationId = new Parameter(this, "destinationId");
+        destinationId.setTypeEquals(BaseType.INT);
+        destinationId.setExpression("-1");
 
         delay = new Parameter(this, "delay");
         delay.setTypeEquals(BaseType.DOUBLE);
@@ -114,7 +114,7 @@ public class Destination extends TypedAtomicActor implements Rejecting {
     public TypedIOPort output;
 
     /** The id of the airport, which defaults to -1. */
-    public Parameter carId;
+    public Parameter destinationId;
 
     /** The delay. */
     public Parameter delay;
@@ -193,13 +193,13 @@ public class Destination extends TypedAtomicActor implements Rejecting {
      *  @exception IllegalActionException
      */
     protected void _setIcon(int id) throws IllegalActionException {
-        ArrayToken color = _noAircraftColor;
+        ArrayToken color = _noCarColor;
         if (id > -1) {
             Director _director = getDirector();
-            color = ((AbstractDirectorCar) _director).handleAirplaneColor(id);
+            color = ((AbstractDirectorCar) _director).handleCarColor(id);
             if (color == null) {
                 throw new IllegalActionException(
-                        "Color for the airplane " + id + " has not been set");
+                        "Color for the car " + id + " has not been set");
             }
         }
         _shape.fillColor.setToken(color);
@@ -210,15 +210,15 @@ public class Destination extends TypedAtomicActor implements Rejecting {
     private RectangleAttribute _rectangle;
     private DoubleToken _one = new DoubleToken(1.0);
     private Token[] _white = { _one, _one, _one, _one };
-    private ArrayToken _noAircraftColor = new ArrayToken(_white);
+    private ArrayToken _noCarColor = new ArrayToken(_white);
     //
 
     private Token _inTransit;
     private Time _transitExpires;
     private boolean _called;
     private String[] _lables = { "carId", "carSpeed", "roadMap",
-            "priorIntersection", "fuel", "arrivalTimeToCarInput",
-            "dipartureTimeFromCarInput" };
+            "priorIntersection", "fuel", "arrivalTimeToDestination",
+            "departureTimeFromCarInput" };
     private Type[] _types = { BaseType.INT, BaseType.INT,
             new ArrayType(BaseType.INT), BaseType.INT, BaseType.DOUBLE,
             BaseType.DOUBLE, BaseType.DOUBLE };

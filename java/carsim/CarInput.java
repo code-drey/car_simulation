@@ -44,7 +44,7 @@ import ptolemy.data.Token;
 import ptolemy.data.expr.Parameter;
 import ptolemy.data.type.ArrayType;
 import ptolemy.data.type.BaseType;
-import ptolemy.domains.atc.kernel.AbstractATCDirector;
+import ptolemy.carsim.kernel.AbstractDirectorCar;
 import ptolemy.kernel.CompositeEntity;
 import ptolemy.kernel.util.IllegalActionException;
 import ptolemy.kernel.util.NameDuplicationException;
@@ -137,9 +137,9 @@ public class CarInput extends TypedAtomicActor {
              tempCar.put("roadMap", firstCar.get("roadMap"));
              tempCar.put("fuel", firstCar.get("fuel"));
              tempCar.put("priorIntersection", firstCar.get("priorIntersection"));
-             tempCar.put("arrivalTimeToCarInput",
-                     firstCar.get("arrivalTimeToCarInput"));
-             tempCar.put("dipartureTimeFromCarInput",
+             tempCar.put("arrivalTimeToDestination",
+                     firstCar.get("arrivalTimeToDestination"));
+             tempCar.put("departureTimeFromCarInput",
                      new DoubleToken(startTime));
              _cars.set(0, new RecordToken(tempCar));
              int i = _findDirection(_cars.get(0));
@@ -171,20 +171,20 @@ public class CarInput extends TypedAtomicActor {
      }
 
      if (input.hasToken(0)) {
-         RecordToken car = (RecordToken) input.get(0);
-         Map<String, Token> Car = new TreeMap<String, Token>();
-         Car.put("carId", car.get("carId"));
-         Car.put("carSpeed", car.get("carSpeed"));
-         Car.put("roadMap", car.get("roadMap"));
-         Car.put("priorIntersection", carInputId.getToken());
+         RecordToken token_car = (RecordToken) input.get(0);
+         Map<String, Token> map_car = new TreeMap<String, Token>();
+         map_car.put("carId", token_car.get("carId"));
+         map_car.put("carSpeed", token_car.get("carSpeed"));
+         map_car.put("roadMap", token_car.get("roadMap"));
+         map_car.put("priorIntersection", carInputId.getToken());
          //new added fields to the carInput packet
-         Car.put("fuel", car.get("fuel"));
+         map_car.put("fuel", token_car.get("fuel"));
          double arrivalTime = currentTime.getDoubleValue();
-         Car.put("arrivalTimeToCarInput", new DoubleToken(arrivalTime));
-         Car.put("dipartureTimeFromCarInput",
+         map_car.put("arrivalTimeToDestination", new DoubleToken(arrivalTime));
+         map_car.put("departureTimeFromCarInput",
                  new DoubleToken(arrivalTime));
          //end of new added...
-         _cars.add(new RecordToken(Car));
+         _cars.add(new RecordToken(map_car));
 
          if (_inTransit == null) {
              double additionalDelay = ((DoubleToken) start.getToken())
@@ -210,11 +210,10 @@ public class CarInput extends TypedAtomicActor {
  public void initialize() throws IllegalActionException {
      super.initialize();
      _director = getDirector();
-     //TODO:
-     //((AbstractATCDirector) _director).handleInitializedAirport(this);
+     ((AbstractDirectorCar) _director).handleInitializedCarInput(this);
      _inTransit = null;
-     _Intersections = (ArrayToken) connectedIntersections.getToken();
-     if (_Intersections.length() == 0) {
+     _intersections = (ArrayToken) connectedIntersections.getToken();
+     if (_intersections.length() == 0) {
          throw new IllegalActionException(
                  "there is no connected intersection to the carInput in the carInput's parameters ");
      }
@@ -225,10 +224,10 @@ public class CarInput extends TypedAtomicActor {
  private int _findDirection(RecordToken car)
          throws IllegalActionException {
      ArrayToken roadMap = (ArrayToken) car.get("roadMap");
-     boolean finded = false;
-     for (int i = 0; i < _Intersections.length(); i++) {
-         if (roadMap.getElement(0).equals(_Intersections.getElement(i))) {
-             finded = true;
+     boolean found = false;
+     for (int i = 0; i < _intersections.length(); i++) {
+         if (roadMap.getElement(0).equals(_intersections.getElement(i))) {
+             found = true;
              return i;
          }
      }
@@ -239,6 +238,6 @@ public class CarInput extends TypedAtomicActor {
  private Token _inTransit;
  private Time _transitExpires;
  private Director _director;
- private ArrayToken _Intersections;
+ private ArrayToken _intersections;
  private ArrayList<RecordToken> _cars;
 }
