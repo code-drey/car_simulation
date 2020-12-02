@@ -8,7 +8,7 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="{75.0, 75.0}">
         </property>
     </property>
-    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={38, 289, 1029, 617}, maximized=false}">
+    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={433, 320, 1029, 617}, maximized=false}">
     </property>
     <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[801, 500]">
     </property>
@@ -48,7 +48,7 @@
         </property>
         <property name="intersectionId" class="ptolemy.data.expr.Parameter" value="1">
         </property>
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={741, 149, 928, 617}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={254, 242, 928, 617}, maximized=false}">
         </property>
         <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 500]">
         </property>
@@ -172,7 +172,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="//Sets the Indicator of a car coming from WEST&#10;//-1 is left, 0 is straight, 1 is right&#10;exports.setup = function () {&#10;    this.input('car');&#10;    this.output('output');&#10;    &#10;    this.parameter('CIntersectionSOUTH', {'type':'number', 'value':2});&#10;    this.parameter('CIntersectionEAST', {'type':'number', 'value':3});&#10;    this.parameter('CIntersectionWEST', {'type':'number', 'value':4});&#10;};&#10;&#10;exports.fire = function () {&#10;	var obj = {carId: 0, roadMap: 0, carSpeed: 0, fuel: 0};&#10;	car = this.get('car');&#10;	obj = car;&#10;	//var roadMap = obj[Object.keys(obj)[1]];&#10;	&#10;	if(obj.roadMap[1] == this.getParameter('CIntersectionSOUTH')) {&#10;		obj[Object.keys(obj)[4]] = 1;&#10;	}&#10;	if(obj.roadMap[1] == this.getParameter('CIntersectionEAST')) {&#10;		obj[Object.keys(obj)[4]] = 0;&#10;	}&#10;    this.send('output', obj);&#10;};">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="//Sets the Indicator of a car coming from WEST&#10;//-1 is left, 0 is straight, 1 is right&#10;exports.setup = function () {&#10;    this.input('car');&#10;    this.output('output');&#10;    &#10;    this.parameter('CIntersectionSOUTH', {'type':'number', 'value':2});&#10;    this.parameter('CIntersectionEAST', {'type':'number', 'value':3});&#10;    this.parameter('CIntersectionWEST', {'type':'number', 'value':4});&#10;};&#10;&#10;exports.fire = function () {&#10;	car = this.get('car');&#10;	&#10;	if(car.roadMap[1] == this.getParameter('CIntersectionSOUTH')) {&#10;		car.fuel = 1;&#10;	}&#10;	if(car.roadMap[1] == this.getParameter('CIntersectionEAST')) {&#10;		car.fuel = 0;&#10;	}&#10;    this.send('output', car);&#10;};">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -184,7 +184,7 @@
                 <property name="syntaxStyle" class="ptolemy.kernel.util.StringAttribute" value="text/javascript">
                 </property>
             </property>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[97.75, 455.0]">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[95.0, 450.0]">
             </property>
             <port name="output" class="ptolemy.actor.TypedIOPort">
                 <property name="output"/>
@@ -198,7 +198,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="//Sets the Indicator of a car coming from SOUTH&#10;//-1 is left, 0 is straight, 1 is right&#10;exports.setup = function () {&#10;    this.input('car');&#10;    this.output('output');&#10;    &#10;    this.parameter('CIntersectionSOUTH', {'type':'number', 'value':2});&#10;    this.parameter('CIntersectionEAST', {'type':'number', 'value':3});&#10;    this.parameter('CIntersectionWEST', {'type':'number', 'value':4});&#10;};&#10;&#10;exports.fire = function () {&#10;	var obj = {carId: 0, roadMap: 0, carSpeed: 0, fuel: 0};&#10;	test = this.get('car');&#10;	obj = test;&#10;	&#10;	if(obj.roadMap[0] == this.getParameter('CIntersectionWEST')) {&#10;		obj[Object.keys(obj)[4]] = -1;&#10;	}&#10;	if(obj.roadMap[0] == this.getParameter('CIntersectionEAST')) {&#10;		obj[Object.keys(obj)[4]] = 1;&#10;	}&#10;    this.send('output', obj);&#10;};">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="//Sets the Indicator of a car coming from SOUTH&#10;//-1 is left, 0 is straight, 1 is right&#10;exports.setup = function () {&#10;    this.input('car');&#10;    this.output('output');&#10;    &#10;    this.parameter('CIntersectionSOUTH', {'type':'number', 'value':2});&#10;    this.parameter('CIntersectionEAST', {'type':'number', 'value':3});&#10;    this.parameter('CIntersectionWEST', {'type':'number', 'value':4});&#10;};&#10;&#10;exports.fire = function () {&#10;	car = this.get('car');&#10;	&#10;	if(car.roadMap[0] == this.getParameter('CIntersectionWEST')) {&#10;		car.fuel = -1;&#10;	}&#10;	if(car.roadMap[0] == this.getParameter('CIntersectionEAST')) {&#10;		car.fuel = 1;&#10;	}&#10;    this.send('output', cars);&#10;};">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -224,7 +224,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="//Sets the Indicator of a car coming from EAST&#10;//-1 is left, 0 is straight, 1 is right&#10;exports.setup = function () {&#10;    this.input('car');&#10;    this.output('output');&#10;    &#10;    this.parameter('CIntersectionSOUTH', {'type':'number', 'value':2});&#10;    this.parameter('CIntersectionEAST', {'type':'number', 'value':3});&#10;    this.parameter('CIntersectionWEST', {'type':'number', 'value':4});&#10;};&#10;&#10;exports.fire = function () {&#10;	var obj = {carId: 0, roadMap: 0, carSpeed: 0, fuel: 0};&#10;	test = this.get('car');&#10;	obj = test;&#10;	&#10;	if(obj.roadMap[0] == this.getParameter('CIntersectionSOUTH')) {&#10;		obj[Object.keys(obj)[4]] = -1;&#10;	}&#10;	if(obj.roadMap[0] == this.getParameter('CIntersectionWEST')) {&#10;		obj[Object.keys(obj)[4]] = 0;&#10;	}&#10;    this.send('output', obj);&#10;};">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="//Sets the Indicator of a car coming from EAST&#10;//-1 is left, 0 is straight, 1 is right&#10;exports.setup = function () {&#10;    this.input('car');&#10;    this.output('output');&#10;    &#10;    this.parameter('CIntersectionSOUTH', {'type':'number', 'value':2});&#10;    this.parameter('CIntersectionEAST', {'type':'number', 'value':3});&#10;    this.parameter('CIntersectionWEST', {'type':'number', 'value':4});&#10;};&#10;&#10;exports.fire = function () {&#10;	car = this.get('car');&#10;	&#10;	if(car.roadMap[0] == this.getParameter('CIntersectionSOUTH')) {&#10;		car.fuel = -1;&#10;	}&#10;	if(car.roadMap[0] == this.getParameter('CIntersectionWEST')) {&#10;		car.fuel = 0;&#10;	}&#10;    this.send('output', car);&#10;};">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -250,7 +250,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// T-Intersection right-hand-rule&#10;//fires the car which has priority and lets the others wait&#10;exports.setup = function () {&#10;    this.input('carWEST');&#10;    this.input('carEAST');&#10;    this.input('carSOUTH');&#10;    this.output('OWEST');&#10;    this.output('OEAST');&#10;    this.output('OSOUTH');&#10;};">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// T-Intersection right-hand-rule&#10;//fires the car which has priority and lets the others wait&#10;exports.setup = function () {&#10;    this.input('carWEST');&#10;    this.input('carEAST');&#10;    this.input('carSOUTH');&#10;    this.output('OWEST');&#10;    this.output('OEAST');&#10;    this.output('OSOUTH');&#10;};&#10;&#10;exports.fire = function () {&#10;	var carWEST = {carId: 0, roadMap: 0, carSpeed: 0, fuel: 0};&#10;	carW = this.get('carWEST');&#10;	carWEST = carW;&#10;	&#10;	var carEAST = {carId: 0, roadMap: 0, carSpeed: 0, fuel: 0};&#10;	carE = this.get('carEAST');&#10;	carEAST = carE;&#10;	&#10;	var carSOUTH = {carId: 0, roadMap: 0, carSpeed: 0, fuel: 0};&#10;	carS = this.get('carSOUTH');&#10;	carSOUTH = carS;&#10;	&#10;	function priority() {&#10;	}&#10;};&#10;">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -317,8 +317,12 @@
                 </property>
             </port>
         </entity>
-        <entity name="TimeDelay" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="{135, 370}">
+        <entity name="Display" class="ptolemy.actor.lib.gui.Display">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={157, 355, 923, 472}, maximized=false}">
+            </property>
+            <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[907, 412]">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{210, 400}">
             </property>
         </entity>
         <relation name="relation3" class="ptolemy.actor.TypedIORelation">
@@ -337,12 +341,15 @@
         </relation>
         <relation name="relation9" class="ptolemy.actor.TypedIORelation">
         </relation>
+        <relation name="relation2" class="ptolemy.actor.TypedIORelation">
+        </relation>
         <link port="westIn" relation="relation"/>
         <link port="eastOut" relation="relation8"/>
         <link port="southOut" relation="relation7"/>
         <link port="westOut" relation="relation9"/>
         <link port="southIn" relation="relation3"/>
         <link port="eastIn" relation="relation4"/>
+        <link port="SetIndicatorWEST.output" relation="relation2"/>
         <link port="SetIndicatorWEST.car" relation="relation"/>
         <link port="SetIndicatorSOUTH.output" relation="relation5"/>
         <link port="SetIndicatorSOUTH.car" relation="relation3"/>
@@ -353,42 +360,13 @@
         <link port="JavaScript.OWEST" relation="relation9"/>
         <link port="JavaScript.OEAST" relation="relation8"/>
         <link port="JavaScript.OSOUTH" relation="relation7"/>
-    </entity>
-    <entity name="Display" class="ptolemy.actor.lib.gui.Display">
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={721, 417, 359, 246}, maximized=false}">
-        </property>
-        <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[343, 186]">
-        </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[675.0, 145.0]">
-        </property>
-    </entity>
-    <entity name="Display2" class="ptolemy.actor.lib.gui.Display">
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={721, 417, 359, 246}, maximized=false}">
-        </property>
-        <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[343, 186]">
-        </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[560.0, 275.0]">
-        </property>
-    </entity>
-    <entity name="Display3" class="ptolemy.actor.lib.gui.Display">
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={721, 417, 359, 246}, maximized=false}">
-        </property>
-        <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[343, 186]">
-        </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[492.1796875, 257.9296875]">
-        </property>
+        <link port="Display.input" relation="relation2"/>
     </entity>
     <relation name="relation" class="ptolemy.actor.TypedIORelation">
         <property name="_layoutHint" class="ptolemy.vergil.actor.LayoutHint" value="{ { head={id=&quot;CSVReader.trigger&quot;,x=255.0,y=155.0}, tail={id=&quot;PoissonClock.output&quot;,x=90.0,y=145.0}, points={} } }">
         </property>
     </relation>
     <relation name="relation3" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation4" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation5" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation7" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation2" class="ptolemy.actor.TypedIORelation">
     </relation>
@@ -398,10 +376,4 @@
     <link port="CSVReader.trigger" relation="relation"/>
     <link port="PoissonClock.output" relation="relation"/>
     <link port="T-Intersection.westIn" relation="relation3"/>
-    <link port="T-Intersection.eastOut" relation="relation4"/>
-    <link port="T-Intersection.southOut" relation="relation5"/>
-    <link port="T-Intersection.westOut" relation="relation7"/>
-    <link port="Display.input" relation="relation4"/>
-    <link port="Display2.input" relation="relation5"/>
-    <link port="Display3.input" relation="relation7"/>
 </entity>
