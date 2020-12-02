@@ -1,0 +1,24 @@
+//Sets the Indicator of a car coming from EAST
+//-1 is left, 0 is straight, 1 is right
+exports.setup = function () {
+    this.input('car');
+    this.output('output');
+    
+    this.parameter('CIntersectionSOUTH', {'type':'number', 'value':2});
+    this.parameter('CIntersectionEAST', {'type':'number', 'value':3});
+    this.parameter('CIntersectionWEST', {'type':'number', 'value':4});
+};
+
+exports.fire = function () {
+	var obj = {carId: 0, roadMap: 0, carSpeed: 0, fuel: 0};
+	test = this.get('car');
+	obj = test;
+	
+	if(obj.roadMap[0] == this.getParameter('CIntersectionSOUTH')) {
+		obj[Object.keys(obj)[4]] = -1;
+	}
+	if(obj.roadMap[0] == this.getParameter('CIntersectionWEST')) {
+		obj[Object.keys(obj)[4]] = 0;
+	}
+    this.send('output', obj);
+};
