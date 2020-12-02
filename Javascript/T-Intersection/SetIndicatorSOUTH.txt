@@ -10,15 +10,12 @@ exports.setup = function () {
 };
 
 exports.fire = function () {
-	var obj = {carId: 0, roadMap: 0, carSpeed: 0, fuel: 0};
-	test = this.get('car');
-	obj = test;
+	car = this.get('car');
 	
-	if(obj.roadMap[0] == this.getParameter('CIntersectionWEST')) {
-		obj[Object.keys(obj)[4]] = -1;
+	if(car.roadMap[0] == this.getParameter('CIntersectionWEST')) {
+		car.fuel = -1;
 	}
-	if(obj.roadMap[0] == this.getParameter('CIntersectionEAST')) {
-		obj[Object.keys(obj)[4]] = 1;
+	if(car.roadMap[0] == this.getParameter('CIntersectionEAST')) {
+		car.fuel = 1;
 	}
-    this.send('output', obj);
-};
+    this.send('output', cars);
