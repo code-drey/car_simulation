@@ -1,0 +1,78 @@
+// T-Intersection right-hand-rule
+//fires the car which has priority and lets the others wait
+exports.setup = function () {
+	//the Input-ports for the incoming cars
+    this.input('carWEST');
+    this.input('carEAST');
+    this.input('carSOUTH');
+    //the Output-ports for the leaving cars
+    this.output('OWEST');
+    this.output('OEAST');
+    this.output('OSOUTH');
+    //the Output-ports for cars that have to wait
+    this.output('waitW');
+    this.output('waitE');
+    this.output('waitS');
+}
+
+exports.initialize = function () {
+	//creates an Array that contains the cars that stand in an Intersection
+	//the Array position is relevant 0 = WEST, 1 = EAST and 2 = SOUTH
+	var cars = [];
+	cars.length = 3;
+	
+	this.addInputHandler('carWEST', function() {
+	carW = this.get('carWEST');
+	cars[0] = carW;
+	if(cars[1] == null && cars[2] == null) {
+		setTimeout(priority(cars), 3000);
+	}
+	});
+	
+	this.addInputHandler('carEAST', function() {
+	carE = this.get('carEAST');
+	cars[1] = carE;
+	if(cars[0] == null && cars[2] == null) {
+		setTimeout(priority(cars), 3000);
+	}
+	});
+	
+	this.addInputHandler('carSOUTH', function() {
+	carS = this.get('carSOUTH');
+	cars[2] = carW;
+	if(cars[0] == null && cars[1] == null) {
+		setTimeout(priority(cars), 3000);
+	}
+	});
+	
+	function priority(cars) {
+		var carW = car[0];
+		var carE = car[1];
+		var carS = car[2];
+		
+		//carW straight priority
+		if(carW.fuel == 0 && carE.fuel == 0 || carW.fuel == 0 && carE == null || carW.fuel == 0 && carE.fuel == -1 || carW.fuel == 0 && carS == null) {
+			
+		}
+		//carW right priority
+		else if(carW.fuel == 1 && carE.fuel == 0 || carW.fuel == 1 && carE.fuel == -1 || carW.fuel == 1 && carE == null || carW.fuel == 1 && carS.fuel == 1 || carW.fuel == 1 && carS.fuel == -1 || carW.fuel == 1 && carS == null) {
+			
+		}
+		//carE straight priority
+		else if(carE.fuel == 0 && carW.fuel = 0 || carE.fuel == 0 && carW.fuel == 1 || carE.fuel == 0 && carW == null || carE.fuel == 0 && carS.fuel == 1 || carE.fuel == 0 && carS.fuel == -1 || carE.fuel == 0 && carS == null) {
+			
+		}
+		//carE left priority
+		else if(carE.fuel == -1 && carW == null || carE.fuel == -1 && carS.fuel == 1 || carE.fuel == -1 && carS == null) {
+			
+		}
+		//carS left priority
+		else if(carS.fuel == -1 && carW.fuel == 0 || carS.fuel == -1 && carW == null || carS.fuel == -1 && carE == null) {
+			
+		}
+		//carS right priority
+		else if(carS.fuel == 1 && carW.fuel == 0 || carS.fuel == 1 && carW.fuel == 1 || carS.fuel == 1 && carW == null || carS.fuel == 1 && carE.fuel == 0 || carS.fuel == 1 && carE.fuel == -1 || carS.fuel == -1 && carE == null) {
+			
+		}
+	}
+}
