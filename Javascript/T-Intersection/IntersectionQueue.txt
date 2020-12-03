@@ -1,0 +1,32 @@
+//A queue that manages car that wait in a intersection
+exports.setup = function () {
+	this.input('incomingCar');
+	this.input('wait');
+	this.output('check');
+}
+
+exports.initialize = function() {
+	var queue = [];
+	
+	//Adds a car to the end of the queue
+	this.addInputHandler('incomingCar', function() {
+		carIncoming = this.get('incomingCar');
+		queue.unshift(carIncoming);
+		tryToCheck(carIncoming);
+	});
+	
+	//Pushs a car that has to wait at the Intersection to the front of the queue and lets it wait for a specific time
+	this.addInputHandler('wait', function() {
+		carWait = this.get('wait');
+		queue.push(carWait);
+		setTimeout(tryToCheck(carWait), 3000);
+	});
+	
+	//Checks if the car is ther first in the queue and sends it to the Intersection
+	function tryToCheck(car) {
+		if(queue[queue.length-1] == car) {
+			queue.pop();
+			this.send('check', car);
+		}
+	}
+}
