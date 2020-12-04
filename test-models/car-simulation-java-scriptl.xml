@@ -10,13 +10,13 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="{55.0, 20.0}">
         </property>
     </property>
-    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={150, 176, 928, 617}, maximized=false}">
+    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={845, 152, 928, 617}, maximized=false}">
     </property>
     <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 500]">
     </property>
     <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="0.8000000000000002">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{339.99999999999994, 240.00000000000006}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{339.99999999999983, 240.00000000000006}">
     </property>
     <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
         <property name="textColor" class="ptolemy.actor.gui.ColorAttribute" value="{0.0, 0.0, 0.0, 1.0}">
@@ -48,9 +48,9 @@
         </port>
     </entity>
     <entity name="T-Intersection" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[415.0, 150.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[410.0, 155.0]">
         </property>
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={626, 266, 928, 653}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-1508, 253, 1174, 653}, maximized=false}">
         </property>
         <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 536]">
         </property>
@@ -60,8 +60,6 @@
         </property>
         <port name="west" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
-            <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-            </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="{10.0, 230.0}">
             </property>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
@@ -69,8 +67,6 @@
         </port>
         <port name="north" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
-            <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-            </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="{10.0, 170.0}">
             </property>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="NORTH">
@@ -78,8 +74,6 @@
         </port>
         <port name="east" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
-            <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-            </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="{10.0, 110.0}">
             </property>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
@@ -87,8 +81,6 @@
         </port>
         <port name="oWest" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
-            <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-            </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="{370.0, 305.0}">
             </property>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
@@ -96,8 +88,6 @@
         </port>
         <port name="oNorth" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
-            <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-            </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="{370.0, 95.0}">
             </property>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="NORTH">
@@ -105,8 +95,6 @@
         </port>
         <port name="oEast" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
-            <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-            </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="{370.0, 250.0}">
             </property>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
@@ -117,7 +105,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// Put your JavaScript program here.&#10;// Refer to parameters in scope using dollar-sign{parameterName}.&#10;// See: https://wiki.eecs.berkeley.edu/accessors/Version1/AccessorSpecification&#10;exports.setup = function() {&#10;	this.input('iWest');&#10;	this.input('iNorth');&#10;	this.input('iEast');&#10;	&#10;	this.output('oWest');&#10;	this.output('oNorth');&#10;	this.output('oEast');&#10;	&#10;	this.parameter('intersectionID', {'type':'number', 'value': 0});&#10;	this.parameter('connectedWest', {'type':'number', 'value': 0});&#10;	this.parameter('connectedNorth', {'type':'number', 'value': 0});&#10;	this.parameter('connectedEast', {'type':'number', 'value': 0});	&#10;}&#10;&#10;exports.fire = function() {&#10;	var qWest = [];&#10;	var qNorth = [];&#10;	var qEast = [];&#10;	var queue = [];&#10;	//var obj = {carId: 0, roadMap: 0, carSpeed: 0, fuel: 0};&#10;	carWest = this.get('iWest');&#10;	carNorth = this.get('iNorth');&#10;	carEast = this.get('iEast');&#10;	&#10;	//fuel = carWest.fuel;&#10;	&#10;	//fill car into correct&#10;	try {&#10;		if (Object.keys(carWest).length !== 0) {&#10;			qWest.push(carWest);&#10;			//this.send('oEast', qWest);&#10;		}&#10;		if (Object.keys(carNorth).length !== 0) {&#10;			qNorth.push(carNorth);&#10;			//this.send('oEast', roadMap[0]);&#10;		}&#10;		if (Object.keys(carEast).length !== 0) {&#10;			qEast.push(carEast);&#10;			//this.send('oEast', roadMap[0]);&#10;		}&#10;	} catch(TypeError) {&#10;		// if there is no input then there is no object but nil&#10;	}&#10;	&#10;	if(carWest.roadMap[carWest.indicator] == this.getParameter('connectedNorth')) {&#10;		carWest.count++;&#10;		this.send('oNorth', carWest);&#10;	} else if(carWest.roadMap[carWest.indicator] == this.getParameter('connectedEast')) {&#10;		carWest.count++;&#10;		this.send('oEast', carWest);&#10;	}&#10;	&#10;	//this.send('oEast', roadMap[0]);&#10;	&#10;	/*if(roadMap[Object.keys(roadMap)[0]] == intersectionID) {&#10;		this.send('south', &quot;test&quot;);&#10;	}*/&#10;&#10;}&#10;">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// Put your JavaScript program here.&#10;// Refer to parameters in scope using dollar-sign{parameterName}.&#10;// See: https://wiki.eecs.berkeley.edu/accessors/Version1/AccessorSpecification&#10;exports.setup = function() {&#10;	this.input('iWest');&#10;	this.input('iNorth');&#10;	this.input('iEast');&#10;	&#10;	this.output('oWest');&#10;	this.output('oNorth');&#10;	this.output('oEast');&#10;	&#10;	this.parameter('intersectionID', {'type':'number', 'value': 0});&#10;	this.parameter('connectedWest', {'type':'number', 'value': 0});&#10;	this.parameter('connectedNorth', {'type':'number', 'value': 0});&#10;	this.parameter('connectedEast', {'type':'number', 'value': 0});	&#10;}&#10;&#10;exports.fire = function() {&#10;	var qWest = [];&#10;	var qNorth = [];&#10;	var qEast = [];&#10;	var queue = [];&#10;	//var obj = {carId: 0, roadMap: 0, carSpeed: 0, fuel: 0};&#10;	carWest = this.get('iWest');&#10;	carNorth = this.get('iNorth');&#10;	carEast = this.get('iEast');&#10;	&#10;	//fill car into correct queue&#10;	&#10;	if (carWest != null) {&#10;		qWest.push(carWest);&#10;	} else {&#10;		qWest.push(carWest);&#10;	}&#10;	&#10;	if (carNorth != null) {	&#10;		qNorth.push(carNorth);&#10;	} else {&#10;		qNorth.push(carNorth);&#10;	}&#10;	if (carEast != null) {&#10;		qEast.push(carEast);&#10;	}&#10;	this.send('oEast', qWest);&#10;	this.send('oEast', qNorth);&#10;&#10;	&#10;	//this.send('oEast', roadMap[0]);&#10;	&#10;	/*if(roadMap[Object.keys(roadMap)[0]] == intersectionID) {&#10;		this.send('south', &quot;test&quot;);&#10;	}*/&#10;&#10;}&#10;">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -219,13 +207,9 @@
             </port>
             <port name="iCar" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
-                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-                </property>
             </port>
             <port name="oCar" class="ptolemy.actor.TypedIOPort">
                 <property name="output"/>
-                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-                </property>
             </port>
         </entity>
         <entity name="SetIndicatorNORTH" class="ptolemy.actor.lib.jjs.JavaScript">
@@ -372,25 +356,42 @@
         <link port="SetIndicatorEAST.oCar" relation="relation6"/>
     </entity>
     <entity name="Display" class="ptolemy.actor.lib.gui.Display">
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={465, 677, 938, 246}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-1615, 335, 938, 226}, maximized=false}">
         </property>
         <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[922, 186]">
         </property>
         <property name="_location" class="ptolemy.kernel.util.Location" value="{515, 230}">
         </property>
     </entity>
+    <entity name="Display2" class="ptolemy.actor.lib.gui.Display">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={617, 649, 938, 246}, maximized=false}">
+        </property>
+        <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[922, 186]">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[435.0, 55.0]">
+        </property>
+    </entity>
     <relation name="relation" class="ptolemy.actor.TypedIORelation">
         <property name="_layoutHint" class="ptolemy.vergil.actor.LayoutHint" value="{ { head={id=&quot;PoissonClock.output&quot;,x=65.0,y=140.0}, tail={id=&quot;CSVReader.trigger&quot;,x=230.0,y=150.0}, points={} } }">
         </property>
     </relation>
-    <relation name="relation2" class="ptolemy.actor.TypedIORelation">
-    </relation>
     <relation name="relation3" class="ptolemy.actor.TypedIORelation">
     </relation>
+    <relation name="relation4" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation5" class="ptolemy.actor.TypedIORelation">
+        <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
+        </property>
+        <vertex name="vertex1" value="{294.9999999999999, 140.00000000000003}">
+        </vertex>
+    </relation>
     <link port="PoissonClock.output" relation="relation"/>
-    <link port="CSVReader.output" relation="relation2"/>
+    <link port="CSVReader.output" relation="relation5"/>
     <link port="CSVReader.trigger" relation="relation"/>
-    <link port="T-Intersection.west" relation="relation2"/>
+    <link port="T-Intersection.west" relation="relation5"/>
+    <link port="T-Intersection.north" relation="relation5"/>
+    <link port="T-Intersection.oNorth" relation="relation4"/>
     <link port="T-Intersection.oEast" relation="relation3"/>
     <link port="Display.input" relation="relation3"/>
+    <link port="Display2.input" relation="relation4"/>
 </entity>
