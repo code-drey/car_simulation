@@ -19,14 +19,15 @@ exports.initialize = function() {
 	this.addInputHandler('wait', function() {
 		carWait = this.get('wait');
 		queue.push(carWait);
-		setTimeout(tryToCheck(carWait), 3000);
+		setTimeout(tryToCheck, 3000, carWait);
 	});
 	
-	//Checks if the car is ther first in the queue and sends it to the Intersection
+	//Checks if the car is the first in the queue and sends it to the Intersection
 	function tryToCheck(car) {
 		if(queue[queue.length-1] == car) {
-			queue.pop();
-			this.send('check', car);
+			this.send('check', queue.pop());
 		}
 	}
 }
+
+

@@ -22,57 +22,69 @@ exports.initialize = function () {
 	cars.length = 3;
 	
 	this.addInputHandler('carWEST', function() {
-	carW = this.get('carWEST');
-	cars[0] = carW;
+	cars[0] = this.get('carWEST');
 	if(cars[1] == null && cars[2] == null) {
-		setTimeout(priority(cars), 3000);
+		//this.send('OWEST', cars[0]);
+		setTimeout(priority, 3000);
 	}
 	});
 	
 	this.addInputHandler('carEAST', function() {
-	carE = this.get('carEAST');
-	cars[1] = carE;
+	cars[1] = this.get('carEAST');
 	if(cars[0] == null && cars[2] == null) {
-		setTimeout(priority(cars), 3000);
+		//this.send('OEAST', cars[1]);
+		setTimeout(priority, 3000);
 	}
 	});
 	
 	this.addInputHandler('carSOUTH', function() {
-	carS = this.get('carSOUTH');
-	cars[2] = carW;
+	cars[2] = this.get('carSOUTH');
 	if(cars[0] == null && cars[1] == null) {
-		setTimeout(priority(cars), 3000);
+		//this.send('OSOUTH', cars[2]);
+		setTimeout(priority, 3000);
 	}
 	});
 	
-	function priority(cars) {
-		var carW = car[0];
-		var carE = car[1];
-		var carS = car[2];
+	function priority() {
+		var carW = cars.splice(0, 1);
+		var carE = cars.splice(1, 1);
+		var carS = cars.splice(2, 1);
 		
 		//carW straight priority
-		if(carW.fuel == 0 && carE.fuel == 0 || carW.fuel == 0 && carE == null || carW.fuel == 0 && carE.fuel == -1 || carW.fuel == 0 && carS == null) {
-			
+		if(carW.indicator == 0 && carE.indicator == 0 || carW.indicator == 0 && carE == null || carW.indicator == 0 && carE.indicator == -1 || carW.indicator == 0 && carS == null) {
+			this.send('OEAST',carW);
 		}
 		//carW right priority
-		else if(carW.fuel == 1 && carE.fuel == 0 || carW.fuel == 1 && carE.fuel == -1 || carW.fuel == 1 && carE == null || carW.fuel == 1 && carS.fuel == 1 || carW.fuel == 1 && carS.fuel == -1 || carW.fuel == 1 && carS == null) {
-			
+		else if(carW.indicator == 1 && carE.indicator == 0 || carW.indicator == 1 && carE.indicator == -1 || carW.indicator == 1 && carE == null || carW.indicator == 1 && carS.indicator == 1 || carW.indicator == 1 && carS.indicator == -1 || carW.indicator == 1 && carS == null) {
+			this.send('OSOUTH',carW);
 		}
 		//carE straight priority
-		else if(carE.fuel == 0 && carW.fuel = 0 || carE.fuel == 0 && carW.fuel == 1 || carE.fuel == 0 && carW == null || carE.fuel == 0 && carS.fuel == 1 || carE.fuel == 0 && carS.fuel == -1 || carE.fuel == 0 && carS == null) {
-			
+		else if(carE.indicator == 0 && carW.indicator == 0 || carE.indicator == 0 && carW.indicator == 1 || carE.indicator == 0 && carW == null || carE.indicator == 0 && carS.indicator == 1 || carE.indicator == 0 && carS.indicator == -1 || carE.indicator == 0 && carS == null) {
+			this.send('OWEST',carE);
 		}
 		//carE left priority
-		else if(carE.fuel == -1 && carW == null || carE.fuel == -1 && carS.fuel == 1 || carE.fuel == -1 && carS == null) {
-			
+		else if(carE.indicator == -1 && carW == null || carE.indicator == -1 && carS.indicator == 1 || carE.indicator == -1 && carS == null) {
+			this.send('OSOUTH',carE);
 		}
 		//carS left priority
-		else if(carS.fuel == -1 && carW.fuel == 0 || carS.fuel == -1 && carW == null || carS.fuel == -1 && carE == null) {
-			
+		else if(carS.indicator == -1 && carW.indicator == 0 || carS.indicator == -1 && carW == null || carS.indicator == -1 && carE == null) {
+			this.send('OWEST',carS);
 		}
 		//carS right priority
-		else if(carS.fuel == 1 && carW.fuel == 0 || carS.fuel == 1 && carW.fuel == 1 || carS.fuel == 1 && carW == null || carS.fuel == 1 && carE.fuel == 0 || carS.fuel == 1 && carE.fuel == -1 || carS.fuel == -1 && carE == null) {
-			
+		else if(carS.indicator == 1 && carW.indicator == 0 || carS.indicator == 1 && carW.indicator == 1 || carS.indicator == 1 && carW == null || carS.indicator == 1 && carE.indicator == 0 || carS.indicator == 1 && carE.indicator == -1 || carS.indicator == -1 && carE == null) {
+			this.send('OEAST',carS);
+		}
+		
+		if(carW != null) {
+			this.send('waitW', carW);
+		}
+		
+		if(carE != null) {
+			this.send('waitE', carE);
+		}
+		
+		if(carS != null) {
+			this.send('waitS', carS);
 		}
 	}
 }

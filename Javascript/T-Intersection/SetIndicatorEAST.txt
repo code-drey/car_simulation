@@ -12,11 +12,11 @@ exports.setup = function () {
 exports.fire = function () {
 	car = this.get('car');
 	
-	if(car.roadMap[0] == this.getParameter('CIntersectionSOUTH')) {
-		car.fuel = -1;
+	if(car.roadMap[1] == this.getParameter('CIntersectionSOUTH')) {
+		car.indicator = -1;
 	}
-	if(car.roadMap[0] == this.getParameter('CIntersectionWEST')) {
-		car.fuel = 0;
+	if(car.roadMap[1] == this.getParameter('CIntersectionWEST')) {
+		car.indicator = 0;
 	}
     this.send('output', car);
 };
