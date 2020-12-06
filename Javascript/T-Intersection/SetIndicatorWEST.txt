@@ -13,10 +13,10 @@ exports.fire = function () {
 	car = this.get('car');
 	
 	if(car.roadMap[1] == this.getParameter('CIntersectionSOUTH')) {
-		car.fuel = 1;
+		car.indicator = 1;
 	}
 	if(car.roadMap[1] == this.getParameter('CIntersectionEAST')) {
-		car.fuel = 0;
+		car.indicator = 0;
 	}
     this.send('output', car);
 };
