@@ -80,7 +80,7 @@
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="_trackShape" class="ptolemy.vergil.kernel.attributes.ResizablePolygonAttribute">
-                <property name="fillColor" class="ptolemy.actor.gui.ColorAttribute" value="{0.5853874728828, 0.6224038487881, 0.6262116931634, 1.0}">
+                <property name="fillColor" class="ptolemy.actor.gui.ColorAttribute" value="{0.7363813114349, 0.7308639108759, 0.3208869511982, 1.0}">
                 </property>
             </property>
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">

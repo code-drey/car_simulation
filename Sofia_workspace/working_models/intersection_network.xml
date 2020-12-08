@@ -1,0 +1,701 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE entity PUBLIC "-//UC Berkeley//DTD MoML 1//EN"
+    "http://ptolemy.eecs.berkeley.edu/xml/dtd/MoML_1.dtd">
+<entity name="sim-car-intersection-michi" class="ptolemy.actor.TypedCompositeActor">
+    <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="11.0.1_20180619">
+    </property>
+    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={163, 39, 1032, 617}, maximized=false}">
+    </property>
+    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[804, 500]">
+    </property>
+    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="0.8">
+    </property>
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{492.6259422110553, 84.92211055276385}">
+    </property>
+    <property name="DE Director" class="ptolemy.domains.de.kernel.DEDirector">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{115, -80}">
+        </property>
+    </property>
+    <entity name="CSVReader" class="ptolemy.actor.lib.io.CSVReader">
+        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="C:/ptll11.0.1/ptolemy/carsim/cars.txt">
+        </property>
+        <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
+        </property>
+        <property name="trimSpaces" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[200.0, 155.0]">
+        </property>
+        <port name="output" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_type" class="ptolemy.actor.TypeAttribute" value="{carId = int, carSpeed = int, intersectionCount = int, roadMap = arrayType(int)}">
+            </property>
+        </port>
+    </entity>
+    <entity name="PoissonClock" class="ptolemy.actor.lib.PoissonClock">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{90.0, 145.0}">
+        </property>
+    </entity>
+    <entity name="Intersection_4" class="ptolemy.actor.lib.gui.Display">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={130, 374, 821, 246}, maximized=false}">
+        </property>
+        <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[805, 186]">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[880.0, 160.0]">
+        </property>
+    </entity>
+    <entity name="Intersection_2" class="ptolemy.actor.TypedCompositeActor">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[330.0, 290.0]">
+        </property>
+        <property name="intersectionId" class="ptolemy.data.expr.Parameter" value="2">
+        </property>
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 0, 928, 617}, maximized=false}">
+        </property>
+        <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 500]">
+        </property>
+        <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.0">
+        </property>
+        <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{337.0, 458.265625}">
+        </property>
+        <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="4">
+            <property name="_hideName" class="ptolemy.kernel.util.SingletonAttribute">
+            </property>
+            <property name="_icon" class="ptolemy.vergil.icon.ValueIcon">
+                <property name="_color" class="ptolemy.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}">
+                </property>
+            </property>
+            <property name="_smallIconDescription" class="ptolemy.kernel.util.SingletonConfigurableAttribute">
+                <configure>
+      <svg>
+        <text x="20" style="font-size:14; font-family:SansSerif; fill:blue" y="20">-P-</text>
+      </svg>
+    </configure>
+            </property>
+            <property name="_editorFactory" class="ptolemy.vergil.toolbox.VisibleParameterEditorFactory">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{85, 260}">
+            </property>
+        </property>
+        <property name="EAST" class="ptolemy.data.expr.Parameter" value="3">
+            <property name="_hideName" class="ptolemy.kernel.util.SingletonAttribute">
+            </property>
+            <property name="_icon" class="ptolemy.vergil.icon.ValueIcon">
+                <property name="_color" class="ptolemy.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}">
+                </property>
+            </property>
+            <property name="_smallIconDescription" class="ptolemy.kernel.util.SingletonConfigurableAttribute">
+                <configure>
+      <svg>
+        <text x="20" style="font-size:14; font-family:SansSerif; fill:blue" y="20">-P-</text>
+      </svg>
+    </configure>
+            </property>
+            <property name="_editorFactory" class="ptolemy.vergil.toolbox.VisibleParameterEditorFactory">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{85.0, 280.0}">
+            </property>
+        </property>
+        <port name="northIn" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[20.0, 455.0]">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="NORTH">
+            </property>
+        </port>
+        <port name="eastOut" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[410.0, 440.0]">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+        <port name="southOut" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[340.0, 400.0]">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="SOUTH">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+        <port name="southIn" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[0.0, 555.0]">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="SOUTH">
+            </property>
+        </port>
+        <port name="eastIn" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[-25.0, 395.0]">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+        <entity name="JavaScript" class="ptolemy.actor.lib.jjs.JavaScript">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute">
+            </property>
+            <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
+            </property>
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="//Sets the Indicator of a car coming from WEST&#10;//-1 is left, 0 is straight, 1 is right&#10;exports.setup = function () {&#10;    this.input('car');&#10;    &#10;   this.output('outSouth');&#10;    this.output('outEast');&#10;    this.output('outNorth');&#10;    &#10;    this.parameter('SOUTH', {'type':'number', 'value':4});&#10;    this.parameter('EAST', {'type':'number', 'value':3});&#10;};&#10;&#10;exports.fire = function () {&#10;	carWest = this.get('car');&#10;	&#10;	if(carWest.roadMap[carWest.intersectionCount] == this.getParameter('SOUTH')) {&#10;		carWest.intersectionCount = carWest.intersectionCount + 1;&#10;		this.send('outSouth', carWest);&#10;	}&#10;	else if(carWest.roadMap[carWest.intersectionCount] == this.getParameter('EAST')) {&#10;		carWest.intersectionCount = carWest.intersectionCount + 1;&#10;		this.send('outEast', carWest);&#10;	}&#10;};">
+                <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
+                    <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
+                    </property>
+                </property>
+            </property>
+            <property name="_tableauFactory" class="ptolemy.vergil.toolbox.TextEditorTableauFactory">
+                <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="script">
+                </property>
+                <property name="syntaxStyle" class="ptolemy.kernel.util.StringAttribute" value="text/javascript">
+                </property>
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[160.0, 455.0]">
+            </property>
+            <port name="outSouth" class="ptolemy.actor.TypedIOPort">
+                <property name="output"/>
+            </port>
+            <port name="car" class="ptolemy.actor.TypedIOPort">
+                <property name="input"/>
+            </port>
+            <port name="outEast" class="ptolemy.actor.TypedIOPort">
+                <property name="output"/>
+            </port>
+            <port name="outNorth" class="ptolemy.actor.TypedIOPort">
+                <property name="output"/>
+            </port>
+        </entity>
+        <relation name="relation" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation2" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation5" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <link port="northIn" relation="relation"/>
+        <link port="eastOut" relation="relation5"/>
+        <link port="southOut" relation="relation2"/>
+        <link port="JavaScript.outSouth" relation="relation2"/>
+        <link port="JavaScript.car" relation="relation"/>
+        <link port="JavaScript.outEast" relation="relation5"/>
+    </entity>
+    <entity name="Intersection_3" class="ptolemy.actor.TypedCompositeActor">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[510.0, 145.0]">
+        </property>
+        <property name="intersectionId" class="ptolemy.data.expr.Parameter" value="3">
+        </property>
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={69, 27, 928, 617}, maximized=false}">
+        </property>
+        <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 500]">
+        </property>
+        <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.25">
+        </property>
+        <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{300.9946441666574, 502.0579810156172}">
+        </property>
+        <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="5">
+            <property name="_hideName" class="ptolemy.kernel.util.SingletonAttribute">
+            </property>
+            <property name="_icon" class="ptolemy.vergil.icon.ValueIcon">
+                <property name="_color" class="ptolemy.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}">
+                </property>
+            </property>
+            <property name="_smallIconDescription" class="ptolemy.kernel.util.SingletonConfigurableAttribute">
+                <configure>
+      <svg>
+        <text x="20" style="font-size:14; font-family:SansSerif; fill:blue" y="20">-P-</text>
+      </svg>
+    </configure>
+            </property>
+            <property name="_editorFactory" class="ptolemy.vergil.toolbox.VisibleParameterEditorFactory">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{85, 260}">
+            </property>
+        </property>
+        <property name="EAST" class="ptolemy.data.expr.Parameter" value="4">
+            <property name="_hideName" class="ptolemy.kernel.util.SingletonAttribute">
+            </property>
+            <property name="_icon" class="ptolemy.vergil.icon.ValueIcon">
+                <property name="_color" class="ptolemy.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}">
+                </property>
+            </property>
+            <property name="_smallIconDescription" class="ptolemy.kernel.util.SingletonConfigurableAttribute">
+                <configure>
+      <svg>
+        <text x="20" style="font-size:14; font-family:SansSerif; fill:blue" y="20">-P-</text>
+      </svg>
+    </configure>
+            </property>
+            <property name="_editorFactory" class="ptolemy.vergil.toolbox.VisibleParameterEditorFactory">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{85.0, 280.0}">
+            </property>
+        </property>
+        <port name="westIn" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[20.0, 455.0]">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
+            </property>
+        </port>
+        <port name="eastOut" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[465.0, 415.0]">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+        <port name="eastIn" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[25.0, 410.0]">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+        <port name="southIn" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[20.0, 580.0]">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="SOUTH">
+            </property>
+        </port>
+        <port name="southOut" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[465.0, 585.0]">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="SOUTH">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+        <entity name="JavaScript" class="ptolemy.actor.lib.jjs.JavaScript">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute">
+            </property>
+            <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
+            </property>
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="//Sets the Indicator of a car coming from WEST&#10;//-1 is left, 0 is straight, 1 is right&#10;exports.setup = function () {&#10;    this.input('car');&#10;    &#10;    this.output('outSouth');&#10;    this.output('outEast');&#10;    this.output('outNorth');&#10;    &#10;    this.parameter('SOUTH', {'type':'number', 'value':5});&#10;    this.parameter('EAST', {'type':'number', 'value':4});&#10;};&#10;&#10;exports.fire = function () {&#10;	carWest = this.get('car');&#10;	&#10;	if(carWest.roadMap[carWest.intersectionCount] == this.getParameter('SOUTH')) {&#10;		carWest.intersectionCount = carWest.intersectionCount + 1;&#10;		this.send('outSouth', carWest);&#10;	}&#10;	else if(carWest.roadMap[carWest.intersectionCount] == this.getParameter('EAST')) {&#10;		carWest.intersectionCount = carWest.intersectionCount + 1;&#10;		this.send('outEast', carWest);&#10;	}&#10;};">
+                <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
+                    <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
+                    </property>
+                </property>
+            </property>
+            <property name="_tableauFactory" class="ptolemy.vergil.toolbox.TextEditorTableauFactory">
+                <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="script">
+                </property>
+                <property name="syntaxStyle" class="ptolemy.kernel.util.StringAttribute" value="text/javascript">
+                </property>
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[155.0, 440.0]">
+            </property>
+            <property name="CIntersectionSOUTH" class="ptolemy.data.expr.Parameter" value="0.0">
+            </property>
+            <port name="outSouth" class="ptolemy.actor.TypedIOPort">
+                <property name="output"/>
+            </port>
+            <port name="car" class="ptolemy.actor.TypedIOPort">
+                <property name="input"/>
+            </port>
+            <port name="outEast" class="ptolemy.actor.TypedIOPort">
+                <property name="output"/>
+            </port>
+            <port name="outNorth" class="ptolemy.actor.TypedIOPort">
+                <property name="output"/>
+            </port>
+        </entity>
+        <entity name="JavaScript2" class="ptolemy.actor.lib.jjs.JavaScript">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute">
+            </property>
+            <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
+            </property>
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="//Sets the Indicator of a car coming from WEST&#10;//-1 is left, 0 is straight, 1 is right&#10;exports.setup = function () {&#10;    this.input('car');&#10;    &#10;    this.output('outSouth');&#10;    this.output('outEast');&#10;    this.output('outNorth');&#10;    &#10;    this.parameter('SOUTH', {'type':'number', 'value':5});&#10;    this.parameter('EAST', {'type':'number', 'value':4});&#10;};&#10;&#10;exports.fire = function () {&#10;	carWest = this.get('car');&#10;	&#10;	if(carWest.roadMap[carWest.intersectionCount] == this.getParameter('SOUTH')) {&#10;		carWest.intersectionCount = carWest.intersectionCount + 1;&#10;		this.send('outSouth', carWest);&#10;	}&#10;	else if(carWest.roadMap[carWest.intersectionCount] == this.getParameter('EAST')) {&#10;		carWest.intersectionCount = carWest.intersectionCount + 1;&#10;		this.send('outEast', carWest);&#10;	}&#10;};">
+                <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
+                    <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
+                    </property>
+                </property>
+            </property>
+            <property name="_tableauFactory" class="ptolemy.vergil.toolbox.TextEditorTableauFactory">
+                <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="script">
+                </property>
+                <property name="syntaxStyle" class="ptolemy.kernel.util.StringAttribute" value="text/javascript">
+                </property>
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[145.0, 590.0]">
+            </property>
+            <port name="outSouth" class="ptolemy.actor.TypedIOPort">
+                <property name="output"/>
+            </port>
+            <port name="car" class="ptolemy.actor.TypedIOPort">
+                <property name="input"/>
+            </port>
+            <port name="outEast" class="ptolemy.actor.TypedIOPort">
+                <property name="output"/>
+            </port>
+            <port name="outNorth" class="ptolemy.actor.TypedIOPort">
+                <property name="output"/>
+            </port>
+        </entity>
+        <relation name="relation" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation2" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation5" class="ptolemy.actor.TypedIORelation">
+            <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
+            </property>
+            <vertex name="vertex1" value="[315.0, 390.0]">
+            </vertex>
+        </relation>
+        <relation name="relation3" class="ptolemy.actor.TypedIORelation">
+            <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
+            </property>
+            <vertex name="vertex1" value="[295.0, 640.0]">
+            </vertex>
+        </relation>
+        <link port="westIn" relation="relation2"/>
+        <link port="eastOut" relation="relation5"/>
+        <link port="southIn" relation="relation"/>
+        <link port="southOut" relation="relation3"/>
+        <link port="JavaScript.outSouth" relation="relation3"/>
+        <link port="JavaScript.car" relation="relation2"/>
+        <link port="JavaScript.outEast" relation="relation5"/>
+        <link port="JavaScript2.outSouth" relation="relation3"/>
+        <link port="JavaScript2.car" relation="relation"/>
+        <link port="JavaScript2.outEast" relation="relation5"/>
+    </entity>
+    <entity name="Intersection_1" class="ptolemy.actor.TypedCompositeActor">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[330.0, 145.0]">
+        </property>
+        <property name="intersectionId" class="ptolemy.data.expr.Parameter" value="1">
+        </property>
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 0, 928, 617}, maximized=false}">
+        </property>
+        <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 500]">
+        </property>
+        <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.0">
+        </property>
+        <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{284.7800722361809, 345.9984296482412}">
+        </property>
+        <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="2">
+            <property name="_hideName" class="ptolemy.kernel.util.SingletonAttribute">
+            </property>
+            <property name="_icon" class="ptolemy.vergil.icon.ValueIcon">
+                <property name="_color" class="ptolemy.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}">
+                </property>
+            </property>
+            <property name="_smallIconDescription" class="ptolemy.kernel.util.SingletonConfigurableAttribute">
+                <configure>
+      <svg>
+        <text x="20" style="font-size:14; font-family:SansSerif; fill:blue" y="20">-P-</text>
+      </svg>
+    </configure>
+            </property>
+            <property name="_editorFactory" class="ptolemy.vergil.toolbox.VisibleParameterEditorFactory">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[60.0, 400.0]">
+            </property>
+        </property>
+        <property name="EAST" class="ptolemy.data.expr.Parameter" value="3">
+            <property name="_hideName" class="ptolemy.kernel.util.SingletonAttribute">
+            </property>
+            <property name="_icon" class="ptolemy.vergil.icon.ValueIcon">
+                <property name="_color" class="ptolemy.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}">
+                </property>
+            </property>
+            <property name="_smallIconDescription" class="ptolemy.kernel.util.SingletonConfigurableAttribute">
+                <configure>
+      <svg>
+        <text x="20" style="font-size:14; font-family:SansSerif; fill:blue" y="20">-P-</text>
+      </svg>
+    </configure>
+            </property>
+            <property name="_editorFactory" class="ptolemy.vergil.toolbox.VisibleParameterEditorFactory">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[60.0, 420.0]">
+            </property>
+        </property>
+        <property name="NORTH" class="ptolemy.data.expr.Parameter" value="7">
+        </property>
+        <port name="westIn" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[95.0, 555.0]">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
+            </property>
+            <property name="_hide" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+        <port name="eastOut" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[485.0, 540.0]">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+        <port name="southOut" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[415.0, 500.0]">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="SOUTH">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+            <property name="_hide" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+        <port name="northOut" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="NORTH">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[445.0, 580.0]">
+            </property>
+        </port>
+        <entity name="JavaScript" class="ptolemy.actor.lib.jjs.JavaScript">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute">
+            </property>
+            <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
+            </property>
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="//Sets the Indicator of a car coming from WEST&#10;//-1 is left, 0 is straight, 1 is right&#10;exports.setup = function () {&#10;    this.input('car');&#10;    &#10;    this.output('outSouth');&#10;    this.output('outEast');&#10;    this.output('outNorth');&#10;    &#10;    this.parameter('SOUTH', {'type':'number', 'value':2});&#10;    this.parameter('EAST', {'type':'number', 'value':3});&#10;    this.parameter('NORTH', {'type':'number', 'value':7});&#10;};&#10;&#10;exports.fire = function () {&#10;	carWest = this.get('car');&#10;	&#10;	if(carWest.roadMap[carWest.intersectionCount] == this.getParameter('SOUTH')) {&#10;		carWest.intersectionCount = carWest.intersectionCount + 1;&#10;		this.send('outSouth', carWest);&#10;	}&#10;	else if(carWest.roadMap[carWest.intersectionCount] == this.getParameter('EAST')) {&#10;		carWest.intersectionCount = carWest.intersectionCount + 1;&#10;		this.send('outEast', carWest);&#10;	}&#10;	else if(carWest.roadMap[carWest.intersectionCount] == this.getParameter('NORTH')) {&#10;		carWest.intersectionCount = carWest.intersectionCount + 1;&#10;		this.send('outNorth', carWest);&#10;	}&#10;};">
+                <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
+                    <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
+                    </property>
+                </property>
+            </property>
+            <property name="_tableauFactory" class="ptolemy.vergil.toolbox.TextEditorTableauFactory">
+                <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="script">
+                </property>
+                <property name="syntaxStyle" class="ptolemy.kernel.util.StringAttribute" value="text/javascript">
+                </property>
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[235.0, 555.0]">
+            </property>
+            <port name="outSouth" class="ptolemy.actor.TypedIOPort">
+                <property name="output"/>
+            </port>
+            <port name="car" class="ptolemy.actor.TypedIOPort">
+                <property name="input"/>
+            </port>
+            <port name="outEast" class="ptolemy.actor.TypedIOPort">
+                <property name="output"/>
+            </port>
+            <port name="outNorth" class="ptolemy.actor.TypedIOPort">
+                <property name="output"/>
+            </port>
+        </entity>
+        <relation name="relation5" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation6" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation2" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <link port="westIn" relation="relation2"/>
+        <link port="eastOut" relation="relation5"/>
+        <link port="southOut" relation="relation"/>
+        <link port="northOut" relation="relation6"/>
+        <link port="JavaScript.outSouth" relation="relation"/>
+        <link port="JavaScript.car" relation="relation2"/>
+        <link port="JavaScript.outEast" relation="relation5"/>
+        <link port="JavaScript.outNorth" relation="relation6"/>
+    </entity>
+    <entity name="Intersection_" class="ptolemy.actor.TypedCompositeActor">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[340.0, -15.0]">
+        </property>
+        <property name="intersectionId" class="ptolemy.data.expr.Parameter" value="7">
+        </property>
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={174, 137, 928, 617}, maximized=false}">
+        </property>
+        <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 500]">
+        </property>
+        <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.25">
+        </property>
+        <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{300.9946441666574, 502.0579810156172}">
+        </property>
+        <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="1">
+            <property name="_hideName" class="ptolemy.kernel.util.SingletonAttribute">
+            </property>
+            <property name="_icon" class="ptolemy.vergil.icon.ValueIcon">
+                <property name="_color" class="ptolemy.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}">
+                </property>
+            </property>
+            <property name="_smallIconDescription" class="ptolemy.kernel.util.SingletonConfigurableAttribute">
+                <configure>
+      <svg>
+        <text x="20" style="font-size:14; font-family:SansSerif; fill:blue" y="20">-P-</text>
+      </svg>
+    </configure>
+            </property>
+            <property name="_editorFactory" class="ptolemy.vergil.toolbox.VisibleParameterEditorFactory">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{85, 260}">
+            </property>
+        </property>
+        <property name="EAST" class="ptolemy.data.expr.Parameter" value="4">
+            <property name="_hideName" class="ptolemy.kernel.util.SingletonAttribute">
+            </property>
+            <property name="_icon" class="ptolemy.vergil.icon.ValueIcon">
+                <property name="_color" class="ptolemy.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}">
+                </property>
+            </property>
+            <property name="_smallIconDescription" class="ptolemy.kernel.util.SingletonConfigurableAttribute">
+                <configure>
+      <svg>
+        <text x="20" style="font-size:14; font-family:SansSerif; fill:blue" y="20">-P-</text>
+      </svg>
+    </configure>
+            </property>
+            <property name="_editorFactory" class="ptolemy.vergil.toolbox.VisibleParameterEditorFactory">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{85.0, 280.0}">
+            </property>
+        </property>
+        <port name="westIn" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[20.0, 455.0]">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
+            </property>
+        </port>
+        <port name="eastOut" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[315.0, 590.0]">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+        <port name="eastIn" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[25.0, 410.0]">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+        <port name="southIn" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[20.0, 580.0]">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="SOUTH">
+            </property>
+        </port>
+        <port name="southOut" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[305.0, 505.0]">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="SOUTH">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+        <entity name="JavaScript2" class="ptolemy.actor.lib.jjs.JavaScript">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute">
+            </property>
+            <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
+            </property>
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="//Sets the Indicator of a car coming from WEST&#10;//-1 is left, 0 is straight, 1 is right&#10;exports.setup = function () {&#10;    this.input('car');&#10;    &#10;    this.output('outSouth');&#10;    this.output('outEast');&#10;    this.output('outNorth');&#10;    &#10;    this.parameter('SOUTH', {'type':'number', 'value':1});&#10;    this.parameter('EAST', {'type':'number', 'value':4});&#10;};&#10;&#10;exports.fire = function () {&#10;	carWest = this.get('car');&#10;	&#10;	if(carWest.roadMap[carWest.intersectionCount] == this.getParameter('SOUTH')) {&#10;		carWest.intersectionCount = carWest.intersectionCount + 1;&#10;		this.send('outSouth', carWest);&#10;	}&#10;	else if(carWest.roadMap[carWest.intersectionCount] == this.getParameter('EAST')) {&#10;		carWest.intersectionCount = carWest.intersectionCount + 1;&#10;		this.send('outEast', carWest);&#10;	}&#10;};">
+                <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
+                    <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
+                    </property>
+                </property>
+            </property>
+            <property name="_tableauFactory" class="ptolemy.vergil.toolbox.TextEditorTableauFactory">
+                <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="script">
+                </property>
+                <property name="syntaxStyle" class="ptolemy.kernel.util.StringAttribute" value="text/javascript">
+                </property>
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[145.0, 590.0]">
+            </property>
+            <port name="outSouth" class="ptolemy.actor.TypedIOPort">
+                <property name="output"/>
+            </port>
+            <port name="car" class="ptolemy.actor.TypedIOPort">
+                <property name="input"/>
+            </port>
+            <port name="outEast" class="ptolemy.actor.TypedIOPort">
+                <property name="output"/>
+            </port>
+            <port name="outNorth" class="ptolemy.actor.TypedIOPort">
+                <property name="output"/>
+            </port>
+        </entity>
+        <relation name="relation" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation2" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation4" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <link port="eastOut" relation="relation4"/>
+        <link port="southIn" relation="relation"/>
+        <link port="southOut" relation="relation2"/>
+        <link port="JavaScript2.outSouth" relation="relation2"/>
+        <link port="JavaScript2.car" relation="relation"/>
+        <link port="JavaScript2.outEast" relation="relation4"/>
+    </entity>
+    <relation name="relation9" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation7" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation2" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation3" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation4" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation5" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation8" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation10" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation6" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation11" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <link port="CSVReader.output" relation="relation2"/>
+    <link port="CSVReader.trigger" relation="relation"/>
+    <link port="PoissonClock.output" relation="relation"/>
+    <link port="Intersection_4.input" relation="relation6"/>
+    <link port="Intersection_4.input" relation="relation7"/>
+    <link port="Intersection_4.input" relation="relation5"/>
+    <link port="Intersection_4.input" relation="relation10"/>
+    <link port="Intersection_2.northIn" relation="relation3"/>
+    <link port="Intersection_2.eastOut" relation="relation9"/>
+    <link port="Intersection_2.southOut" relation="relation6"/>
+    <link port="Intersection_2.eastIn" relation="relation11"/>
+    <link port="Intersection_3.westIn" relation="relation4"/>
+    <link port="Intersection_3.eastOut" relation="relation5"/>
+    <link port="Intersection_3.southIn" relation="relation9"/>
+    <link port="Intersection_3.southOut" relation="relation7"/>
+    <link port="Intersection_1.westIn" relation="relation2"/>
+    <link port="Intersection_1.eastOut" relation="relation4"/>
+    <link port="Intersection_1.southOut" relation="relation3"/>
+    <link port="Intersection_1.northOut" relation="relation8"/>
+    <link port="Intersection_.eastOut" relation="relation10"/>
+    <link port="Intersection_.southIn" relation="relation8"/>
+    <link port="Intersection_.southOut" relation="relation11"/>
+</entity>
