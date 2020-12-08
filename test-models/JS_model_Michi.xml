@@ -5,10 +5,12 @@
     <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="11.0.1_20180619">
     </property>
     <property name="DE Director" class="ptolemy.domains.de.kernel.DEDirector">
+        <property name="synchronizeToRealTime" class="ptolemy.data.expr.Parameter" value="true">
+        </property>
         <property name="_location" class="ptolemy.kernel.util.Location" value="{75, 35}">
         </property>
     </property>
-    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={35, 189, 928, 621}, maximized=false}">
+    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={725, 247, 928, 621}, maximized=false}">
     </property>
     <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 504]">
     </property>
@@ -17,11 +19,11 @@
     <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{340.0, 242.0}">
     </property>
     <entity name="CSVReader" class="ptolemy.actor.lib.io.CSVReader">
-        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="C:/Ptolemy/ptII11.0.1/eclipse/ptolemy/carsim/carss.txt">
+        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="C:/Users/Michi/Desktop/Software Praktikum Ptolemy/InputWest.txt">
         </property>
         <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[195.0, 210.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[340.0, 120.0]">
         </property>
         <port name="output" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
@@ -30,19 +32,23 @@
         </port>
     </entity>
     <entity name="PoissonClock" class="ptolemy.actor.lib.PoissonClock">
+        <property name="meanTime" class="ptolemy.data.expr.Parameter" value="1.0">
+        </property>
+        <property name="fireAtStart" class="ptolemy.data.expr.Parameter" value="true">
+        </property>
         <property name="_location" class="ptolemy.kernel.util.Location" value="[55.0, 200.0]">
         </property>
     </entity>
     <entity name="Display" class="ptolemy.actor.lib.gui.Display">
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={221, 315, 359, 249}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={721, 132, 359, 249}, maximized=false}">
         </property>
         <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[343, 189]">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[390.0, 65.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[420.0, 185.0]">
         </property>
     </entity>
     <entity name="Display2" class="ptolemy.actor.lib.gui.Display">
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={695, 447, 359, 216}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={1047, 265, 359, 216}, maximized=false}">
         </property>
         <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[343, 156]">
         </property>
@@ -50,7 +56,7 @@
         </property>
     </entity>
     <entity name="Display3" class="ptolemy.actor.lib.gui.Display">
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={149, 455, 359, 246}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={1053, 500, 359, 246}, maximized=false}">
         </property>
         <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[343, 186]">
         </property>
@@ -60,7 +66,7 @@
     <entity name="T-Intersection" class="ptolemy.actor.TypedCompositeActor">
         <property name="_location" class="ptolemy.kernel.util.Location" value="[525.0, 140.0]">
         </property>
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={328, 215, 928, 616}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-1, 175, 928, 616}, maximized=false}">
         </property>
         <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 499]">
         </property>
@@ -191,7 +197,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="//A queue that manages car that wait in a intersection&#10;exports.setup = function () {&#10;	this.input('incomingCar');&#10;	this.input('wait');&#10;	this.output('check');&#10;}&#10;&#10;exports.initialize = function() {&#10;	var queue = [];&#10;	&#10;	//Adds a car to the end of the queue&#10;	this.addInputHandler('incomingCar', function() {&#10;		carIncoming = this.get('incomingCar');&#10;		queue.unshift(carIncoming);&#10;		tryToCheck(carIncoming);&#10;	});&#10;	&#10;	//Pushs a car that has to wait at the Intersection to the front of the queue and lets it wait for a specific time&#10;	this.addInputHandler('wait', function() {&#10;		carWait = this.get('wait');&#10;		queue.push(carWait);&#10;		setTimeout(tryToCheck, 3000, carWait);&#10;	});&#10;	&#10;	//Checks if the car is the first in the queue and sends it to the Intersection&#10;	function tryToCheck(car) {&#10;		if(queue[queue.length-1] == car) {&#10;			this.send('check', queue.pop());&#10;		}&#10;	}&#10;}&#10;&#10;">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="//A queue that manages car that wait in a intersection&#10;exports.setup = function () {&#10;	this.input('incomingCar');&#10;	this.input('wait');&#10;	this.output('check');&#10;}&#10;&#10;exports.initialize = function() {&#10;	var queue = [];&#10;	&#10;	//Adds a car to the end of the queue&#10;	this.addInputHandler('incomingCar', function() {&#10;		carIncoming = this.get('incomingCar');&#10;		queue.unshift(carIncoming);&#10;		setTimeout(tryToCheck, 3000, carIncoming);&#10;	});&#10;	&#10;	//Pushs a car that has to wait at the Intersection to the front of the queue and lets it wait for a specific time&#10;	this.addInputHandler('wait', function() {&#10;		carWait = this.get('wait');&#10;		queue.push(carWait);&#10;		setTimeout(tryToCheck, 3000, carWait);&#10;	});&#10;	&#10;	//Checks if the car is the first in the queue and sends it to the Intersection&#10;	function tryToCheck(car) {&#10;		if(queue[queue.length-1] == car) {&#10;			this.send('check', queue.pop());&#10;		}&#10;	}&#10;}&#10;&#10;">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -304,7 +310,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// T-Intersection right-hand-rule&#10;//fires the car which has priority and lets the others wait&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('carWEST');&#10;    this.input('carEAST');&#10;    this.input('carSOUTH');&#10;    //the Output-ports for the leaving cars&#10;    this.output('OWEST');&#10;    this.output('OEAST');&#10;    this.output('OSOUTH');&#10;    //the Output-ports for cars that have to wait&#10;    this.output('waitW');&#10;    this.output('waitE');&#10;    this.output('waitS');&#10;}&#10;&#10;exports.initialize = function () {&#10;	//creates an Array that contains the cars that stand in an Intersection&#10;	//the Array position is relevant 0 = WEST, 1 = EAST and 2 = SOUTH&#10;	var cars = [];&#10;	cars.length = 3;&#10;	&#10;	this.addInputHandler('carWEST', function() {&#10;	cars[0] = this.get('carWEST');&#10;	if(cars[1] == null &amp;&amp; cars[2] == null) {&#10;		//this.send('OWEST', cars[0]);&#10;		setTimeout(priority, 3000);&#10;	}&#10;	});&#10;	&#10;	this.addInputHandler('carEAST', function() {&#10;	cars[1] = this.get('carEAST');&#10;	if(cars[0] == null &amp;&amp; cars[2] == null) {&#10;		//this.send('OEAST', cars[1]);&#10;		setTimeout(priority, 3000);&#10;	}&#10;	});&#10;	&#10;	this.addInputHandler('carSOUTH', function() {&#10;	cars[2] = this.get('carSOUTH');&#10;	if(cars[0] == null &amp;&amp; cars[1] == null) {&#10;		//this.send('OSOUTH', cars[2]);&#10;		setTimeout(priority, 3000);&#10;	}&#10;	});&#10;	&#10;	function priority() {&#10;		var carW = cars.splice(0, 1);&#10;		var carE = cars.splice(0, 1);&#10;		var carS = cars.splice(0, 1);&#10;		&#10;		//carW straight priority&#10;		if(carW.indicator == 0 &amp;&amp; carE.indicator == 0 || carW.indicator == 0 &amp;&amp; carE == null || carW.indicator == 0 &amp;&amp; carE.indicator == -1 || carW.indicator == 0 &amp;&amp; carS == null) {&#10;			this.send('OEAST',carW);&#10;		}&#10;		//carW right priority&#10;		else if(carW.indicator == 1 &amp;&amp; carE.indicator == 0 || carW.indicator == 1 &amp;&amp; carE.indicator == -1 || carW.indicator == 1 &amp;&amp; carE == null || carW.indicator == 1 &amp;&amp; carS.indicator == 1 || carW.indicator == 1 &amp;&amp; carS.indicator == -1 || carW.indicator == 1 &amp;&amp; carS == null) {&#10;			this.send('OSOUTH',carW);&#10;		}&#10;		//carE straight priority&#10;		else if(carE.indicator == 0 &amp;&amp; carW.indicator == 0 || carE.indicator == 0 &amp;&amp; carW.indicator == 1 || carE.indicator == 0 &amp;&amp; carW == null || carE.indicator == 0 &amp;&amp; carS.indicator == 1 || carE.indicator == 0 &amp;&amp; carS.indicator == -1 || carE.indicator == 0 &amp;&amp; carS == null) {&#10;			this.send('OWEST',carE);&#10;		}&#10;		//carE left priority&#10;		else if(carE.indicator == -1 &amp;&amp; carW == null || carE.indicator == -1 &amp;&amp; carS.indicator == 1 || carE.indicator == -1 &amp;&amp; carS == null) {&#10;			this.send('OSOUTH',carE);&#10;		}&#10;		//carS left priority&#10;		else if(carS.indicator == -1 &amp;&amp; carW.indicator == 0 || carS.indicator == -1 &amp;&amp; carW == null || carS.indicator == -1 &amp;&amp; carE == null) {&#10;			this.send('OWEST',carS);&#10;		}&#10;		//carS right priority&#10;		else if(carS.indicator == 1 &amp;&amp; carW.indicator == 0 || carS.indicator == 1 &amp;&amp; carW.indicator == 1 || carS.indicator == 1 &amp;&amp; carW == null || carS.indicator == 1 &amp;&amp; carE.indicator == 0 || carS.indicator == 1 &amp;&amp; carE.indicator == -1 || carS.indicator == -1 &amp;&amp; carE == null) {&#10;			this.send('OEAST',carS);&#10;		}&#10;		&#10;		if(carW != null) {&#10;			this.send('waitW', carW);&#10;		}&#10;		&#10;		if(carE != null) {&#10;			this.send('waitE', carE);&#10;		}&#10;		&#10;		if(carS != null) {&#10;			this.send('waitS', carS);&#10;		}&#10;	}&#10;}&#10;">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// T-Intersection right-hand-rule&#10;//fires the car which has priority and lets the others wait&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('carWEST');&#10;    this.input('carEAST');&#10;    this.input('carSOUTH');&#10;    //the Output-ports for the leaving cars&#10;    this.output('OWEST');&#10;    this.output('OEAST');&#10;    this.output('OSOUTH');&#10;    //the Output-ports for cars that have to wait&#10;    this.output('waitW');&#10;    this.output('waitE');&#10;    this.output('waitS');&#10;}&#10;&#10;exports.initialize = function () {&#10;	//creates an Array that contains the cars that stand in an Intersection&#10;	//the Array position is relevant 0 = WEST, 1 = EAST and 2 = SOUTH&#10;	var cars = [];&#10;	cars.length = 3;&#10;	&#10;	this.addInputHandler('carWEST', function() {&#10;	cars[0] = this.get('carWEST');&#10;	if(cars[1] == null &amp;&amp; cars[2] == null) {&#10;		setTimeout(priority, 3000, cars);&#10;		cars = [];&#10;		cars.length = 3;&#10;	}&#10;	});&#10;	&#10;	this.addInputHandler('carEAST', function() {&#10;	cars[1] = this.get('carEAST');&#10;	if(cars[0] == null &amp;&amp; cars[2] == null) {&#10;		setTimeout(priority, 3000, cars);&#10;		cars = [];&#10;		cars.length = 3;&#10;	}&#10;	});&#10;	&#10;	this.addInputHandler('carSOUTH', function() {&#10;	cars[2] = this.get('carSOUTH');&#10;	if(cars[0] == null &amp;&amp; cars[1] == null) {&#10;		setTimeout(priority, 3000, cars);&#10;		cars = [];&#10;		cars.length = 3;&#10;	}&#10;	});&#10;	&#10;	function priority(cars) {&#10;		var carW = cars[0];&#10;		var carE = cars[1];&#10;		var carS = cars[2];&#10;		var carWSent = false;&#10;		var carESent = false;&#10;		var carSSent = false;&#10;		&#10;		if(carW != null) {&#10;			if(carW.indicator == 0) {&#10;				if(carS != null) {&#10;					if(carS.indicator == 1) {&#10;						//stop&#10;					}else if(carS.indicator == -1) {&#10;						//stop&#10;					}&#10;				}else if(carS == null) {&#10;					carWSent = true;&#10;					this.send('OEAST',carW);&#10;				}&#10;			}else if(carW.indicator == 1) {&#10;				if(carS != null) {&#10;					if(carS.indicator == 1) {&#10;						carWSent = true;&#10;						this.send('OSOUTH',carW);&#10;					}else if(carS.indicator == -1) {&#10;						carWSent = true;&#10;						this.send('OSOUTH',carW);&#10;					}&#10;				}else if(carS == null) {&#10;					carWSent = true;&#10;					this.send('OSOUTH',carW);&#10;				}&#10;			}&#10;		}&#10;		&#10;		if(carE != null) {&#10;			if(carE.indicator == 0) {&#10;				carESent = true;&#10;				this.send('OWEST',carE);&#10;			}else if(carE.Indicator == -1) {&#10;				if(carW != null) {&#10;					if(carW.indicator == 0) {&#10;						//stop&#10;					}else if(carW.indicator == 1) {&#10;						//stop&#10;					}&#10;				}else if(carW == null) {&#10;					carESent = true;&#10;					this.send('OSOUTH',carE);&#10;				}&#10;			}&#10;		}&#10;		&#10;		if(carS != null) {&#10;			if(carS.indicator == 1) {&#10;				carSSent = true;&#10;				this.send('OEAST',carS);&#10;			}else if(carS.indicator == -1) {&#10;				if(carE != null) {&#10;					//stop&#10;				}else if(carE == null) {&#10;					carSSent = true;&#10;					this.send('OWEST',carS);&#10;				}&#10;			}&#10;		}&#10;		//carW straight priority&#10;		/*if(carW.indicator == 0 &amp;&amp; carE.indicator == 0 || carW.indicator == 0 &amp;&amp; carE == null || carW.indicator == 0 &amp;&amp; carE.indicator == -1 || carW.indicator == 0 &amp;&amp; carS == null) {&#10;			this.send('OEAST',carW);&#10;		}&#10;		//carW right priority&#10;		else if(carW.indicator == 1 &amp;&amp; carE.indicator == 0 || carW.indicator == 1 &amp;&amp; carE.indicator == -1 || carW.indicator == 1 &amp;&amp; carE == null || carW.indicator == 1 &amp;&amp; carS.indicator == 1 || carW.indicator == 1 &amp;&amp; carS.indicator == -1 || carW.indicator == 1 &amp;&amp; carS == null) {&#10;			this.send('OSOUTH',carW);&#10;		}&#10;		//carE straight priority&#10;		else if(carE.indicator == 0 &amp;&amp; carW.indicator == 0 || carE.indicator == 0 &amp;&amp; carW.indicator == 1 || carE.indicator == 0 &amp;&amp; carW == null || carE.indicator == 0 &amp;&amp; carS.indicator == 1 || carE.indicator == 0 &amp;&amp; carS.indicator == -1 || carE.indicator == 0 &amp;&amp; carS == null) {&#10;			this.send('OWEST',carE);&#10;		}&#10;		//carE left priority&#10;		else if(carE.indicator == -1 &amp;&amp; carW == null || carE.indicator == -1 &amp;&amp; carS.indicator == 1 || carE.indicator == -1 &amp;&amp; carS == null) {&#10;			this.send('OSOUTH',carE);&#10;		}&#10;		//carS left priority&#10;		else if(carS.indicator == -1 &amp;&amp; carW.indicator == 0 || carS.indicator == -1 &amp;&amp; carW == null || carS.indicator == -1 &amp;&amp; carE == null) {&#10;			this.send('OWEST',carS);&#10;		}&#10;		//carS right priority&#10;		else if(carS.indicator == 1 &amp;&amp; carW.indicator == 0 || carS.indicator == 1 &amp;&amp; carW.indicator == 1 || carS.indicator == 1 &amp;&amp; carW == null || carS.indicator == 1 &amp;&amp; carE.indicator == 0 || carS.indicator == 1 &amp;&amp; carE.indicator == -1 || carS.indicator == -1 &amp;&amp; carE == null) {&#10;			this.send('OEAST',carS);&#10;		}*/&#10;		&#10;		if(!carWSent &amp;&amp; carW != null) {&#10;			this.send('waitW', carW);&#10;		}&#10;		&#10;		if(!carESent &amp;&amp; carE != null) {&#10;			this.send('waitE', carE);&#10;		}&#10;		&#10;		if(carSSent &amp;&amp; carS != null) {&#10;			this.send('waitS', carS);&#10;		}&#10;	}&#10;}&#10;">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -375,15 +381,21 @@
             </port>
         </entity>
         <entity name="TimeDelay" class="ptolemy.actor.lib.TimeDelay">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1.0">
+            </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[250.0, 460.0]">
             </property>
         </entity>
         <entity name="TimeDelay2" class="ptolemy.actor.lib.TimeDelay">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1.0">
+            </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[548.125, 434.84375]">
             </property>
         </entity>
         <entity name="TimeDelay3" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[405.0, 490.0]">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1.0">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[405.0, 495.0]">
             </property>
         </entity>
         <relation name="relation" class="ptolemy.actor.TypedIORelation">
@@ -459,30 +471,74 @@
         <link port="TimeDelay3.input" relation="relation13"/>
         <link port="TimeDelay3.output" relation="relation18"/>
     </entity>
-    <relation name="relation" class="ptolemy.actor.TypedIORelation">
-    </relation>
+    <entity name="CSVReader2" class="ptolemy.actor.lib.io.CSVReader">
+        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="C:/Users/Michi/Desktop/Software Praktikum Ptolemy/InputSouth.txt">
+        </property>
+        <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[305.0, 270.0]">
+        </property>
+        <port name="output" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_type" class="ptolemy.actor.TypeAttribute" value="{carId = int, roadMap = arrayType(int), carSpeed = int, indicator = int} ">
+            </property>
+        </port>
+    </entity>
+    <entity name="CSVReader3" class="ptolemy.actor.lib.io.CSVReader">
+        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="C:/Users/Michi/Desktop/Software Praktikum Ptolemy/InputEast.txt">
+        </property>
+        <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[580.0, 35.0]">
+        </property>
+        <port name="output" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_type" class="ptolemy.actor.TypeAttribute" value="{carId = int, roadMap = arrayType(int), carSpeed = int, indicator = int} ">
+            </property>
+        </port>
+    </entity>
+    <entity name="PoissonClock2" class="ptolemy.actor.lib.PoissonClock">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{445, 25}">
+        </property>
+    </entity>
+    <entity name="PoissonClock3" class="ptolemy.actor.lib.PoissonClock">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[175.0, 260.0]">
+        </property>
+    </entity>
     <relation name="relation8" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation7" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation6" class="ptolemy.actor.TypedIORelation">
     </relation>
-    <relation name="relation4" class="ptolemy.actor.TypedIORelation">
-        <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
-        </property>
-        <vertex name="vertex1" value="{360.0, 175.0}">
-        </vertex>
+    <relation name="relation3" class="ptolemy.actor.TypedIORelation">
     </relation>
-    <link port="CSVReader.output" relation="relation4"/>
+    <relation name="relation4" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation5" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation2" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation9" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <link port="CSVReader.output" relation="relation3"/>
     <link port="CSVReader.trigger" relation="relation"/>
     <link port="PoissonClock.output" relation="relation"/>
     <link port="Display.input" relation="relation6"/>
     <link port="Display2.input" relation="relation7"/>
     <link port="Display3.input" relation="relation8"/>
-    <link port="T-Intersection.EastIn" relation="relation4"/>
+    <link port="T-Intersection.EastIn" relation="relation5"/>
     <link port="T-Intersection.EastOut" relation="relation8"/>
-    <link port="T-Intersection.WestIn" relation="relation4"/>
+    <link port="T-Intersection.WestIn" relation="relation3"/>
     <link port="T-Intersection.WestOut" relation="relation6"/>
     <link port="T-Intersection.SouthIn" relation="relation4"/>
     <link port="T-Intersection.SouthOut" relation="relation7"/>
+    <link port="CSVReader2.output" relation="relation4"/>
+    <link port="CSVReader2.trigger" relation="relation2"/>
+    <link port="CSVReader3.output" relation="relation5"/>
+    <link port="CSVReader3.trigger" relation="relation9"/>
+    <link port="PoissonClock2.output" relation="relation9"/>
+    <link port="PoissonClock3.output" relation="relation2"/>
 </entity>
