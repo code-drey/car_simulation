@@ -1,0 +1,6 @@
+carId	roadMap	carSpeed	indicator	intersectionCount
+16	{3,3,4}	10	-1	0
+17	{3,2}	10	-1	0
+18	{3,2}	10	0	0
+19	{3,4}	10	-1	0
+20	{3,2,3,4}	10	0	0
