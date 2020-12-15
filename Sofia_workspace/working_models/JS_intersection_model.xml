@@ -1,13 +1,13 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE entity PUBLIC "-//UC Berkeley//DTD MoML 1//EN"
     "http://ptolemy.eecs.berkeley.edu/xml/dtd/MoML_1.dtd">
-<entity name="JS_model_Michi-Sofia" class="ptolemy.actor.TypedCompositeActor">
+<entity name="JS_intersection_model" class="ptolemy.actor.TypedCompositeActor">
     <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="11.0.1_20180619">
     </property>
     <property name="DE Director" class="ptolemy.domains.de.kernel.DEDirector">
         <property name="stopWhenQueueIsEmpty" class="ptolemy.data.expr.Parameter" value="true">
         </property>
-        <property name="synchronizeToRealTime" class="ptolemy.data.expr.Parameter" value="false">
+        <property name="synchronizeToRealTime" class="ptolemy.data.expr.Parameter" value="true">
         </property>
         <property name="_location" class="ptolemy.kernel.util.Location" value="[195.0, 55.0]">
         </property>
@@ -18,7 +18,7 @@
     </property>
     <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="0.5120000000000001">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{762.1521770234259, 119.2830799480679}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{762.1521770234258, 119.2830799480679}">
     </property>
     <entity name="CSVReader" class="ptolemy.actor.lib.io.CSVReader">
         <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="C:/ptll11.0.1/ptolemy/carsim/carsEAST.txt">
@@ -676,8 +676,6 @@
         </port>
         <port name="NorthIn" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
-            <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-            </property>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="NORTH">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[300.0, 195.0]">
@@ -685,8 +683,6 @@
         </port>
         <port name="NorthOut" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
-            <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-            </property>
             <property name="_type" class="ptolemy.actor.TypeAttribute" value="{carId = int, roadMap = arrayType(int), carSpeed = int, indicator = int}">
             </property>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="NORTH">
@@ -699,7 +695,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="	var QueueW = [];&#10;	var QueueE = [];&#10;	var QueueS = [];&#10;	var QueueN = [];&#10;&#10;// T-Intersection right-hand-rule&#10;//fires the car which has priority and lets the others wait&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('carWEST');&#10;    this.input('carEAST');&#10;    this.input('carSOUTH');&#10;    this.input('carNORTH');&#10;    //the Output-ports for the leaving cars&#10;    this.output('OWEST');&#10;    this.output('OEAST');&#10;    this.output('OSOUTH');&#10;    this.output('ONORTH');&#10;}&#10;&#10;exports.initialize = function () {&#10;	//creates an Array that contains the cars that stand in an Intersection&#10;	//following Array positions are relevant: 0 = WEST, 1 = EAST and 2 = SOUTH&#10;	&#10;	this.addInputHandler('carWEST', function() {&#10;	QueueW.unshift(this.get('carWEST'));&#10;	//this.send('OWEST',QueueW[0]);&#10;	right_hand_rule();&#10;	});&#10;	&#10;	this.addInputHandler('carEAST', function() {&#10;	QueueE.unshift(this.get('carEAST'));&#10;	//this.send('OEAST',QueueE[0]);&#10;	right_hand_rule();&#10;	});&#10;	&#10;	this.addInputHandler('carSOUTH', function() {&#10;	QueueS.unshift(this.get('carSOUTH'));&#10;	//this.send('OSOUTH',QueueS[0]);&#10;	right_hand_rule();&#10;	});&#10;	&#10;	this.addInputHandler('carNORTH', function() {&#10;	QueueN.unshift(this.get('carNORTH'));&#10;	//this.send('ONorth',QueueN[0]);&#10;	right_hand_rule();&#10;	});&#10;}	&#10;	&#10;	function right_hand_rule() {&#10;		&#10;		if(QueueW.length != 0) { // car from WEST&#10;			if(QueueW[QueueW.length - 1].indicator == 0) { //WEST -&gt; STRAIGHT&#10;				if(QueueS.length != 0) { // car from SOUTH&#10;					//stop&#10;				} else { // no car from SOUTH&#10;					this.send('OEAST',QueueW[QueueW.length - 1]);&#10;					QueueW.pop();&#10;				}&#10;			}else if(QueueW[QueueW.length - 1].indicator == 1) { // WEST -&gt; RIGHT&#10;				this.send('OSOUTH',QueueW[QueueW.length - 1]);&#10;				QueueW.pop();&#10;			}else if(QueueW[QueueW.length - 1].indicator == -1) { // WEST -&gt; LEFT&#10;				if(QueueE.length != 0) { // car from EAST&#10;					// stop&#10;				} else {&#10;					this.send('ONORTH',QueueW[QueueW.length - 1]);&#10;					QueueW.pop();&#10;				}&#10;			}&#10;		}&#10;		&#10;		if(QueueE.length != 0) { // car from EAST&#10;			if(QueueE[QueueE.length - 1].indicator == 0) { // EAST -&gt; STRAIGHT&#10;				if (QueueN.length != 0) { // car from NORTH&#10;					// stop&#10;				} else { // no car from NORTH&#10;					this.send('OWEST',QueueE[QueueE.length - 1]);&#10;					QueueE.pop();&#10;				}&#10;			}else if(QueueE[QueueE.length - 1].indicator == -1) { // EAST -&gt; LEFT&#10;				if(QueueW.length != 0) { // car from WEST&#10;					//stop&#10;				} else if(QueueN.length != 0) { // car from NORTH&#10;					// stop&#10;				} else {&#10;					this.send('OSOUTH',QueueE[QueueE.length - 1]);&#10;					QueueE.pop();&#10;				}&#10;			} else if (QueueE[QueueE.length - 1].indicator == 1) { // EAST -&gt; RIGHT&#10;				this.send('ONORTH',QueueE[QueueE.length - 1]);&#10;				QueueE.pop();&#10;			}&#10;		}&#10;		&#10;		if(QueueS.length != 0) { // car from SOUTH&#10;			if(QueueS[QueueS.length - 1].indicator == 1) { // SOUTH -&gt; RIGHT&#10;				this.send('OEAST',QueueS[QueueS.length - 1]);&#10;				QueueS.pop();&#10;			}else if(QueueS[QueueS.length - 1].indicator == -1) { // SOUTH -&gt; LEFT&#10;				if(QueueE.length != 0) { //car from EAST&#10;					//stop&#10;				}else if(QueueN.length != 0) { //car from NORTH&#10;					//stop&#10;				} else {&#10;					this.send('OWEST',QueueS[QueueS.length - 1]);&#10;					QueueS.pop();&#10;				}&#10;			} else if (QueueS[QueueS.length - 1].indicator == 0) { //SOUTH -&gt; STRAIGHT&#10;				if (QueueE.length != 0) { // car from EAST&#10;					// stop&#10;				} else {&#10;					this.send('ONORTH',QueueS[QueueS.length - 1]);&#10;					QueueS.pop();&#10;				}&#10;			}&#10;		}&#10;		&#10;		if(QueueN.length != 0) { // car from NORTH&#10;			if(QueueN[QueueN.length - 1].indicator == 1) { // NORTH -&gt; RIGHT&#10;				this.send('OWEST',QueueN[QueueN.length - 1]);&#10;				QueueN.pop();&#10;			}else if(QueueN[QueueN.length - 1].indicator == -1) { // NORTH -&gt; LEFT&#10;				if(QueueW.length != 0) { //car from WEST&#10;					//stop&#10;				}else if(QueueS.length != 0) { //car from SOUTH&#10;					//stop&#10;				} else {&#10;					this.send('OEAST',QueueN[QueueN.length - 1]);&#10;					QueueN.pop();&#10;				}&#10;			} else if (QueueN[QueueN.length - 1].indicator == 0) { //NORTH -&gt; STRAIGHT&#10;				if (QueueW.length != 0) { // car from WEST&#10;					// stop&#10;				} else {&#10;					this.send('OSOUTH',QueueN[QueueN.length - 1]);&#10;					QueueN.pop();&#10;				}&#10;			}&#10;		}&#10;	}&#10;">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="	var QueueW = [];&#10;	var QueueE = [];&#10;	var QueueS = [];&#10;	var QueueN = [];&#10;&#10;// T-Intersection right-hand-rule&#10;//fires the car which has priority and lets the others wait&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('carWEST');&#10;    this.input('carEAST');&#10;    this.input('carSOUTH');&#10;    this.input('carNORTH');&#10;    //the Output-ports for the leaving cars&#10;    this.output('OWEST');&#10;    this.output('OEAST');&#10;    this.output('OSOUTH');&#10;    this.output('ONORTH');&#10;}&#10;&#10;exports.initialize = function () {&#10;	//creates an Array that contains the cars that stand in an Intersection&#10;	//following Array positions are relevant: 0 = WEST, 1 = EAST and 2 = SOUTH&#10;	&#10;	this.addInputHandler('carWEST', function() {&#10;	QueueW.unshift(this.get('carWEST'));&#10;	//this.send('OWEST',QueueW[0]);&#10;	right_hand_rule();&#10;	});&#10;	&#10;	this.addInputHandler('carEAST', function() {&#10;	QueueE.unshift(this.get('carEAST'));&#10;	//this.send('OEAST',QueueE[0]);&#10;	right_hand_rule();&#10;	});&#10;	&#10;	this.addInputHandler('carSOUTH', function() {&#10;	QueueS.unshift(this.get('carSOUTH'));&#10;	//this.send('OSOUTH',QueueS[0]);&#10;	right_hand_rule();&#10;	});&#10;	&#10;	this.addInputHandler('carNORTH', function() {&#10;	QueueN.unshift(this.get('carNORTH'));&#10;	//this.send('ONorth',QueueN[0]);&#10;	right_hand_rule();&#10;	});&#10;}	&#10;	&#10;	function right_hand_rule() {&#10;		&#10;		if(QueueW.length != 0) { // car from WEST&#10;			if(QueueW[QueueW.length - 1].indicator == 0) { //WEST -&gt; STRAIGHT&#10;				if(QueueS.length != 0) { // car from SOUTH&#10;					//stop&#10;					setTimeout(right_hand_rule(), 3000, QueueW);&#10;				} else { // no car from SOUTH&#10;					this.send('OEAST',QueueW[QueueW.length - 1]);&#10;					QueueW.pop();&#10;				}&#10;			}else if(QueueW[QueueW.length - 1].indicator == 1) { // WEST -&gt; RIGHT&#10;				this.send('OSOUTH',QueueW[QueueW.length - 1]);&#10;				QueueW.pop();&#10;			}else if(QueueW[QueueW.length - 1].indicator == -1) { // WEST -&gt; LEFT&#10;				if(QueueE.length != 0) { // car from EAST&#10;					// stop&#10;					setTimeout(right_hand_rule(), 3000, QueueW);&#10;				} else if(QueueS.length != 0) { // car from SOUTH&#10;					// stop&#10;					setTimeout(right_hand_rule(), 3000, QueueW);&#10;				} else {&#10;					this.send('ONORTH',QueueW[QueueW.length - 1]);&#10;					QueueW.pop();&#10;				}&#10;			}&#10;		}&#10;		&#10;		if(QueueE.length != 0) { // car from EAST&#10;			if(QueueE[QueueE.length - 1].indicator == 0) { // EAST -&gt; STRAIGHT&#10;				if (QueueN.length != 0) { // car from NORTH&#10;					// stop&#10;				} else { // no car from NORTH&#10;					this.send('OWEST',QueueE[QueueE.length - 1]);&#10;					QueueE.pop();&#10;				}&#10;			}else if(QueueE[QueueE.length - 1].indicator == -1) { // EAST -&gt; LEFT&#10;				if(QueueW.length != 0) { // car from WEST&#10;					//stop&#10;				} else if(QueueN.length != 0) { // car from NORTH&#10;					// stop&#10;				} else {&#10;					this.send('OSOUTH',QueueE[QueueE.length - 1]);&#10;					QueueE.pop();&#10;				}&#10;			} else if (QueueE[QueueE.length - 1].indicator == 1) { // EAST -&gt; RIGHT&#10;				this.send('ONORTH',QueueE[QueueE.length - 1]);&#10;				QueueE.pop();&#10;			}&#10;		}&#10;		&#10;		if(QueueS.length != 0) { // car from SOUTH&#10;			if(QueueS[QueueS.length - 1].indicator == 1) { // SOUTH -&gt; RIGHT&#10;				this.send('OEAST',QueueS[QueueS.length - 1]);&#10;				QueueS.pop();&#10;			}else if(QueueS[QueueS.length - 1].indicator == -1) { // SOUTH -&gt; LEFT&#10;				if(QueueE.length != 0) { //car from EAST&#10;					//stop&#10;				}else if(QueueN.length != 0) { //car from NORTH&#10;					//stop&#10;				} else {&#10;					this.send('OWEST',QueueS[QueueS.length - 1]);&#10;					QueueS.pop();&#10;				}&#10;			} else if (QueueS[QueueS.length - 1].indicator == 0) { //SOUTH -&gt; STRAIGHT&#10;				if (QueueE.length != 0) { // car from EAST&#10;					// stop&#10;				} else {&#10;					this.send('ONORTH',QueueS[QueueS.length - 1]);&#10;					QueueS.pop();&#10;				}&#10;			}&#10;		}&#10;		&#10;		if(QueueN.length != 0) { // car from NORTH&#10;			if(QueueN[QueueN.length - 1].indicator == 1) { // NORTH -&gt; RIGHT&#10;				this.send('OWEST',QueueN[QueueN.length - 1]);&#10;				QueueN.pop();&#10;			}else if(QueueN[QueueN.length - 1].indicator == -1) { // NORTH -&gt; LEFT&#10;				if(QueueW.length != 0) { //car from WEST&#10;					//stop&#10;				}else if(QueueS.length != 0) { //car from SOUTH&#10;					//stop&#10;				} else {&#10;					this.send('OEAST',QueueN[QueueN.length - 1]);&#10;					QueueN.pop();&#10;				}&#10;			} else if (QueueN[QueueN.length - 1].indicator == 0) { //NORTH -&gt; STRAIGHT&#10;				if (QueueW.length != 0) { // car from WEST&#10;					// stop&#10;				} else {&#10;					this.send('OSOUTH',QueueN[QueueN.length - 1]);&#10;					QueueN.pop();&#10;				}&#10;			}&#10;		}&#10;	}&#10;">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -757,15 +753,11 @@
             </port>
             <port name="ONORTH" class="ptolemy.actor.TypedIOPort">
                 <property name="output"/>
-                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-                </property>
                 <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="NORTH">
                 </property>
             </port>
             <port name="carNORTH" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
-                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-                </property>
                 <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="NORTH">
                 </property>
             </port>
@@ -1361,8 +1353,6 @@
     </relation>
     <relation name="relation10" class="ptolemy.actor.TypedIORelation">
     </relation>
-    <relation name="relation11" class="ptolemy.actor.TypedIORelation">
-    </relation>
     <relation name="relation12" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation13" class="ptolemy.actor.TypedIORelation">
@@ -1398,10 +1388,8 @@
     <link port="Cross-Intersection.SouthIn" relation="relation9"/>
     <link port="Cross-Intersection.SouthOut" relation="relation4"/>
     <link port="Cross-Intersection.EastIn" relation="relation10"/>
-    <link port="Cross-Intersection.NorthIn" relation="relation11"/>
     <link port="Cross-Intersection.NorthOut" relation="relation7"/>
     <link port="NORTH(4).input" relation="relation7"/>
-    <link port="CSVReader4.output" relation="relation11"/>
     <link port="CSVReader4.trigger" relation="relation12"/>
     <link port="PoissonClock4.output" relation="relation12"/>
     <link port="CSVReader5.output" relation="relation17"/>
