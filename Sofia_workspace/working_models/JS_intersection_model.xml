@@ -9,7 +9,7 @@
         </property>
         <property name="synchronizeToRealTime" class="ptolemy.data.expr.Parameter" value="true">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[195.0, 55.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[875.0, -135.0]">
         </property>
     </property>
     <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-8, -8, 1382, 744}, maximized=true}">
@@ -18,7 +18,7 @@
     </property>
     <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="0.8000000000000018">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{1321.3523392051534, 200.792977245386}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{1481.07877257282, 106.27856540870181}">
     </property>
     <entity name="CSVReader" class="ptolemy.actor.lib.io.CSVReader">
         <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="C:/ptll11.0.1/ptolemy/carsim/carsEAST.txt">
@@ -31,7 +31,7 @@
         </property>
         <port name="output" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
-            <property name="_type" class="ptolemy.actor.TypeAttribute" value="{carId = int, roadMap = arrayType(int), carSpeed = int, indicator = int}">
+            <property name="_type" class="ptolemy.actor.TypeAttribute" value="{carId = int, roadMap = arrayType(int), indicator = int}">
             </property>
         </port>
     </entity>
@@ -72,7 +72,7 @@
     <entity name="T-Intersection" class="ptolemy.actor.TypedCompositeActor">
         <property name="_location" class="ptolemy.kernel.util.Location" value="[1435.0, 100.0]">
         </property>
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={73, 152, 928, 616}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={199, 87, 928, 616}, maximized=false}">
         </property>
         <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 499]">
         </property>
@@ -157,7 +157,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="	var QueueW = [];&#10;	var QueueE = [];&#10;	var QueueS = [];&#10;	var carCount = 0;&#10;&#10;// T-Intersection right-hand-rule&#10;//fires the car which has priority and lets the others wait&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('carWEST');&#10;    this.input('carEAST');&#10;    this.input('carSOUTH');&#10;    //the Output-ports for the leaving cars&#10;    this.output('OWEST');&#10;    this.output('OEAST');&#10;    this.output('OSOUTH');&#10;}&#10;&#10;exports.initialize = function () {&#10;	//creates an Array that contains the cars that stand in an Intersection&#10;	//following Array positions are relevant: 0 = WEST, 1 = EAST and 2 = SOUTH&#10;	&#10;	this.addInputHandler('carWEST', function() {&#10;		QueueW.unshift(this.get('carWEST'));&#10;		carCount++;&#10;		//this.send('OWEST',QueueW[0]);&#10;		//if(carCount == 1){&#10;			setTimeout(right_hand_rule, 3000);&#10;		//}&#10;	});&#10;	&#10;	this.addInputHandler('carEAST', function() {&#10;		QueueE.unshift(this.get('carEAST'));&#10;		carCount++;&#10;		//this.send('OEAST',QueueE[0]);&#10;		//if(carCount == 1) {&#10;			setTimeout(right_hand_rule, 3000);&#10;		//}&#10;	});&#10;	&#10;	this.addInputHandler('carSOUTH', function() {&#10;		QueueS.unshift(this.get('carSOUTH'));&#10;		carCount++;&#10;		//this.send('OSOUTH',QueueS[0]);&#10;		//if(carCount == 1) {&#10;			setTimeout(right_hand_rule, 3000);&#10;		//}&#10;	});&#10;	&#10;	&#10;}&#10;	&#10;	function right_hand_rule() {&#10;		//while (carCount != 0) {	&#10;			if(QueueW.length != 0) {&#10;				if(QueueW[QueueW.length - 1].indicator == 0) {&#10;					if(QueueS.length != 0) {&#10;						if(QueueS[QueueS.length - 1].indicator == 1) {&#10;							//stop&#10;						}else if(QueueS[QueueS.length - 1].indicator == -1) {&#10;							//stop&#10;						}&#10;					}else if(QueueS.length == 0) {&#10;						this.send('OEAST',QueueW[QueueW.length - 1]);&#10;						QueueW.pop();&#10;						carCount--;&#10;					}&#10;				}else if(QueueW[QueueW.length - 1].indicator == 1) {&#10;					this.send('OSOUTH',QueueW[QueueW.length - 1]);&#10;					QueueW.pop();&#10;					carCount--;&#10;				}&#10;			}&#10;			&#10;			if(QueueE.length != 0) {&#10;				if(QueueE[QueueE.length - 1].indicator == 0) {&#10;					this.send('OWEST',QueueE[QueueE.length - 1]);&#10;					QueueE.pop();&#10;					carCount--;&#10;				}else if(QueueE[QueueE.length - 1].indicator == -1) {&#10;					if(QueueW.length != 0) {&#10;						if(QueueW[QueueW.length - 1].indicator == 0) {&#10;							//stop&#10;						}else if(QueueW[QueueW.length - 1].indicator == 1) {&#10;							//stop&#10;						}&#10;					}else if(QueueW.length == 0) {&#10;						this.send('OSOUTH',QueueE[QueueE.length - 1]);&#10;						QueueE.pop();&#10;						carCount--;&#10;					}&#10;				}&#10;			}&#10;			&#10;			if(QueueS.length != 0) {&#10;				if(QueueS[QueueS.length - 1].indicator == 1) {&#10;					this.send('OEAST',QueueS[QueueS.length - 1]);&#10;					QueueS.pop();&#10;					carCount--;&#10;				}else if(QueueS[QueueS.length - 1].indicator == -1) {&#10;					if(QueueE.length != 0) {&#10;						//stop&#10;					}else if(QueueE.length == 0) {&#10;						this.send('OWEST',QueueS[QueueS.length - 1]);&#10;						QueueS.pop();&#10;						carCount--;&#10;					}&#10;				}&#10;			}&#10;		//}&#10;	}&#10;">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="	var QueueW = [];&#10;	var QueueE = [];&#10;	var QueueS = [];&#10;	var carCount = 0; // indicates number of cars currently in the intersection&#10;&#10;// T-Intersection right-hand-rule&#10;//fires the car which has priority and lets the others wait&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('carWEST');&#10;    this.input('carEAST');&#10;    this.input('carSOUTH');&#10;    //the Output-ports for the leaving cars&#10;    this.output('OWEST');&#10;    this.output('OEAST');&#10;    this.output('OSOUTH');&#10;}&#10;&#10;exports.initialize = function () {&#10;	//creates an Array that contains the cars that stand in an Intersection&#10;	&#10;	this.addInputHandler('carWEST', function() {&#10;		QueueW.unshift(this.get('carWEST'));&#10;		carCount++;&#10;		right_hand_rule();&#10;	});&#10;	&#10;	this.addInputHandler('carEAST', function() {&#10;		QueueE.unshift(this.get('carEAST'));&#10;		carCount++;&#10;		right_hand_rule();&#10;	});&#10;	&#10;	this.addInputHandler('carSOUTH', function() {&#10;		QueueS.unshift(this.get('carSOUTH'));&#10;		carCount++;&#10;		right_hand_rule();&#10;	});&#10;	&#10;}&#10;	&#10;	function right_hand_rule() {&#10;			if(QueueW.length != 0) {&#10;				if(QueueW[QueueW.length - 1].indicator == 0) {&#10;					if(QueueS.length != 0) {&#10;						//stop&#10;					}else if(QueueS.length == 0) {&#10;						this.send('OEAST',QueueW[QueueW.length - 1]);&#10;						QueueW.pop();&#10;						carCount--;&#10;					}&#10;				}else if(QueueW[QueueW.length - 1].indicator == 1) {&#10;					this.send('OSOUTH',QueueW[QueueW.length - 1]);&#10;					QueueW.pop();&#10;					carCount--;&#10;				}&#10;			}&#10;			&#10;			if(QueueE.length != 0) {&#10;				if(QueueE[QueueE.length - 1].indicator == 0) {&#10;					this.send('OWEST',QueueE[QueueE.length - 1]);&#10;					QueueE.pop();&#10;					carCount--;&#10;				}else if(QueueE[QueueE.length - 1].indicator == -1) {&#10;					if(QueueW.length != 0) {&#10;						//stop&#10;					}else if(QueueW.length == 0) {&#10;						this.send('OSOUTH',QueueE[QueueE.length - 1]);&#10;						QueueE.pop();&#10;						carCount--;&#10;					}&#10;				}&#10;			}&#10;			&#10;			if(QueueS.length != 0) {&#10;				if(QueueS[QueueS.length - 1].indicator == 1) {&#10;					this.send('OEAST',QueueS[QueueS.length - 1]);&#10;					QueueS.pop();&#10;					carCount--;&#10;				}else if(QueueS[QueueS.length - 1].indicator == -1) {&#10;					if(QueueE.length != 0) {&#10;						//stop&#10;					}else if(QueueE.length == 0) {&#10;						this.send('OWEST',QueueS[QueueS.length - 1]);&#10;						QueueS.pop();&#10;						carCount--;&#10;					}&#10;				}&#10;			}&#10;	}&#10;">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -219,7 +219,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="//Sets the Indicator of a car coming from WEST&#10;//-1 is left, 0 is straight, 1 is right&#10;exports.setup = function () {&#10;    this.input('car');&#10;    &#10;    this.output('output');&#10;};&#10;&#10;exports.fire = function () {&#10;	carWest = this.get('car');&#10;	&#10;	if(carWest.roadMap[carWest.intersectionCount] == this.getParameter('SOUTH')) {&#10;		carWest.intersectionCount = carWest.intersectionCount + 1;&#10;		carWest.indicator = 1;&#10;		this.send('output', carWest);&#10;	}&#10;	else if(carWest.roadMap[carWest.intersectionCount] == this.getParameter('EAST')) {&#10;		carWest.intersectionCount = carWest.intersectionCount + 1;&#10;		carWest.indicator = 0;&#10;		this.send('output', carWest);&#10;	}&#10;};">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="//Sets the Indicator of a car coming from WEST&#10;// increases the intersection counter by 1&#10;//-1 is left, 0 is straight, 1 is right&#10;exports.setup = function () {&#10;    this.input('car');&#10;    &#10;    this.output('output');&#10;};&#10;&#10;exports.fire = function () {&#10;	carWest = this.get('car');&#10;	&#10;	if(carWest.roadMap[carWest.intersectionCount] == this.getParameter('SOUTH')) {&#10;		carWest.intersectionCount = carWest.intersectionCount + 1;&#10;		carWest.indicator = 1;&#10;		this.send('output', carWest);&#10;	}&#10;	else if(carWest.roadMap[carWest.intersectionCount] == this.getParameter('EAST')) {&#10;		carWest.intersectionCount = carWest.intersectionCount + 1;&#10;		carWest.indicator = 0;&#10;		this.send('output', carWest);&#10;	}&#10;};">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -313,7 +313,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="//Sets the Indicator of a car coming from WEST&#10;//-1 is left, 0 is straight, 1 is right&#10;exports.setup = function () {&#10;    this.input('car');&#10;    &#10;    this.output('output');&#10;};&#10;&#10;exports.fire = function () {&#10;	carSouth = this.get('car');&#10;	&#10;	if(carSouth.roadMap[carSouth.intersectionCount] == this.getParameter('EAST')) {&#10;		carSouth.intersectionCount = carSouth.intersectionCount + 1;&#10;		carSouth.indicator = 1;&#10;		this.send('output', carSouth);&#10;	}&#10;	else if(carSouth.roadMap[carSouth.intersectionCount] == this.getParameter('WEST')) {&#10;		carSouth.intersectionCount = carSouth.intersectionCount + 1;&#10;		carSouth.indicator = -1;&#10;		this.send('output', carSouth);&#10;	}&#10;};">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="//Sets the Indicator of a car coming from WEST&#10;// increases the intersection counter by 1&#10;//-1 is left, 0 is straight, 1 is right&#10;exports.setup = function () {&#10;    this.input('car');&#10;    &#10;    this.output('output');&#10;};&#10;&#10;exports.fire = function () {&#10;	carSouth = this.get('car');&#10;	&#10;	if(carSouth.roadMap[carSouth.intersectionCount] == this.getParameter('EAST')) {&#10;		carSouth.intersectionCount = carSouth.intersectionCount + 1;&#10;		carSouth.indicator = 1;&#10;		this.send('output', carSouth);&#10;	}&#10;	else if(carSouth.roadMap[carSouth.intersectionCount] == this.getParameter('WEST')) {&#10;		carSouth.intersectionCount = carSouth.intersectionCount + 1;&#10;		carSouth.indicator = -1;&#10;		this.send('output', carSouth);&#10;	}&#10;};">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -407,7 +407,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="//Sets the Indicator of a car coming from WEST&#10;//-1 is left, 0 is straight, 1 is right&#10;exports.setup = function () {&#10;    this.input('car');&#10;    &#10;    this.output('output');&#10;};&#10;&#10;exports.fire = function () {&#10;	carEast = this.get('car');&#10;	&#10;	if(carEast.roadMap[carEast.intersectionCount] == this.getParameter('SOUTH')) {&#10;		carEast.intersectionCount = carEast.intersectionCount + 1;&#10;		carEast.indicator = -1;&#10;		this.send('output', carEast);&#10;	}&#10;	else if(carEast.roadMap[carEast.intersectionCount] == this.getParameter('WEST')) {&#10;		carEast.intersectionCount = carEast.intersectionCount + 1;&#10;		carEast.indicator = 0;&#10;		this.send('output', carEast);&#10;	}&#10;};">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="//Sets the Indicator of a car coming from WEST&#10;// increases the intersection counter by 1&#10;//-1 is left, 0 is straight, 1 is right&#10;exports.setup = function () {&#10;    this.input('car');&#10;    &#10;    this.output('output');&#10;};&#10;&#10;exports.fire = function () {&#10;	carEast = this.get('car');&#10;	&#10;	if(carEast.roadMap[carEast.intersectionCount] == this.getParameter('SOUTH')) {&#10;		carEast.intersectionCount = carEast.intersectionCount + 1;&#10;		carEast.indicator = -1;&#10;		this.send('output', carEast);&#10;	}&#10;	else if(carEast.roadMap[carEast.intersectionCount] == this.getParameter('WEST')) {&#10;		carEast.intersectionCount = carEast.intersectionCount + 1;&#10;		carEast.indicator = 0;&#10;		this.send('output', carEast);&#10;	}&#10;};">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -500,24 +500,24 @@
                 </property>
             </port>
         </entity>
-        <entity name="TimeDelay" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="0">
+        <entity name="street3-length" class="ptolemy.actor.lib.TimeDelay">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="16.0">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[544.9912109375, 381.0107421875]">
             </property>
             <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
             </property>
         </entity>
-        <entity name="TimeDelay3" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="0">
+        <entity name="street2-length" class="ptolemy.actor.lib.TimeDelay">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[157.765625, 592.2265625]">
             </property>
             <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="false">
             </property>
         </entity>
-        <entity name="TimeDelay4" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="0">
+        <entity name="street-length" class="ptolemy.actor.lib.TimeDelay">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="8.0">
             </property>
             <property name="minimumDelay" class="ptolemy.data.expr.Parameter" value="delay">
             </property>
@@ -572,12 +572,12 @@
         <link port="setIndicatorSouth.output" relation="relation2"/>
         <link port="setIndicatorEast.car" relation="relation8"/>
         <link port="setIndicatorEast.output" relation="relation9"/>
-        <link port="TimeDelay.input" relation="relation11"/>
-        <link port="TimeDelay.output" relation="relation8"/>
-        <link port="TimeDelay3.input" relation="relation3"/>
-        <link port="TimeDelay3.output" relation="relation12"/>
-        <link port="TimeDelay4.input" relation="relation7"/>
-        <link port="TimeDelay4.output" relation="relation13"/>
+        <link port="street3-length.input" relation="relation11"/>
+        <link port="street3-length.output" relation="relation8"/>
+        <link port="street2-length.input" relation="relation3"/>
+        <link port="street2-length.output" relation="relation12"/>
+        <link port="street-length.input" relation="relation7"/>
+        <link port="street-length.output" relation="relation13"/>
     </entity>
     <entity name="CSVReader2" class="ptolemy.actor.lib.io.CSVReader">
         <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="C:/ptll11.0.1/ptolemy/carsim/carsWEST.txt">
@@ -590,7 +590,7 @@
         </property>
         <port name="output" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
-            <property name="_type" class="ptolemy.actor.TypeAttribute" value="{carId = int, roadMap = arrayType(int), carSpeed = int, indicator = int}">
+            <property name="_type" class="ptolemy.actor.TypeAttribute" value="{carId = int, roadMap = arrayType(int), indicator = int}">
             </property>
         </port>
     </entity>
@@ -615,7 +615,7 @@
         </property>
         <port name="output" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
-            <property name="_type" class="ptolemy.actor.TypeAttribute" value="{carId = int, roadMap = arrayType(int), carSpeed = int, indicator = int}">
+            <property name="_type" class="ptolemy.actor.TypeAttribute" value="{carId = int, roadMap = arrayType(int), indicator = int}">
             </property>
         </port>
     </entity>
@@ -1258,7 +1258,7 @@
         </property>
         <port name="output" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
-            <property name="_type" class="ptolemy.actor.TypeAttribute" value="{carId = int, roadMap = arrayType(int), carSpeed = int, indicator = int}">
+            <property name="_type" class="ptolemy.actor.TypeAttribute" value="{carId = int, roadMap = arrayType(int), indicator = int}">
             </property>
         </port>
     </entity>
@@ -1267,7 +1267,7 @@
         </property>
         <property name="stopTime" class="ptolemy.data.expr.Parameter" value="Infinity">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[265.0, -20.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[265.0, -15.0]">
         </property>
         <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
         </property>
@@ -1291,7 +1291,7 @@
         </property>
         <port name="output" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
-            <property name="_type" class="ptolemy.actor.TypeAttribute" value="{carId = int, roadMap = arrayType(int), carSpeed = int, indicator = int}">
+            <property name="_type" class="ptolemy.actor.TypeAttribute" value="{carId = int, roadMap = arrayType(int), indicator = int}">
             </property>
         </port>
     </entity>
@@ -1318,12 +1318,12 @@
         </property>
         <port name="output" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
-            <property name="_type" class="ptolemy.actor.TypeAttribute" value="{carId = int, roadMap = arrayType(int), carSpeed = int, indicator = int}">
+            <property name="_type" class="ptolemy.actor.TypeAttribute" value="{carId = int, roadMap = arrayType(int), indicator = int}">
             </property>
         </port>
     </entity>
     <entity name="PoissonClock6" class="ptolemy.actor.lib.PoissonClock">
-        <property name="meanTime" class="ptolemy.data.expr.Parameter" value="5.0">
+        <property name="meanTime" class="ptolemy.data.expr.Parameter" value="3.0">
         </property>
         <property name="fireAtStart" class="ptolemy.data.expr.Parameter" value="false">
         </property>
@@ -1345,12 +1345,12 @@
         </property>
         <port name="output" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
-            <property name="_type" class="ptolemy.actor.TypeAttribute" value="{carId = int, roadMap = arrayType(int), carSpeed = int, indicator = int}">
+            <property name="_type" class="ptolemy.actor.TypeAttribute" value="{carId = int, roadMap = arrayType(int), indicator = int}">
             </property>
         </port>
     </entity>
     <entity name="PoissonClock7" class="ptolemy.actor.lib.PoissonClock">
-        <property name="meanTime" class="ptolemy.data.expr.Parameter" value="5">
+        <property name="meanTime" class="ptolemy.data.expr.Parameter" value="3.0">
         </property>
         <property name="fireAtStart" class="ptolemy.data.expr.Parameter" value="false">
         </property>
@@ -1409,6 +1409,8 @@
     </relation>
     <relation name="relation7" class="ptolemy.actor.TypedIORelation">
     </relation>
+    <relation name="relation11" class="ptolemy.actor.TypedIORelation">
+    </relation>
     <link port="CSVReader.output" relation="relation10"/>
     <link port="CSVReader.trigger" relation="relation"/>
     <link port="PoissonClock.output" relation="relation"/>
@@ -1427,6 +1429,8 @@
     <link port="Cross-Intersection.WestIn" relation="relation8"/>
     <link port="Cross-Intersection.SouthIn" relation="relation9"/>
     <link port="Cross-Intersection.EastIn" relation="relation10"/>
+    <link port="Cross-Intersection.NorthIn" relation="relation11"/>
+    <link port="CSVReader4.output" relation="relation11"/>
     <link port="CSVReader4.trigger" relation="relation12"/>
     <link port="PoissonClock4.output" relation="relation12"/>
     <link port="WEST(7)2.input" relation="relation4"/>
