@@ -9,19 +9,19 @@
         </property>
         <property name="synchronizeToRealTime" class="ptolemy.data.expr.Parameter" value="true">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[875.0, -135.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[1055.0, -120.0]">
         </property>
     </property>
-    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-8, -8, 1382, 744}, maximized=true}">
+    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={470, 287, 888, 617}, maximized=false}">
     </property>
-    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1154, 627]">
+    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[660, 500]">
     </property>
     <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="0.8000000000000018">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{1481.07877257282, 106.27856540870181}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{1371.792265531785, 146.49852857201756}">
     </property>
     <entity name="CSVReader" class="ptolemy.actor.lib.io.CSVReader">
-        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="C:/ptll11.0.1/ptolemy/carsim/carsEAST.txt">
+        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="carsEAST.txt">
         </property>
         <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
         </property>
@@ -72,7 +72,7 @@
     <entity name="T-Intersection" class="ptolemy.actor.TypedCompositeActor">
         <property name="_location" class="ptolemy.kernel.util.Location" value="[1435.0, 100.0]">
         </property>
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={199, 87, 928, 616}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={460, 92, 928, 616}, maximized=false}">
         </property>
         <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 499]">
         </property>
@@ -157,7 +157,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="	var QueueW = [];&#10;	var QueueE = [];&#10;	var QueueS = [];&#10;	var carCount = 0; // indicates number of cars currently in the intersection&#10;&#10;// T-Intersection right-hand-rule&#10;//fires the car which has priority and lets the others wait&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('carWEST');&#10;    this.input('carEAST');&#10;    this.input('carSOUTH');&#10;    //the Output-ports for the leaving cars&#10;    this.output('OWEST');&#10;    this.output('OEAST');&#10;    this.output('OSOUTH');&#10;}&#10;&#10;exports.initialize = function () {&#10;	//creates an Array that contains the cars that stand in an Intersection&#10;	&#10;	this.addInputHandler('carWEST', function() {&#10;		QueueW.unshift(this.get('carWEST'));&#10;		carCount++;&#10;		right_hand_rule();&#10;	});&#10;	&#10;	this.addInputHandler('carEAST', function() {&#10;		QueueE.unshift(this.get('carEAST'));&#10;		carCount++;&#10;		right_hand_rule();&#10;	});&#10;	&#10;	this.addInputHandler('carSOUTH', function() {&#10;		QueueS.unshift(this.get('carSOUTH'));&#10;		carCount++;&#10;		right_hand_rule();&#10;	});&#10;	&#10;}&#10;	&#10;	function right_hand_rule() {&#10;			if(QueueW.length != 0) {&#10;				if(QueueW[QueueW.length - 1].indicator == 0) {&#10;					if(QueueS.length != 0) {&#10;						//stop&#10;					}else if(QueueS.length == 0) {&#10;						this.send('OEAST',QueueW[QueueW.length - 1]);&#10;						QueueW.pop();&#10;						carCount--;&#10;					}&#10;				}else if(QueueW[QueueW.length - 1].indicator == 1) {&#10;					this.send('OSOUTH',QueueW[QueueW.length - 1]);&#10;					QueueW.pop();&#10;					carCount--;&#10;				}&#10;			}&#10;			&#10;			if(QueueE.length != 0) {&#10;				if(QueueE[QueueE.length - 1].indicator == 0) {&#10;					this.send('OWEST',QueueE[QueueE.length - 1]);&#10;					QueueE.pop();&#10;					carCount--;&#10;				}else if(QueueE[QueueE.length - 1].indicator == -1) {&#10;					if(QueueW.length != 0) {&#10;						//stop&#10;					}else if(QueueW.length == 0) {&#10;						this.send('OSOUTH',QueueE[QueueE.length - 1]);&#10;						QueueE.pop();&#10;						carCount--;&#10;					}&#10;				}&#10;			}&#10;			&#10;			if(QueueS.length != 0) {&#10;				if(QueueS[QueueS.length - 1].indicator == 1) {&#10;					this.send('OEAST',QueueS[QueueS.length - 1]);&#10;					QueueS.pop();&#10;					carCount--;&#10;				}else if(QueueS[QueueS.length - 1].indicator == -1) {&#10;					if(QueueE.length != 0) {&#10;						//stop&#10;					}else if(QueueE.length == 0) {&#10;						this.send('OWEST',QueueS[QueueS.length - 1]);&#10;						QueueS.pop();&#10;						carCount--;&#10;					}&#10;				}&#10;			}&#10;	}&#10;">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="	var QueueW = [];&#10;	var QueueE = [];&#10;	var QueueS = [];&#10;	var carCount = 0; // indicates number of cars currently in the intersection&#10;&#10;// T-Intersection right-hand-rule&#10;//fires the car which has priority and lets the others wait&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('carWEST');&#10;    this.input('carEAST');&#10;    this.input('carSOUTH');&#10;    //the Output-ports for the leaving cars&#10;    this.output('OWEST');&#10;    this.output('OEAST');&#10;    this.output('OSOUTH');&#10;}&#10;&#10;exports.initialize = function () {&#10;	//creates an Array that contains the cars that stand in an Intersection&#10;	&#10;	this.addInputHandler('carWEST', function() {&#10;		QueueW.unshift(this.get('carWEST'));&#10;		carCount++;&#10;		if(carCount == 1) {&#10;			setTimeout(right_hand_rule, 2000);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('carEAST', function() {&#10;		QueueE.unshift(this.get('carEAST'));&#10;		carCount++;&#10;		if(carCount == 1) {&#10;			setTimeout(right_hand_rule, 2000);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('carSOUTH', function() {&#10;		QueueS.unshift(this.get('carSOUTH'));&#10;		carCount++;&#10;		if(carCount == 1) {&#10;			setTimeout(right_hand_rule, 2000);&#10;		}&#10;	});&#10;	&#10;}&#10;	&#10;	function right_hand_rule() {&#10;			if(QueueW.length != 0) {&#10;				if(QueueW[QueueW.length - 1].indicator == 0) {&#10;					if(QueueS.length != 0) {&#10;						//stop&#10;					}else if(QueueS.length == 0) {&#10;						this.send('OEAST',QueueW[QueueW.length - 1]);&#10;						QueueW.pop();&#10;						carCount--;&#10;					}&#10;				}else if(QueueW[QueueW.length - 1].indicator == 1) {&#10;					this.send('OSOUTH',QueueW[QueueW.length - 1]);&#10;					QueueW.pop();&#10;					carCount--;&#10;				}&#10;			}&#10;			&#10;			if(QueueE.length != 0) {&#10;				if(QueueE[QueueE.length - 1].indicator == 0) {&#10;					this.send('OWEST',QueueE[QueueE.length - 1]);&#10;					QueueE.pop();&#10;					carCount--;&#10;				}else if(QueueE[QueueE.length - 1].indicator == -1) {&#10;					if(QueueW.length != 0) {&#10;						//stop&#10;					}else if(QueueW.length == 0) {&#10;						this.send('OSOUTH',QueueE[QueueE.length - 1]);&#10;						QueueE.pop();&#10;						carCount--;&#10;					}&#10;				}&#10;			}&#10;			&#10;			if(QueueS.length != 0) {&#10;				if(QueueS[QueueS.length - 1].indicator == 1) {&#10;					this.send('OEAST',QueueS[QueueS.length - 1]);&#10;					QueueS.pop();&#10;					carCount--;&#10;				}else if(QueueS[QueueS.length - 1].indicator == -1) {&#10;					if(QueueE.length != 0) {&#10;						//stop&#10;					}else if(QueueE.length == 0) {&#10;						this.send('OWEST',QueueS[QueueS.length - 1]);&#10;						QueueS.pop();&#10;						carCount--;&#10;					}&#10;				}&#10;			}&#10;			&#10;			if(carCount != 0) {&#10;				setTimeout(right_hand_rule, 2000);&#10;			}&#10;	}&#10;">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -580,7 +580,7 @@
         <link port="street-length.output" relation="relation13"/>
     </entity>
     <entity name="CSVReader2" class="ptolemy.actor.lib.io.CSVReader">
-        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="C:/ptll11.0.1/ptolemy/carsim/carsWEST.txt">
+        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="carsWEST.txt">
         </property>
         <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
         </property>
@@ -605,7 +605,7 @@
         </property>
     </entity>
     <entity name="CSVReader3" class="ptolemy.actor.lib.io.CSVReader">
-        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="C:/ptll11.0.1/ptolemy/carsim/carsSOUTH.txt">
+        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="carsSOUTH.txt">
         </property>
         <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
         </property>
@@ -1248,7 +1248,7 @@
         </property>
     </entity>
     <entity name="CSVReader4" class="ptolemy.actor.lib.io.CSVReader">
-        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="C:/ptll11.0.1/ptolemy/carsim/carsNORTH.txt">
+        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="carsNORTH.txt">
         </property>
         <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
         </property>
@@ -1273,7 +1273,7 @@
         </property>
     </entity>
     <entity name="WEST(7)2" class="ptolemy.actor.lib.gui.Display">
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={219, 92, 410, 249}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={2, 6, 410, 249}, maximized=false}">
         </property>
         <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[394, 189]">
         </property>
@@ -1312,7 +1312,7 @@
         </property>
         <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[1199.4014604271356, 165.2100345477387]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[1200.0, 165.0]">
         </property>
         <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
         </property>
@@ -1362,7 +1362,7 @@
         </property>
     </entity>
     <entity name="SOUTH(2)2" class="ptolemy.actor.lib.gui.Display">
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={686, 371, 516, 283}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-2, 248, 419, 218}, maximized=false}">
         </property>
         <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[500, 223]">
         </property>
@@ -1370,7 +1370,7 @@
         </property>
     </entity>
     <entity name="EAST(3)2" class="ptolemy.actor.lib.gui.Display">
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={149, 328, 512, 246}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-3, 464, 426, 217}, maximized=false}">
         </property>
         <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[496, 186]">
         </property>
