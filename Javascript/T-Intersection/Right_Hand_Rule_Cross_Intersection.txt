@@ -1,0 +1,302 @@
+	var QueueW = [];
+	var QueueE = [];
+	var QueueS = [];
+	var QueueN = [];
+	var carCount = 0; // indicates number of cars currently in the intersection
+	var date;
+
+// T-Intersection right-hand-rule
+//fires the car which has priority and lets the others wait
+exports.setup = function () {
+	//the Input-ports for the incoming cars
+    this.input('carWEST');
+    this.input('carEAST');
+    this.input('carSOUTH');
+    this.input('carNORTH');
+    //the Output-ports for the leaving cars
+    this.output('OWEST');
+    this.output('OEAST');
+    this.output('OSOUTH');
+    this.output('ONORTH');
+    this.output('Debug');
+}
+
+exports.initialize = function () {
+	//creates an Array that contains the cars that stand in an Intersection
+	//following Array positions are relevant: 0 = WEST, 1 = EAST and 2 = SOUTH
+	
+	this.addInputHandler('carWEST', function() {
+	QueueW.unshift(this.get('carWEST'));
+	carCount++;
+	if(carCount == 1) {
+		setTimeout(right_hand_rule, 2000);
+	}
+	});
+	
+	this.addInputHandler('carEAST', function() {
+	QueueE.unshift(this.get('carEAST'));
+	carCount++;
+	if(carCount == 1) {
+		setTimeout(right_hand_rule, 2000);
+	}
+	});
+	
+	this.addInputHandler('carSOUTH', function() {
+	QueueS.unshift(this.get('carSOUTH'));
+	carCount++;
+	if(carCount == 1) {
+		setTimeout(right_hand_rule, 2000);
+	}
+	});
+	
+	this.addInputHandler('carNORTH', function() {
+	QueueN.unshift(this.get('carNORTH'));
+	carCount++;
+	if(carCount == 1) {
+		setTimeout(right_hand_rule, 2000);
+	}
+	});
+}	
+	
+	function right_hand_rule() {
+		var SentW = false;
+		var SentE = false;
+		var SentS = false;
+		var SentN = false;
+		
+		//Debug
+		this.send('Debug',"QueueW " + QueueW.length);
+		this.send('Debug',"QueueE " + QueueE.length);
+		this.send('Debug',"QueueS " + QueueS.length);
+		this.send('Debug',"QueueN " + QueueN.length);
+		this.send('Debug', "carCount " + carCount);	
+		
+		if(QueueW.length != 0) { // car from WEST
+			if(QueueW[QueueW.length - 1].indicator == 0) { //WEST -> STRAIGHT
+				if(QueueS.length != 0) { // car from SOUTH
+					//stop
+				} else { // no car from SOUTH
+					this.send('OEAST',QueueW[QueueW.length - 1]);
+					date = new Date();
+					this.send('OEAST',date.getSeconds());
+					SentW = true;
+				}
+			}else if(QueueW[QueueW.length - 1].indicator == 1) { // WEST -> RIGHT
+				this.send('OSOUTH',QueueW[QueueW.length - 1]);
+				date = new Date();
+				this.send('OSOUTH',date.getSeconds());
+				SentW = true;
+			}else if(QueueW[QueueW.length - 1].indicator == -1) { // WEST -> LEFT
+				if(QueueE.length != 0) { // car from EAST
+					// stop
+				} else if(QueueS.length != 0) { // car from SOUTH
+					// stop
+				} else {
+					this.send('ONORTH',QueueW[QueueW.length - 1]);
+					date = new Date();
+					this.send('ONORTH',date.getSeconds());
+					SentW = true;
+				}
+			}
+		}
+		
+		if(QueueE.length != 0) { // car from EAST
+			if(QueueE[QueueE.length - 1].indicator == 0) { // EAST -> STRAIGHT
+				if (QueueN.length != 0) { // car from NORTH
+					// stop
+				} else { // no car from NORTH
+					this.send('OWEST',QueueE[QueueE.length - 1]);
+					date = new Date();
+					this.send('OWEST',date.getSeconds());
+					SentE = true;
+				}
+			}else if(QueueE[QueueE.length - 1].indicator == -1) { // EAST -> LEFT
+				if(QueueW.length != 0) { // car from WEST
+					//stop
+				} else if(QueueN.length != 0) { // car from NORTH
+					// stop
+				} else {
+					this.send('OSOUTH',QueueE[QueueE.length - 1]);
+					date = new Date();
+					this.send('OSOUTH',date.getSeconds());
+					SentE = true;
+				}
+			} else if (QueueE[QueueE.length - 1].indicator == 1) { // EAST -> RIGHT
+				this.send('ONORTH',QueueE[QueueE.length - 1]);
+				date = new Date();
+				this.send('NORTH',date.getSeconds());
+				SentE = true;
+			}
+		}
+		
+		if(QueueS.length != 0) { // car from SOUTH
+			if(QueueS[QueueS.length - 1].indicator == 1) { // SOUTH -> RIGHT
+				this.send('OEAST',QueueS[QueueS.length - 1]);
+				date = new Date();
+				this.send('OEAST',date.getSeconds());
+				SentS = true;
+			}else if(QueueS[QueueS.length - 1].indicator == -1) { // SOUTH -> LEFT
+				if(QueueE.length != 0) { //car from EAST
+					//stop
+				}else if(QueueN.length != 0) { //car from NORTH
+					//stop
+				} else {
+					this.send('OWEST',QueueS[QueueS.length - 1]);
+					date = new Date();
+					this.send('OWEST',date.getSeconds());
+					SentS = true;
+				}
+			} else if (QueueS[QueueS.length - 1].indicator == 0) { //SOUTH -> STRAIGHT
+				if (QueueE.length != 0) { // car from EAST
+					// stop
+				} else {
+					this.send('ONORTH',QueueS[QueueS.length - 1]);
+					date = new Date();
+					this.send('ONORTH',date.getSeconds());
+					SentS = true;
+				}
+			}
+		}
+		
+		if(QueueN.length != 0) { // car from NORTH
+			if(QueueN[QueueN.length - 1].indicator == 1) { // NORTH -> RIGHT
+				this.send('OWEST',QueueN[QueueN.length - 1]);
+				date = new Date();
+				this.send('OWEST',date.getSeconds());
+				SentN = true;
+			}else if(QueueN[QueueN.length - 1].indicator == -1) { // NORTH -> LEFT
+				if(QueueW.length != 0) { //car from WEST
+					//stop
+				}else if(QueueS.length != 0) { //car from SOUTH
+					//stop
+				} else {
+					this.send('OEAST',QueueN[QueueN.length - 1]);
+					date = new Date();
+					this.send('OEAST',date.getSeconds());
+					SentN = true;
+				}
+			} else if (QueueN[QueueN.length - 1].indicator == 0) { //NORTH -> STRAIGHT
+				if (QueueW.length != 0) { // car from WEST
+					// stop
+				} else {
+					this.send('OSOUTH',QueueN[QueueN.length - 1]);
+					date = new Date();
+					this.send('OSOUTH',date.getSeconds());
+					SentN = true;
+				}
+			}
+		}
+		
+		if(SentW) {
+			QueueW.pop();
+			carCount--;
+			}
+			
+			if(SentE) {
+				QueueE.pop();
+				carCount--;
+			}
+			
+			if(SentS) {
+				QueueS.pop();
+				carCount--;
+			}
+			
+			if(SentN) {
+				QueueN.pop();
+				carCount--;
+			}
+			
+			//Special case if there is a car on each side of the intersection
+			if(!SentW && !SentE && !SentS && !SentN) {
+				//0 = West, 1 = East, 2 = South, 3 = North
+				var random = Math.floor(Math.random() * 3); 
+				if(random == 0) {
+					if(QueueW[QueueW.length - 1].indicator == 0) {
+						this.send('OEAST',QueueW[QueueW.length - 1]);
+						date = new Date();
+						this.send('OEAST',date.getSeconds());
+					}
+					else if(QueueW[QueueW.length - 1].indicator == 1) {
+						this.send('OSOUTH',QueueW[QueueW.length - 1]);
+						date = new Date();
+						this.send('OSOUTH',date.getSeconds());
+					}
+					else if(QueueW[QueueW.length - 1].indicator == -1) {
+						this.send('ONORTH',QueueW[QueueW.length - 1]);
+						date = new Date();
+						this.send('ONORTH',date.getSeconds());
+					}
+					
+					QueueW.pop();
+				    carCount--;
+				}
+				
+				if(random == 1) {
+					if(QueueE[QueueE.length - 1].indicator == 0) {
+						this.send('OWEST',QueueE[QueueE.length - 1]);
+						date = new Date();
+						this.send('OWEST',date.getSeconds());
+					}
+					else if(QueueE[QueueE.length - 1].indicator == 1) {
+						this.send('ONORTH',QueueE[QueueE.length - 1]);
+						date = new Date();
+						this.send('ONORTH',date.getSeconds());
+					}
+					else if(QueueE[QueueE.length - 1].indicator == -1) {
+						this.send('OSOUTH',QueueE[QueueE.length - 1]);
+						date = new Date();
+						this.send('OSOUTH',date.getSeconds());
+					}
+					
+					QueueE.pop();
+				    carCount--;
+				}
+				
+				if(random == 2) {
+					if(QueueS[QueueS.length - 1].indicator == 0) {
+						this.send('ONORTH',QueueS[QueueS.length - 1]);
+						date = new Date();
+						this.send('ONORTH',date.getSeconds());
+					}
+					else if(QueueS[QueueS.length - 1].indicator == 1) {
+						this.send('OEAST',QueueS[QueueS.length - 1]);
+						date = new Date();
+						this.send('OEAST',date.getSeconds());
+					}
+					else if(QueueS[QueueS.length - 1].indicator == -1) {
+						this.send('OWEST',QueueS[QueueS.length - 1]);
+						date = new Date();
+						this.send('OWEST',date.getSeconds());
+					}
+					
+					QueueS.pop();
+				    carCount--;
+				}
+				
+				if(random == 3) {
+					if(QueueN[QueueN.length - 1].indicator == 0) {
+						this.send('OSOUTH',QueueN[QueueN.length - 1]);
+						date = new Date();
+						this.send('OSOUTH',date.getSeconds());
+					}
+					else if(QueueN[QueueN.length - 1].indicator == 1) {
+						this.send('OWEST',QueueN[QueueN.length - 1]);
+						date = new Date();
+						this.send('OWEST',date.getSeconds());
+					}
+					else if(QueueN[QueueN.length - 1].indicator == -1) {
+						this.send('OEAST',QueueN[QueueN.length - 1]);
+						date = new Date();
+						this.send('OEAST',date.getSeconds());
+					}
+					
+					QueueN.pop();
+				    carCount--;
+				}
+			}
+			
+			if(carCount != 0) {
+				setTimeout(right_hand_rule, 2000);
+			}
+	}
