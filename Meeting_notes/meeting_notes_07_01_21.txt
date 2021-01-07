@@ -1,0 +1,6 @@
+Meeting notes 07/01/21:
+Next steps:
+-implement street counter
+-add analysis
+-work on the design (parameters, configurable)
+-prepare presentation
