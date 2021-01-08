@@ -12,13 +12,13 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="[1055.0, -120.0]">
         </property>
     </property>
-    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={583, 72, 888, 584}, maximized=false}">
+    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-8, -8, 1936, 1056}, maximized=true}">
     </property>
-    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[660, 467]">
+    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1708, 939]">
     </property>
-    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="0.800000000000002">
+    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="0.8000000000000022">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{439.1198276538946, 208.55472430511944}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{934.9349800761621, 373.2917173759423}">
     </property>
     <entity name="CSVReader" class="ptolemy.actor.lib.io.CSVReader">
         <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="carsEAST.txt">
@@ -36,7 +36,7 @@
         </port>
     </entity>
     <entity name="WEST(7)" class="ptolemy.actor.lib.gui.Display">
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-4, 273, 444, 249}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 273, 444, 249}, maximized=false}">
         </property>
         <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[428, 189]">
         </property>
@@ -44,7 +44,7 @@
         </property>
     </entity>
     <entity name="SOUTH(2)" class="ptolemy.actor.lib.gui.Display">
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-4, 2, 445, 278}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 2, 445, 278}, maximized=false}">
         </property>
         <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[429, 218]">
         </property>
@@ -52,7 +52,7 @@
         </property>
     </entity>
     <entity name="EAST(3)" class="ptolemy.actor.lib.gui.Display">
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-3, 515, 442, 246}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 515, 442, 246}, maximized=false}">
         </property>
         <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[426, 186]">
         </property>
@@ -135,7 +135,7 @@
         </port>
         <port name="EastIn" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[625.0, 415.0]">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[595.0, 415.0]">
             </property>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
             </property>
@@ -290,9 +290,9 @@
                     </property>
                 </property>
             </property>
-            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="2.0">
+            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="SOUTH">
             </property>
-            <property name="EAST" class="ptolemy.data.expr.Parameter" value="3">
+            <property name="EAST" class="ptolemy.data.expr.Parameter" value="EAST">
             </property>
             <port name="car" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -384,9 +384,9 @@
                     </property>
                 </property>
             </property>
-            <property name="WEST" class="ptolemy.data.expr.Parameter" value="7">
+            <property name="WEST" class="ptolemy.data.expr.Parameter" value="WEST">
             </property>
-            <property name="EAST" class="ptolemy.data.expr.Parameter" value="3">
+            <property name="EAST" class="ptolemy.data.expr.Parameter" value="EAST">
             </property>
             <port name="car" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -493,32 +493,6 @@
                 </property>
             </port>
         </entity>
-        <entity name="street3-length" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="16.0">
-            </property>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[544.9912109375, 381.0107421875]">
-            </property>
-            <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
-            </property>
-        </entity>
-        <entity name="street2-length" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
-            </property>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[157.765625, 592.2265625]">
-            </property>
-            <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="false">
-            </property>
-        </entity>
-        <entity name="street-length" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="8.0">
-            </property>
-            <property name="minimumDelay" class="ptolemy.data.expr.Parameter" value="delay">
-            </property>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[130.0, 380.0]">
-            </property>
-            <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="false">
-            </property>
-        </entity>
         <entity name="Debug" class="ptolemy.actor.lib.gui.Display">
             <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={34, 663, 359, 246}, maximized=false}">
             </property>
@@ -545,40 +519,28 @@
         </relation>
         <relation name="relation8" class="ptolemy.actor.TypedIORelation">
         </relation>
-        <relation name="relation11" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation3" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation12" class="ptolemy.actor.TypedIORelation">
-        </relation>
         <relation name="relation7" class="ptolemy.actor.TypedIORelation">
         </relation>
-        <relation name="relation13" class="ptolemy.actor.TypedIORelation">
+        <relation name="relation3" class="ptolemy.actor.TypedIORelation">
         </relation>
         <link port="EastOut" relation="relation5"/>
         <link port="WestIn" relation="relation7"/>
         <link port="WestOut" relation="relation4"/>
         <link port="SouthIn" relation="relation3"/>
         <link port="SouthOut" relation="relation6"/>
-        <link port="EastIn" relation="relation11"/>
+        <link port="EastIn" relation="relation8"/>
         <link port="T-Intersection Right-Hand-Rule.carWEST" relation="relation10"/>
         <link port="T-Intersection Right-Hand-Rule.carEAST" relation="relation9"/>
         <link port="T-Intersection Right-Hand-Rule.carSOUTH" relation="relation2"/>
         <link port="T-Intersection Right-Hand-Rule.OWEST" relation="relation4"/>
         <link port="T-Intersection Right-Hand-Rule.OEAST" relation="relation5"/>
         <link port="T-Intersection Right-Hand-Rule.OSOUTH" relation="relation6"/>
-        <link port="setIndicatorWest.car" relation="relation13"/>
+        <link port="setIndicatorWest.car" relation="relation7"/>
         <link port="setIndicatorWest.output" relation="relation10"/>
-        <link port="setIndicatorSouth.car" relation="relation12"/>
+        <link port="setIndicatorSouth.car" relation="relation3"/>
         <link port="setIndicatorSouth.output" relation="relation2"/>
         <link port="setIndicatorEast.car" relation="relation8"/>
         <link port="setIndicatorEast.output" relation="relation9"/>
-        <link port="street3-length.input" relation="relation11"/>
-        <link port="street3-length.output" relation="relation8"/>
-        <link port="street2-length.input" relation="relation3"/>
-        <link port="street2-length.output" relation="relation12"/>
-        <link port="street-length.input" relation="relation7"/>
-        <link port="street-length.output" relation="relation13"/>
     </entity>
     <entity name="CSVReader2" class="ptolemy.actor.lib.io.CSVReader">
         <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="carsWEST.txt">
@@ -613,7 +575,7 @@
     <entity name="Cross-Intersection" class="ptolemy.actor.TypedCompositeActor">
         <property name="_location" class="ptolemy.kernel.util.Location" value="[450.0, 145.0]">
         </property>
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={258, 412, 972, 519}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={353, 298, 928, 616}, maximized=false}">
         </property>
         <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 499]">
         </property>
@@ -628,6 +590,8 @@
         <property name="WEST" class="ptolemy.data.expr.Parameter" value="7">
         </property>
         <property name="EAST" class="ptolemy.data.expr.Parameter" value="3">
+        </property>
+        <property name="NORTH" class="ptolemy.data.expr.Parameter" value="4">
         </property>
         <port name="EastOut" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
@@ -801,7 +765,7 @@
                 <property name="syntaxStyle" class="ptolemy.kernel.util.StringAttribute" value="text/javascript">
                 </property>
             </property>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[125.734375, 384.53125]">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[195.0, 385.0]">
             </property>
             <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
                 <property name="arc" class="ptolemy.vergil.kernel.attributes.ArcAttribute">
@@ -867,11 +831,11 @@
                     </property>
                 </property>
             </property>
-            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="2.0">
+            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="SOUTH">
             </property>
-            <property name="NORTH" class="ptolemy.data.expr.Parameter" value="4">
+            <property name="NORTH" class="ptolemy.data.expr.Parameter" value="NORTH">
             </property>
-            <property name="EAST" class="ptolemy.data.expr.Parameter" value="3">
+            <property name="EAST" class="ptolemy.data.expr.Parameter" value="EAST">
             </property>
             <port name="car" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -963,11 +927,11 @@
                     </property>
                 </property>
             </property>
-            <property name="WEST" class="ptolemy.data.expr.Parameter" value="7">
+            <property name="WEST" class="ptolemy.data.expr.Parameter" value="WEST">
             </property>
-            <property name="EAST" class="ptolemy.data.expr.Parameter" value="3">
+            <property name="EAST" class="ptolemy.data.expr.Parameter" value="EAST">
             </property>
-            <property name="NORTH" class="ptolemy.data.expr.Parameter" value="4">
+            <property name="NORTH" class="ptolemy.data.expr.Parameter" value="NORTH">
             </property>
             <port name="car" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -993,7 +957,7 @@
                 <property name="syntaxStyle" class="ptolemy.kernel.util.StringAttribute" value="text/javascript">
                 </property>
             </property>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[485.0, 390.0]">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[445.0, 385.0]">
             </property>
             <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
                 <property name="arc" class="ptolemy.vergil.kernel.attributes.ArcAttribute">
@@ -1059,11 +1023,11 @@
                     </property>
                 </property>
             </property>
-            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="2">
+            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="SOUTH">
             </property>
-            <property name="WEST" class="ptolemy.data.expr.Parameter" value="7">
+            <property name="WEST" class="ptolemy.data.expr.Parameter" value="WEST">
             </property>
-            <property name="NORTH" class="ptolemy.data.expr.Parameter" value="4">
+            <property name="NORTH" class="ptolemy.data.expr.Parameter" value="NORTH">
             </property>
             <port name="car" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -1159,13 +1123,13 @@
                     </property>
                 </property>
             </property>
-            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="2.0">
+            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="SOUTH">
             </property>
             <property name="_rotatePorts" class="ptolemy.data.expr.Parameter" value="90">
             </property>
-            <property name="WEST" class="ptolemy.data.expr.Parameter" value="7">
+            <property name="WEST" class="ptolemy.data.expr.Parameter" value="WEST">
             </property>
-            <property name="EAST" class="ptolemy.data.expr.Parameter" value="3">
+            <property name="EAST" class="ptolemy.data.expr.Parameter" value="EAST">
             </property>
             <port name="car" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -1176,7 +1140,7 @@
         </entity>
         <entity name="Display" class="ptolemy.actor.lib.gui.Display">
             <display name="Debug"/>
-            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={205, 647, 542, 246}, maximized=false}">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={942, 642, 542, 246}, maximized=false}">
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[526, 186]">
             </property>
