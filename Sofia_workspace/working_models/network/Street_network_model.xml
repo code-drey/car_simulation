@@ -18,7 +18,7 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="[700.0, -55.0]">
         </property>
     </property>
-    <property name="Street-Plotter-Flag" class="ptolemy.data.expr.Parameter" value="1">
+    <property name="StreetPlotterFlag" class="ptolemy.data.expr.Parameter" value="1">
         <property name="_hideName" class="ptolemy.kernel.util.SingletonAttribute">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.ValueIcon">
@@ -34,13 +34,17 @@
         </property>
         <property name="_editorFactory" class="ptolemy.vergil.toolbox.VisibleParameterEditorFactory">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{-540, -235}">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[660.0, -10.0]">
         </property>
     </property>
     <property name="enableBackwardTypeInference" class="ptolemy.data.expr.Parameter" value="false">
     </property>
     <entity name="PoissonClock" class="ptolemy.actor.lib.PoissonClock">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-282.25, -125.0]">
+        <property name="meanTime" class="ptolemy.data.expr.Parameter" value="3.0">
+        </property>
+        <property name="fireAtStart" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-297.5, -150.0]">
         </property>
     </entity>
     <entity name="PoissonClock2" class="ptolemy.actor.lib.PoissonClock">
@@ -50,11 +54,19 @@
         </property>
     </entity>
     <entity name="PoissonClock3" class="ptolemy.actor.lib.PoissonClock">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-510.0, 425.0]">
+        <property name="meanTime" class="ptolemy.data.expr.Parameter" value="8.0">
+        </property>
+        <property name="fireAtStart" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-425.0, 480.0]">
         </property>
     </entity>
     <entity name="PoissonClock4" class="ptolemy.actor.lib.PoissonClock">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-455.0, 235.0]">
+        <property name="meanTime" class="ptolemy.data.expr.Parameter" value="5.0">
+        </property>
+        <property name="fireAtStart" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-455.0, 260.0]">
         </property>
     </entity>
     <entity name="CSVReader" class="ptolemy.actor.lib.io.CSVReader">
@@ -62,7 +74,7 @@
         </property>
         <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-165.0, -115.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-180.25, -140.0]">
         </property>
         <port name="output" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
@@ -90,7 +102,7 @@
         </property>
         <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-400.0, 435.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-315.0, 490.0]">
         </property>
         <port name="output" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
@@ -103,7 +115,7 @@
         </property>
         <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-350.0, 245.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-350.0, 270.0]">
         </property>
         <port name="output" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
@@ -112,7 +124,7 @@
         </port>
     </entity>
     <entity name="Cross-Intersection(4)" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[475.0, 245.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[475.0, 270.0]">
         </property>
         <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={152, 152, 928, 616}, maximized=false}">
         </property>
@@ -274,8 +286,6 @@
             </port>
             <port name="display" class="ptolemy.actor.TypedIOPort">
                 <property name="output"/>
-                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-                </property>
                 <property name="_type" class="ptolemy.actor.TypeAttribute" value="double">
                 </property>
                 <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
@@ -365,11 +375,11 @@
                     </property>
                 </property>
             </property>
-            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="5">
+            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="SOUTH">
             </property>
-            <property name="NORTH" class="ptolemy.data.expr.Parameter" value="1">
+            <property name="NORTH" class="ptolemy.data.expr.Parameter" value="NORTH">
             </property>
-            <property name="EAST" class="ptolemy.data.expr.Parameter" value="12">
+            <property name="EAST" class="ptolemy.data.expr.Parameter" value="EAST">
             </property>
             <port name="car" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -461,11 +471,11 @@
                     </property>
                 </property>
             </property>
-            <property name="WEST" class="ptolemy.data.expr.Parameter" value="3">
+            <property name="WEST" class="ptolemy.data.expr.Parameter" value="WEST">
             </property>
-            <property name="EAST" class="ptolemy.data.expr.Parameter" value="12">
+            <property name="EAST" class="ptolemy.data.expr.Parameter" value="EAST">
             </property>
-            <property name="NORTH" class="ptolemy.data.expr.Parameter" value="1">
+            <property name="NORTH" class="ptolemy.data.expr.Parameter" value="NORTH">
             </property>
             <port name="car" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -557,11 +567,11 @@
                     </property>
                 </property>
             </property>
-            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="5">
+            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="SOUTH">
             </property>
-            <property name="WEST" class="ptolemy.data.expr.Parameter" value="3">
+            <property name="WEST" class="ptolemy.data.expr.Parameter" value="WEST">
             </property>
-            <property name="NORTH" class="ptolemy.data.expr.Parameter" value="1">
+            <property name="NORTH" class="ptolemy.data.expr.Parameter" value="NORTH">
             </property>
             <port name="car" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -657,13 +667,13 @@
                     </property>
                 </property>
             </property>
-            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="5">
+            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="SOUTH">
             </property>
             <property name="_rotatePorts" class="ptolemy.data.expr.Parameter" value="90">
             </property>
-            <property name="WEST" class="ptolemy.data.expr.Parameter" value="3">
+            <property name="WEST" class="ptolemy.data.expr.Parameter" value="WEST">
             </property>
-            <property name="EAST" class="ptolemy.data.expr.Parameter" value="12">
+            <property name="EAST" class="ptolemy.data.expr.Parameter" value="EAST">
             </property>
             <port name="car" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -697,8 +707,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="4.0" max="44.0996438851"/>
-<yRange min="0.0" max="4.0"/>
+<xRange min="4.0" max="67.9377752917"/>
+<yRange min="0.0" max="5.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -756,7 +766,7 @@
         <link port="TimedPlotter.input" relation="relation13"/>
     </entity>
     <entity name="T-Intersection (1)" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[180.0, -115.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[139.75, -140.0]">
         </property>
         <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={149, 141, 928, 616}, maximized=false}">
         </property>
@@ -773,6 +783,8 @@
         <property name="WEST" class="ptolemy.data.expr.Parameter" value="10">
         </property>
         <property name="EAST" class="ptolemy.data.expr.Parameter" value="2">
+        </property>
+        <property name="street" class="ptolemy.data.expr.Parameter" value="5">
         </property>
         <port name="EastOut" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
@@ -892,8 +904,6 @@
             </port>
             <port name="display" class="ptolemy.actor.TypedIOPort">
                 <property name="output"/>
-                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-                </property>
                 <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="NORTH">
                 </property>
                 <property name="_type" class="ptolemy.actor.TypeAttribute" value="double">
@@ -983,9 +993,9 @@
                     </property>
                 </property>
             </property>
-            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="4">
+            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="SOUTH">
             </property>
-            <property name="EAST" class="ptolemy.data.expr.Parameter" value="2">
+            <property name="EAST" class="ptolemy.data.expr.Parameter" value="EAST">
             </property>
             <port name="car" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -1077,9 +1087,9 @@
                     </property>
                 </property>
             </property>
-            <property name="WEST" class="ptolemy.data.expr.Parameter" value="10">
+            <property name="WEST" class="ptolemy.data.expr.Parameter" value="WEST">
             </property>
-            <property name="EAST" class="ptolemy.data.expr.Parameter" value="2">
+            <property name="EAST" class="ptolemy.data.expr.Parameter" value="EAST">
             </property>
             <port name="car" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -1171,9 +1181,9 @@
                     </property>
                 </property>
             </property>
-            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="2">
+            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="SOUTH">
             </property>
-            <property name="WEST" class="ptolemy.data.expr.Parameter" value="10">
+            <property name="WEST" class="ptolemy.data.expr.Parameter" value="WEST">
             </property>
             <port name="car" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -1197,11 +1207,11 @@
         <entity name="TimedPlotter" class="ptolemy.actor.lib.gui.TimedPlotter">
             <property name="legend" class="ptolemy.kernel.util.StringAttribute" value="carCount">
             </property>
-            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={24, 235, 642, 334}, maximized=false}">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 12, 642, 334}, maximized=false}">
             </property>
             <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[626, 274]">
             </property>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="{403.0, 305.109375}">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[415.0, 305.0]">
             </property>
             <configure>
 <?plotml <!DOCTYPE plot PUBLIC "-//UC Berkeley//DTD PlotML 1//EN"
@@ -1210,8 +1220,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="4.0" max="58.0996438851"/>
-<yRange min="0.0" max="4.0"/>
+<xRange min="11.1286293492" max="77.9377752917"/>
+<yRange min="0.0" max="3.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -1261,7 +1271,7 @@
         <link port="TimedPlotter.input" relation="relation11"/>
     </entity>
     <entity name="T-Intersection(5)" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-110.0, 435.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-25.0, 490.0]">
         </property>
         <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={152, 152, 928, 616}, maximized=false}">
         </property>
@@ -1397,8 +1407,6 @@
             </port>
             <port name="display" class="ptolemy.actor.TypedIOPort">
                 <property name="output"/>
-                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-                </property>
                 <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="NORTH">
                 </property>
                 <property name="_type" class="ptolemy.actor.TypeAttribute" value="double">
@@ -1488,9 +1496,9 @@
                     </property>
                 </property>
             </property>
-            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="4">
+            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="SOUTH">
             </property>
-            <property name="EAST" class="ptolemy.data.expr.Parameter" value="3">
+            <property name="EAST" class="ptolemy.data.expr.Parameter" value="EAST">
             </property>
             <port name="car" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -1582,9 +1590,9 @@
                     </property>
                 </property>
             </property>
-            <property name="WEST" class="ptolemy.data.expr.Parameter" value="13">
+            <property name="WEST" class="ptolemy.data.expr.Parameter" value="WEST">
             </property>
-            <property name="EAST" class="ptolemy.data.expr.Parameter" value="3">
+            <property name="EAST" class="ptolemy.data.expr.Parameter" value="EAST">
             </property>
             <port name="car" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -1676,9 +1684,9 @@
                     </property>
                 </property>
             </property>
-            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="4">
+            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="SOUTH">
             </property>
-            <property name="WEST" class="ptolemy.data.expr.Parameter" value="13">
+            <property name="WEST" class="ptolemy.data.expr.Parameter" value="WEST">
             </property>
             <port name="car" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -1702,7 +1710,7 @@
         <entity name="TimedPlotter" class="ptolemy.actor.lib.gui.TimedPlotter">
             <property name="legend" class="ptolemy.kernel.util.StringAttribute" value="carCount">
             </property>
-            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={654, 177, 711, 371}, maximized=false}">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={630, 7, 711, 371}, maximized=false}">
             </property>
             <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[695, 311]">
             </property>
@@ -1715,8 +1723,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="4.0" max="50.0996438851"/>
-<yRange min="0.0" max="5.0"/>
+<xRange min="8.772985846900001" max="58.613906305200004"/>
+<yRange min="0.0" max="3.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -1766,7 +1774,7 @@
         <link port="TimedPlotter.input" relation="relation11"/>
     </entity>
     <entity name="Cross-Intersection(3)" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[220.0, 245.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[220.0, 270.0]">
         </property>
         <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={102, 122, 928, 616}, maximized=false}">
         </property>
@@ -1785,6 +1793,8 @@
         <property name="EAST" class="ptolemy.data.expr.Parameter" value="4">
         </property>
         <property name="NORTH" class="ptolemy.data.expr.Parameter" value="2">
+        </property>
+        <property name="street" class="ptolemy.data.expr.Parameter" value="5">
         </property>
         <port name="EastOut" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
@@ -1928,8 +1938,6 @@
             </port>
             <port name="display" class="ptolemy.actor.TypedIOPort">
                 <property name="output"/>
-                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-                </property>
                 <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
                 </property>
                 <property name="_type" class="ptolemy.actor.TypeAttribute" value="double">
@@ -2019,11 +2027,11 @@
                     </property>
                 </property>
             </property>
-            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="5">
+            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="SOUTH">
             </property>
-            <property name="NORTH" class="ptolemy.data.expr.Parameter" value="2">
+            <property name="NORTH" class="ptolemy.data.expr.Parameter" value="NORTH">
             </property>
-            <property name="EAST" class="ptolemy.data.expr.Parameter" value="4">
+            <property name="EAST" class="ptolemy.data.expr.Parameter" value="EAST">
             </property>
             <port name="car" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -2115,11 +2123,11 @@
                     </property>
                 </property>
             </property>
-            <property name="WEST" class="ptolemy.data.expr.Parameter" value="14">
+            <property name="WEST" class="ptolemy.data.expr.Parameter" value="WEST">
             </property>
-            <property name="EAST" class="ptolemy.data.expr.Parameter" value="4">
+            <property name="EAST" class="ptolemy.data.expr.Parameter" value="EAST">
             </property>
-            <property name="NORTH" class="ptolemy.data.expr.Parameter" value="2">
+            <property name="NORTH" class="ptolemy.data.expr.Parameter" value="NORTH">
             </property>
             <port name="car" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -2211,11 +2219,11 @@
                     </property>
                 </property>
             </property>
-            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="5">
+            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="SOUTH">
             </property>
-            <property name="WEST" class="ptolemy.data.expr.Parameter" value="14">
+            <property name="WEST" class="ptolemy.data.expr.Parameter" value="WEST">
             </property>
-            <property name="NORTH" class="ptolemy.data.expr.Parameter" value="2">
+            <property name="NORTH" class="ptolemy.data.expr.Parameter" value="NORTH">
             </property>
             <port name="car" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -2311,13 +2319,13 @@
                     </property>
                 </property>
             </property>
-            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="5">
+            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="SOUTH">
             </property>
             <property name="_rotatePorts" class="ptolemy.data.expr.Parameter" value="90">
             </property>
-            <property name="WEST" class="ptolemy.data.expr.Parameter" value="14">
+            <property name="WEST" class="ptolemy.data.expr.Parameter" value="WEST">
             </property>
-            <property name="EAST" class="ptolemy.data.expr.Parameter" value="4">
+            <property name="EAST" class="ptolemy.data.expr.Parameter" value="EAST">
             </property>
             <port name="car" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -2335,14 +2343,14 @@
             <property name="_location" class="ptolemy.kernel.util.Location" value="[410.0, 525.0]">
             </property>
         </entity>
-        <entity name="TimedPlotter" class="ptolemy.actor.lib.gui.TimedPlotter">
+        <entity name="TimedPlotter2" class="ptolemy.actor.lib.gui.TimedPlotter">
             <property name="legend" class="ptolemy.kernel.util.StringAttribute" value="carCount">
             </property>
-            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={4, 15, 703, 317}, maximized=false}">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={568, 234, 642, 334}, maximized=false}">
             </property>
-            <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[687, 257]">
+            <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[626, 274]">
             </property>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[277.55371348063153, 519.4795684814453]">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[270.0, 500.0]">
             </property>
             <configure>
 <?plotml <!DOCTYPE plot PUBLIC "-//UC Berkeley//DTD PlotML 1//EN"
@@ -2351,8 +2359,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="4.0" max="46.0996438851"/>
-<yRange min="0.0" max="11.0"/>
+<xRange min="8.0" max="63.9377752917"/>
+<yRange min="0.0" max="7.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -2407,7 +2415,7 @@
         <link port="setIndicatorEast.output" relation="relation9"/>
         <link port="setIndicatorNorth.car" relation="relation11"/>
         <link port="setIndicatorNorth.output" relation="relation12"/>
-        <link port="TimedPlotter.input" relation="relation13"/>
+        <link port="TimedPlotter2.input" relation="relation13"/>
     </entity>
     <entity name="T-Intersection(2)" class="ptolemy.actor.TypedCompositeActor">
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-5.0, 70.0]">
@@ -2546,8 +2554,6 @@
             </port>
             <port name="display" class="ptolemy.actor.TypedIOPort">
                 <property name="output"/>
-                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-                </property>
                 <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="NORTH">
                 </property>
                 <property name="_type" class="ptolemy.actor.TypeAttribute" value="double">
@@ -2637,9 +2643,9 @@
                     </property>
                 </property>
             </property>
-            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="3">
+            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="SOUTH">
             </property>
-            <property name="EAST" class="ptolemy.data.expr.Parameter" value="1">
+            <property name="EAST" class="ptolemy.data.expr.Parameter" value="EAST">
             </property>
             <port name="car" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -2731,9 +2737,9 @@
                     </property>
                 </property>
             </property>
-            <property name="WEST" class="ptolemy.data.expr.Parameter" value="11">
+            <property name="WEST" class="ptolemy.data.expr.Parameter" value="WEST">
             </property>
-            <property name="EAST" class="ptolemy.data.expr.Parameter" value="1">
+            <property name="EAST" class="ptolemy.data.expr.Parameter" value="EAST">
             </property>
             <port name="car" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -2828,9 +2834,9 @@
                     </property>
                 </property>
             </property>
-            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="3">
+            <property name="SOUTH" class="ptolemy.data.expr.Parameter" value="SOUTH">
             </property>
-            <property name="WEST" class="ptolemy.data.expr.Parameter" value="11">
+            <property name="WEST" class="ptolemy.data.expr.Parameter" value="WEST">
             </property>
             <port name="car" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -2854,7 +2860,7 @@
         <entity name="TimedPlotter" class="ptolemy.actor.lib.gui.TimedPlotter">
             <property name="legend" class="ptolemy.kernel.util.StringAttribute" value="carCount">
             </property>
-            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={7, 391, 705, 319}, maximized=false}">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 342, 705, 319}, maximized=false}">
             </property>
             <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[689, 259]">
             </property>
@@ -2867,8 +2873,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="4.0" max="52.0996438851"/>
-<yRange min="0.0" max="5.0"/>
+<xRange min="1.1286293492000001" max="52.613906305200004"/>
+<yRange min="0.0" max="3.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -2914,6 +2920,8 @@
         <link port="TimedPlotter.input" relation="relation8"/>
     </entity>
     <entity name="PoissonClock5" class="ptolemy.actor.lib.PoissonClock">
+        <property name="fireAtStart" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-430.0, 60.0]">
         </property>
     </entity>
@@ -2948,7 +2956,7 @@
         </property>
     </entity>
     <entity name="Counter6" class="ptolemy.actor.lib.Counter">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-247.25, -45.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-155.0, -75.0]">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
@@ -2963,7 +2971,7 @@
             <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="displayWidth">
             </property>
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-407.25, -45.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-315.0, -75.0]">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
@@ -2992,7 +3000,7 @@
         </property>
     </entity>
     <entity name="Counter2" class="ptolemy.actor.lib.Counter">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-280.0, 300.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-280.0, 325.0]">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
@@ -3007,13 +3015,13 @@
             <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="displayWidth">
             </property>
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-440.0, 300.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-440.0, 325.0]">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
     </entity>
     <entity name="Counter3" class="ptolemy.actor.lib.Counter">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-385.0, 505.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-300.0, 560.0]">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
@@ -3028,7 +3036,7 @@
             <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="displayWidth">
             </property>
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-545.0, 505.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-460.0, 560.0]">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
@@ -3084,6 +3092,10 @@
         </property>
         <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{773.2700219849248, 521.213567839196}">
         </property>
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="1">
+        </property>
+        <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
+        </property>
         <port name="left-right-input" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
@@ -3129,13 +3141,13 @@
             </property>
         </port>
         <entity name="TimeDelay" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="streetLength">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[370.0, 455.0]">
             </property>
         </entity>
         <entity name="TimeDelay2" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="streetLength">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[385.0, 620.0]">
             </property>
@@ -3145,7 +3157,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		counter++;&#10;		this.send('display', counter);&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		counter--;&#10;		this.send('display', counter);&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter++;&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter--;&#10;			this.send('display', counter);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -3162,6 +3174,8 @@
             <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
             </property>
             <property name="_flipPortsVertical" class="ptolemy.data.expr.Parameter" value="true">
+            </property>
+            <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="analysisFlag">
             </property>
             <port name="input" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -3182,7 +3196,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		counter++;&#10;		this.send('display', counter);&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		counter--;&#10;		this.send('display', counter);&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter++;&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter--;&#10;			this.send('display', counter);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -3197,6 +3211,8 @@
             <property name="_location" class="ptolemy.kernel.util.Location" value="[540.0, 620.0]">
             </property>
             <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+            <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="analysisFlag">
             </property>
             <port name="input" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -3228,7 +3244,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="4.0" max="38.0996438851"/>
+<xRange min="1.1286293492000001" max="53.613906305200004"/>
 <yRange min="0.0" max="1.0"/>
 </plot>?>
             </configure>
@@ -3267,7 +3283,7 @@
         <link port="TimedPlotter.input" relation="relation8"/>
     </entity>
     <entity name="Street8" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[130.0, 70.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[230.0, 70.0]">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">
@@ -3317,6 +3333,10 @@
         </property>
         <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{773.2700219849248, 521.213567839196}">
         </property>
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="8">
+        </property>
+        <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
+        </property>
         <port name="left-right-input" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
@@ -3362,13 +3382,13 @@
             </property>
         </port>
         <entity name="TimeDelay" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="streetLength">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[370.0, 455.0]">
             </property>
         </entity>
         <entity name="TimeDelay2" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="streetLength">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[385.0, 620.0]">
             </property>
@@ -3378,7 +3398,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		counter++;&#10;		this.send('display', counter);&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		counter--;&#10;		this.send('display', counter);&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter++;&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter--;&#10;			this.send('display', counter);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -3395,6 +3415,8 @@
             <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
             </property>
             <property name="_flipPortsVertical" class="ptolemy.data.expr.Parameter" value="true">
+            </property>
+            <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="analysisFlag">
             </property>
             <port name="input" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -3415,7 +3437,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		counter++;&#10;		this.send('display', counter);&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		counter--;&#10;		this.send('display', counter);&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter++;&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter--;&#10;			this.send('display', counter);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -3430,6 +3452,8 @@
             <property name="_location" class="ptolemy.kernel.util.Location" value="[540.0, 620.0]">
             </property>
             <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+            <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="analysisFlag">
             </property>
             <port name="input" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -3461,7 +3485,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="10.0" max="56.0996438851"/>
+<xRange min="11.1286293492" max="44.0"/>
 <yRange min="0.0" max="1.0"/>
 </plot>?>
             </configure>
@@ -3550,6 +3574,10 @@
         </property>
         <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{773.2700219849248, 521.213567839196}">
         </property>
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="8">
+        </property>
+        <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
+        </property>
         <port name="left-right-input" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
@@ -3595,13 +3623,13 @@
             </property>
         </port>
         <entity name="TimeDelay" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="streetLength">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[370.0, 455.0]">
             </property>
         </entity>
         <entity name="TimeDelay2" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="streetLength">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[385.0, 620.0]">
             </property>
@@ -3611,7 +3639,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		counter++;&#10;		this.send('display', counter);&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		counter--;&#10;		this.send('display', counter);&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter++;&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter--;&#10;			this.send('display', counter);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -3628,6 +3656,8 @@
             <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
             </property>
             <property name="_flipPortsVertical" class="ptolemy.data.expr.Parameter" value="true">
+            </property>
+            <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="analysisFlag">
             </property>
             <port name="input" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -3648,7 +3678,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		counter++;&#10;		this.send('display', counter);&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		counter--;&#10;		this.send('display', counter);&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter++;&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter--;&#10;			this.send('display', counter);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -3663,6 +3693,8 @@
             <property name="_location" class="ptolemy.kernel.util.Location" value="[540.0, 620.0]">
             </property>
             <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+            <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="analysisFlag">
             </property>
             <port name="input" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -3694,7 +3726,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="12.0" max="42.0996438851"/>
+<xRange min="23.1286293492" max="75.9377752917"/>
 <yRange min="0.0" max="1.0"/>
 </plot>?>
             </configure>
@@ -3733,7 +3765,7 @@
         <link port="TimedPlotter.input" relation="relation8"/>
     </entity>
     <entity name="Street10" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[68.25540970078714, 170.73492393301973]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[95.0, 165.0]">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">
@@ -3783,6 +3815,10 @@
         </property>
         <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{773.2700219849248, 521.213567839196}">
         </property>
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="4">
+        </property>
+        <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
+        </property>
         <port name="left-right-input" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
@@ -3828,13 +3864,13 @@
             </property>
         </port>
         <entity name="TimeDelay" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="streetLength">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[370.0, 455.0]">
             </property>
         </entity>
         <entity name="TimeDelay2" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="streetLength">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[385.0, 620.0]">
             </property>
@@ -3844,7 +3880,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		counter++;&#10;		this.send('display', counter);&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		counter--;&#10;		this.send('display', counter);&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter++;&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter--;&#10;			this.send('display', counter);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -3861,6 +3897,8 @@
             <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
             </property>
             <property name="_flipPortsVertical" class="ptolemy.data.expr.Parameter" value="true">
+            </property>
+            <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="analysisFlag">
             </property>
             <port name="input" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -3881,7 +3919,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		counter++;&#10;		this.send('display', counter);&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		counter--;&#10;		this.send('display', counter);&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter++;&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter--;&#10;			this.send('display', counter);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -3896,6 +3934,8 @@
             <property name="_location" class="ptolemy.kernel.util.Location" value="[540.0, 620.0]">
             </property>
             <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+            <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="analysisFlag">
             </property>
             <port name="input" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -3927,7 +3967,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="10.0" max="50.0996438851"/>
+<xRange min="9.403631842400001" max="50.613906305200004"/>
 <yRange min="0.0" max="1.0"/>
 </plot>?>
             </configure>
@@ -3966,7 +4006,7 @@
         <link port="TimedPlotter.input" relation="relation8"/>
     </entity>
     <entity name="Street3" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-90.0, 245.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-90.0, 270.0]">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">
@@ -4016,6 +4056,10 @@
         </property>
         <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{773.2700219849248, 521.213567839196}">
         </property>
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="8">
+        </property>
+        <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
+        </property>
         <port name="left-right-input" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
@@ -4061,13 +4105,13 @@
             </property>
         </port>
         <entity name="TimeDelay" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="streetLength">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[370.0, 455.0]">
             </property>
         </entity>
         <entity name="TimeDelay2" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="streetLength">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[385.0, 620.0]">
             </property>
@@ -4077,7 +4121,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		counter++;&#10;		this.send('display', counter);&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		counter--;&#10;		this.send('display', counter);&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter++;&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter--;&#10;			this.send('display', counter);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -4094,6 +4138,8 @@
             <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
             </property>
             <property name="_flipPortsVertical" class="ptolemy.data.expr.Parameter" value="true">
+            </property>
+            <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="analysisFlag">
             </property>
             <port name="input" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -4114,7 +4160,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		counter++;&#10;		this.send('display', counter);&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		counter--;&#10;		this.send('display', counter);&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter++;&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter--;&#10;			this.send('display', counter);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -4129,6 +4175,8 @@
             <property name="_location" class="ptolemy.kernel.util.Location" value="[540.0, 620.0]">
             </property>
             <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+            <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="analysisFlag">
             </property>
             <port name="input" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -4160,7 +4208,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="4.0" max="46.0996438851"/>
+<xRange min="14.843077107000001" max="48.6816372735"/>
 <yRange min="0.0" max="1.0"/>
 </plot>?>
             </configure>
@@ -4199,7 +4247,7 @@
         <link port="TimedPlotter.input" relation="relation8"/>
     </entity>
     <entity name="Street4" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{-245.0, 435.0}">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-160.0, 490.0]">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">
@@ -4249,6 +4297,10 @@
         </property>
         <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{773.2700219849248, 521.213567839196}">
         </property>
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="4">
+        </property>
+        <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
+        </property>
         <port name="left-right-input" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
@@ -4294,13 +4346,13 @@
             </property>
         </port>
         <entity name="TimeDelay" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="streetLength">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[370.0, 455.0]">
             </property>
         </entity>
         <entity name="TimeDelay2" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="streetLength">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[385.0, 620.0]">
             </property>
@@ -4310,7 +4362,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		counter++;&#10;		this.send('display', counter);&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		counter--;&#10;		this.send('display', counter);&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter++;&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter--;&#10;			this.send('display', counter);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -4327,6 +4379,8 @@
             <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
             </property>
             <property name="_flipPortsVertical" class="ptolemy.data.expr.Parameter" value="true">
+            </property>
+            <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="analysisFlag">
             </property>
             <port name="input" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -4347,7 +4401,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		counter++;&#10;		this.send('display', counter);&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		counter--;&#10;		this.send('display', counter);&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter++;&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter--;&#10;			this.send('display', counter);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -4362,6 +4416,8 @@
             <property name="_location" class="ptolemy.kernel.util.Location" value="[540.0, 620.0]">
             </property>
             <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+            <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="analysisFlag">
             </property>
             <port name="input" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -4393,7 +4449,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="4.0" max="54.0996438851"/>
+<xRange min="8.772985846900001" max="62.613906305200004"/>
 <yRange min="0.0" max="1.0"/>
 </plot>?>
             </configure>
@@ -4432,7 +4488,7 @@
         <link port="TimedPlotter.input" relation="relation8"/>
     </entity>
     <entity name="Street9" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[75.0, 435.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[160.0, 490.0]">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">
@@ -4482,6 +4538,10 @@
         </property>
         <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{773.2700219849248, 521.213567839196}">
         </property>
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="8">
+        </property>
+        <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
+        </property>
         <port name="left-right-input" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
@@ -4527,13 +4587,13 @@
             </property>
         </port>
         <entity name="TimeDelay" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="streetLength">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[370.0, 455.0]">
             </property>
         </entity>
         <entity name="TimeDelay2" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="streetLength">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[385.0, 620.0]">
             </property>
@@ -4543,7 +4603,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		counter++;&#10;		this.send('display', counter);&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		counter--;&#10;		this.send('display', counter);&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter++;&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter--;&#10;			this.send('display', counter);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -4560,6 +4620,8 @@
             <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
             </property>
             <property name="_flipPortsVertical" class="ptolemy.data.expr.Parameter" value="true">
+            </property>
+            <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="analysisFlag">
             </property>
             <port name="input" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -4580,7 +4642,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		counter++;&#10;		this.send('display', counter);&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		counter--;&#10;		this.send('display', counter);&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter++;&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter--;&#10;			this.send('display', counter);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -4595,6 +4657,8 @@
             <property name="_location" class="ptolemy.kernel.util.Location" value="[540.0, 620.0]">
             </property>
             <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+            <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="analysisFlag">
             </property>
             <port name="input" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -4626,7 +4690,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="10.0" max="48.0996438851"/>
+<xRange min="18.7729858469" max="61.9377752917"/>
 <yRange min="0.0" max="1.0"/>
 </plot>?>
             </configure>
@@ -4665,7 +4729,7 @@
         <link port="TimedPlotter.input" relation="relation8"/>
     </entity>
     <entity name="Street5" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{95.35238693467375, 535.6750942211047}">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[315.0, 585.0]">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">
@@ -4715,6 +4779,10 @@
         </property>
         <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{773.2700219849248, 521.213567839196}">
         </property>
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="16">
+        </property>
+        <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
+        </property>
         <port name="left-right-input" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
@@ -4760,13 +4828,13 @@
             </property>
         </port>
         <entity name="TimeDelay" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="streetLength">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[370.0, 455.0]">
             </property>
         </entity>
         <entity name="TimeDelay2" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="streetLength">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[385.0, 620.0]">
             </property>
@@ -4776,7 +4844,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		counter++;&#10;		this.send('display', counter);&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		counter--;&#10;		this.send('display', counter);&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter++;&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter--;&#10;			this.send('display', counter);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -4793,6 +4861,8 @@
             <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
             </property>
             <property name="_flipPortsVertical" class="ptolemy.data.expr.Parameter" value="true">
+            </property>
+            <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="analysisFlag">
             </property>
             <port name="input" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -4813,7 +4883,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		counter++;&#10;		this.send('display', counter);&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		counter--;&#10;		this.send('display', counter);&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter++;&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter--;&#10;			this.send('display', counter);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -4828,6 +4898,8 @@
             <property name="_location" class="ptolemy.kernel.util.Location" value="[540.0, 620.0]">
             </property>
             <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+            <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="analysisFlag">
             </property>
             <port name="input" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -4859,7 +4931,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="12.0" max="22.0688443502"/>
+<xRange min="31.9221203044" max="42.0"/>
 <yRange min="0.0" max="1.0"/>
 </plot>?>
             </configure>
@@ -4898,7 +4970,7 @@
         <link port="TimedPlotter.input" relation="relation8"/>
     </entity>
     <entity name="Street6" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{350.0, 245.0}">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[350.0, 270.0]">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">
@@ -4948,6 +5020,10 @@
         </property>
         <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{773.2700219849248, 521.213567839196}">
         </property>
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="2">
+        </property>
+        <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
+        </property>
         <port name="left-right-input" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
@@ -4993,13 +5069,13 @@
             </property>
         </port>
         <entity name="TimeDelay" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="streetLength">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[370.0, 455.0]">
             </property>
         </entity>
         <entity name="TimeDelay2" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="streetLength">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[385.0, 620.0]">
             </property>
@@ -5009,7 +5085,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		counter++;&#10;		this.send('display', counter);&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		counter--;&#10;		this.send('display', counter);&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter++;&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter--;&#10;			this.send('display', counter);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -5026,6 +5102,8 @@
             <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
             </property>
             <property name="_flipPortsVertical" class="ptolemy.data.expr.Parameter" value="true">
+            </property>
+            <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="analysisFlag">
             </property>
             <port name="input" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -5046,7 +5124,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		counter++;&#10;		this.send('display', counter);&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		counter--;&#10;		this.send('display', counter);&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter++;&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter--;&#10;			this.send('display', counter);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -5061,6 +5139,8 @@
             <property name="_location" class="ptolemy.kernel.util.Location" value="[540.0, 620.0]">
             </property>
             <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+            <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="analysisFlag">
             </property>
             <port name="input" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -5092,7 +5172,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="10.0" max="42.0996438851"/>
+<xRange min="8.0" max="65.9377752917"/>
 <yRange min="0.0" max="1.0"/>
 </plot>?>
             </configure>
@@ -5131,7 +5211,7 @@
         <link port="TimedPlotter.input" relation="relation8"/>
     </entity>
     <entity name="Street11" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{589.1023869346723, 245.05009422110544}">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[589.1023869346723, 270.05009422110544]">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">
@@ -5181,6 +5261,10 @@
         </property>
         <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{773.2700219849248, 521.213567839196}">
         </property>
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="4">
+        </property>
+        <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
+        </property>
         <port name="left-right-input" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
@@ -5226,13 +5310,13 @@
             </property>
         </port>
         <entity name="TimeDelay" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="streetLength">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[370.0, 455.0]">
             </property>
         </entity>
         <entity name="TimeDelay2" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="streetLength">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[385.0, 620.0]">
             </property>
@@ -5242,7 +5326,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		counter++;&#10;		this.send('display', counter);&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		counter--;&#10;		this.send('display', counter);&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter++;&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter--;&#10;			this.send('display', counter);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -5259,6 +5343,8 @@
             <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
             </property>
             <property name="_flipPortsVertical" class="ptolemy.data.expr.Parameter" value="true">
+            </property>
+            <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="analysisFlag">
             </property>
             <port name="input" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -5279,7 +5365,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		counter++;&#10;		this.send('display', counter);&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		counter--;&#10;		this.send('display', counter);&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter++;&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter--;&#10;			this.send('display', counter);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -5294,6 +5380,8 @@
             <property name="_location" class="ptolemy.kernel.util.Location" value="[540.0, 620.0]">
             </property>
             <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+            <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="analysisFlag">
             </property>
             <port name="input" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -5325,7 +5413,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="4.0" max="48.0996438851"/>
+<xRange min="4.0" max="44.613906305200004"/>
 <yRange min="0.0" max="1.0"/>
 </plot>?>
             </configure>
@@ -5364,7 +5452,7 @@
         <link port="TimedPlotter.input" relation="relation8"/>
     </entity>
     <entity name="Street" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-5.0, -115.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-20.25, -140.0]">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">
@@ -5414,6 +5502,10 @@
         </property>
         <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{773.2700219849248, 521.213567839196}">
         </property>
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="4">
+        </property>
+        <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
+        </property>
         <port name="left-right-input" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
@@ -5459,13 +5551,13 @@
             </property>
         </port>
         <entity name="TimeDelay" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="streetLength">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[370.0, 455.0]">
             </property>
         </entity>
         <entity name="TimeDelay2" class="ptolemy.actor.lib.TimeDelay">
-            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="4.0">
+            <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="streetLength">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[385.0, 620.0]">
             </property>
@@ -5475,7 +5567,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		counter++;&#10;		this.send('display', counter);&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		counter--;&#10;		this.send('display', counter);&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter++;&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter--;&#10;			this.send('display', counter);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -5492,6 +5584,8 @@
             <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
             </property>
             <property name="_flipPortsVertical" class="ptolemy.data.expr.Parameter" value="true">
+            </property>
+            <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="analysisFlag">
             </property>
             <port name="input" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -5512,7 +5606,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		counter++;&#10;		this.send('display', counter);&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		counter--;&#10;		this.send('display', counter);&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter++;&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		this.send('output', this.get('input'));&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			counter--;&#10;			this.send('display', counter);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -5527,6 +5621,8 @@
             <property name="_location" class="ptolemy.kernel.util.Location" value="[540.0, 620.0]">
             </property>
             <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+            <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="analysisFlag">
             </property>
             <port name="input" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
@@ -5545,7 +5641,7 @@
         <entity name="TimedPlotter" class="ptolemy.actor.lib.gui.TimedPlotter">
             <property name="legend" class="ptolemy.kernel.util.StringAttribute" value="counter: left-right, counter: right-left">
             </property>
-            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 520, 459, 199}, maximized=false}">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={268, 475, 459, 199}, maximized=false}">
             </property>
             <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[443, 139]">
             </property>
@@ -5558,7 +5654,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="4.0" max="62.0996438851"/>
+<xRange min="11.2059313214" max="81.9377752917"/>
 <yRange min="0.0" max="1.0"/>
 </plot>?>
             </configure>
