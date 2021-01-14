@@ -1,21 +1,13 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE entity PUBLIC "-//UC Berkeley//DTD MoML 1//EN"
     "http://ptolemy.eecs.berkeley.edu/xml/dtd/MoML_1.dtd">
-<entity name="Street_network_model" class="ptolemy.actor.TypedCompositeActor">
+<entity name="backup2" class="ptolemy.actor.TypedCompositeActor">
     <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="11.0.1_20180619">
-    </property>
-    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-8, -8, 1382, 744}, maximized=true}">
-    </property>
-    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1154, 627]">
-    </property>
-    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="0.6400000000000023">
-    </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{1200.06783919598, 214.25447550251255}">
     </property>
     <property name="DE Director" class="ptolemy.domains.de.kernel.DEDirector">
         <property name="synchronizeToRealTime" class="ptolemy.data.expr.Parameter" value="false">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[600.0, -135.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{2606.0, 635.0}">
         </property>
     </property>
     <property name="StreetPlotterFlag" class="ptolemy.data.expr.Parameter" value="1">
@@ -34,17 +26,53 @@
         </property>
         <property name="_editorFactory" class="ptolemy.vergil.toolbox.VisibleParameterEditorFactory">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[560.0, -90.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{2566.0, 680.0}">
         </property>
     </property>
-    <property name="enableBackwardTypeInference" class="ptolemy.data.expr.Parameter" value="false">
+    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={219, 75, 928, 617}, maximized=false}">
     </property>
+    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 500]">
+    </property>
+    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.0">
+    </property>
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{340.0, 240.0}">
+    </property>
+    <entity name="PoissonClock" class="ptolemy.actor.lib.PoissonClock">
+        <property name="meanTime" class="ptolemy.data.expr.Parameter" value="1.0">
+        </property>
+        <property name="fireAtStart" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{578.0, 235.0}">
+        </property>
+    </entity>
+    <entity name="PoissonClock2" class="ptolemy.actor.lib.PoissonClock">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{2353.0, 715.0}">
+        </property>
+        <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
+        </property>
+    </entity>
+    <entity name="PoissonClock3" class="ptolemy.actor.lib.PoissonClock">
+        <property name="meanTime" class="ptolemy.data.expr.Parameter" value="1.0">
+        </property>
+        <property name="fireAtStart" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{368.0, 865.0}">
+        </property>
+    </entity>
+    <entity name="PoissonClock4" class="ptolemy.actor.lib.PoissonClock">
+        <property name="meanTime" class="ptolemy.data.expr.Parameter" value="1.0">
+        </property>
+        <property name="fireAtStart" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{548.0, 645.0}">
+        </property>
+    </entity>
     <entity name="CSVReader" class="ptolemy.actor.lib.io.CSVReader">
         <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="cars1.txt">
         </property>
         <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-307.75, -140.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{695.25, 245.0}">
         </property>
         <port name="output" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
@@ -57,7 +85,7 @@
         </property>
         <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[1225.0, 340.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{2228.0, 725.0}">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
@@ -72,7 +100,7 @@
         </property>
         <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-525.0, 490.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{478.0, 875.0}">
         </property>
         <port name="output" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
@@ -85,7 +113,7 @@
         </property>
         <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-350.0, 270.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{653.0, 655.0}">
         </property>
         <port name="output" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
@@ -94,7 +122,7 @@
         </port>
     </entity>
     <entity name="T-Intersection (1)" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[195.0, -140.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1198.0, 245.0}">
         </property>
         <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={158, 84, 928, 616}, maximized=false}">
         </property>
@@ -237,8 +265,6 @@
             </port>
             <port name="trafficJamDetectorW" class="ptolemy.actor.TypedIOPort">
                 <property name="output"/>
-                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-                </property>
                 <property name="_type" class="ptolemy.actor.TypeAttribute" value="double">
                 </property>
                 <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
@@ -246,8 +272,6 @@
             </port>
             <port name="trafficJamDetectorE" class="ptolemy.actor.TypedIOPort">
                 <property name="output"/>
-                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-                </property>
                 <property name="_type" class="ptolemy.actor.TypeAttribute" value="double">
                 </property>
                 <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
@@ -255,8 +279,6 @@
             </port>
             <port name="trafficJamDetectorS" class="ptolemy.actor.TypedIOPort">
                 <property name="output"/>
-                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-                </property>
                 <property name="_type" class="ptolemy.actor.TypeAttribute" value="double">
                 </property>
                 <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="SOUTH">
@@ -575,8 +597,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="5.0" max="66.0"/>
-<yRange min="0.0" max="2.0"/>
+<xRange min="7.807206375100001" max="62.0327345946"/>
+<yRange min="0.0" max="4.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -600,8 +622,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="5.0" max="66.0"/>
-<yRange min="0.0" max="1.0"/>
+<xRange min="7.807206375100001" max="62.0327345946"/>
+<yRange min="0.0" max="4.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -663,7 +685,7 @@
         <link port="TimedPlotter2.input" relation="relation14"/>
     </entity>
     <entity name="Cross-Intersection(3)" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[220.0, 270.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1223.0, 655.0}">
         </property>
         <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={114, 40, 928, 616}, maximized=false}">
         </property>
@@ -836,8 +858,6 @@
             </port>
             <port name="trafficJamDetectorN" class="ptolemy.actor.TypedIOPort">
                 <property name="output"/>
-                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-                </property>
                 <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="NORTH">
                 </property>
                 <property name="_type" class="ptolemy.actor.TypeAttribute" value="double">
@@ -845,8 +865,6 @@
             </port>
             <port name="trafficJamDetectorE" class="ptolemy.actor.TypedIOPort">
                 <property name="output"/>
-                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-                </property>
                 <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
                 </property>
                 <property name="_type" class="ptolemy.actor.TypeAttribute" value="double">
@@ -854,8 +872,6 @@
             </port>
             <port name="trafficJamDetectorS" class="ptolemy.actor.TypedIOPort">
                 <property name="output"/>
-                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-                </property>
                 <property name="_type" class="ptolemy.actor.TypeAttribute" value="double">
                 </property>
                 <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="SOUTH">
@@ -863,8 +879,6 @@
             </port>
             <port name="trafficJamDetectorW" class="ptolemy.actor.TypedIOPort">
                 <property name="output"/>
-                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-                </property>
                 <property name="_type" class="ptolemy.actor.TypeAttribute" value="double">
                 </property>
                 <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
@@ -1286,8 +1300,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="5.0" max="50.0"/>
-<yRange min="0.0" max="8.0"/>
+<xRange min="10.0327345946" max="48.0327345946"/>
+<yRange min="0.0" max="10.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -1307,8 +1321,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="5.0" max="50.0"/>
-<yRange min="0.0" max="3.0"/>
+<xRange min="10.0327345946" max="48.0327345946"/>
+<yRange min="0.0" max="5.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -1381,12 +1395,18 @@
         <link port="TimedPlotter.input" relation="relation16"/>
         <link port="TimedPlotter.input" relation="relation17"/>
     </entity>
+    <entity name="PoissonClock5" class="ptolemy.actor.lib.PoissonClock">
+        <property name="fireAtStart" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{333.0, 445.0}">
+        </property>
+    </entity>
     <entity name="CSVReader5" class="ptolemy.actor.lib.io.CSVReader">
         <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="cars5.txt">
         </property>
         <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-565.0, 70.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{438.0, 455.0}">
         </property>
         <port name="output" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
@@ -1394,48 +1414,25 @@
             </property>
         </port>
     </entity>
-    <entity name="Counter5" class="ptolemy.actor.lib.Counter">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[1203.75, 205.0]">
-        </property>
-    </entity>
-    <entity name="Output 5" class="ptolemy.actor.lib.gui.MonitorValue">
-        <doc>Monitor and display values</doc>
-        <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="20">
-        </property>
-        <property name="_icon" class="ptolemy.vergil.icon.UpdatedValueIcon">
-            <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="value">
-            </property>
-            <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="displayWidth">
-            </property>
-        </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[1360.0, 205.0]">
-        </property>
-    </entity>
-    <entity name="Counter6" class="ptolemy.actor.lib.Counter">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-155.0, -75.0]">
-        </property>
-        <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
-        </property>
-    </entity>
-    <entity name="Output 1" class="ptolemy.actor.lib.gui.MonitorValue">
-        <doc>Monitor and display values</doc>
-        <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="20">
-        </property>
-        <property name="_icon" class="ptolemy.vergil.icon.UpdatedValueIcon">
-            <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="value">
-            </property>
-            <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="displayWidth">
-            </property>
-        </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-315.0, -75.0]">
-        </property>
-        <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
-        </property>
-        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="false">
-        </property>
-    </entity>
     <entity name="Counter" class="ptolemy.actor.lib.Counter">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-560.0, 135.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{2206.75, 590.0}">
+        </property>
+    </entity>
+    <entity name="Output " class="ptolemy.actor.lib.gui.MonitorValue">
+        <doc>Monitor and display values</doc>
+        <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="20">
+        </property>
+        <property name="_icon" class="ptolemy.vergil.icon.UpdatedValueIcon">
+            <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="value">
+            </property>
+            <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="displayWidth">
+            </property>
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{2363.0, 590.0}">
+        </property>
+    </entity>
+    <entity name="Counter2" class="ptolemy.actor.lib.Counter">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{848.0, 310.0}">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
@@ -1450,13 +1447,15 @@
             <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="displayWidth">
             </property>
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-720.0, 135.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{688.0, 310.0}">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="false">
+        </property>
     </entity>
-    <entity name="Counter2" class="ptolemy.actor.lib.Counter">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-125.0, 350.0]">
+    <entity name="Counter3" class="ptolemy.actor.lib.Counter">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{443.0, 520.0}">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
@@ -1471,13 +1470,13 @@
             <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="displayWidth">
             </property>
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-280.0, 350.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{283.0, 520.0}">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
     </entity>
-    <entity name="Counter3" class="ptolemy.actor.lib.Counter">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-510.0, 560.0]">
+    <entity name="Counter4" class="ptolemy.actor.lib.Counter">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{878.0, 735.0}">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
@@ -1492,13 +1491,34 @@
             <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="displayWidth">
             </property>
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-670.0, 560.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{723.0, 735.0}">
+        </property>
+        <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
+        </property>
+    </entity>
+    <entity name="Counter5" class="ptolemy.actor.lib.Counter">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{493.0, 945.0}">
+        </property>
+        <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
+        </property>
+    </entity>
+    <entity name="Output 5" class="ptolemy.actor.lib.gui.MonitorValue">
+        <doc>Monitor and display values</doc>
+        <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="20">
+        </property>
+        <property name="_icon" class="ptolemy.vergil.icon.UpdatedValueIcon">
+            <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="value">
+            </property>
+            <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="displayWidth">
+            </property>
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{333.0, 945.0}">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
     </entity>
     <entity name="Street" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-15.0, -140.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{988.0, 245.0}">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">
@@ -1600,8 +1620,6 @@
         </port>
         <port name="left-right-trigger" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
-            <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-            </property>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="NORTH">
             </property>
             <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
@@ -1611,8 +1629,6 @@
         </port>
         <port name="right-left-trigger" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
-            <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-            </property>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="SOUTH">
             </property>
             <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
@@ -1637,7 +1653,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		queue.unshift(this.get('input'));&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		counter = this.get('counter');&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		if (counter &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (counter-this.getParameter('streetLength'))*3);&#10;		} else {&#10;			while (queue.length != 0) {&#10;				this.send('output', queue.pop());&#10;			}&#10;		}&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', this.get('counter'));&#10;		}&#10;		&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			queue.unshift(this.get('input'));&#10;		} else {&#10;			if (queue.length != 0) {&#10;				while (queue.length != 0) {&#10;					this.send('output', queue.pop());&#10;				}&#10;			} else {&#10;				this.send('output', this.get('input'));&#10;			}&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (this.get('counter')-this.getParameter('streetLength'))*3);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -1674,15 +1690,11 @@
             </port>
             <port name="trigger" class="ptolemy.actor.TypedIOPort">
                 <property name="output"/>
-                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-                </property>
                 <property name="_type" class="ptolemy.actor.TypeAttribute" value="double">
                 </property>
             </port>
             <port name="counter" class="ptolemy.actor.TypedIOPort">
                 <property name="input"/>
-                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-                </property>
                 <property name="_type" class="ptolemy.actor.TypeAttribute" value="double">
                 </property>
             </port>
@@ -1703,8 +1715,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="1.0" max="71.0"/>
-<yRange min="0.0" max="2.0"/>
+<xRange min="7.2883282856000005" max="67.0327345946"/>
+<yRange min="0.0" max="5.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -1721,7 +1733,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		queue.unshift(this.get('input'));&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		counter = this.get('counter');&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		if (counter &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (counter-this.getParameter('streetLength'))*3);&#10;		} else {&#10;			while (queue.length != 0) {&#10;				this.send('output', queue.pop());&#10;			}&#10;		}&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', this.get('counter'));&#10;		}&#10;		&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			queue.unshift(this.get('input'));&#10;		} else {&#10;			if (queue.length != 0) {&#10;				while (queue.length != 0) {&#10;					this.send('output', queue.pop());&#10;				}&#10;			} else {&#10;				this.send('output', this.get('input'));&#10;			}&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (this.get('counter')-this.getParameter('streetLength'))*3);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -1836,10 +1848,10 @@
         <link port="counter3.trigger" relation="relation12"/>
         <link port="counter3.counter" relation="relation6"/>
     </entity>
-    <entity name="TimeDelay3" class="ptolemy.actor.lib.TimeDelay">
+    <entity name="TimeDelay" class="ptolemy.actor.lib.TimeDelay">
         <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-145.0, -150.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{858.0, 235.0}">
         </property>
         <port name="delay" class="ptolemy.actor.parameters.ParameterPort">
             <property name="input"/>
@@ -1847,10 +1859,10 @@
             </property>
         </port>
     </entity>
-    <entity name="TimeDelay" class="ptolemy.actor.lib.TimeDelay">
+    <entity name="TimeDelay2" class="ptolemy.actor.lib.TimeDelay">
         <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[70.0, -130.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1073.0, 255.0}">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
@@ -1860,8 +1872,8 @@
             </property>
         </port>
     </entity>
-    <entity name="Street10" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[140.0, 175.0]">
+    <entity name="Street2" class="ptolemy.actor.TypedCompositeActor">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1143.0, 560.0}">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">
@@ -1996,7 +2008,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		queue.unshift(this.get('input'));&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		counter = this.get('counter');&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		if (counter &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (counter-this.getParameter('streetLength'))*3);&#10;		} else {&#10;			while (queue.length != 0) {&#10;				this.send('output', queue.pop());&#10;			}&#10;		}&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', this.get('counter'));&#10;		}&#10;		&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			queue.unshift(this.get('input'));&#10;		} else {&#10;			if (queue.length != 0) {&#10;				while (queue.length != 0) {&#10;					this.send('output', queue.pop());&#10;				}&#10;			} else {&#10;				this.send('output', this.get('input'));&#10;			}&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (this.get('counter')-this.getParameter('streetLength'))*3);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -2058,8 +2070,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="8.0" max="57.0"/>
-<yRange min="0.0" max="2.0"/>
+<xRange min="18.8942956924" max="53.0327345946"/>
+<yRange min="0.0" max="3.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -2076,7 +2088,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		queue.unshift(this.get('input'));&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		counter = this.get('counter');&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		if (counter &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (counter-this.getParameter('streetLength'))*3);&#10;		} else {&#10;			while (queue.length != 0) {&#10;				this.send('output', queue.pop());&#10;			}&#10;		}&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', this.get('counter'));&#10;		}&#10;		&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			queue.unshift(this.get('input'));&#10;		} else {&#10;			if (queue.length != 0) {&#10;				while (queue.length != 0) {&#10;					this.send('output', queue.pop());&#10;				}&#10;			} else {&#10;				this.send('output', this.get('input'));&#10;			}&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (this.get('counter')-this.getParameter('streetLength'))*3);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -2191,10 +2203,10 @@
         <link port="counter3.trigger" relation="relation12"/>
         <link port="counter3.counter" relation="relation6"/>
     </entity>
-    <entity name="TimeDelay2" class="ptolemy.actor.lib.TimeDelay">
+    <entity name="TimeDelay3" class="ptolemy.actor.lib.TimeDelay">
         <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[35.0, 165.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1038.0, 550.0}">
         </property>
         <port name="delay" class="ptolemy.actor.parameters.ParameterPort">
             <property name="input"/>
@@ -2205,7 +2217,7 @@
     <entity name="TimeDelay4" class="ptolemy.actor.lib.TimeDelay">
         <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[225.0, 185.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1228.0, 570.0}">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
@@ -2215,8 +2227,8 @@
             </property>
         </port>
     </entity>
-    <entity name="Street6" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[490.0, 270.0]">
+    <entity name="Street3" class="ptolemy.actor.TypedCompositeActor">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1493.0, 655.0}">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">
@@ -2351,7 +2363,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		queue.unshift(this.get('input'));&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		counter = this.get('counter');&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		if (counter &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (counter-this.getParameter('streetLength'))*3);&#10;		} else {&#10;			while (queue.length != 0) {&#10;				this.send('output', queue.pop());&#10;			}&#10;		}&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', this.get('counter'));&#10;		}&#10;		&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			queue.unshift(this.get('input'));&#10;		} else {&#10;			if (queue.length != 0) {&#10;				while (queue.length != 0) {&#10;					this.send('output', queue.pop());&#10;				}&#10;			} else {&#10;				this.send('output', this.get('input'));&#10;			}&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (this.get('counter')-this.getParameter('streetLength'))*3);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -2413,7 +2425,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="8.0" max="51.0"/>
+<xRange min="16.248263639" max="47.0327345946"/>
 <yRange min="0.0" max="4.0"/>
 </plot>?>
             </configure>
@@ -2431,7 +2443,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		queue.unshift(this.get('input'));&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		counter = this.get('counter');&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		if (counter &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (counter-this.getParameter('streetLength'))*3);&#10;		} else {&#10;			while (queue.length != 0) {&#10;				this.send('output', queue.pop());&#10;			}&#10;		}&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', this.get('counter'));&#10;		}&#10;		&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			queue.unshift(this.get('input'));&#10;		} else {&#10;			if (queue.length != 0) {&#10;				while (queue.length != 0) {&#10;					this.send('output', queue.pop());&#10;				}&#10;			} else {&#10;				this.send('output', this.get('input'));&#10;			}&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (this.get('counter')-this.getParameter('streetLength'))*3);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -2546,10 +2558,10 @@
         <link port="counter3.trigger" relation="relation12"/>
         <link port="counter3.counter" relation="relation6"/>
     </entity>
-    <entity name="TimeDelay7" class="ptolemy.actor.lib.TimeDelay">
+    <entity name="TimeDelay5" class="ptolemy.actor.lib.TimeDelay">
         <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[385.0, 260.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1388.0, 645.0}">
         </property>
         <port name="delay" class="ptolemy.actor.parameters.ParameterPort">
             <property name="input"/>
@@ -2557,10 +2569,10 @@
             </property>
         </port>
     </entity>
-    <entity name="TimeDelay8" class="ptolemy.actor.lib.TimeDelay">
+    <entity name="TimeDelay6" class="ptolemy.actor.lib.TimeDelay">
         <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[575.0, 280.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1578.0, 665.0}">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
@@ -2570,8 +2582,8 @@
             </property>
         </port>
     </entity>
-    <entity name="Street3" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{-5.684987437184759, 298.8233354271355}">
+    <entity name="Street4" class="ptolemy.actor.TypedCompositeActor">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{997.3150125628152, 683.8233354271355}">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">
@@ -2621,11 +2633,11 @@
         </property>
         <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{546.9798994974874, 543.7073230072482}">
         </property>
-        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="2">
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="4">
         </property>
         <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
         </property>
-        <property name="duration" class="ptolemy.data.expr.Parameter" value="4">
+        <property name="duration" class="ptolemy.data.expr.Parameter" value="8">
         </property>
         <port name="left-right-input" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
@@ -2706,7 +2718,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		queue.unshift(this.get('input'));&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		counter = this.get('counter');&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		if (counter &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (counter-this.getParameter('streetLength'))*3);&#10;		} else {&#10;			while (queue.length != 0) {&#10;				this.send('output', queue.pop());&#10;			}&#10;		}&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', this.get('counter'));&#10;		}&#10;		&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			queue.unshift(this.get('input'));&#10;		} else {&#10;			if (queue.length != 0) {&#10;				while (queue.length != 0) {&#10;					this.send('output', queue.pop());&#10;				}&#10;			} else {&#10;				this.send('output', this.get('input'));&#10;			}&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (this.get('counter')-this.getParameter('streetLength'))*3);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -2755,9 +2767,9 @@
         <entity name="TimedPlotter" class="ptolemy.actor.lib.gui.TimedPlotter">
             <property name="legend" class="ptolemy.kernel.util.StringAttribute" value="counter: left-right, counter: right-left">
             </property>
-            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={56, 121, 1316, 506}, maximized=false}">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={506, 428, 459, 199}, maximized=false}">
             </property>
-            <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[1300, 446]">
+            <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[443, 139]">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[600.0, 540.0]">
             </property>
@@ -2768,8 +2780,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="1.0" max="51.0"/>
-<yRange min="0.0" max="2.0"/>
+<xRange min="10.0327345946" max="51.0327345946"/>
+<yRange min="0.0" max="5.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -2786,7 +2798,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		queue.unshift(this.get('input'));&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		counter = this.get('counter');&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		if (counter &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (counter-this.getParameter('streetLength'))*3);&#10;		} else {&#10;			while (queue.length != 0) {&#10;				this.send('output', queue.pop());&#10;			}&#10;		}&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', this.get('counter'));&#10;		}&#10;		&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			queue.unshift(this.get('input'));&#10;		} else {&#10;			if (queue.length != 0) {&#10;				while (queue.length != 0) {&#10;					this.send('output', queue.pop());&#10;				}&#10;			} else {&#10;				this.send('output', this.get('input'));&#10;			}&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (this.get('counter')-this.getParameter('streetLength'))*3);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -2901,10 +2913,10 @@
         <link port="counter3.trigger" relation="relation12"/>
         <link port="counter3.counter" relation="relation6"/>
     </entity>
-    <entity name="TimeDelay5" class="ptolemy.actor.lib.TimeDelay">
+    <entity name="TimeDelay7" class="ptolemy.actor.lib.TimeDelay">
         <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-190.0, 260.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{867.3150125628152, 673.8233354271355}">
         </property>
         <port name="delay" class="ptolemy.actor.parameters.ParameterPort">
             <property name="input"/>
@@ -2912,10 +2924,10 @@
             </property>
         </port>
     </entity>
-    <entity name="TimeDelay6" class="ptolemy.actor.lib.TimeDelay">
+    <entity name="TimeDelay8" class="ptolemy.actor.lib.TimeDelay">
         <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{79.31501256281524, 308.8233354271355}">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1082.3150125628154, 693.8233354271355}">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
@@ -2925,8 +2937,8 @@
             </property>
         </port>
     </entity>
-    <entity name="Street9" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[180.0, 490.0]">
+    <entity name="Street5" class="ptolemy.actor.TypedCompositeActor">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1183.0, 875.0}">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">
@@ -3061,7 +3073,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		queue.unshift(this.get('input'));&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		counter = this.get('counter');&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		if (counter &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (counter-this.getParameter('streetLength'))*3);&#10;		} else {&#10;			while (queue.length != 0) {&#10;				this.send('output', queue.pop());&#10;			}&#10;		}&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', this.get('counter'));&#10;		}&#10;		&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			queue.unshift(this.get('input'));&#10;		} else {&#10;			if (queue.length != 0) {&#10;				while (queue.length != 0) {&#10;					this.send('output', queue.pop());&#10;				}&#10;			} else {&#10;				this.send('output', this.get('input'));&#10;			}&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (this.get('counter')-this.getParameter('streetLength'))*3);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -3123,7 +3135,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="8.0" max="59.0"/>
+<xRange min="17.9146102636" max="57.0327345946"/>
 <yRange min="0.0" max="2.0"/>
 </plot>?>
             </configure>
@@ -3141,7 +3153,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		queue.unshift(this.get('input'));&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		counter = this.get('counter');&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		if (counter &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (counter-this.getParameter('streetLength'))*3);&#10;		} else {&#10;			while (queue.length != 0) {&#10;				this.send('output', queue.pop());&#10;			}&#10;		}&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', this.get('counter'));&#10;		}&#10;		&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			queue.unshift(this.get('input'));&#10;		} else {&#10;			if (queue.length != 0) {&#10;				while (queue.length != 0) {&#10;					this.send('output', queue.pop());&#10;				}&#10;			} else {&#10;				this.send('output', this.get('input'));&#10;			}&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (this.get('counter')-this.getParameter('streetLength'))*3);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -3259,7 +3271,7 @@
     <entity name="TimeDelay9" class="ptolemy.actor.lib.TimeDelay">
         <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[100.0, 480.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1103.0, 865.0}">
         </property>
         <port name="delay" class="ptolemy.actor.parameters.ParameterPort">
             <property name="input"/>
@@ -3270,7 +3282,7 @@
     <entity name="TimeDelay10" class="ptolemy.actor.lib.TimeDelay">
         <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[270.0, 500.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1273.0, 885.0}">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
@@ -3281,7 +3293,7 @@
         </port>
     </entity>
     <entity name="T-Intersection (2)" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-30.0, 70.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{973.0, 455.0}">
         </property>
         <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={158, 84, 928, 616}, maximized=false}">
         </property>
@@ -3756,8 +3768,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="5.0" max="59.0"/>
-<yRange min="0.0" max="2.0"/>
+<xRange min="5.0471978325" max="55.0327345946"/>
+<yRange min="0.0" max="5.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -3781,8 +3793,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="5.0" max="59.0"/>
-<yRange min="0.0" max="1.0"/>
+<xRange min="5.0471978325" max="55.0327345946"/>
+<yRange min="0.0" max="5.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -3844,7 +3856,7 @@
         <link port="TimedPlotter2.input" relation="relation14"/>
     </entity>
     <entity name="T-Intersection (5)" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{-20.0, 490.0}">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{983.0, 875.0}">
         </property>
         <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={158, 84, 928, 616}, maximized=false}">
         </property>
@@ -4319,8 +4331,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="5.0" max="61.0"/>
-<yRange min="0.0" max="2.0"/>
+<xRange min="6.9146102636" max="59.0327345946"/>
+<yRange min="0.0" max="4.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -4344,8 +4356,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="5.0" max="61.0"/>
-<yRange min="0.0" max="2.0"/>
+<xRange min="6.9146102636" max="59.0327345946"/>
+<yRange min="0.0" max="4.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -4407,7 +4419,7 @@
         <link port="TimedPlotter2.input" relation="relation14"/>
     </entity>
     <entity name="Cross-Intersection(4)" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[725.0, 270.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1728.0, 655.0}">
         </property>
         <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={114, 40, 928, 616}, maximized=false}">
         </property>
@@ -5022,7 +5034,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="5.0" max="53.0"/>
+<xRange min="5.248263639" max="49.0327345946"/>
 <yRange min="0.0" max="4.0"/>
 </plot>?>
             </configure>
@@ -5043,8 +5055,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="5.0" max="53.0"/>
-<yRange min="0.0" max="2.0"/>
+<xRange min="5.248263639" max="49.0327345946"/>
+<yRange min="0.0" max="4.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -5117,8 +5129,8 @@
         <link port="TimedPlotter.input" relation="relation16"/>
         <link port="TimedPlotter.input" relation="relation17"/>
     </entity>
-    <entity name="Street7" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{485.4026381909532, 16.101994346734045}">
+    <entity name="Street6" class="ptolemy.actor.TypedCompositeActor">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1488.4026381909532, 401.10199434673405}">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">
@@ -5253,7 +5265,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		queue.unshift(this.get('input'));&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		counter = this.get('counter');&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		if (counter &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (counter-this.getParameter('streetLength'))*3);&#10;		} else {&#10;			while (queue.length != 0) {&#10;				this.send('output', queue.pop());&#10;			}&#10;		}&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', this.get('counter'));&#10;		}&#10;		&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			queue.unshift(this.get('input'));&#10;		} else {&#10;			if (queue.length != 0) {&#10;				while (queue.length != 0) {&#10;					this.send('output', queue.pop());&#10;				}&#10;			} else {&#10;				this.send('output', this.get('input'));&#10;			}&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (this.get('counter')-this.getParameter('streetLength'))*3);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -5315,8 +5327,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="11.0" max="54.0"/>
-<yRange min="0.0" max="2.0"/>
+<xRange min="16.8072063751" max="48.0327345946"/>
+<yRange min="0.0" max="1.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -5333,7 +5345,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		queue.unshift(this.get('input'));&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		counter = this.get('counter');&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		if (counter &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (counter-this.getParameter('streetLength'))*3);&#10;		} else {&#10;			while (queue.length != 0) {&#10;				this.send('output', queue.pop());&#10;			}&#10;		}&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', this.get('counter'));&#10;		}&#10;		&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			queue.unshift(this.get('input'));&#10;		} else {&#10;			if (queue.length != 0) {&#10;				while (queue.length != 0) {&#10;					this.send('output', queue.pop());&#10;				}&#10;			} else {&#10;				this.send('output', this.get('input'));&#10;			}&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (this.get('counter')-this.getParameter('streetLength'))*3);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -5451,7 +5463,7 @@
     <entity name="TimeDelay11" class="ptolemy.actor.lib.TimeDelay">
         <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{355.4026381909532, 6.101994346734045}">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1358.4026381909532, 391.10199434673405}">
         </property>
         <port name="delay" class="ptolemy.actor.parameters.ParameterPort">
             <property name="input"/>
@@ -5462,7 +5474,7 @@
     <entity name="TimeDelay12" class="ptolemy.actor.lib.TimeDelay">
         <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{570.4026381909532, 26.101994346734045}">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1573.4026381909532, 411.10199434673405}">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
@@ -5472,8 +5484,8 @@
             </property>
         </port>
     </entity>
-    <entity name="Street2" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-265.0, 75.0]">
+    <entity name="Street7" class="ptolemy.actor.TypedCompositeActor">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{738.0, 460.0}">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">
@@ -5608,7 +5620,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		queue.unshift(this.get('input'));&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		counter = this.get('counter');&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		if (counter &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (counter-this.getParameter('streetLength'))*3);&#10;		} else {&#10;			while (queue.length != 0) {&#10;				this.send('output', queue.pop());&#10;			}&#10;		}&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', this.get('counter'));&#10;		}&#10;		&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			queue.unshift(this.get('input'));&#10;		} else {&#10;			if (queue.length != 0) {&#10;				while (queue.length != 0) {&#10;					this.send('output', queue.pop());&#10;				}&#10;			} else {&#10;				this.send('output', this.get('input'));&#10;			}&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (this.get('counter')-this.getParameter('streetLength'))*3);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -5670,8 +5682,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="1.0" max="32.0"/>
-<yRange min="0.0" max="2.0"/>
+<xRange min="5.0471978325" max="34.0327345946"/>
+<yRange min="0.0" max="4.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -5688,7 +5700,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		queue.unshift(this.get('input'));&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		counter = this.get('counter');&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		if (counter &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (counter-this.getParameter('streetLength'))*3);&#10;		} else {&#10;			while (queue.length != 0) {&#10;				this.send('output', queue.pop());&#10;			}&#10;		}&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', this.get('counter'));&#10;		}&#10;		&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			queue.unshift(this.get('input'));&#10;		} else {&#10;			if (queue.length != 0) {&#10;				while (queue.length != 0) {&#10;					this.send('output', queue.pop());&#10;				}&#10;			} else {&#10;				this.send('output', this.get('input'));&#10;			}&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (this.get('counter')-this.getParameter('streetLength'))*3);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -5806,7 +5818,7 @@
     <entity name="TimeDelay13" class="ptolemy.actor.lib.TimeDelay">
         <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-395.0, 65.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{608.0, 450.0}">
         </property>
         <port name="delay" class="ptolemy.actor.parameters.ParameterPort">
             <property name="input"/>
@@ -5817,7 +5829,7 @@
     <entity name="TimeDelay14" class="ptolemy.actor.lib.TimeDelay">
         <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-180.0, 85.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{823.0, 470.0}">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
@@ -5827,8 +5839,8 @@
             </property>
         </port>
     </entity>
-    <entity name="Street5" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[550.0, 560.0]">
+    <entity name="Street8" class="ptolemy.actor.TypedCompositeActor">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1500.2264447236187, 1051.746780778894}">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">
@@ -5963,7 +5975,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		queue.unshift(this.get('input'));&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		counter = this.get('counter');&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		if (counter &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (counter-this.getParameter('streetLength'))*3);&#10;		} else {&#10;			while (queue.length != 0) {&#10;				this.send('output', queue.pop());&#10;			}&#10;		}&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', this.get('counter'));&#10;		}&#10;		&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			queue.unshift(this.get('input'));&#10;		} else {&#10;			if (queue.length != 0) {&#10;				while (queue.length != 0) {&#10;					this.send('output', queue.pop());&#10;				}&#10;			} else {&#10;				this.send('output', this.get('input'));&#10;			}&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (this.get('counter')-this.getParameter('streetLength'))*3);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -6025,8 +6037,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="11.0" max="24.0"/>
-<yRange min="0.0" max="1.0"/>
+<xRange min="15.9146102636" max="21.9146102636"/>
+<yRange min="0.0" max="0.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -6043,7 +6055,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		queue.unshift(this.get('input'));&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		counter = this.get('counter');&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		if (counter &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (counter-this.getParameter('streetLength'))*3);&#10;		} else {&#10;			while (queue.length != 0) {&#10;				this.send('output', queue.pop());&#10;			}&#10;		}&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', this.get('counter'));&#10;		}&#10;		&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			queue.unshift(this.get('input'));&#10;		} else {&#10;			if (queue.length != 0) {&#10;				while (queue.length != 0) {&#10;					this.send('output', queue.pop());&#10;				}&#10;			} else {&#10;				this.send('output', this.get('input'));&#10;			}&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (this.get('counter')-this.getParameter('streetLength'))*3);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -6161,7 +6173,7 @@
     <entity name="TimeDelay15" class="ptolemy.actor.lib.TimeDelay">
         <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[420.0, 550.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1370.2264447236187, 1041.746780778894}">
         </property>
         <port name="delay" class="ptolemy.actor.parameters.ParameterPort">
             <property name="input"/>
@@ -6172,7 +6184,7 @@
     <entity name="TimeDelay16" class="ptolemy.actor.lib.TimeDelay">
         <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[635.0, 570.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1585.2264447236187, 1061.746780778894}">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
@@ -6182,8 +6194,8 @@
             </property>
         </port>
     </entity>
-    <entity name="Street11" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{1020.6639447236171, 276.1217807788949}">
+    <entity name="Street9" class="ptolemy.actor.TypedCompositeActor">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{2023.663944723617, 661.1217807788948}">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">
@@ -6318,7 +6330,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		queue.unshift(this.get('input'));&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		counter = this.get('counter');&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		if (counter &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (counter-this.getParameter('streetLength'))*3);&#10;		} else {&#10;			while (queue.length != 0) {&#10;				this.send('output', queue.pop());&#10;			}&#10;		}&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', this.get('counter'));&#10;		}&#10;		&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			queue.unshift(this.get('input'));&#10;		} else {&#10;			if (queue.length != 0) {&#10;				while (queue.length != 0) {&#10;					this.send('output', queue.pop());&#10;				}&#10;			} else {&#10;				this.send('output', this.get('input'));&#10;			}&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (this.get('counter')-this.getParameter('streetLength'))*3);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -6380,8 +6392,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="1.0" max="58.0"/>
-<yRange min="0.0" max="2.0"/>
+<xRange min="5.0" max="54.0327345946"/>
+<yRange min="0.0" max="5.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -6398,7 +6410,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		queue.unshift(this.get('input'));&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		counter = this.get('counter');&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		if (counter &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (counter-this.getParameter('streetLength'))*3);&#10;		} else {&#10;			while (queue.length != 0) {&#10;				this.send('output', queue.pop());&#10;			}&#10;		}&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', this.get('counter'));&#10;		}&#10;		&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			queue.unshift(this.get('input'));&#10;		} else {&#10;			if (queue.length != 0) {&#10;				while (queue.length != 0) {&#10;					this.send('output', queue.pop());&#10;				}&#10;			} else {&#10;				this.send('output', this.get('input'));&#10;			}&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (this.get('counter')-this.getParameter('streetLength'))*3);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -6516,7 +6528,7 @@
     <entity name="TimeDelay17" class="ptolemy.actor.lib.TimeDelay">
         <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{890.6639447236171, 266.1217807788949}">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1893.663944723617, 651.1217807788948}">
         </property>
         <port name="delay" class="ptolemy.actor.parameters.ParameterPort">
             <property name="input"/>
@@ -6527,7 +6539,7 @@
     <entity name="TimeDelay18" class="ptolemy.actor.lib.TimeDelay">
         <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{1105.663944723617, 286.1217807788949}">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{2108.663944723617, 671.1217807788948}">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
@@ -6537,8 +6549,8 @@
             </property>
         </port>
     </entity>
-    <entity name="Street4" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-245.4902801513672, 491.47865295410156]">
+    <entity name="Street10" class="ptolemy.actor.TypedCompositeActor">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{757.5097198486328, 876.4786529541016}">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">
@@ -6673,7 +6685,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		queue.unshift(this.get('input'));&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		counter = this.get('counter');&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		if (counter &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (counter-this.getParameter('streetLength'))*3);&#10;		} else {&#10;			while (queue.length != 0) {&#10;				this.send('output', queue.pop());&#10;			}&#10;		}&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', this.get('counter'));&#10;		}&#10;		&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			queue.unshift(this.get('input'));&#10;		} else {&#10;			if (queue.length != 0) {&#10;				while (queue.length != 0) {&#10;					this.send('output', queue.pop());&#10;				}&#10;			} else {&#10;				this.send('output', this.get('input'));&#10;			}&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (this.get('counter')-this.getParameter('streetLength'))*3);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -6735,8 +6747,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="1.0" max="66.0"/>
-<yRange min="0.0" max="2.0"/>
+<xRange min="6.9146102636" max="64.0327345946"/>
+<yRange min="0.0" max="4.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -6753,7 +6765,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		queue.unshift(this.get('input'));&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		counter = this.get('counter');&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		if (counter &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (counter-this.getParameter('streetLength'))*3);&#10;		} else {&#10;			while (queue.length != 0) {&#10;				this.send('output', queue.pop());&#10;			}&#10;		}&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', this.get('counter'));&#10;		}&#10;		&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			queue.unshift(this.get('input'));&#10;		} else {&#10;			if (queue.length != 0) {&#10;				while (queue.length != 0) {&#10;					this.send('output', queue.pop());&#10;				}&#10;			} else {&#10;				this.send('output', this.get('input'));&#10;			}&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (this.get('counter')-this.getParameter('streetLength'))*3);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -6871,7 +6883,7 @@
     <entity name="TimeDelay19" class="ptolemy.actor.lib.TimeDelay">
         <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-375.4902801513672, 481.47865295410156]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{627.5097198486328, 866.4786529541016}">
         </property>
         <port name="delay" class="ptolemy.actor.parameters.ParameterPort">
             <property name="input"/>
@@ -6882,7 +6894,7 @@
     <entity name="TimeDelay20" class="ptolemy.actor.lib.TimeDelay">
         <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-160.4902801513672, 501.47865295410156]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{842.5097198486328, 886.4786529541016}">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
@@ -6892,8 +6904,8 @@
             </property>
         </port>
     </entity>
-    <entity name="Street8" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[210.0, 75.0]">
+    <entity name="Street11" class="ptolemy.actor.TypedCompositeActor">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1213.0, 460.0}">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">
@@ -7028,7 +7040,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		queue.unshift(this.get('input'));&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		counter = this.get('counter');&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		if (counter &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (counter-this.getParameter('streetLength'))*3);&#10;		} else {&#10;			while (queue.length != 0) {&#10;				this.send('output', queue.pop());&#10;			}&#10;		}&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', this.get('counter'));&#10;		}&#10;		&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			queue.unshift(this.get('input'));&#10;		} else {&#10;			if (queue.length != 0) {&#10;				while (queue.length != 0) {&#10;					this.send('output', queue.pop());&#10;				}&#10;			} else {&#10;				this.send('output', this.get('input'));&#10;			}&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (this.get('counter')-this.getParameter('streetLength'))*3);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -7090,7 +7102,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="8.0" max="64.0"/>
+<xRange min="12.0471978325" max="60.0327345946"/>
 <yRange min="0.0" max="1.0"/>
 </plot>?>
             </configure>
@@ -7108,7 +7120,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		queue.unshift(this.get('input'));&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		counter = this.get('counter');&#10;		&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', counter);&#10;		}&#10;		&#10;		if (counter &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (counter-this.getParameter('streetLength'))*3);&#10;		} else {&#10;			while (queue.length != 0) {&#10;				this.send('output', queue.pop());&#10;			}&#10;		}&#10;	});&#10;}">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// counter that simulates the street&#10;	var counter = 0;&#10;//queue to save the waiting cars&#10;	var queue = [];&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('input');&#10;    this.input('counter');&#10;    &#10;    //the Output-ports for the leaving cars&#10;    this.output('output');&#10;    this.output('display');&#10;    this.output('trigger');&#10;}&#10;&#10;exports.initialize = function () {&#10;	&#10;	this.addInputHandler('input', function() {&#10;		if (this.getParameter('analysisFlag') == 1) {&#10;			this.send('display', this.get('counter'));&#10;		}&#10;		&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			queue.unshift(this.get('input'));&#10;		} else {&#10;			if (queue.length != 0) {&#10;				while (queue.length != 0) {&#10;					this.send('output', queue.pop());&#10;				}&#10;			} else {&#10;				this.send('output', this.get('input'));&#10;			}&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('counter', function() {&#10;		if (this.get('counter') &gt; this.getParameter('streetLength')) {&#10;			this.send('trigger', (this.get('counter')-this.getParameter('streetLength'))*3);&#10;		}&#10;	});&#10;}">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -7226,7 +7238,7 @@
     <entity name="TimeDelay21" class="ptolemy.actor.lib.TimeDelay">
         <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[80.0, 65.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1083.0, 450.0}">
         </property>
         <port name="delay" class="ptolemy.actor.parameters.ParameterPort">
             <property name="input"/>
@@ -7237,7 +7249,7 @@
     <entity name="TimeDelay22" class="ptolemy.actor.lib.TimeDelay">
         <property name="delay" class="ptolemy.actor.parameters.PortParameter" value="1">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[295.0, 85.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1298.0, 470.0}">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
@@ -7247,60 +7259,113 @@
             </property>
         </port>
     </entity>
-    <entity name="DiscreteClock" class="ptolemy.actor.lib.DiscreteClock">
-        <property name="period" class="ptolemy.actor.parameters.PortParameter" value="3.0">
-        </property>
-        <doc>Create periodic timed events.</doc>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-485.0, 260.0]">
-        </property>
-    </entity>
-    <entity name="DiscreteClock2" class="ptolemy.actor.lib.DiscreteClock">
-        <property name="period" class="ptolemy.actor.parameters.PortParameter" value="3.0">
-        </property>
-        <doc>Create periodic timed events.</doc>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{-436.6626884422091, -149.30032977386804}">
-        </property>
-    </entity>
-    <entity name="DiscreteClock3" class="ptolemy.actor.lib.DiscreteClock">
-        <property name="period" class="ptolemy.actor.parameters.PortParameter" value="3.0">
-        </property>
-        <doc>Create periodic timed events.</doc>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{-680.4126884422083, 61.63717022613122}">
-        </property>
-    </entity>
-    <entity name="DiscreteClock4" class="ptolemy.actor.lib.DiscreteClock">
-        <property name="period" class="ptolemy.actor.parameters.PortParameter" value="3.0">
-        </property>
-        <doc>Create periodic timed events.</doc>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{-642.9126884422084, 467.88717022612974}">
-        </property>
-    </entity>
-    <entity name="DiscreteClock5" class="ptolemy.actor.lib.DiscreteClock">
-        <property name="period" class="ptolemy.actor.parameters.PortParameter" value="3.0">
-        </property>
-        <doc>Create periodic timed events.</doc>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{1361.2000628140697, 332.5756124371858}">
-        </property>
-        <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
-        </property>
-    </entity>
+    <relation name="relation" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation2" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation3" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation4" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation5" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation6" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation7" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation8" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation9" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation10" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation11" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation12" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation13" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation14" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation15" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation16" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation17" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation18" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation19" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation20" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation21" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation22" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation23" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation24" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation25" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation26" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation27" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation28" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation29" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation30" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation31" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation32" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation33" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation34" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation35" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation36" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation37" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation38" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation39" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation40" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation41" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation42" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation43" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation44" class="ptolemy.actor.TypedIORelation">
+    </relation>
     <relation name="relation45" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation46" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation47" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation48" class="ptolemy.actor.TypedIORelation">
     </relation>
+    <relation name="relation49" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation50" class="ptolemy.actor.TypedIORelation">
+    </relation>
     <relation name="relation51" class="ptolemy.actor.TypedIORelation">
     </relation>
-    <relation name="relation54" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation34" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation5" class="ptolemy.actor.TypedIORelation">
+    <relation name="relation52" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation53" class="ptolemy.actor.TypedIORelation">
     </relation>
-    <relation name="relation46" class="ptolemy.actor.TypedIORelation">
+    <relation name="relation54" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation55" class="ptolemy.actor.TypedIORelation">
     </relation>
@@ -7310,10 +7375,6 @@
     </relation>
     <relation name="relation58" class="ptolemy.actor.TypedIORelation">
     </relation>
-    <relation name="relation17" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation18" class="ptolemy.actor.TypedIORelation">
-    </relation>
     <relation name="relation59" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation60" class="ptolemy.actor.TypedIORelation">
@@ -7322,39 +7383,23 @@
     </relation>
     <relation name="relation62" class="ptolemy.actor.TypedIORelation">
     </relation>
-    <relation name="relation11" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation12" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation30" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation31" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation66" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation10" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation25" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation26" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation41" class="ptolemy.actor.TypedIORelation">
-    </relation>
     <relation name="relation63" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation65" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation64" class="ptolemy.actor.TypedIORelation">
     </relation>
+    <relation name="relation65" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation66" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation67" class="ptolemy.actor.TypedIORelation">
+    </relation>
     <relation name="relation68" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation69" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation70" class="ptolemy.actor.TypedIORelation">
     </relation>
-    <relation name="relation13" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation14" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation38" class="ptolemy.actor.TypedIORelation">
+    <relation name="relation71" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation72" class="ptolemy.actor.TypedIORelation">
     </relation>
@@ -7362,39 +7407,11 @@
     </relation>
     <relation name="relation74" class="ptolemy.actor.TypedIORelation">
     </relation>
-    <relation name="relation40" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation49" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation35" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation39" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation6" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation32" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation7" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation15" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation67" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation69" class="ptolemy.actor.TypedIORelation">
-    </relation>
     <relation name="relation75" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation76" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation77" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation19" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation20" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation22" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation23" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation78" class="ptolemy.actor.TypedIORelation">
     </relation>
@@ -7404,14 +7421,6 @@
     </relation>
     <relation name="relation81" class="ptolemy.actor.TypedIORelation">
     </relation>
-    <relation name="relation42" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation50" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation52" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation71" class="ptolemy.actor.TypedIORelation">
-    </relation>
     <relation name="relation82" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation83" class="ptolemy.actor.TypedIORelation">
@@ -7419,14 +7428,6 @@
     <relation name="relation84" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation85" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation28" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation29" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation43" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation44" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation86" class="ptolemy.actor.TypedIORelation">
     </relation>
@@ -7436,14 +7437,6 @@
     </relation>
     <relation name="relation89" class="ptolemy.actor.TypedIORelation">
     </relation>
-    <relation name="relation8" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation9" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation16" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation27" class="ptolemy.actor.TypedIORelation">
-    </relation>
     <relation name="relation90" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation91" class="ptolemy.actor.TypedIORelation">
@@ -7451,14 +7444,6 @@
     <relation name="relation92" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation93" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation24" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation33" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation36" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation37" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation94" class="ptolemy.actor.TypedIORelation">
     </relation>
@@ -7468,208 +7453,198 @@
     </relation>
     <relation name="relation97" class="ptolemy.actor.TypedIORelation">
     </relation>
-    <relation name="relation4" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation21" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation3" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation2" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <link port="CSVReader.output" relation="relation53"/>
+    <link port="PoissonClock.output" relation="relation"/>
+    <link port="PoissonClock2.output" relation="relation2"/>
+    <link port="PoissonClock3.output" relation="relation3"/>
+    <link port="PoissonClock4.output" relation="relation4"/>
+    <link port="CSVReader.output" relation="relation13"/>
     <link port="CSVReader.trigger" relation="relation"/>
-    <link port="CSVReader2.output" relation="relation86"/>
+    <link port="CSVReader2.output" relation="relation78"/>
     <link port="CSVReader2.trigger" relation="relation2"/>
-    <link port="CSVReader3.output" relation="relation16"/>
+    <link port="CSVReader3.output" relation="relation84"/>
     <link port="CSVReader3.trigger" relation="relation3"/>
-    <link port="CSVReader4.output" relation="relation26"/>
+    <link port="CSVReader4.output" relation="relation32"/>
     <link port="CSVReader4.trigger" relation="relation4"/>
     <link port="T-Intersection (1).EastOut" relation="relation97"/>
-    <link port="T-Intersection (1).WestIn" relation="relation55"/>
-    <link port="T-Intersection (1).WestOut" relation="relation56"/>
-    <link port="T-Intersection (1).SouthIn" relation="relation69"/>
-    <link port="T-Intersection (1).SouthOut" relation="relation67"/>
+    <link port="T-Intersection (1).WestIn" relation="relation15"/>
+    <link port="T-Intersection (1).WestOut" relation="relation16"/>
+    <link port="T-Intersection (1).SouthIn" relation="relation54"/>
+    <link port="T-Intersection (1).SouthOut" relation="relation53"/>
     <link port="T-Intersection (1).EastIn" relation="relation94"/>
-    <link port="Cross-Intersection(3).EastOut" relation="relation31"/>
-    <link port="Cross-Intersection(3).WestIn" relation="relation41"/>
-    <link port="Cross-Intersection(3).WestOut" relation="relation63"/>
-    <link port="Cross-Intersection(3).SouthIn" relation="relation72"/>
-    <link port="Cross-Intersection(3).SouthOut" relation="relation73"/>
-    <link port="Cross-Intersection(3).EastIn" relation="relation66"/>
-    <link port="Cross-Intersection(3).NorthIn" relation="relation60"/>
-    <link port="Cross-Intersection(3).NorthOut" relation="relation61"/>
-    <link port="CSVReader5.output" relation="relation22"/>
-    <link port="CSVReader5.trigger" relation="relation21"/>
-    <link port="Counter5.increment" relation="relation44"/>
-    <link port="Counter5.output" relation="relation45"/>
-    <link port="Output 5.input" relation="relation45"/>
-    <link port="Counter6.increment" relation="relation34"/>
-    <link port="Counter6.output" relation="relation47"/>
-    <link port="Output 1.input" relation="relation47"/>
-    <link port="Counter.increment" relation="relation23"/>
-    <link port="Counter.output" relation="relation48"/>
-    <link port="Output 2.input" relation="relation48"/>
-    <link port="Counter2.increment" relation="relation64"/>
-    <link port="Counter2.output" relation="relation51"/>
-    <link port="Output 3.input" relation="relation51"/>
-    <link port="Counter3.increment" relation="relation27"/>
-    <link port="Counter3.output" relation="relation54"/>
-    <link port="Output 4.input" relation="relation54"/>
-    <link port="Street.left-right-input" relation="relation5"/>
-    <link port="Street.left-right-output" relation="relation55"/>
-    <link port="Street.right-left-input" relation="relation57"/>
-    <link port="Street.right-left-output" relation="relation34"/>
-    <link port="Street.left-right-trigger" relation="relation46"/>
-    <link port="Street.right-left-trigger" relation="relation58"/>
-    <link port="TimeDelay3.input" relation="relation53"/>
-    <link port="TimeDelay3.output" relation="relation5"/>
-    <link port="TimeDelay3.delay" relation="relation46"/>
-    <link port="TimeDelay.input" relation="relation56"/>
-    <link port="TimeDelay.output" relation="relation57"/>
-    <link port="TimeDelay.delay" relation="relation58"/>
-    <link port="Street10.left-right-input" relation="relation17"/>
-    <link port="Street10.left-right-output" relation="relation60"/>
-    <link port="Street10.right-left-input" relation="relation59"/>
-    <link port="Street10.right-left-output" relation="relation49"/>
-    <link port="Street10.left-right-trigger" relation="relation18"/>
-    <link port="Street10.right-left-trigger" relation="relation62"/>
-    <link port="TimeDelay2.input" relation="relation40"/>
+    <link port="Cross-Intersection(3).EastOut" relation="relation28"/>
+    <link port="Cross-Intersection(3).WestIn" relation="relation33"/>
+    <link port="Cross-Intersection(3).WestOut" relation="relation34"/>
+    <link port="Cross-Intersection(3).SouthIn" relation="relation42"/>
+    <link port="Cross-Intersection(3).SouthOut" relation="relation43"/>
+    <link port="Cross-Intersection(3).EastIn" relation="relation29"/>
+    <link port="Cross-Intersection(3).NorthIn" relation="relation22"/>
+    <link port="Cross-Intersection(3).NorthOut" relation="relation23"/>
+    <link port="PoissonClock5.output" relation="relation5"/>
+    <link port="CSVReader5.output" relation="relation60"/>
+    <link port="CSVReader5.trigger" relation="relation5"/>
+    <link port="Counter.increment" relation="relation77"/>
+    <link port="Counter.output" relation="relation6"/>
+    <link port="Output .input" relation="relation6"/>
+    <link port="Counter2.increment" relation="relation11"/>
+    <link port="Counter2.output" relation="relation7"/>
+    <link port="Output 2.input" relation="relation7"/>
+    <link port="Counter3.increment" relation="relation61"/>
+    <link port="Counter3.output" relation="relation8"/>
+    <link port="Output 3.input" relation="relation8"/>
+    <link port="Counter4.increment" relation="relation36"/>
+    <link port="Counter4.output" relation="relation9"/>
+    <link port="Output 4.input" relation="relation9"/>
+    <link port="Counter5.increment" relation="relation85"/>
+    <link port="Counter5.output" relation="relation10"/>
+    <link port="Output 5.input" relation="relation10"/>
+    <link port="Street.left-right-input" relation="relation12"/>
+    <link port="Street.left-right-output" relation="relation15"/>
+    <link port="Street.right-left-input" relation="relation17"/>
+    <link port="Street.right-left-output" relation="relation11"/>
+    <link port="Street.left-right-trigger" relation="relation14"/>
+    <link port="Street.right-left-trigger" relation="relation18"/>
+    <link port="TimeDelay.input" relation="relation13"/>
+    <link port="TimeDelay.output" relation="relation12"/>
+    <link port="TimeDelay.delay" relation="relation14"/>
+    <link port="TimeDelay2.input" relation="relation16"/>
     <link port="TimeDelay2.output" relation="relation17"/>
     <link port="TimeDelay2.delay" relation="relation18"/>
-    <link port="TimeDelay4.input" relation="relation61"/>
-    <link port="TimeDelay4.output" relation="relation59"/>
-    <link port="TimeDelay4.delay" relation="relation62"/>
-    <link port="Street6.left-right-input" relation="relation70"/>
-    <link port="Street6.left-right-output" relation="relation6"/>
-    <link port="Street6.right-left-input" relation="relation12"/>
-    <link port="Street6.right-left-output" relation="relation66"/>
-    <link port="Street6.left-right-trigger" relation="relation11"/>
-    <link port="Street6.right-left-trigger" relation="relation30"/>
-    <link port="TimeDelay7.input" relation="relation31"/>
-    <link port="TimeDelay7.output" relation="relation70"/>
-    <link port="TimeDelay7.delay" relation="relation11"/>
-    <link port="TimeDelay8.input" relation="relation32"/>
-    <link port="TimeDelay8.output" relation="relation12"/>
-    <link port="TimeDelay8.delay" relation="relation30"/>
-    <link port="Street3.left-right-input" relation="relation10"/>
-    <link port="Street3.left-right-output" relation="relation41"/>
-    <link port="Street3.right-left-input" relation="relation68"/>
-    <link port="Street3.right-left-output" relation="relation64"/>
-    <link port="Street3.left-right-trigger" relation="relation25"/>
-    <link port="Street3.right-left-trigger" relation="relation65"/>
-    <link port="TimeDelay5.input" relation="relation26"/>
-    <link port="TimeDelay5.output" relation="relation10"/>
-    <link port="TimeDelay5.delay" relation="relation25"/>
-    <link port="TimeDelay6.input" relation="relation63"/>
-    <link port="TimeDelay6.output" relation="relation68"/>
-    <link port="TimeDelay6.delay" relation="relation65"/>
-    <link port="Street9.left-right-input" relation="relation74"/>
-    <link port="Street9.left-right-output" relation="relation72"/>
-    <link port="Street9.right-left-input" relation="relation14"/>
-    <link port="Street9.right-left-output" relation="relation39"/>
-    <link port="Street9.left-right-trigger" relation="relation13"/>
-    <link port="Street9.right-left-trigger" relation="relation38"/>
-    <link port="TimeDelay9.input" relation="relation35"/>
-    <link port="TimeDelay9.output" relation="relation74"/>
-    <link port="TimeDelay9.delay" relation="relation13"/>
-    <link port="TimeDelay10.input" relation="relation73"/>
-    <link port="TimeDelay10.output" relation="relation14"/>
-    <link port="TimeDelay10.delay" relation="relation38"/>
-    <link port="T-Intersection (2).EastOut" relation="relation36"/>
-    <link port="T-Intersection (2).WestIn" relation="relation78"/>
-    <link port="T-Intersection (2).WestOut" relation="relation79"/>
-    <link port="T-Intersection (2).SouthIn" relation="relation49"/>
-    <link port="T-Intersection (2).SouthOut" relation="relation40"/>
-    <link port="T-Intersection (2).EastIn" relation="relation37"/>
-    <link port="T-Intersection (5).EastOut" relation="relation35"/>
-    <link port="T-Intersection (5).WestIn" relation="relation92"/>
-    <link port="T-Intersection (5).WestOut" relation="relation93"/>
-    <link port="T-Intersection (5).SouthIn" relation="relation71"/>
-    <link port="T-Intersection (5).SouthOut" relation="relation52"/>
-    <link port="T-Intersection (5).EastIn" relation="relation39"/>
-    <link port="Cross-Intersection(4).EastOut" relation="relation43"/>
-    <link port="Cross-Intersection(4).WestIn" relation="relation6"/>
-    <link port="Cross-Intersection(4).WestOut" relation="relation32"/>
-    <link port="Cross-Intersection(4).SouthIn" relation="relation84"/>
-    <link port="Cross-Intersection(4).SouthOut" relation="relation85"/>
-    <link port="Cross-Intersection(4).EastIn" relation="relation89"/>
-    <link port="Cross-Intersection(4).NorthIn" relation="relation75"/>
-    <link port="Cross-Intersection(4).NorthOut" relation="relation76"/>
-    <link port="Street7.left-right-input" relation="relation7"/>
-    <link port="Street7.left-right-output" relation="relation75"/>
-    <link port="Street7.right-left-input" relation="relation77"/>
-    <link port="Street7.right-left-output" relation="relation69"/>
-    <link port="Street7.left-right-trigger" relation="relation15"/>
-    <link port="TimeDelay11.input" relation="relation67"/>
-    <link port="TimeDelay11.output" relation="relation7"/>
-    <link port="TimeDelay11.delay" relation="relation15"/>
-    <link port="TimeDelay12.input" relation="relation76"/>
-    <link port="TimeDelay12.output" relation="relation77"/>
     <link port="Street2.left-right-input" relation="relation19"/>
-    <link port="Street2.left-right-output" relation="relation78"/>
-    <link port="Street2.right-left-input" relation="relation80"/>
-    <link port="Street2.right-left-output" relation="relation23"/>
+    <link port="Street2.left-right-output" relation="relation22"/>
+    <link port="Street2.right-left-input" relation="relation21"/>
+    <link port="Street2.right-left-output" relation="relation46"/>
     <link port="Street2.left-right-trigger" relation="relation20"/>
-    <link port="Street2.right-left-trigger" relation="relation81"/>
-    <link port="TimeDelay13.input" relation="relation22"/>
-    <link port="TimeDelay13.output" relation="relation19"/>
-    <link port="TimeDelay13.delay" relation="relation20"/>
-    <link port="TimeDelay14.input" relation="relation79"/>
-    <link port="TimeDelay14.output" relation="relation80"/>
-    <link port="TimeDelay14.delay" relation="relation81"/>
-    <link port="Street5.left-right-input" relation="relation42"/>
-    <link port="Street5.left-right-output" relation="relation84"/>
-    <link port="Street5.right-left-input" relation="relation83"/>
-    <link port="Street5.right-left-output" relation="relation71"/>
-    <link port="Street5.left-right-trigger" relation="relation50"/>
-    <link port="Street5.right-left-trigger" relation="relation82"/>
-    <link port="TimeDelay15.input" relation="relation52"/>
-    <link port="TimeDelay15.output" relation="relation42"/>
-    <link port="TimeDelay15.delay" relation="relation50"/>
-    <link port="TimeDelay16.input" relation="relation85"/>
-    <link port="TimeDelay16.output" relation="relation83"/>
-    <link port="TimeDelay16.delay" relation="relation82"/>
-    <link port="Street11.left-right-input" relation="relation28"/>
-    <link port="Street11.left-right-output" relation="relation44"/>
-    <link port="Street11.right-left-input" relation="relation88"/>
-    <link port="Street11.right-left-output" relation="relation89"/>
-    <link port="Street11.left-right-trigger" relation="relation29"/>
-    <link port="Street11.right-left-trigger" relation="relation87"/>
-    <link port="TimeDelay17.input" relation="relation43"/>
-    <link port="TimeDelay17.output" relation="relation28"/>
-    <link port="TimeDelay17.delay" relation="relation29"/>
-    <link port="TimeDelay18.input" relation="relation86"/>
-    <link port="TimeDelay18.output" relation="relation88"/>
-    <link port="TimeDelay18.delay" relation="relation87"/>
-    <link port="Street4.left-right-input" relation="relation8"/>
-    <link port="Street4.left-right-output" relation="relation92"/>
-    <link port="Street4.right-left-input" relation="relation91"/>
-    <link port="Street4.right-left-output" relation="relation27"/>
-    <link port="Street4.left-right-trigger" relation="relation9"/>
-    <link port="Street4.right-left-trigger" relation="relation90"/>
-    <link port="TimeDelay19.input" relation="relation16"/>
-    <link port="TimeDelay19.output" relation="relation8"/>
-    <link port="TimeDelay19.delay" relation="relation9"/>
-    <link port="TimeDelay20.input" relation="relation93"/>
-    <link port="TimeDelay20.output" relation="relation91"/>
-    <link port="TimeDelay20.delay" relation="relation90"/>
-    <link port="Street8.left-right-input" relation="relation24"/>
-    <link port="Street8.left-right-output" relation="relation94"/>
-    <link port="Street8.right-left-input" relation="relation95"/>
-    <link port="Street8.right-left-output" relation="relation37"/>
-    <link port="Street8.left-right-trigger" relation="relation33"/>
-    <link port="Street8.right-left-trigger" relation="relation96"/>
-    <link port="TimeDelay21.input" relation="relation36"/>
-    <link port="TimeDelay21.output" relation="relation24"/>
-    <link port="TimeDelay21.delay" relation="relation33"/>
+    <link port="Street2.right-left-trigger" relation="relation24"/>
+    <link port="TimeDelay3.input" relation="relation45"/>
+    <link port="TimeDelay3.output" relation="relation19"/>
+    <link port="TimeDelay3.delay" relation="relation20"/>
+    <link port="TimeDelay4.input" relation="relation23"/>
+    <link port="TimeDelay4.output" relation="relation21"/>
+    <link port="TimeDelay4.delay" relation="relation24"/>
+    <link port="Street3.left-right-input" relation="relation38"/>
+    <link port="Street3.left-right-output" relation="relation49"/>
+    <link port="Street3.right-left-input" relation="relation26"/>
+    <link port="Street3.right-left-output" relation="relation29"/>
+    <link port="Street3.left-right-trigger" relation="relation25"/>
+    <link port="Street3.right-left-trigger" relation="relation27"/>
+    <link port="TimeDelay5.input" relation="relation28"/>
+    <link port="TimeDelay5.output" relation="relation38"/>
+    <link port="TimeDelay5.delay" relation="relation25"/>
+    <link port="TimeDelay6.input" relation="relation50"/>
+    <link port="TimeDelay6.output" relation="relation26"/>
+    <link port="TimeDelay6.delay" relation="relation27"/>
+    <link port="Street4.left-right-input" relation="relation30"/>
+    <link port="Street4.left-right-output" relation="relation33"/>
+    <link port="Street4.right-left-input" relation="relation37"/>
+    <link port="Street4.right-left-output" relation="relation36"/>
+    <link port="Street4.left-right-trigger" relation="relation31"/>
+    <link port="Street4.right-left-trigger" relation="relation35"/>
+    <link port="TimeDelay7.input" relation="relation32"/>
+    <link port="TimeDelay7.output" relation="relation30"/>
+    <link port="TimeDelay7.delay" relation="relation31"/>
+    <link port="TimeDelay8.input" relation="relation34"/>
+    <link port="TimeDelay8.output" relation="relation37"/>
+    <link port="TimeDelay8.delay" relation="relation35"/>
+    <link port="Street5.left-right-input" relation="relation44"/>
+    <link port="Street5.left-right-output" relation="relation42"/>
+    <link port="Street5.right-left-input" relation="relation40"/>
+    <link port="Street5.right-left-output" relation="relation48"/>
+    <link port="Street5.left-right-trigger" relation="relation39"/>
+    <link port="Street5.right-left-trigger" relation="relation41"/>
+    <link port="TimeDelay9.input" relation="relation47"/>
+    <link port="TimeDelay9.output" relation="relation44"/>
+    <link port="TimeDelay9.delay" relation="relation39"/>
+    <link port="TimeDelay10.input" relation="relation43"/>
+    <link port="TimeDelay10.output" relation="relation40"/>
+    <link port="TimeDelay10.delay" relation="relation41"/>
+    <link port="T-Intersection (2).EastOut" relation="relation92"/>
+    <link port="T-Intersection (2).WestIn" relation="relation62"/>
+    <link port="T-Intersection (2).WestOut" relation="relation63"/>
+    <link port="T-Intersection (2).SouthIn" relation="relation46"/>
+    <link port="T-Intersection (2).SouthOut" relation="relation45"/>
+    <link port="T-Intersection (2).EastIn" relation="relation93"/>
+    <link port="T-Intersection (5).EastOut" relation="relation47"/>
+    <link port="T-Intersection (5).WestIn" relation="relation88"/>
+    <link port="T-Intersection (5).WestOut" relation="relation89"/>
+    <link port="T-Intersection (5).SouthIn" relation="relation69"/>
+    <link port="T-Intersection (5).SouthOut" relation="relation68"/>
+    <link port="T-Intersection (5).EastIn" relation="relation48"/>
+    <link port="Cross-Intersection(4).EastOut" relation="relation76"/>
+    <link port="Cross-Intersection(4).WestIn" relation="relation49"/>
+    <link port="Cross-Intersection(4).WestOut" relation="relation50"/>
+    <link port="Cross-Intersection(4).SouthIn" relation="relation72"/>
+    <link port="Cross-Intersection(4).SouthOut" relation="relation73"/>
+    <link port="Cross-Intersection(4).EastIn" relation="relation81"/>
+    <link port="Cross-Intersection(4).NorthIn" relation="relation55"/>
+    <link port="Cross-Intersection(4).NorthOut" relation="relation56"/>
+    <link port="Street6.left-right-input" relation="relation51"/>
+    <link port="Street6.left-right-output" relation="relation55"/>
+    <link port="Street6.right-left-input" relation="relation57"/>
+    <link port="Street6.right-left-output" relation="relation54"/>
+    <link port="Street6.left-right-trigger" relation="relation52"/>
+    <link port="TimeDelay11.input" relation="relation53"/>
+    <link port="TimeDelay11.output" relation="relation51"/>
+    <link port="TimeDelay11.delay" relation="relation52"/>
+    <link port="TimeDelay12.input" relation="relation56"/>
+    <link port="TimeDelay12.output" relation="relation57"/>
+    <link port="Street7.left-right-input" relation="relation58"/>
+    <link port="Street7.left-right-output" relation="relation62"/>
+    <link port="Street7.right-left-input" relation="relation64"/>
+    <link port="Street7.right-left-output" relation="relation61"/>
+    <link port="Street7.left-right-trigger" relation="relation59"/>
+    <link port="Street7.right-left-trigger" relation="relation65"/>
+    <link port="TimeDelay13.input" relation="relation60"/>
+    <link port="TimeDelay13.output" relation="relation58"/>
+    <link port="TimeDelay13.delay" relation="relation59"/>
+    <link port="TimeDelay14.input" relation="relation63"/>
+    <link port="TimeDelay14.output" relation="relation64"/>
+    <link port="TimeDelay14.delay" relation="relation65"/>
+    <link port="Street8.left-right-input" relation="relation66"/>
+    <link port="Street8.left-right-output" relation="relation72"/>
+    <link port="Street8.right-left-input" relation="relation71"/>
+    <link port="Street8.right-left-output" relation="relation69"/>
+    <link port="Street8.left-right-trigger" relation="relation67"/>
+    <link port="Street8.right-left-trigger" relation="relation70"/>
+    <link port="TimeDelay15.input" relation="relation68"/>
+    <link port="TimeDelay15.output" relation="relation66"/>
+    <link port="TimeDelay15.delay" relation="relation67"/>
+    <link port="TimeDelay16.input" relation="relation73"/>
+    <link port="TimeDelay16.output" relation="relation71"/>
+    <link port="TimeDelay16.delay" relation="relation70"/>
+    <link port="Street9.left-right-input" relation="relation74"/>
+    <link port="Street9.left-right-output" relation="relation77"/>
+    <link port="Street9.right-left-input" relation="relation80"/>
+    <link port="Street9.right-left-output" relation="relation81"/>
+    <link port="Street9.left-right-trigger" relation="relation75"/>
+    <link port="Street9.right-left-trigger" relation="relation79"/>
+    <link port="TimeDelay17.input" relation="relation76"/>
+    <link port="TimeDelay17.output" relation="relation74"/>
+    <link port="TimeDelay17.delay" relation="relation75"/>
+    <link port="TimeDelay18.input" relation="relation78"/>
+    <link port="TimeDelay18.output" relation="relation80"/>
+    <link port="TimeDelay18.delay" relation="relation79"/>
+    <link port="Street10.left-right-input" relation="relation82"/>
+    <link port="Street10.left-right-output" relation="relation88"/>
+    <link port="Street10.right-left-input" relation="relation87"/>
+    <link port="Street10.right-left-output" relation="relation85"/>
+    <link port="Street10.left-right-trigger" relation="relation83"/>
+    <link port="Street10.right-left-trigger" relation="relation86"/>
+    <link port="TimeDelay19.input" relation="relation84"/>
+    <link port="TimeDelay19.output" relation="relation82"/>
+    <link port="TimeDelay19.delay" relation="relation83"/>
+    <link port="TimeDelay20.input" relation="relation89"/>
+    <link port="TimeDelay20.output" relation="relation87"/>
+    <link port="TimeDelay20.delay" relation="relation86"/>
+    <link port="Street11.left-right-input" relation="relation90"/>
+    <link port="Street11.left-right-output" relation="relation94"/>
+    <link port="Street11.right-left-input" relation="relation95"/>
+    <link port="Street11.right-left-output" relation="relation93"/>
+    <link port="Street11.left-right-trigger" relation="relation91"/>
+    <link port="Street11.right-left-trigger" relation="relation96"/>
+    <link port="TimeDelay21.input" relation="relation92"/>
+    <link port="TimeDelay21.output" relation="relation90"/>
+    <link port="TimeDelay21.delay" relation="relation91"/>
     <link port="TimeDelay22.input" relation="relation97"/>
     <link port="TimeDelay22.output" relation="relation95"/>
     <link port="TimeDelay22.delay" relation="relation96"/>
-    <link port="DiscreteClock.output" relation="relation4"/>
-    <link port="DiscreteClock2.output" relation="relation"/>
-    <link port="DiscreteClock3.output" relation="relation21"/>
-    <link port="DiscreteClock4.output" relation="relation3"/>
-    <link port="DiscreteClock5.output" relation="relation2"/>
 </entity>
