@@ -1,0 +1,7 @@
+carId	roadMap	indicator	intersectionCount
+1	{2,11}	0	0
+2	{4,12}	0	0
+3	{4,3,5,13}	0	0
+4	{2,11}	0	0
+5	{4,12}	0	0
+6	{4,3,5,13}	0	0
