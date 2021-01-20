@@ -10,7 +10,7 @@
     </property>
     <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="0.6400000000000026">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{67.751256281407, 209.0294440954774}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{78.9623115577889, 205.76381909547734}">
     </property>
     <property name="DE Director" class="ptolemy.domains.de.kernel.DEDirector">
         <property name="synchronizeToRealTime" class="ptolemy.data.expr.Parameter" value="false">
@@ -40,9 +40,9 @@
     <property name="enableBackwardTypeInference" class="ptolemy.data.expr.Parameter" value="false">
     </property>
     <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
-        <property name="text" class="ptolemy.kernel.util.StringAttribute" value="This is a simple traffic model, consisting of a few T-intersections,cross-intersections and streets.&#10;The Input ist controlled through a discrete clock, connected with an CSV-Reader where our cars are&#10;put into the model. The key-part of the model is the analysis of the overloaded streets and intersections,&#10;if heavy traffic occurs (seen on the analysis) models can easily be changed.">
+        <property name="text" class="ptolemy.kernel.util.StringAttribute" value="This is a simple traffic model, consisting of a few T-intersections,cross-intersections and streets.&#10;The Input ist controlled through a poisson clock, connected with a CSV-Reader, where our cars are&#10;put into the model. The key-part of the model is the analysis of the overloaded streets and intersections,&#10;if heavy traffic occurs (seen on the analysis) models can easily be configured.&#10;Parameter &quot;StreetPlotterFlag&quot;: if 1 it shows the analysis on the plotters, if 0 only empty plotters appear.">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-85.0, -355.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-85.0, -370.0]">
         </property>
     </property>
     <property name="Annotation2" class="ptolemy.vergil.kernel.attributes.TextAttribute">
@@ -51,6 +51,25 @@
         <property name="text" class="ptolemy.kernel.util.StringAttribute" value="Author: Sofia Bonini, Michael Breckner, Andrea Hofer">
         </property>
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-85.0, -280.0]">
+        </property>
+    </property>
+    <property name="streetLength" class="ptolemy.data.expr.Parameter" value="4">
+        <property name="_hideName" class="ptolemy.kernel.util.SingletonAttribute">
+        </property>
+        <property name="_icon" class="ptolemy.vergil.icon.ValueIcon">
+            <property name="_color" class="ptolemy.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}">
+            </property>
+        </property>
+        <property name="_smallIconDescription" class="ptolemy.kernel.util.SingletonConfigurableAttribute">
+            <configure>
+      <svg>
+        <text x="20" style="font-size:14; font-family:SansSerif; fill:blue" y="20">-P-</text>
+      </svg>
+    </configure>
+        </property>
+        <property name="_editorFactory" class="ptolemy.vergil.toolbox.VisibleParameterEditorFactory">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-255.0, -265.0]">
         </property>
     </property>
     <entity name="CSVReader" class="ptolemy.actor.lib.io.CSVReader">
@@ -129,7 +148,7 @@
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
             <property name="italic" class="ptolemy.data.expr.Parameter" value="true">
             </property>
-            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="intersection-model that consists of &quot;setIndicator&quot; from each direction,&#10;that sets the indicator of the cars accordingly to their wanted direction.&#10;In the intersection the the cars are sent to their prior set indicator-direction.&#10;The two TimedPlotter are analysis tools for checking the workload">
+            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="intersection-model that consists of &quot;setIndicator&quot; from each direction,&#10;that sets the indicator of the cars accordingly to their wanted direction.&#10;In the intersection the cars are sent to their prior setIndicator-direction.&#10;The two TimedPlotter are analysis tools for checking the workload">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[315.0, 190.0]">
             </property>
@@ -191,7 +210,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// each intersection contains a street segment prior to the intersection, which is being analyzed by the counter&#10;var queueW = []; // simulates street from west&#10;var queueE = []; // simulates street from east&#10;var queueS = []; // simulates street from south&#10;var carCount = 0; // indicates number of cars currently in the intersection&#10;	&#10;// counter for the individual directions&#10;var countW = 0;&#10;var countE = 0;&#10;var countS = 0;&#10;	&#10;// for debug purpose&#10;var date;&#10;	&#10;exports.setup = function () {&#10;	//the input-ports for the incoming cars&#10;    this.input('inputWest');&#10;    this.input('inputEast');&#10;    this.input('inputSouth');&#10;    //the output-ports for the leaving cars&#10;    this.output('outputWest');&#10;    this.output('outputEast');&#10;    this.output('outputSouth');&#10;    this.output('debug');&#10;    this.output('display');&#10;    this.output('trafficJamDetectorW');&#10;    this.output('trafficJamDetectorE');&#10;    this.output('trafficJamDetectorS');&#10;}&#10;&#10;exports.initialize = function () { //creates a queue that contains the cars that stand in an intersection&#10;&#10;	this.addInputHandler('inputWest', function() {&#10;		queueW.unshift(this.get('inputWest'));&#10;		carCount++;&#10;		countW++;&#10;		// send counters for analysis&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorW', countW);&#10;		// call right hand rule&#10;		if(carCount == 1) {&#10;			setTimeout(right_hand_rule, 2000);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('inputEast', function() {&#10;		queueE.unshift(this.get('inputEast'));&#10;		carCount++;&#10;		countE++;&#10;		// send counters for analysis&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorE', countE);&#10;		// call right hand rule&#10;		if(carCount == 1) {&#10;			setTimeout(right_hand_rule, 2000);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('inputSouth', function() {&#10;		queueS.unshift(this.get('inputSouth'));&#10;		carCount++;&#10;		countS++;&#10;		// send counters for analysis&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorS', countS);&#10;		// call right hand rule&#10;		if(carCount == 1) {&#10;			setTimeout(right_hand_rule, 2000);&#10;		}&#10;	});&#10;	&#10;}&#10;&#10;// T-Intersection right-hand-rule&#10;//fires the car which has priority and lets the others wait	&#10;function right_hand_rule() {&#10;	// set to true if car can go&#10;	var isSentW = false;&#10;	var isSentE = false;&#10;	var isSentS = false;&#10;		&#10;	//debug&#10;	this.send('debug',&quot;queueW &quot; + queueW.length);&#10;	this.send('debug',&quot;queueE &quot; + queueE.length);&#10;	this.send('debug',&quot;queueS &quot; + queueS.length);&#10;	this.send('debug', &quot;carCount &quot; + carCount);&#10;&#10;	// street west&#10;	if(queueW.length != 0) { // car from WEST&#10;		this.send('debug',&quot;queueW car &quot; + queueW[queueW.length - 1].carId); // debug&#10;		if(queueW[queueW.length - 1].indicator == 0) { // WEST --&gt; straight&#10;			if(queueS.length != 0) { // car from SOUTH&#10;				//stop&#10;			}else if(queueS.length == 0) {&#10;				this.send('outputEast',queueW[queueW.length - 1]);&#10;				isSentW = true;&#10;			}&#10;		}else if(queueW[queueW.length - 1].indicator == 1) { // WEST --&gt; right&#10;			this.send('outputSouth',queueW[queueW.length - 1]);&#10;			isSentW = true;&#10;		}&#10;	}&#10;			&#10;	// street east&#10;	if(queueE.length != 0) { // car from EAST&#10;		this.send('debug',&quot;queueE car &quot; + queueE[queueE.length - 1].carId); // debug&#10;		if(queueE[queueE.length - 1].indicator == 0) { // EAST --&gt; straight&#10;			this.send('outputWest',queueE[queueE.length - 1]);&#10;			isSentE = true;&#10;		}else if(queueE[queueE.length - 1].indicator == -1) { // EAST --&gt; left&#10;			if(queueW.length != 0 &amp;&amp; queueS.length != 0) { // cars from west and south&#10;				this.send('outputSouth',queueE[queueE.length - 1]);&#10;				isSentE = true;&#10;			}else if(queueW.length == 0) { // no car from west (south does not matter, because east always has priority)&#10;				this.send('outputSouth',queueE[queueE.length - 1]);&#10;				isSentE = true;&#10;			}&#10;		}&#10;	}&#10;			&#10;	// street south&#10;	if(queueS.length != 0) { // car from SOUTH&#10;		this.send('debug',&quot;queueS car &quot; + queueS[queueS.length - 1].carId); // debug&#10;		if(queueS[queueS.length - 1].indicator == 1) { // SOUTH --&gt; right&#10;			this.send('outputEast',queueS[queueS.length - 1]);&#10;			isSentS = true;&#10;		}else if(queueS[queueS.length - 1].indicator == -1) { // SOUTH --&gt; left&#10;			if(queueE.length != 0) { // car from east&#10;				//stop&#10;			}else if(queueE.length == 0) {&#10;				this.send('outputWest',queueS[queueS.length - 1]);&#10;				isSentS = true;&#10;			}&#10;		}&#10;	}&#10;			&#10;	// if car was sent, pop it from queue, decrease counter accordingly&#10;	if(isSentW) {&#10;		queueW.pop();&#10;		carCount--;&#10;		countW--;&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorW', countW);&#10;	}&#10;			&#10;	if(isSentE) {&#10;		queueE.pop();&#10;		carCount--;&#10;		countE--;&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorE', countE);&#10;	}&#10;			&#10;	if(isSentS) {&#10;		queueS.pop();&#10;		carCount--;&#10;		countS--;&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorS', countS);&#10;	}&#10;			&#10;	// repeat if there are still cars in the intersection&#10;	if(carCount != 0) {&#10;		setTimeout(right_hand_rule, 2000);&#10;	}&#10;}&#10;">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// each intersection contains a street segment prior to the intersection, which is being analyzed by the counter&#10;var queueW = []; // simulates street from west&#10;var queueE = []; // simulates street from east&#10;var queueS = []; // simulates street from south&#10;var carCount = 0; // indicates number of cars currently in the intersection&#10;	&#10;// counter for the individual directions&#10;var countW = 0;&#10;var countE = 0;&#10;var countS = 0;&#10;	&#10;// for debug purpose&#10;var date;&#10;	&#10;exports.setup = function () {&#10;	//the input-ports for the incoming cars&#10;    this.input('inputWest');&#10;    this.input('inputEast');&#10;    this.input('inputSouth');&#10;    //the output-ports for the leaving cars&#10;    this.output('outputWest');&#10;    this.output('outputEast');&#10;    this.output('outputSouth');&#10;    this.output('debug');&#10;    this.output('display');&#10;    this.output('trafficJamDetectorW');&#10;    this.output('trafficJamDetectorE');&#10;    this.output('trafficJamDetectorS');&#10;}&#10;&#10;exports.initialize = function () { //creates a queue that contains the cars that stand in an intersection&#10;&#10;	this.addInputHandler('inputWest', function() {&#10;		queueW.unshift(this.get('inputWest'));&#10;		carCount++;&#10;		countW++;&#10;		// send counters for analysis&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorW', countW);&#10;		// call right hand rule&#10;		if(carCount == 1) {&#10;			setTimeout(right_hand_rule, 2000);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('inputEast', function() {&#10;		queueE.unshift(this.get('inputEast'));&#10;		carCount++;&#10;		countE++;&#10;		// send counters for analysis&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorE', countE);&#10;		// call right hand rule&#10;		if(carCount == 1) {&#10;			setTimeout(right_hand_rule, 2000);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('inputSouth', function() {&#10;		queueS.unshift(this.get('inputSouth'));&#10;		carCount++;&#10;		countS++;&#10;		// send counters for analysis&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorS', countS);&#10;		// call right hand rule&#10;		if(carCount == 1) {&#10;			setTimeout(right_hand_rule, 2000);&#10;		}&#10;	});&#10;	&#10;}&#10;&#10;// T-Intersection right-hand-rule&#10;//fires the car which has priority and lets the others wait	&#10;function right_hand_rule() {&#10;	// set to true if car can go&#10;	var isSentW = false;&#10;	var isSentE = false;&#10;	var isSentS = false;&#10;		&#10;	//debug&#10;	this.send('debug',&quot;queueW &quot; + queueW.length);&#10;	this.send('debug',&quot;queueE &quot; + queueE.length);&#10;	this.send('debug',&quot;queueS &quot; + queueS.length);&#10;	this.send('debug', &quot;carCount &quot; + carCount);&#10;&#10;	// street west&#10;	if(queueW.length != 0) { // car from WEST&#10;		this.send('debug',&quot;queueW car &quot; + queueW[queueW.length - 1].carId); // debug&#10;		if(queueW[queueW.length - 1].indicator == 0) { // WEST --&gt; straight&#10;			if(queueS.length != 0) { // car from SOUTH&#10;				//stop&#10;			}else if(queueS.length == 0) {&#10;				this.send('outputEast',queueW[queueW.length - 1]);&#10;				isSentW = true;&#10;			}&#10;		}else if(queueW[queueW.length - 1].indicator == 1) { // WEST --&gt; right&#10;			this.send('outputSouth',queueW[queueW.length - 1]);&#10;			isSentW = true;&#10;		}&#10;	}&#10;			&#10;	// street east&#10;	if(queueE.length != 0) { // car from EAST&#10;		this.send('debug',&quot;queueE car &quot; + queueE[queueE.length - 1].carId); // debug&#10;		if(queueE[queueE.length - 1].indicator == 0) { // EAST --&gt; straight&#10;			this.send('outputWest',queueE[queueE.length - 1]);&#10;			isSentE = true;&#10;		}else if(queueE[queueE.length - 1].indicator == -1) { // EAST --&gt; left&#10;			if(queueW.length != 0 &amp;&amp; queueS.length != 0) { // special case:&#10;				if (queueS[queueS.length - 1].indicator == -1 &amp;&amp; queueW[queueW.length - 1].indicator == 0) { // West --&gt; straight, EAST --&gt; left, SOUTH --&gt; left&#10;					this.send('outputSouth',queueE[queueE.length - 1]); // convention: EAST goes first&#10;					isSentE = true;&#10;				}&#10;			}else if(queueW.length == 0) { // no car from west (south does not matter, because east always has priority)&#10;				this.send('outputSouth',queueE[queueE.length - 1]);&#10;				isSentE = true;&#10;			}&#10;		}&#10;	}&#10;			&#10;	// street south&#10;	if(queueS.length != 0) { // car from SOUTH&#10;		this.send('debug',&quot;queueS car &quot; + queueS[queueS.length - 1].carId); // debug&#10;		if(queueS[queueS.length - 1].indicator == 1) { // SOUTH --&gt; right&#10;			this.send('outputEast',queueS[queueS.length - 1]);&#10;			isSentS = true;&#10;		}else if(queueS[queueS.length - 1].indicator == -1) { // SOUTH --&gt; left&#10;			if(queueE.length != 0) { // car from east&#10;				//stop&#10;			}else if(queueE.length == 0) {&#10;				this.send('outputWest',queueS[queueS.length - 1]);&#10;				isSentS = true;&#10;			}&#10;		}&#10;	}&#10;			&#10;	// if car was sent, pop it from queue, decrease counter accordingly&#10;	if(isSentW) {&#10;		queueW.pop();&#10;		carCount--;&#10;		countW--;&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorW', countW);&#10;	}&#10;			&#10;	if(isSentE) {&#10;		queueE.pop();&#10;		carCount--;&#10;		countE--;&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorE', countE);&#10;	}&#10;			&#10;	if(isSentS) {&#10;		queueS.pop();&#10;		carCount--;&#10;		countS--;&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorS', countS);&#10;	}&#10;			&#10;	// repeat if there are still cars in the intersection&#10;	if(carCount != 0) {&#10;		setTimeout(right_hand_rule, 2000);&#10;	}&#10;}&#10;">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -625,7 +644,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="17.0" max="223.0"/>
+<xRange min="89.7128280443" max="3889.3578515668"/>
 <yRange min="0.0" max="2.0"/>
 </plot>?>
             </configure>
@@ -650,8 +669,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="17.0" max="223.0"/>
-<yRange min="0.0" max="1.0"/>
+<xRange min="89.7128280443" max="3889.3578515668"/>
+<yRange min="0.0" max="2.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -729,6 +748,14 @@
         </property>
         <property name="NORTH" class="ptolemy.data.expr.Parameter" value="2">
         </property>
+        <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
+            <property name="italic" class="ptolemy.data.expr.Parameter" value="true">
+            </property>
+            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="intersection-model that consists of &quot;setIndicator&quot; from each direction,&#10;that sets the indicator of the cars accordingly to their wanted direction.&#10;In the intersection the cars are sent to their prior setIndicator-direction.&#10;The two TimedPlotter are analysis tools for checking the workload">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[455.0, 95.0]">
+            </property>
+        </property>
         <port name="EastOut" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
@@ -800,7 +827,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="	var QueueW = [];&#10;	var QueueE = [];&#10;	var QueueS = [];&#10;	var QueueN = [];&#10;	var carCount = 0; // indicates number of cars currently in the intersection&#10;	var countN = 0;&#10;	var countE = 0;&#10;	var countS = 0;&#10;	var countW = 0;&#10;	var date;&#10;&#10;// T-Intersection right-hand-rule&#10;//fires the car which has priority and lets the others wait&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('carWEST');&#10;    this.input('carEAST');&#10;    this.input('carSOUTH');&#10;    this.input('carNORTH');&#10;    //the Output-ports for the leaving cars&#10;    this.output('OWEST');&#10;    this.output('OEAST');&#10;    this.output('OSOUTH');&#10;    this.output('ONORTH');&#10;    this.output('trafficJamDetectorN');&#10;    this.output('trafficJamDetectorE');&#10;    this.output('trafficJamDetectorS');&#10;    this.output('trafficJamDetectorW');&#10;    this.output('Debug');&#10;}&#10;&#10;exports.initialize = function () {&#10;	//creates an Array that contains the cars that stand in an Intersection&#10;	//following Array positions are relevant: 0 = WEST, 1 = EAST and 2 = SOUTH&#10;	&#10;	this.addInputHandler('carWEST', function() {&#10;	QueueW.unshift(this.get('carWEST'));&#10;	carCount++;&#10;	countW++;&#10;	this.send('display', carCount);&#10;	this.send('trafficJamDetectorW', countW);&#10;	if(carCount == 1) {&#10;		setTimeout(right_hand_rule, 2000);&#10;	}&#10;	});&#10;	&#10;	this.addInputHandler('carEAST', function() {&#10;	QueueE.unshift(this.get('carEAST'));&#10;	carCount++;&#10;	countE++;&#10;	this.send('display', carCount);&#10;	this.send('trafficJamDetectorE', countE);&#10;	if(carCount == 1) {&#10;		setTimeout(right_hand_rule, 2000);&#10;	}&#10;	});&#10;	&#10;	this.addInputHandler('carSOUTH', function() {&#10;	QueueS.unshift(this.get('carSOUTH'));&#10;	carCount++;&#10;	countS++;&#10;	this.send('display', carCount);&#10;	this.send('trafficJamDetectorS', countS);&#10;	if(carCount == 1) {&#10;		setTimeout(right_hand_rule, 2000);&#10;	}&#10;	});&#10;	&#10;	this.addInputHandler('carNORTH', function() {&#10;	QueueN.unshift(this.get('carNORTH'));&#10;	carCount++;&#10;	countN++;&#10;	this.send('display', carCount);&#10;	this.send('trafficJamDetectorN', countN);&#10;	if(carCount == 1) {&#10;		setTimeout(right_hand_rule, 2000);&#10;	}&#10;	});&#10;}	&#10;	&#10;	function right_hand_rule() {&#10;		var SentW = false;&#10;		var SentE = false;&#10;		var SentS = false;&#10;		var SentN = false;&#10;		&#10;		//Debug&#10;		this.send('Debug',&quot;QueueW &quot; + QueueW.length);&#10;		this.send('Debug',&quot;QueueE &quot; + QueueE.length);&#10;		this.send('Debug',&quot;QueueS &quot; + QueueS.length);&#10;		this.send('Debug',&quot;QueueN &quot; + QueueN.length);&#10;		this.send('Debug', &quot;carCount &quot; + carCount);&#10;		&#10;		if(QueueW.length != 0) { // car from WEST&#10;			this.send('Debug',&quot;CarW &quot; + QueueW[QueueW.length - 1]);&#10;			if(QueueW[QueueW.length - 1].indicator == 0) { //WEST -&gt; STRAIGHT&#10;				if(QueueS.length != 0) { // car from SOUTH&#10;					//stop&#10;				} else { // no car from SOUTH&#10;					this.send('OEAST',QueueW[QueueW.length - 1]);&#10;					SentW = true;&#10;				}&#10;			}else if(QueueW[QueueW.length - 1].indicator == 1) { // WEST -&gt; RIGHT&#10;				this.send('OSOUTH',QueueW[QueueW.length - 1]);&#10;				SentW = true;&#10;			}else if(QueueW[QueueW.length - 1].indicator == -1) { // WEST -&gt; LEFT&#10;				if(QueueE.length != 0 &amp;&amp; QueueE[QueueE.length - 1].indicator == -1) { // car from EAST&#10;					this.send('ONORTH',QueueW[QueueW.length - 1]);&#10;					SentW = true;&#10;				} else if(QueueS.length != 0) { // car from SOUTH&#10;					// stop&#10;				} else {&#10;					this.send('ONORTH',QueueW[QueueW.length - 1]);&#10;					SentW = true;&#10;				}&#10;			}&#10;		}&#10;		&#10;		if(QueueE.length != 0) { // car from EAST&#10;			this.send('Debug',&quot;CarE &quot; + QueueE[QueueE.length - 1]);&#10;			if(QueueE[QueueE.length - 1].indicator == 0) { // EAST -&gt; STRAIGHT&#10;				if (QueueN.length != 0) { // car from NORTH&#10;					// stop&#10;				} else { // no car from NORTH&#10;					this.send('OWEST',QueueE[QueueE.length - 1]);&#10;					SentE = true;&#10;				}&#10;			}else if(QueueE[QueueE.length - 1].indicator == -1) { // EAST -&gt; LEFT&#10;				if(QueueW.length != 0 &amp;&amp; QueueW[QueueW.length - 1].indicator == -1) { // car from WEST&#10;					this.send('OSOUTH',QueueE[QueueE.length - 1]);&#10;					SentE = true;&#10;				} else if(QueueN.length != 0) { // car from NORTH&#10;					// stop&#10;				} else {&#10;					this.send('OSOUTH',QueueE[QueueE.length - 1]);&#10;					SentE = true;&#10;				}&#10;			} else if(QueueE[QueueE.length - 1].indicator == 1) { // EAST -&gt; RIGHT&#10;				this.send('ONORTH',QueueE[QueueE.length - 1]);&#10;				SentE = true;&#10;			}&#10;		}&#10;		&#10;		if(QueueS.length != 0) { // car from SOUTH&#10;				this.send('Debug',&quot;CarS &quot; + QueueS[QueueS.length - 1]);&#10;			if(QueueS[QueueS.length - 1].indicator == 1) { // SOUTH -&gt; RIGHT&#10;				this.send('OEAST',QueueS[QueueS.length - 1]);&#10;				SentS = true;&#10;			}else if(QueueS[QueueS.length - 1].indicator == -1) { // SOUTH -&gt; LEFT&#10;				if(QueueE.length != 0) { //car from EAST&#10;					//stop&#10;				}else if(QueueN.length != 0 &amp;&amp; QueueN[QueueN.length - 1].indicator == -1) { //car from NORTH&#10;					this.send('OWEST',QueueS[QueueS.length - 1]);&#10;					SentS = true;&#10;				} else {&#10;					this.send('OWEST',QueueS[QueueS.length - 1]);&#10;					SentS = true;&#10;				}&#10;			} else if (QueueS[QueueS.length - 1].indicator == 0) { //SOUTH -&gt; STRAIGHT&#10;				if (QueueE.length != 0) { // car from EAST&#10;					// stop&#10;				} else {&#10;					this.send('ONORTH',QueueS[QueueS.length - 1]);&#10;					SentS = true;&#10;				}&#10;			}&#10;		}&#10;		&#10;		if(QueueN.length != 0) { // car from NORTH		&#10;			this.send('Debug',&quot;CarN &quot; + QueueN[QueueN.length - 1]);&#10;			if(QueueN[QueueN.length - 1].indicator == 1) { // NORTH -&gt; RIGHT&#10;				this.send('OWEST',QueueN[QueueN.length - 1]);&#10;				SentN = true;&#10;			}else if(QueueN[QueueN.length - 1].indicator == -1) { // NORTH -&gt; LEFT&#10;				if(QueueW.length != 0) { //car from WEST&#10;					//stop&#10;				}else if(QueueS.length != 0 &amp;&amp; QueueS[QueueS.length - 1].indicator == -1) { //car from SOUTH&#10;					this.send('OEAST',QueueN[QueueN.length - 1]);&#10;					SentN = true;&#10;				} else {&#10;					this.send('OEAST',QueueN[QueueN.length - 1]);&#10;					SentN = true;&#10;				}&#10;			} else if (QueueN[QueueN.length - 1].indicator == 0) { //NORTH -&gt; STRAIGHT&#10;				if (QueueW.length != 0) { // car from WEST&#10;					// stop&#10;				} else {&#10;					this.send('OSOUTH',QueueN[QueueN.length - 1]);&#10;					SentN = true;&#10;				}&#10;			}&#10;		}&#10;		&#10;		if(SentW) {&#10;			QueueW.pop();&#10;			carCount--;&#10;			countW--;&#10;			this.send('display', carCount);&#10;			this.send('trafficJamDetectorW', countW);&#10;			}&#10;		&#10;		if(SentE) {&#10;			QueueE.pop();&#10;			carCount--;&#10;			countE--;&#10;			this.send('display', carCount);&#10;			this.send('trafficJamDetectorE', countE);&#10;		}&#10;		&#10;		if(SentS) {&#10;			QueueS.pop();&#10;			carCount--;&#10;			countS--;&#10;			this.send('display', carCount);&#10;			this.send('trafficJamDetectorS', countS);&#10;		}&#10;		&#10;		if(SentN) {&#10;			QueueN.pop();&#10;			carCount--;&#10;			countN--;&#10;			this.send('display', carCount);&#10;			this.send('trafficJamDetectorN', countN);&#10;		}&#10;		&#10;		//Special case if there is a car on each side of the intersection&#10;		if(!SentW &amp;&amp; !SentE &amp;&amp; !SentS &amp;&amp; !SentN) {&#10;			//0 = West, 1 = East, 2 = South, 3 = North&#10;			var random = Math.floor(Math.random() * 3);&#10;			&#10;			this.send('Debug',&quot;QueueW RAND &quot; + QueueW.length);&#10;			this.send('Debug',&quot;QueueE RAND &quot; + QueueE.length);&#10;			this.send('Debug',&quot;QueueS RAND &quot; + QueueS.length);&#10;			this.send('Debug',&quot;QueueN RAND &quot; + QueueN.length);&#10;			this.send('Debug', &quot;carCount RAND &quot; + carCount);&#10;			this.send('Debug', &quot;random numb: &quot; + random);&#10;			&#10;			if(random == 0) {&#10;				if(QueueW[QueueW.length - 1].indicator == 0) {&#10;					this.send('OEAST',QueueW[QueueW.length - 1]);&#10;				}&#10;				else if(QueueW[QueueW.length - 1].indicator == 1) {&#10;					this.send('OSOUTH',QueueW[QueueW.length - 1]);&#10;				}&#10;				else if(QueueW[QueueW.length - 1].indicator == -1) {&#10;					this.send('ONORTH',QueueW[QueueW.length - 1]);&#10;				}&#10;				&#10;				QueueW.pop();&#10;			    carCount--;&#10;			    countW--;&#10;			    this.send('display', carCount);&#10;			    this.send('trafficJamDetectorW', countW);&#10;			}&#10;			&#10;			else if(random == 1) {&#10;				if(QueueE[QueueE.length - 1].indicator == 0) {&#10;					this.send('OWEST',QueueE[QueueE.length - 1]);&#10;				}&#10;				else if(QueueE[QueueE.length - 1].indicator == 1) {&#10;					this.send('ONORTH',QueueE[QueueE.length - 1]);&#10;				}&#10;				else if(QueueE[QueueE.length - 1].indicator == -1) {&#10;					this.send('OSOUTH',QueueE[QueueE.length - 1]);&#10;				}&#10;				&#10;				QueueE.pop();&#10;			    carCount--;&#10;			    countE--;&#10;			    this.send('display', carCount);&#10;			    this.send('trafficJamDetectorE', countE);&#10;			}&#10;			&#10;			else if(random == 2) {&#10;				if(QueueS[QueueS.length - 1].indicator == 0) {&#10;					this.send('ONORTH',QueueS[QueueS.length - 1]);&#10;				}&#10;				else if(QueueS[QueueS.length - 1].indicator == 1) {&#10;					this.send('OEAST',QueueS[QueueS.length - 1]);&#10;				}&#10;				else if(QueueS[QueueS.length - 1].indicator == -1) {&#10;					this.send('OWEST',QueueS[QueueS.length - 1]);&#10;				}&#10;				&#10;				QueueS.pop();&#10;			    carCount--;&#10;			    countS--;&#10;			    this.send('display', carCount);&#10;			    this.send('trafficJamDetectorS', countS);&#10;			}&#10;			else if(random == 3) {&#10;				if(QueueN[QueueN.length - 1].indicator == 0) {&#10;					this.send('OSOUTH',QueueN[QueueN.length - 1]);&#10;				}&#10;				else if(QueueN[QueueN.length - 1].indicator == 1) {&#10;					this.send('OWEST',QueueN[QueueN.length - 1]);&#10;				}&#10;				else if(QueueN[QueueN.length - 1].indicator == -1) {&#10;					this.send('OEAST',QueueN[QueueN.length - 1]);&#10;				}&#10;				&#10;				QueueN.pop();&#10;			    carCount--;&#10;			    countN--;&#10;			    this.send('display', carCount);&#10;			    this.send('trafficJamDetectorN', countN);&#10;			}&#10;		}&#10;		&#10;		if(carCount != 0) {&#10;			setTimeout(right_hand_rule, 2000);&#10;		}&#10;	}&#10;&#10;">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// each intersection contains a street segment prior to the intersection, which is being analyzed by the counter&#10;var queueW = []; // simulates street from west&#10;var queueE = []; // simulates street from east&#10;var queueS = []; // simulates street from south&#10;var queueN = []; // simulates street from north&#10;var carCount = 0; // indicates number of cars currently in the intersection&#10;&#10;// counter for the individual directions&#10;var countN = 0;&#10;var countE = 0;&#10;var countS = 0;&#10;var countW = 0;&#10;&#10;// for debug purpose&#10;var date;&#10;&#10;exports.setup = function () {&#10;	//the Input-ports for the incoming cars&#10;    this.input('inputWest');&#10;    this.input('inputEast');&#10;    this.input('inputSouth');&#10;    this.input('inputNorth');&#10;    //the Output-ports for the leaving cars&#10;    this.output('outputWest');&#10;    this.output('outputEast');&#10;    this.output('outputSouth');&#10;    this.output('outputNorth');&#10;    this.output('trafficJamDetectorN');&#10;    this.output('trafficJamDetectorE');&#10;    this.output('trafficJamDetectorS');&#10;    this.output('trafficJamDetectorW');&#10;    this.output('debug');&#10;    this.output('display');&#10;}&#10;&#10;exports.initialize = function () { //creates a queue that contains the cars that stand in an intersection&#10;	&#10;	this.addInputHandler('inputWest', function() {&#10;	queueW.unshift(this.get('inputWest'));&#10;	carCount++;&#10;	countW++;&#10;	// send counters for analysis&#10;	this.send('display', carCount);&#10;	this.send('trafficJamDetectorW', countW);&#10;	// call right hand rule&#10;	if(carCount == 1) {&#10;		setTimeout(right_hand_rule, 2000);&#10;	}&#10;	});&#10;	&#10;	this.addInputHandler('inputEast', function() {&#10;	queueE.unshift(this.get('inputEast'));&#10;	carCount++;&#10;	countE++;&#10;	// send counters for analysis&#10;	this.send('display', carCount);&#10;	this.send('trafficJamDetectorE', countE);&#10;	// call right hand rule&#10;	if(carCount == 1) {&#10;		setTimeout(right_hand_rule, 2000);&#10;	}&#10;	});&#10;	&#10;	this.addInputHandler('inputSouth', function() {&#10;	queueS.unshift(this.get('inputSouth'));&#10;	carCount++;&#10;	countS++;&#10;	// send counters for analysis&#10;	this.send('display', carCount);&#10;	this.send('trafficJamDetectorS', countS);&#10;	// call right hand rule&#10;	if(carCount == 1) {&#10;		setTimeout(right_hand_rule, 2000);&#10;	}&#10;	});&#10;	&#10;	this.addInputHandler('inputNorth', function() {&#10;	queueN.unshift(this.get('inputNorth'));&#10;	carCount++;&#10;	countN++;&#10;	// send counters for analysis&#10;	this.send('display', carCount);&#10;	this.send('trafficJamDetectorN', countN);&#10;	// call right hand rule&#10;	if(carCount == 1) {&#10;		setTimeout(right_hand_rule, 2000);&#10;	}&#10;	});&#10;}	&#10;	&#10;// Cross-Intersection right-hand-rule&#10;//fires the car which has priority and lets the others wait	&#10;function right_hand_rule() {&#10;	// set to true if car can go&#10;	var SentW = false;&#10;	var SentE = false;&#10;	var SentS = false;&#10;	var SentN = false;&#10;		&#10;		//debug&#10;		this.send('debug',&quot;queueW &quot; + queueW.length);&#10;		this.send('debug',&quot;queueE &quot; + queueE.length);&#10;		this.send('debug',&quot;queueS &quot; + queueS.length);&#10;		this.send('debug',&quot;queueN &quot; + queueN.length);&#10;		this.send('debug', &quot;carCount &quot; + carCount);&#10;		&#10;		// street west&#10;		if(queueW.length != 0) { // car from WEST&#10;			this.send('debug',&quot;CarW &quot; + queueW[queueW.length - 1]); // debug&#10;			if(queueW[queueW.length - 1].indicator == 0) { //WEST --&gt; STRAIGHT&#10;				if(queueS.length != 0) { // car from SOUTH&#10;					//stop&#10;				} else {&#10;					this.send('outputEast',queueW[queueW.length - 1]);&#10;					SentW = true;&#10;				}&#10;			}else if(queueW[queueW.length - 1].indicator == 1) { // WEST --&gt; RIGHT&#10;				this.send('outputSouth',queueW[queueW.length - 1]);&#10;				SentW = true;&#10;			}else if(queueW[queueW.length - 1].indicator == -1) { // WEST --&gt; LEFT&#10;				if(queueE.length != 0 &amp;&amp; queueE[queueE.length - 1].indicator == -1) { // car from EAST&#10;					this.send('outputNorth',queueW[queueW.length - 1]);&#10;					SentW = true;&#10;				} else if(queueS.length != 0) { // car from SOUTH&#10;					// stop&#10;				} else {&#10;					this.send('outputNorth',queueW[queueW.length - 1]);&#10;					SentW = true;&#10;				}&#10;			}&#10;		}&#10;		&#10;		if(queueE.length != 0) { // car from EAST&#10;			this.send('debug',&quot;CarE &quot; + queueE[queueE.length - 1]);&#10;			if(queueE[queueE.length - 1].indicator == 0) { // EAST -&gt; STRAIGHT&#10;				if (queueN.length != 0) { // car from NORTH&#10;					// stop&#10;				} else { // no car from NORTH&#10;					this.send('outputWest',queueE[queueE.length - 1]);&#10;					SentE = true;&#10;				}&#10;			}else if(queueE[queueE.length - 1].indicator == -1) { // EAST -&gt; LEFT&#10;				if(queueW.length != 0 &amp;&amp; queueW[queueW.length - 1].indicator == -1) { // car from WEST&#10;					this.send('outputSouth',queueE[queueE.length - 1]);&#10;					SentE = true;&#10;				} else if(queueN.length != 0) { // car from NORTH&#10;					// stop&#10;				} else {&#10;					this.send('outputSouth',queueE[queueE.length - 1]);&#10;					SentE = true;&#10;				}&#10;			} else if(queueE[queueE.length - 1].indicator == 1) { // EAST -&gt; RIGHT&#10;				this.send('outputNorth',queueE[queueE.length - 1]);&#10;				SentE = true;&#10;			}&#10;		}&#10;		&#10;		if(queueS.length != 0) { // car from SOUTH&#10;				this.send('debug',&quot;CarS &quot; + queueS[queueS.length - 1]);&#10;			if(queueS[queueS.length - 1].indicator == 1) { // SOUTH -&gt; RIGHT&#10;				this.send('outputEast',queueS[queueS.length - 1]);&#10;				SentS = true;&#10;			}else if(queueS[queueS.length - 1].indicator == -1) { // SOUTH -&gt; LEFT&#10;				if(queueE.length != 0) { //car from EAST&#10;					//stop&#10;				}else if(queueN.length != 0 &amp;&amp; queueN[queueN.length - 1].indicator == -1) { //car from NORTH&#10;					this.send('outputWest',queueS[queueS.length - 1]);&#10;					SentS = true;&#10;				} else {&#10;					this.send('outputWest',queueS[queueS.length - 1]);&#10;					SentS = true;&#10;				}&#10;			} else if (queueS[queueS.length - 1].indicator == 0) { //SOUTH -&gt; STRAIGHT&#10;				if (queueE.length != 0) { // car from EAST&#10;					// stop&#10;				} else {&#10;					this.send('outputNorth',queueS[queueS.length - 1]);&#10;					SentS = true;&#10;				}&#10;			}&#10;		}&#10;		&#10;		if(queueN.length != 0) { // car from NORTH		&#10;			this.send('debug',&quot;CarN &quot; + queueN[queueN.length - 1]);&#10;			if(queueN[queueN.length - 1].indicator == 1) { // NORTH -&gt; RIGHT&#10;				this.send('outputWest',queueN[queueN.length - 1]);&#10;				SentN = true;&#10;			}else if(queueN[queueN.length - 1].indicator == -1) { // NORTH -&gt; LEFT&#10;				if(queueW.length != 0) { //car from WEST&#10;					//stop&#10;				}else if(queueS.length != 0 &amp;&amp; queueS[queueS.length - 1].indicator == -1) { //car from SOUTH&#10;					this.send('outputEast',queueN[queueN.length - 1]);&#10;					SentN = true;&#10;				} else {&#10;					this.send('outputEast',queueN[queueN.length - 1]);&#10;					SentN = true;&#10;				}&#10;			} else if (queueN[queueN.length - 1].indicator == 0) { //NORTH -&gt; STRAIGHT&#10;				if (queueW.length != 0) { // car from WEST&#10;					// stop&#10;				} else {&#10;					this.send('outputSouth',queueN[queueN.length - 1]);&#10;					SentN = true;&#10;				}&#10;			}&#10;		}&#10;		&#10;		if(SentW) {&#10;			queueW.pop();&#10;			carCount--;&#10;			countW--;&#10;			this.send('display', carCount);&#10;			this.send('trafficJamDetectorW', countW);&#10;			}&#10;		&#10;		if(SentE) {&#10;			queueE.pop();&#10;			carCount--;&#10;			countE--;&#10;			this.send('display', carCount);&#10;			this.send('trafficJamDetectorE', countE);&#10;		}&#10;		&#10;		if(SentS) {&#10;			queueS.pop();&#10;			carCount--;&#10;			countS--;&#10;			this.send('display', carCount);&#10;			this.send('trafficJamDetectorS', countS);&#10;		}&#10;		&#10;		if(SentN) {&#10;			queueN.pop();&#10;			carCount--;&#10;			countN--;&#10;			this.send('display', carCount);&#10;			this.send('trafficJamDetectorN', countN);&#10;		}&#10;		&#10;		//Special case if there is a car on each side of the intersection&#10;		if(!SentW &amp;&amp; !SentE &amp;&amp; !SentS &amp;&amp; !SentN) {&#10;			//0 = West, 1 = East, 2 = South, 3 = North&#10;			var random = Math.floor(Math.random() * 3);&#10;			&#10;			this.send('debug',&quot;queueW RAND &quot; + queueW.length);&#10;			this.send('debug',&quot;queueE RAND &quot; + queueE.length);&#10;			this.send('debug',&quot;queueS RAND &quot; + queueS.length);&#10;			this.send('debug',&quot;queueN RAND &quot; + queueN.length);&#10;			this.send('debug', &quot;carCount RAND &quot; + carCount);&#10;			this.send('debug', &quot;random numb: &quot; + random);&#10;			&#10;			if(random == 0) {&#10;				if(queueW[queueW.length - 1].indicator == 0) {&#10;					this.send('outputEast',queueW[queueW.length - 1]);&#10;				}&#10;				else if(queueW[queueW.length - 1].indicator == 1) {&#10;					this.send('outputSouth',queueW[queueW.length - 1]);&#10;				}&#10;				else if(queueW[queueW.length - 1].indicator == -1) {&#10;					this.send('outputNorth',queueW[queueW.length - 1]);&#10;				}&#10;				&#10;				queueW.pop();&#10;			    carCount--;&#10;			    countW--;&#10;			    this.send('display', carCount);&#10;			    this.send('trafficJamDetectorW', countW);&#10;			}&#10;			&#10;			else if(random == 1) {&#10;				if(queueE[queueE.length - 1].indicator == 0) {&#10;					this.send('outputWest',queueE[queueE.length - 1]);&#10;				}&#10;				else if(queueE[queueE.length - 1].indicator == 1) {&#10;					this.send('outputNorth',queueE[queueE.length - 1]);&#10;				}&#10;				else if(queueE[queueE.length - 1].indicator == -1) {&#10;					this.send('outputSouth',queueE[queueE.length - 1]);&#10;				}&#10;				&#10;				queueE.pop();&#10;			    carCount--;&#10;			    countE--;&#10;			    this.send('display', carCount);&#10;			    this.send('trafficJamDetectorE', countE);&#10;			}&#10;			&#10;			else if(random == 2) {&#10;				if(queueS[queueS.length - 1].indicator == 0) {&#10;					this.send('outputNorth',queueS[queueS.length - 1]);&#10;				}&#10;				else if(queueS[queueS.length - 1].indicator == 1) {&#10;					this.send('outputEast',queueS[queueS.length - 1]);&#10;				}&#10;				else if(queueS[queueS.length - 1].indicator == -1) {&#10;					this.send('outputWest',queueS[queueS.length - 1]);&#10;				}&#10;				&#10;				queueS.pop();&#10;			    carCount--;&#10;			    countS--;&#10;			    this.send('display', carCount);&#10;			    this.send('trafficJamDetectorS', countS);&#10;			}&#10;			else if(random == 3) {&#10;				if(queueN[queueN.length - 1].indicator == 0) {&#10;					this.send('outputSouth',queueN[queueN.length - 1]);&#10;				}&#10;				else if(queueN[queueN.length - 1].indicator == 1) {&#10;					this.send('outputWest',queueN[queueN.length - 1]);&#10;				}&#10;				else if(queueN[queueN.length - 1].indicator == -1) {&#10;					this.send('outputEast',queueN[queueN.length - 1]);&#10;				}&#10;				&#10;				queueN.pop();&#10;			    carCount--;&#10;			    countN--;&#10;			    this.send('display', carCount);&#10;			    this.send('trafficJamDetectorN', countN);&#10;			}&#10;		}&#10;		&#10;		if(carCount != 0) {&#10;			setTimeout(right_hand_rule, 2000);&#10;		}&#10;	}&#10;&#10;">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -906,6 +933,51 @@
                 <property name="_type" class="ptolemy.actor.TypeAttribute" value="double">
                 </property>
                 <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
+                </property>
+            </port>
+            <port name="inputWest" class="ptolemy.actor.TypedIOPort">
+                <property name="input"/>
+                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
+                </property>
+            </port>
+            <port name="inputEast" class="ptolemy.actor.TypedIOPort">
+                <property name="input"/>
+                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
+                </property>
+            </port>
+            <port name="inputSouth" class="ptolemy.actor.TypedIOPort">
+                <property name="input"/>
+                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
+                </property>
+            </port>
+            <port name="inputNorth" class="ptolemy.actor.TypedIOPort">
+                <property name="input"/>
+                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
+                </property>
+            </port>
+            <port name="outputWest" class="ptolemy.actor.TypedIOPort">
+                <property name="output"/>
+                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
+                </property>
+            </port>
+            <port name="outputEast" class="ptolemy.actor.TypedIOPort">
+                <property name="output"/>
+                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
+                </property>
+            </port>
+            <port name="outputSouth" class="ptolemy.actor.TypedIOPort">
+                <property name="output"/>
+                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
+                </property>
+            </port>
+            <port name="outputNorth" class="ptolemy.actor.TypedIOPort">
+                <property name="output"/>
+                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
+                </property>
+            </port>
+            <port name="debug" class="ptolemy.actor.TypedIOPort">
+                <property name="output"/>
+                <property name="defaultValue" class="ptolemy.data.expr.Parameter">
                 </property>
             </port>
         </entity>
@@ -1324,8 +1396,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="17.0" max="200.0"/>
-<yRange min="0.0" max="5.0"/>
+<xRange min="111.3617245907" max="3851.3578515668"/>
+<yRange min="0.0" max="2.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -1345,8 +1417,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="17.0" max="200.0"/>
-<yRange min="0.0" max="3.0"/>
+<xRange min="111.3617245907" max="3851.3578515668"/>
+<yRange min="0.0" max="1.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -2151,8 +2223,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="17.0" max="200.0"/>
-<yRange min="0.0" max="4.0"/>
+<xRange min="100.29373342640001" max="3832.3578515668"/>
+<yRange min="0.0" max="2.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -2172,7 +2244,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="17.0" max="200.0"/>
+<xRange min="100.29373342640001" max="3832.3578515668"/>
 <yRange min="0.0" max="2.0"/>
 </plot>?>
             </configure>
@@ -2246,43 +2318,6 @@
         <link port="TimedPlotter.input" relation="relation16"/>
         <link port="TimedPlotter.input" relation="relation17"/>
     </entity>
-    <entity name="DiscreteClock" class="ptolemy.actor.lib.DiscreteClock">
-        <property name="period" class="ptolemy.actor.parameters.PortParameter" value="6.0">
-        </property>
-        <doc>Create periodic timed events.</doc>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-485.0, 260.0]">
-        </property>
-    </entity>
-    <entity name="DiscreteClock2" class="ptolemy.actor.lib.DiscreteClock">
-        <property name="period" class="ptolemy.actor.parameters.PortParameter" value="6.0">
-        </property>
-        <doc>Create periodic timed events.</doc>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{-436.6626884422091, -149.30032977386804}">
-        </property>
-    </entity>
-    <entity name="DiscreteClock3" class="ptolemy.actor.lib.DiscreteClock">
-        <property name="period" class="ptolemy.actor.parameters.PortParameter" value="6.0">
-        </property>
-        <doc>Create periodic timed events.</doc>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{-680.4126884422083, 61.63717022613122}">
-        </property>
-    </entity>
-    <entity name="DiscreteClock4" class="ptolemy.actor.lib.DiscreteClock">
-        <property name="period" class="ptolemy.actor.parameters.PortParameter" value="6.0">
-        </property>
-        <doc>Create periodic timed events.</doc>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-705.0, 485.0]">
-        </property>
-    </entity>
-    <entity name="DiscreteClock5" class="ptolemy.actor.lib.DiscreteClock">
-        <property name="period" class="ptolemy.actor.parameters.PortParameter" value="6.0">
-        </property>
-        <doc>Create periodic timed events.</doc>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{1361.2000628140697, 332.5756124371858}">
-        </property>
-        <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
-        </property>
-    </entity>
     <entity name="streetExtension" class="ptolemy.actor.TypedCompositeActor">
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-45.0, -140.0]">
         </property>
@@ -2310,7 +2345,7 @@
                 </property>
             </property>
         </property>
-        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="8">
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="3">
         </property>
         <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
         </property>
@@ -2332,8 +2367,6 @@
         </property>
         <port name="leftRightInput" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
-            <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-            </property>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[570.0, 55.0]">
@@ -2341,8 +2374,6 @@
         </port>
         <port name="leftRightOutput" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
-            <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-            </property>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[1129.484375, 57.0]">
@@ -2350,8 +2381,6 @@
         </port>
         <port name="rightLeftInput" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
-            <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-            </property>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[1125.0, 130.0]">
@@ -2359,8 +2388,6 @@
         </port>
         <port name="rightLeftOutput" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
-            <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-            </property>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[585.0, 135.0]">
@@ -2584,8 +2611,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="1.0" max="240.0"/>
-<yRange min="0.0" max="5.0"/>
+<xRange min="92.7128280443" max="3906.3578515668"/>
+<yRange min="0.0" max="3.0"/>
 </plot>?>
                 </configure>
             </entity>
@@ -2966,7 +2993,7 @@
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
             <property name="italic" class="ptolemy.data.expr.Parameter" value="true">
             </property>
-            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="intersection-model that consists of &quot;setIndicator&quot; from each direction,&#10;that sets the indicator of the cars accordingly to their wanted direction.&#10;In the intersection the the cars are sent to their prior set indicator-direction.&#10;The two TimedPlotter are analysis tools for checking the workload">
+            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="intersection-model that consists of &quot;setIndicator&quot; from each direction,&#10;that sets the indicator of the cars accordingly to their wanted direction.&#10;In the intersection the cars are sent to their prior setIndicator-direction.&#10;The two TimedPlotter are analysis tools for checking the workload">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[315.0, 190.0]">
             </property>
@@ -3028,7 +3055,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// each intersection contains a street segment prior to the intersection, which is being analyzed by the counter&#10;var queueW = []; // simulates street from west&#10;var queueE = []; // simulates street from east&#10;var queueS = []; // simulates street from south&#10;var carCount = 0; // indicates number of cars currently in the intersection&#10;	&#10;// counter for the individual directions&#10;var countW = 0;&#10;var countE = 0;&#10;var countS = 0;&#10;	&#10;// for debug purpose&#10;var date;&#10;	&#10;exports.setup = function () {&#10;	//the input-ports for the incoming cars&#10;    this.input('inputWest');&#10;    this.input('inputEast');&#10;    this.input('inputSouth');&#10;    //the output-ports for the leaving cars&#10;    this.output('outputWest');&#10;    this.output('outputEast');&#10;    this.output('outputSouth');&#10;    this.output('debug');&#10;    this.output('display');&#10;    this.output('trafficJamDetectorW');&#10;    this.output('trafficJamDetectorE');&#10;    this.output('trafficJamDetectorS');&#10;}&#10;&#10;exports.initialize = function () { //creates a queue that contains the cars that stand in an intersection&#10;&#10;	this.addInputHandler('inputWest', function() {&#10;		queueW.unshift(this.get('inputWest'));&#10;		carCount++;&#10;		countW++;&#10;		// send counters for analysis&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorW', countW);&#10;		// call right hand rule&#10;		if(carCount == 1) {&#10;			setTimeout(right_hand_rule, 2000);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('inputEast', function() {&#10;		queueE.unshift(this.get('inputEast'));&#10;		carCount++;&#10;		countE++;&#10;		// send counters for analysis&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorE', countE);&#10;		// call right hand rule&#10;		if(carCount == 1) {&#10;			setTimeout(right_hand_rule, 2000);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('inputSouth', function() {&#10;		queueS.unshift(this.get('inputSouth'));&#10;		carCount++;&#10;		countS++;&#10;		// send counters for analysis&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorS', countS);&#10;		// call right hand rule&#10;		if(carCount == 1) {&#10;			setTimeout(right_hand_rule, 2000);&#10;		}&#10;	});&#10;	&#10;}&#10;&#10;// T-Intersection right-hand-rule&#10;//fires the car which has priority and lets the others wait	&#10;function right_hand_rule() {&#10;	// set to true if car can go&#10;	var isSentW = false;&#10;	var isSentE = false;&#10;	var isSentS = false;&#10;		&#10;	//debug&#10;	this.send('debug',&quot;queueW &quot; + queueW.length);&#10;	this.send('debug',&quot;queueE &quot; + queueE.length);&#10;	this.send('debug',&quot;queueS &quot; + queueS.length);&#10;	this.send('debug', &quot;carCount &quot; + carCount);&#10;&#10;	// street west&#10;	if(queueW.length != 0) { // car from WEST&#10;		this.send('debug',&quot;queueW car &quot; + queueW[queueW.length - 1].carId); // debug&#10;		if(queueW[queueW.length - 1].indicator == 0) { // WEST --&gt; straight&#10;			if(queueS.length != 0) { // car from SOUTH&#10;				//stop&#10;			}else if(queueS.length == 0) {&#10;				this.send('outputEast',queueW[queueW.length - 1]);&#10;				isSentW = true;&#10;			}&#10;		}else if(queueW[queueW.length - 1].indicator == 1) { // WEST --&gt; right&#10;			this.send('outputSouth',queueW[queueW.length - 1]);&#10;			isSentW = true;&#10;		}&#10;	}&#10;			&#10;	// street east&#10;	if(queueE.length != 0) { // car from EAST&#10;		this.send('debug',&quot;queueE car &quot; + queueE[queueE.length - 1].carId); // debug&#10;		if(queueE[queueE.length - 1].indicator == 0) { // EAST --&gt; straight&#10;			this.send('outputWest',queueE[queueE.length - 1]);&#10;			isSentE = true;&#10;		}else if(queueE[queueE.length - 1].indicator == -1) { // EAST --&gt; left&#10;			if(queueW.length != 0 &amp;&amp; queueS.length != 0) { // cars from west and south&#10;				this.send('outputSouth',queueE[queueE.length - 1]);&#10;				isSentE = true;&#10;			}else if(queueW.length == 0) { // no car from west (south does not matter, because east always has priority)&#10;				this.send('outputSouth',queueE[queueE.length - 1]);&#10;				isSentE = true;&#10;			}&#10;		}&#10;	}&#10;			&#10;	// street south&#10;	if(queueS.length != 0) { // car from SOUTH&#10;		this.send('debug',&quot;queueS car &quot; + queueS[queueS.length - 1].carId); // debug&#10;		if(queueS[queueS.length - 1].indicator == 1) { // SOUTH --&gt; right&#10;			this.send('outputEast',queueS[queueS.length - 1]);&#10;			isSentS = true;&#10;		}else if(queueS[queueS.length - 1].indicator == -1) { // SOUTH --&gt; left&#10;			if(queueE.length != 0) { // car from east&#10;				//stop&#10;			}else if(queueE.length == 0) {&#10;				this.send('outputWest',queueS[queueS.length - 1]);&#10;				isSentS = true;&#10;			}&#10;		}&#10;	}&#10;			&#10;	// if car was sent, pop it from queue, decrease counter accordingly&#10;	if(isSentW) {&#10;		queueW.pop();&#10;		carCount--;&#10;		countW--;&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorW', countW);&#10;	}&#10;			&#10;	if(isSentE) {&#10;		queueE.pop();&#10;		carCount--;&#10;		countE--;&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorE', countE);&#10;	}&#10;			&#10;	if(isSentS) {&#10;		queueS.pop();&#10;		carCount--;&#10;		countS--;&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorS', countS);&#10;	}&#10;			&#10;	// repeat if there are still cars in the intersection&#10;	if(carCount != 0) {&#10;		setTimeout(right_hand_rule, 2000);&#10;	}&#10;}&#10;">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// each intersection contains a street segment prior to the intersection, which is being analyzed by the counter&#10;var queueW = []; // simulates street from west&#10;var queueE = []; // simulates street from east&#10;var queueS = []; // simulates street from south&#10;var carCount = 0; // indicates number of cars currently in the intersection&#10;	&#10;// counter for the individual directions&#10;var countW = 0;&#10;var countE = 0;&#10;var countS = 0;&#10;	&#10;// for debug purpose&#10;var date;&#10;	&#10;exports.setup = function () {&#10;	//the input-ports for the incoming cars&#10;    this.input('inputWest');&#10;    this.input('inputEast');&#10;    this.input('inputSouth');&#10;    //the output-ports for the leaving cars&#10;    this.output('outputWest');&#10;    this.output('outputEast');&#10;    this.output('outputSouth');&#10;    this.output('debug');&#10;    this.output('display');&#10;    this.output('trafficJamDetectorW');&#10;    this.output('trafficJamDetectorE');&#10;    this.output('trafficJamDetectorS');&#10;}&#10;&#10;exports.initialize = function () { //creates a queue that contains the cars that stand in an intersection&#10;&#10;	this.addInputHandler('inputWest', function() {&#10;		queueW.unshift(this.get('inputWest'));&#10;		carCount++;&#10;		countW++;&#10;		// send counters for analysis&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorW', countW);&#10;		// call right hand rule&#10;		if(carCount == 1) {&#10;			setTimeout(right_hand_rule, 2000);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('inputEast', function() {&#10;		queueE.unshift(this.get('inputEast'));&#10;		carCount++;&#10;		countE++;&#10;		// send counters for analysis&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorE', countE);&#10;		// call right hand rule&#10;		if(carCount == 1) {&#10;			setTimeout(right_hand_rule, 2000);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('inputSouth', function() {&#10;		queueS.unshift(this.get('inputSouth'));&#10;		carCount++;&#10;		countS++;&#10;		// send counters for analysis&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorS', countS);&#10;		// call right hand rule&#10;		if(carCount == 1) {&#10;			setTimeout(right_hand_rule, 2000);&#10;		}&#10;	});&#10;	&#10;}&#10;&#10;// T-Intersection right-hand-rule&#10;//fires the car which has priority and lets the others wait	&#10;function right_hand_rule() {&#10;	// set to true if car can go&#10;	var isSentW = false;&#10;	var isSentE = false;&#10;	var isSentS = false;&#10;		&#10;	//debug&#10;	this.send('debug',&quot;queueW &quot; + queueW.length);&#10;	this.send('debug',&quot;queueE &quot; + queueE.length);&#10;	this.send('debug',&quot;queueS &quot; + queueS.length);&#10;	this.send('debug', &quot;carCount &quot; + carCount);&#10;&#10;	// street west&#10;	if(queueW.length != 0) { // car from WEST&#10;		this.send('debug',&quot;queueW car &quot; + queueW[queueW.length - 1].carId); // debug&#10;		if(queueW[queueW.length - 1].indicator == 0) { // WEST --&gt; straight&#10;			if(queueS.length != 0) { // car from SOUTH&#10;				//stop&#10;			}else if(queueS.length == 0) {&#10;				this.send('outputEast',queueW[queueW.length - 1]);&#10;				isSentW = true;&#10;			}&#10;		}else if(queueW[queueW.length - 1].indicator == 1) { // WEST --&gt; right&#10;			this.send('outputSouth',queueW[queueW.length - 1]);&#10;			isSentW = true;&#10;		}&#10;	}&#10;			&#10;	// street east&#10;	if(queueE.length != 0) { // car from EAST&#10;		this.send('debug',&quot;queueE car &quot; + queueE[queueE.length - 1].carId); // debug&#10;		if(queueE[queueE.length - 1].indicator == 0) { // EAST --&gt; straight&#10;			this.send('outputWest',queueE[queueE.length - 1]);&#10;			isSentE = true;&#10;		}else if(queueE[queueE.length - 1].indicator == -1) { // EAST --&gt; left&#10;			if(queueW.length != 0 &amp;&amp; queueS.length != 0) { // special case:&#10;				if (queueS[queueS.length - 1].indicator == -1 &amp;&amp; queueW[queueW.length - 1].indicator == 0) { // West --&gt; straight, EAST --&gt; left, SOUTH --&gt; left&#10;					this.send('outputSouth',queueE[queueE.length - 1]); // convention: EAST goes first&#10;					isSentE = true;&#10;				}&#10;			}else if(queueW.length == 0) { // no car from west (south does not matter, because east always has priority)&#10;				this.send('outputSouth',queueE[queueE.length - 1]);&#10;				isSentE = true;&#10;			}&#10;		}&#10;	}&#10;			&#10;	// street south&#10;	if(queueS.length != 0) { // car from SOUTH&#10;		this.send('debug',&quot;queueS car &quot; + queueS[queueS.length - 1].carId); // debug&#10;		if(queueS[queueS.length - 1].indicator == 1) { // SOUTH --&gt; right&#10;			this.send('outputEast',queueS[queueS.length - 1]);&#10;			isSentS = true;&#10;		}else if(queueS[queueS.length - 1].indicator == -1) { // SOUTH --&gt; left&#10;			if(queueE.length != 0) { // car from east&#10;				//stop&#10;			}else if(queueE.length == 0) {&#10;				this.send('outputWest',queueS[queueS.length - 1]);&#10;				isSentS = true;&#10;			}&#10;		}&#10;	}&#10;			&#10;	// if car was sent, pop it from queue, decrease counter accordingly&#10;	if(isSentW) {&#10;		queueW.pop();&#10;		carCount--;&#10;		countW--;&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorW', countW);&#10;	}&#10;			&#10;	if(isSentE) {&#10;		queueE.pop();&#10;		carCount--;&#10;		countE--;&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorE', countE);&#10;	}&#10;			&#10;	if(isSentS) {&#10;		queueS.pop();&#10;		carCount--;&#10;		countS--;&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorS', countS);&#10;	}&#10;			&#10;	// repeat if there are still cars in the intersection&#10;	if(carCount != 0) {&#10;		setTimeout(right_hand_rule, 2000);&#10;	}&#10;}&#10;">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -3462,8 +3489,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="17.0" max="202.0"/>
-<yRange min="0.0" max="3.0"/>
+<xRange min="70.7128280443" max="3870.3578515668"/>
+<yRange min="0.0" max="2.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -3487,7 +3514,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="17.0" max="202.0"/>
+<xRange min="70.7128280443" max="3870.3578515668"/>
 <yRange min="0.0" max="2.0"/>
 </plot>?>
             </configure>
@@ -3572,7 +3599,7 @@
                 </property>
             </property>
         </property>
-        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="8">
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="streetLength">
         </property>
         <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
         </property>
@@ -3838,8 +3865,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="1.0" max="182.0"/>
-<yRange min="0.0" max="3.0"/>
+<xRange min="54.712828044300004" max="3371.4486720284003"/>
+<yRange min="0.0" max="2.0"/>
 </plot>?>
                 </configure>
             </entity>
@@ -4225,7 +4252,7 @@
                 </property>
             </property>
         </property>
-        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="8">
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="streetLength">
         </property>
         <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
         </property>
@@ -4491,8 +4518,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="20.0" max="219.0"/>
-<yRange min="0.0" max="2.0"/>
+<xRange min="73.7128280443" max="3887.3578515668"/>
+<yRange min="0.0" max="1.0"/>
 </plot>?>
                 </configure>
             </entity>
@@ -4878,7 +4905,7 @@
                 </property>
             </property>
         </property>
-        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="8">
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="streetLength">
         </property>
         <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
         </property>
@@ -5144,8 +5171,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="26.0" max="217.0"/>
-<yRange min="0.0" max="4.0"/>
+<xRange min="215.9448377337" max="3369.4486720284003"/>
+<yRange min="0.0" max="3.0"/>
 </plot>?>
                 </configure>
             </entity>
@@ -5531,7 +5558,7 @@
                 </property>
             </property>
         </property>
-        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="8">
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="streetLength">
         </property>
         <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
         </property>
@@ -5797,8 +5824,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="20.0" max="200.0"/>
-<yRange min="0.0" max="3.0"/>
+<xRange min="114.3617245907" max="3868.3578515668"/>
+<yRange min="0.0" max="1.0"/>
 </plot>?>
                 </configure>
             </entity>
@@ -6184,7 +6211,7 @@
                 </property>
             </property>
         </property>
-        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="8">
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="streetLength">
         </property>
         <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
         </property>
@@ -6450,8 +6477,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="1.0" max="194.0"/>
-<yRange min="0.0" max="3.0"/>
+<xRange min="95.3617245907" max="3496.5447844455"/>
+<yRange min="0.0" max="2.0"/>
 </plot>?>
                 </configure>
             </entity>
@@ -6837,7 +6864,7 @@
                 </property>
             </property>
         </property>
-        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="8">
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="streetLength">
         </property>
         <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
         </property>
@@ -7103,8 +7130,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="20.0" max="198.0"/>
-<yRange min="0.0" max="4.0"/>
+<xRange min="103.29373342640001" max="3849.3578515668"/>
+<yRange min="0.0" max="2.0"/>
 </plot>?>
                 </configure>
             </entity>
@@ -7490,7 +7517,7 @@
                 </property>
             </property>
         </property>
-        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="8">
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="streetLength">
         </property>
         <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
         </property>
@@ -7756,8 +7783,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="1.0" max="209.0"/>
-<yRange min="0.0" max="3.0"/>
+<xRange min="84.29373342640001" max="3830.3578515668"/>
+<yRange min="0.0" max="2.0"/>
 </plot>?>
                 </configure>
             </entity>
@@ -8143,7 +8170,7 @@
                 </property>
             </property>
         </property>
-        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="8">
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="streetLength">
         </property>
         <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
         </property>
@@ -8409,7 +8436,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="26.0" max="168.0"/>
+<xRange min="274.7781294827" max="2555.8940725834"/>
 <yRange min="0.0" max="1.0"/>
 </plot>?>
                 </configure>
@@ -8796,7 +8823,7 @@
                 </property>
             </property>
         </property>
-        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="8">
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="streetLength">
         </property>
         <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
         </property>
@@ -9062,8 +9089,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="20.0" max="217.0"/>
-<yRange min="0.0" max="5.0"/>
+<xRange min="122.29373342640001" max="3452.5779506853"/>
+<yRange min="0.0" max="2.0"/>
 </plot>?>
                 </configure>
             </entity>
@@ -9449,7 +9476,7 @@
                 </property>
             </property>
         </property>
-        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="8">
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="streetLength">
         </property>
         <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
         </property>
@@ -9715,8 +9742,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="1.0" max="236.0"/>
-<yRange min="0.0" max="5.0"/>
+<xRange min="141.2937334264" max="3471.5779506853"/>
+<yRange min="0.0" max="3.0"/>
 </plot>?>
                 </configure>
             </entity>
@@ -10097,7 +10124,7 @@
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
             <property name="italic" class="ptolemy.data.expr.Parameter" value="true">
             </property>
-            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="intersection-model that consists of &quot;setIndicator&quot; from each direction,&#10;that sets the indicator of the cars accordingly to their wanted direction.&#10;In the intersection the the cars are sent to their prior set indicator-direction.&#10;The two TimedPlotter are analysis tools for checking the workload">
+            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="intersection-model that consists of &quot;setIndicator&quot; from each direction,&#10;that sets the indicator of the cars accordingly to their wanted direction.&#10;In the intersection the cars are sent to their prior setIndicator-direction.&#10;The two TimedPlotter are analysis tools for checking the workload">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[315.0, 190.0]">
             </property>
@@ -10159,7 +10186,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// each intersection contains a street segment prior to the intersection, which is being analyzed by the counter&#10;var queueW = []; // simulates street from west&#10;var queueE = []; // simulates street from east&#10;var queueS = []; // simulates street from south&#10;var carCount = 0; // indicates number of cars currently in the intersection&#10;	&#10;// counter for the individual directions&#10;var countW = 0;&#10;var countE = 0;&#10;var countS = 0;&#10;	&#10;// for debug purpose&#10;var date;&#10;	&#10;exports.setup = function () {&#10;	//the input-ports for the incoming cars&#10;    this.input('inputWest');&#10;    this.input('inputEast');&#10;    this.input('inputSouth');&#10;    //the output-ports for the leaving cars&#10;    this.output('outputWest');&#10;    this.output('outputEast');&#10;    this.output('outputSouth');&#10;    this.output('debug');&#10;    this.output('display');&#10;    this.output('trafficJamDetectorW');&#10;    this.output('trafficJamDetectorE');&#10;    this.output('trafficJamDetectorS');&#10;}&#10;&#10;exports.initialize = function () { //creates a queue that contains the cars that stand in an intersection&#10;&#10;	this.addInputHandler('inputWest', function() {&#10;		queueW.unshift(this.get('inputWest'));&#10;		carCount++;&#10;		countW++;&#10;		// send counters for analysis&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorW', countW);&#10;		// call right hand rule&#10;		if(carCount == 1) {&#10;			setTimeout(right_hand_rule, 2000);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('inputEast', function() {&#10;		queueE.unshift(this.get('inputEast'));&#10;		carCount++;&#10;		countE++;&#10;		// send counters for analysis&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorE', countE);&#10;		// call right hand rule&#10;		if(carCount == 1) {&#10;			setTimeout(right_hand_rule, 2000);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('inputSouth', function() {&#10;		queueS.unshift(this.get('inputSouth'));&#10;		carCount++;&#10;		countS++;&#10;		// send counters for analysis&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorS', countS);&#10;		// call right hand rule&#10;		if(carCount == 1) {&#10;			setTimeout(right_hand_rule, 2000);&#10;		}&#10;	});&#10;	&#10;}&#10;&#10;// T-Intersection right-hand-rule&#10;//fires the car which has priority and lets the others wait	&#10;function right_hand_rule() {&#10;	// set to true if car can go&#10;	var isSentW = false;&#10;	var isSentE = false;&#10;	var isSentS = false;&#10;		&#10;	//debug&#10;	this.send('debug',&quot;queueW &quot; + queueW.length);&#10;	this.send('debug',&quot;queueE &quot; + queueE.length);&#10;	this.send('debug',&quot;queueS &quot; + queueS.length);&#10;	this.send('debug', &quot;carCount &quot; + carCount);&#10;&#10;	// street west&#10;	if(queueW.length != 0) { // car from WEST&#10;		this.send('debug',&quot;queueW car &quot; + queueW[queueW.length - 1].carId); // debug&#10;		if(queueW[queueW.length - 1].indicator == 0) { // WEST --&gt; straight&#10;			if(queueS.length != 0) { // car from SOUTH&#10;				//stop&#10;			}else if(queueS.length == 0) {&#10;				this.send('outputEast',queueW[queueW.length - 1]);&#10;				isSentW = true;&#10;			}&#10;		}else if(queueW[queueW.length - 1].indicator == 1) { // WEST --&gt; right&#10;			this.send('outputSouth',queueW[queueW.length - 1]);&#10;			isSentW = true;&#10;		}&#10;	}&#10;			&#10;	// street east&#10;	if(queueE.length != 0) { // car from EAST&#10;		this.send('debug',&quot;queueE car &quot; + queueE[queueE.length - 1].carId); // debug&#10;		if(queueE[queueE.length - 1].indicator == 0) { // EAST --&gt; straight&#10;			this.send('outputWest',queueE[queueE.length - 1]);&#10;			isSentE = true;&#10;		}else if(queueE[queueE.length - 1].indicator == -1) { // EAST --&gt; left&#10;			if(queueW.length != 0 &amp;&amp; queueS.length != 0) { // cars from west and south&#10;				this.send('outputSouth',queueE[queueE.length - 1]);&#10;				isSentE = true;&#10;			}else if(queueW.length == 0) { // no car from west (south does not matter, because east always has priority)&#10;				this.send('outputSouth',queueE[queueE.length - 1]);&#10;				isSentE = true;&#10;			}&#10;		}&#10;	}&#10;			&#10;	// street south&#10;	if(queueS.length != 0) { // car from SOUTH&#10;		this.send('debug',&quot;queueS car &quot; + queueS[queueS.length - 1].carId); // debug&#10;		if(queueS[queueS.length - 1].indicator == 1) { // SOUTH --&gt; right&#10;			this.send('outputEast',queueS[queueS.length - 1]);&#10;			isSentS = true;&#10;		}else if(queueS[queueS.length - 1].indicator == -1) { // SOUTH --&gt; left&#10;			if(queueE.length != 0) { // car from east&#10;				//stop&#10;			}else if(queueE.length == 0) {&#10;				this.send('outputWest',queueS[queueS.length - 1]);&#10;				isSentS = true;&#10;			}&#10;		}&#10;	}&#10;			&#10;	// if car was sent, pop it from queue, decrease counter accordingly&#10;	if(isSentW) {&#10;		queueW.pop();&#10;		carCount--;&#10;		countW--;&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorW', countW);&#10;	}&#10;			&#10;	if(isSentE) {&#10;		queueE.pop();&#10;		carCount--;&#10;		countE--;&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorE', countE);&#10;	}&#10;			&#10;	if(isSentS) {&#10;		queueS.pop();&#10;		carCount--;&#10;		countS--;&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorS', countS);&#10;	}&#10;			&#10;	// repeat if there are still cars in the intersection&#10;	if(carCount != 0) {&#10;		setTimeout(right_hand_rule, 2000);&#10;	}&#10;}&#10;">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="// each intersection contains a street segment prior to the intersection, which is being analyzed by the counter&#10;var queueW = []; // simulates street from west&#10;var queueE = []; // simulates street from east&#10;var queueS = []; // simulates street from south&#10;var carCount = 0; // indicates number of cars currently in the intersection&#10;	&#10;// counter for the individual directions&#10;var countW = 0;&#10;var countE = 0;&#10;var countS = 0;&#10;	&#10;// for debug purpose&#10;var date;&#10;	&#10;exports.setup = function () {&#10;	//the input-ports for the incoming cars&#10;    this.input('inputWest');&#10;    this.input('inputEast');&#10;    this.input('inputSouth');&#10;    //the output-ports for the leaving cars&#10;    this.output('outputWest');&#10;    this.output('outputEast');&#10;    this.output('outputSouth');&#10;    this.output('debug');&#10;    this.output('display');&#10;    this.output('trafficJamDetectorW');&#10;    this.output('trafficJamDetectorE');&#10;    this.output('trafficJamDetectorS');&#10;}&#10;&#10;exports.initialize = function () { //creates a queue that contains the cars that stand in an intersection&#10;&#10;	this.addInputHandler('inputWest', function() {&#10;		queueW.unshift(this.get('inputWest'));&#10;		carCount++;&#10;		countW++;&#10;		// send counters for analysis&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorW', countW);&#10;		// call right hand rule&#10;		if(carCount == 1) {&#10;			setTimeout(right_hand_rule, 2000);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('inputEast', function() {&#10;		queueE.unshift(this.get('inputEast'));&#10;		carCount++;&#10;		countE++;&#10;		// send counters for analysis&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorE', countE);&#10;		// call right hand rule&#10;		if(carCount == 1) {&#10;			setTimeout(right_hand_rule, 2000);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('inputSouth', function() {&#10;		queueS.unshift(this.get('inputSouth'));&#10;		carCount++;&#10;		countS++;&#10;		// send counters for analysis&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorS', countS);&#10;		// call right hand rule&#10;		if(carCount == 1) {&#10;			setTimeout(right_hand_rule, 2000);&#10;		}&#10;	});&#10;	&#10;}&#10;&#10;// T-Intersection right-hand-rule&#10;//fires the car which has priority and lets the others wait	&#10;function right_hand_rule() {&#10;	// set to true if car can go&#10;	var isSentW = false;&#10;	var isSentE = false;&#10;	var isSentS = false;&#10;		&#10;	//debug&#10;	this.send('debug',&quot;queueW &quot; + queueW.length);&#10;	this.send('debug',&quot;queueE &quot; + queueE.length);&#10;	this.send('debug',&quot;queueS &quot; + queueS.length);&#10;	this.send('debug', &quot;carCount &quot; + carCount);&#10;&#10;	// street west&#10;	if(queueW.length != 0) { // car from WEST&#10;		this.send('debug',&quot;queueW car &quot; + queueW[queueW.length - 1].carId); // debug&#10;		if(queueW[queueW.length - 1].indicator == 0) { // WEST --&gt; straight&#10;			if(queueS.length != 0) { // car from SOUTH&#10;				//stop&#10;			}else if(queueS.length == 0) {&#10;				this.send('outputEast',queueW[queueW.length - 1]);&#10;				isSentW = true;&#10;			}&#10;		}else if(queueW[queueW.length - 1].indicator == 1) { // WEST --&gt; right&#10;			this.send('outputSouth',queueW[queueW.length - 1]);&#10;			isSentW = true;&#10;		}&#10;	}&#10;			&#10;	// street east&#10;	if(queueE.length != 0) { // car from EAST&#10;		this.send('debug',&quot;queueE car &quot; + queueE[queueE.length - 1].carId); // debug&#10;		if(queueE[queueE.length - 1].indicator == 0) { // EAST --&gt; straight&#10;			this.send('outputWest',queueE[queueE.length - 1]);&#10;			isSentE = true;&#10;		}else if(queueE[queueE.length - 1].indicator == -1) { // EAST --&gt; left&#10;			if(queueW.length != 0 &amp;&amp; queueS.length != 0) { // special case:&#10;				if (queueS[queueS.length - 1].indicator == -1 &amp;&amp; queueW[queueW.length - 1].indicator == 0) { // West --&gt; straight, EAST --&gt; left, SOUTH --&gt; left&#10;					this.send('outputSouth',queueE[queueE.length - 1]); // convention: EAST goes first&#10;					isSentE = true;&#10;				}&#10;			}else if(queueW.length == 0) { // no car from west (south does not matter, because east always has priority)&#10;				this.send('outputSouth',queueE[queueE.length - 1]);&#10;				isSentE = true;&#10;			}&#10;		}&#10;	}&#10;			&#10;	// street south&#10;	if(queueS.length != 0) { // car from SOUTH&#10;		this.send('debug',&quot;queueS car &quot; + queueS[queueS.length - 1].carId); // debug&#10;		if(queueS[queueS.length - 1].indicator == 1) { // SOUTH --&gt; right&#10;			this.send('outputEast',queueS[queueS.length - 1]);&#10;			isSentS = true;&#10;		}else if(queueS[queueS.length - 1].indicator == -1) { // SOUTH --&gt; left&#10;			if(queueE.length != 0) { // car from east&#10;				//stop&#10;			}else if(queueE.length == 0) {&#10;				this.send('outputWest',queueS[queueS.length - 1]);&#10;				isSentS = true;&#10;			}&#10;		}&#10;	}&#10;			&#10;	// if car was sent, pop it from queue, decrease counter accordingly&#10;	if(isSentW) {&#10;		queueW.pop();&#10;		carCount--;&#10;		countW--;&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorW', countW);&#10;	}&#10;			&#10;	if(isSentE) {&#10;		queueE.pop();&#10;		carCount--;&#10;		countE--;&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorE', countE);&#10;	}&#10;			&#10;	if(isSentS) {&#10;		queueS.pop();&#10;		carCount--;&#10;		countS--;&#10;		this.send('display', carCount);&#10;		this.send('trafficJamDetectorS', countS);&#10;	}&#10;			&#10;	// repeat if there are still cars in the intersection&#10;	if(carCount != 0) {&#10;		setTimeout(right_hand_rule, 2000);&#10;	}&#10;}&#10;">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -10593,7 +10620,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="17.0" max="219.0"/>
+<xRange min="138.2937334264" max="3454.5779506853"/>
 <yRange min="0.0" max="2.0"/>
 </plot>?>
             </configure>
@@ -10618,7 +10645,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="17.0" max="219.0"/>
+<xRange min="138.2937334264" max="3454.5779506853"/>
 <yRange min="0.0" max="1.0"/>
 </plot>?>
             </configure>
@@ -10676,6 +10703,48 @@
         <link port="IndividualDirectionCount.input" relation="relation13"/>
         <link port="IndividualDirectionCount.input" relation="relation14"/>
     </entity>
+    <entity name="PoissonClock" class="ptolemy.actor.lib.PoissonClock">
+        <property name="meanTime" class="ptolemy.data.expr.Parameter" value="100.0">
+        </property>
+        <property name="fireAtStart" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-441.96875, -148.125]">
+        </property>
+    </entity>
+    <entity name="PoissonClock2" class="ptolemy.actor.lib.PoissonClock">
+        <property name="meanTime" class="ptolemy.data.expr.Parameter" value="100.0">
+        </property>
+        <property name="fireAtStart" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{-672.87374371859, 58.24819409547797}">
+        </property>
+    </entity>
+    <entity name="PoissonClock3" class="ptolemy.actor.lib.PoissonClock">
+        <property name="meanTime" class="ptolemy.data.expr.Parameter" value="100.0">
+        </property>
+        <property name="fireAtStart" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-475.0, 260.0]">
+        </property>
+    </entity>
+    <entity name="PoissonClock4" class="ptolemy.actor.lib.PoissonClock">
+        <property name="meanTime" class="ptolemy.data.expr.Parameter" value="100.0">
+        </property>
+        <property name="fireAtStart" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-716.6777648925781, 482.44712829589844]">
+        </property>
+    </entity>
+    <entity name="PoissonClock5" class="ptolemy.actor.lib.PoissonClock">
+        <property name="meanTime" class="ptolemy.data.expr.Parameter" value="100.0">
+        </property>
+        <property name="fireAtStart" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[1350.0, 330.0]">
+        </property>
+        <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
+        </property>
+    </entity>
     <relation name="relation45" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation47" class="ptolemy.actor.TypedIORelation">
@@ -10685,16 +10754,6 @@
     <relation name="relation51" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation54" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation4" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation21" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation3" class="ptolemy.actor.TypedIORelation">
-    </relation>
-    <relation name="relation2" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation5" class="ptolemy.actor.TypedIORelation">
     </relation>
@@ -10784,6 +10843,16 @@
     </relation>
     <relation name="relation44" class="ptolemy.actor.TypedIORelation">
     </relation>
+    <relation name="relation" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation21" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation4" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation3" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation2" class="ptolemy.actor.TypedIORelation">
+    </relation>
     <link port="CSVReader.output" relation="relation5"/>
     <link port="CSVReader.trigger" relation="relation"/>
     <link port="CSVReader2.output" relation="relation32"/>
@@ -10831,11 +10900,6 @@
     <link port="Cross-Intersection(4).EastIn" relation="relation29"/>
     <link port="Cross-Intersection(4).NorthIn" relation="relation40"/>
     <link port="Cross-Intersection(4).NorthOut" relation="relation37"/>
-    <link port="DiscreteClock.output" relation="relation4"/>
-    <link port="DiscreteClock2.output" relation="relation"/>
-    <link port="DiscreteClock3.output" relation="relation21"/>
-    <link port="DiscreteClock4.output" relation="relation3"/>
-    <link port="DiscreteClock5.output" relation="relation2"/>
     <link port="streetExtension.leftRightInput" relation="relation5"/>
     <link port="streetExtension.leftRightOutput" relation="relation46"/>
     <link port="streetExtension.rightLeftInput" relation="relation53"/>
@@ -10892,4 +10956,9 @@
     <link port="T-Intersection (3).inputSouth" relation="relation27"/>
     <link port="T-Intersection (3).outputSouth" relation="relation16"/>
     <link port="T-Intersection (3).inputEast" relation="relation38"/>
+    <link port="PoissonClock.output" relation="relation"/>
+    <link port="PoissonClock2.output" relation="relation21"/>
+    <link port="PoissonClock3.output" relation="relation4"/>
+    <link port="PoissonClock4.output" relation="relation3"/>
+    <link port="PoissonClock5.output" relation="relation2"/>
 </entity>
