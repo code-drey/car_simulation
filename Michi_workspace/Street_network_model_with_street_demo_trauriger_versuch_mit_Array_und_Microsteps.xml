@@ -1,23 +1,23 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE entity PUBLIC "-//UC Berkeley//DTD MoML 1//EN"
     "http://ptolemy.eecs.berkeley.edu/xml/dtd/MoML_1.dtd">
-<entity name="Street_network_model_with_street_demo" class="ptolemy.actor.TypedCompositeActor">
-    <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="11.0.1">
+<entity name="Street_network_model_with_street_demo_trauriger_versuch_mit_Array_und_Microsteps" class="ptolemy.actor.TypedCompositeActor">
+    <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="11.0.1_20180619">
     </property>
     <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-8, -8, 1936, 1056}, maximized=true}">
     </property>
     <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1708, 939]">
     </property>
-    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="0.8000000000000137">
+    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.0000000000000184">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{226.16317651385452, 383.7062199344669}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{-23.36597679035276, 291.9305734861455}">
     </property>
     <property name="DE Director" class="ptolemy.domains.de.kernel.DEDirector">
-        <property name="localClock" class="ptolemy.actor.LocalClock">
-        </property>
         <property name="synchronizeToRealTime" class="ptolemy.data.expr.Parameter" value="false">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-330.0, -150.0]">
+        <property name="enforceMicrostepSemantics" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{-330.0, -150.0}">
         </property>
     </property>
     <entity name="PoissonClock" class="ptolemy.actor.lib.PoissonClock">
@@ -25,7 +25,7 @@
         </property>
     </entity>
     <entity name="CSVReader" class="ptolemy.actor.lib.io.CSVReader">
-        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="C:/Users/Drey/Desktop/ptolemy/car_simulation/Sofia_workspace/working_models/network/cars1_25.txt">
+        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="cars1_25.txt">
         </property>
         <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
         </property>
@@ -38,11 +38,11 @@
         </port>
     </entity>
     <entity name="CSVReader2" class="ptolemy.actor.lib.io.CSVReader">
-        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="C:/Users/Drey/Desktop/ptolemy/car_simulation/Sofia_workspace/working_models/network/cars2_25.txt">
+        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="cars2_25.txt">
         </property>
         <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[657.3587341308594, 380.0278778076172]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[635.0, 220.0]">
         </property>
         <port name="output" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
@@ -51,7 +51,7 @@
         </port>
     </entity>
     <entity name="CSVReader3" class="ptolemy.actor.lib.io.CSVReader">
-        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="C:/Users/Drey/Desktop/ptolemy/car_simulation/Sofia_workspace/working_models/network/cars3_25.txt">
+        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="cars3_25.txt">
         </property>
         <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
         </property>
@@ -64,7 +64,7 @@
         </port>
     </entity>
     <entity name="CSVReader4" class="ptolemy.actor.lib.io.CSVReader">
-        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="C:/Users/Drey/Desktop/ptolemy/car_simulation/Sofia_workspace/working_models/network/cars4_25.txt">
+        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="cars4_25.txt">
         </property>
         <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
         </property>
@@ -77,9 +77,9 @@
         </port>
     </entity>
     <entity name="Cross-Intersection(4)" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[310.0, 320.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[390.0, 320.0]">
         </property>
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={409, 224, 928, 616}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={152, 174, 928, 616}, maximized=false}">
         </property>
         <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 499]">
         </property>
@@ -861,7 +861,7 @@
     <entity name="T-Intersection(5)" class="ptolemy.actor.TypedCompositeActor">
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-345.0, 450.0]">
         </property>
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={578, 266, 928, 616}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={256, 356, 928, 616}, maximized=false}">
         </property>
         <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 499]">
         </property>
@@ -1458,7 +1458,7 @@
         <link port="setIndicatorEast.output" relation="relation9"/>
     </entity>
     <entity name="CSVReader5" class="ptolemy.actor.lib.io.CSVReader">
-        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="C:/Users/Drey/Desktop/ptolemy/car_simulation/Sofia_workspace/working_models/network/cars5_25.txt">
+        <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="cars5_25.txt">
         </property>
         <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
         </property>
@@ -1471,17 +1471,17 @@
         </port>
     </entity>
     <entity name="Street2" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-90.0, 570.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[15.0, 600.0]">
         </property>
-        <property name="LengthOfStreet" class="ptolemy.data.expr.Parameter" value="3">
+        <property name="LengthOfStreet" class="ptolemy.data.expr.Parameter" value="5">
         </property>
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={127, 349, 928, 617}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={81, 13, 928, 617}, maximized=false}">
         </property>
         <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 500]">
         </property>
         <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.2500000000000002">
         </property>
-        <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{519.6103172110552, 425.3619660804019}">
+        <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{498.95312500000006, 399.1796875}">
         </property>
         <port name="inLeft" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
@@ -1530,7 +1530,7 @@
         </port>
         <port name="streetFullRight" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[420.0, 555.0]">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[410.0, 535.0]">
             </property>
             <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
             </property>
@@ -1562,7 +1562,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;	this.output('Debug');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;	this.output('Debug');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	while(street[street.length-1] == null) {&#10;		street.pop();&#10;	}&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -1651,7 +1651,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	while(street[street.length-1] == null) {&#10;		street.pop();&#10;	}&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -1693,22 +1693,6 @@
                 <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="WEST">
                 </property>
             </port>
-        </entity>
-        <entity name="TimeDelay" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[575.0, 275.0]">
-            </property>
-        </entity>
-        <entity name="TimeDelay2" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[580.0, 435.0]">
-            </property>
-        </entity>
-        <entity name="TimeDelay3" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[290.0, 555.0]">
-            </property>
-        </entity>
-        <entity name="TimeDelay4" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[280.0, 335.0]">
-            </property>
         </entity>
         <entity name="Street 4-5" class="ptolemy.actor.lib.gui.Display">
             <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 333, 1351, 324}, maximized=false}">
@@ -1718,67 +1702,83 @@
             <property name="_location" class="ptolemy.kernel.util.Location" value="[660.0, 360.0]">
             </property>
         </entity>
+        <entity name="MicrostepDelay" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[295.0, 330.0]">
+            </property>
+        </entity>
+        <entity name="MicrostepDelay2" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{290.15312500000005, 515.1796875}">
+            </property>
+        </entity>
+        <entity name="MicrostepDelay3" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[585.0, 435.0]">
+            </property>
+        </entity>
+        <entity name="MicrostepDelay4" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{586.953125, 265.57968750000003}">
+            </property>
+        </entity>
         <relation name="relation" class="ptolemy.actor.TypedIORelation">
         </relation>
         <relation name="relation5" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation3" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation7" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation4" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation8" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation11" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation12" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation10" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation14" class="ptolemy.actor.TypedIORelation">
         </relation>
         <relation name="relation9" class="ptolemy.actor.TypedIORelation">
         </relation>
         <relation name="relation2" class="ptolemy.actor.TypedIORelation">
         </relation>
+        <relation name="relation6" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation10" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation11" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation12" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation4" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation8" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation3" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation7" class="ptolemy.actor.TypedIORelation">
+        </relation>
         <link port="inLeft" relation="relation"/>
         <link port="outRight" relation="relation7"/>
         <link port="inRight" relation="relation5"/>
         <link port="outLeft" relation="relation8"/>
-        <link port="streetFullLeft" relation="relation14"/>
+        <link port="streetFullLeft" relation="relation10"/>
         <link port="streetFullRight" relation="relation12"/>
         <link port="isFullRight" relation="relation9"/>
         <link port="isFullLeft" relation="relation2"/>
         <link port="JavaScript.input" relation="relation"/>
         <link port="JavaScript.output" relation="relation3"/>
         <link port="JavaScript.isFull" relation="relation9"/>
-        <link port="JavaScript.streetFull" relation="relation10"/>
+        <link port="JavaScript.streetFull" relation="relation6"/>
         <link port="JavaScript2.input" relation="relation5"/>
         <link port="JavaScript2.output" relation="relation4"/>
         <link port="JavaScript2.isFull" relation="relation2"/>
         <link port="JavaScript2.streetFull" relation="relation11"/>
-        <link port="TimeDelay.input" relation="relation3"/>
-        <link port="TimeDelay.output" relation="relation7"/>
-        <link port="TimeDelay2.input" relation="relation4"/>
-        <link port="TimeDelay2.output" relation="relation8"/>
-        <link port="TimeDelay3.input" relation="relation11"/>
-        <link port="TimeDelay3.output" relation="relation12"/>
-        <link port="TimeDelay4.input" relation="relation10"/>
-        <link port="TimeDelay4.output" relation="relation14"/>
+        <link port="MicrostepDelay.input" relation="relation6"/>
+        <link port="MicrostepDelay.output" relation="relation10"/>
+        <link port="MicrostepDelay2.input" relation="relation11"/>
+        <link port="MicrostepDelay2.output" relation="relation12"/>
+        <link port="MicrostepDelay3.input" relation="relation4"/>
+        <link port="MicrostepDelay3.output" relation="relation8"/>
+        <link port="MicrostepDelay4.input" relation="relation3"/>
+        <link port="MicrostepDelay4.output" relation="relation7"/>
     </entity>
     <entity name="Street" class="ptolemy.actor.TypedCompositeActor">
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-170.0, 450.0]">
         </property>
-        <property name="LengthOfStreet" class="ptolemy.data.expr.Parameter" value="3">
+        <property name="LengthOfStreet" class="ptolemy.data.expr.Parameter" value="5">
         </property>
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={424, 270, 928, 617}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={152, 270, 928, 617}, maximized=false}">
         </property>
         <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 500]">
         </property>
         <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.2500000000000002">
         </property>
-        <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{519.6103172110552, 425.3619660804019}">
+        <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{465.375, 395.25}">
         </property>
         <port name="inLeft" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
@@ -1791,7 +1791,7 @@
         </port>
         <port name="outRight" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[661.546875, 275.546875]">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[680.0, 275.0]">
             </property>
             <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
             </property>
@@ -1859,7 +1859,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;	this.output('Debug');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;	this.output('Debug');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	while(street[street.length-1] == null) {&#10;		street.pop();&#10;	}&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -1948,7 +1948,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	while(street[street.length-1] == null) {&#10;		street.pop();&#10;	}&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -1991,22 +1991,6 @@
                 </property>
             </port>
         </entity>
-        <entity name="TimeDelay" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[575.0, 275.0]">
-            </property>
-        </entity>
-        <entity name="TimeDelay2" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[580.0, 435.0]">
-            </property>
-        </entity>
-        <entity name="TimeDelay3" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[290.0, 555.0]">
-            </property>
-        </entity>
-        <entity name="TimeDelay4" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[280.0, 335.0]">
-            </property>
-        </entity>
         <entity name="Street 3-5" class="ptolemy.actor.lib.gui.Display">
             <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 333, 1351, 324}, maximized=false}">
             </property>
@@ -2015,21 +1999,33 @@
             <property name="_location" class="ptolemy.kernel.util.Location" value="[680.0, 350.0]">
             </property>
         </entity>
+        <entity name="MicrostepDelay" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[310.0, 515.0]">
+            </property>
+        </entity>
+        <entity name="MicrostepDelay2" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[275.0, 325.0]">
+            </property>
+        </entity>
+        <entity name="MicrostepDelay3" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[575.0, 430.0]">
+            </property>
+        </entity>
+        <entity name="MicrostepDelay4" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[575.0, 275.0]">
+            </property>
+        </entity>
         <relation name="relation" class="ptolemy.actor.TypedIORelation">
         </relation>
         <relation name="relation5" class="ptolemy.actor.TypedIORelation">
         </relation>
-        <relation name="relation3" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation7" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation4" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation8" class="ptolemy.actor.TypedIORelation">
-        </relation>
         <relation name="relation6" class="ptolemy.actor.TypedIORelation">
             <vertex name="vertex" value="{0.0, 0.0}">
             </vertex>
+        </relation>
+        <relation name="relation9" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation2" class="ptolemy.actor.TypedIORelation">
         </relation>
         <relation name="relation11" class="ptolemy.actor.TypedIORelation">
         </relation>
@@ -2037,17 +2033,21 @@
         </relation>
         <relation name="relation10" class="ptolemy.actor.TypedIORelation">
         </relation>
-        <relation name="relation14" class="ptolemy.actor.TypedIORelation">
+        <relation name="relation13" class="ptolemy.actor.TypedIORelation">
         </relation>
-        <relation name="relation9" class="ptolemy.actor.TypedIORelation">
+        <relation name="relation4" class="ptolemy.actor.TypedIORelation">
         </relation>
-        <relation name="relation2" class="ptolemy.actor.TypedIORelation">
+        <relation name="relation8" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation3" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation7" class="ptolemy.actor.TypedIORelation">
         </relation>
         <link port="inLeft" relation="relation"/>
         <link port="outRight" relation="relation7"/>
         <link port="inRight" relation="relation5"/>
         <link port="outLeft" relation="relation8"/>
-        <link port="streetFullLeft" relation="relation14"/>
+        <link port="streetFullLeft" relation="relation13"/>
         <link port="streetFullRight" relation="relation12"/>
         <link port="isFullRight" relation="relation9"/>
         <link port="isFullLeft" relation="relation2"/>
@@ -2059,14 +2059,14 @@
         <link port="JavaScript2.output" relation="relation4"/>
         <link port="JavaScript2.isFull" relation="relation2"/>
         <link port="JavaScript2.streetFull" relation="relation11"/>
-        <link port="TimeDelay.input" relation="relation3"/>
-        <link port="TimeDelay.output" relation="relation7"/>
-        <link port="TimeDelay2.input" relation="relation4"/>
-        <link port="TimeDelay2.output" relation="relation8"/>
-        <link port="TimeDelay3.input" relation="relation11"/>
-        <link port="TimeDelay3.output" relation="relation12"/>
-        <link port="TimeDelay4.input" relation="relation10"/>
-        <link port="TimeDelay4.output" relation="relation14"/>
+        <link port="MicrostepDelay.input" relation="relation11"/>
+        <link port="MicrostepDelay.output" relation="relation12"/>
+        <link port="MicrostepDelay2.input" relation="relation10"/>
+        <link port="MicrostepDelay2.output" relation="relation13"/>
+        <link port="MicrostepDelay3.input" relation="relation4"/>
+        <link port="MicrostepDelay3.output" relation="relation8"/>
+        <link port="MicrostepDelay4.input" relation="relation3"/>
+        <link port="MicrostepDelay4.output" relation="relation7"/>
     </entity>
     <entity name="T-Intersection(1)" class="ptolemy.actor.TypedCompositeActor">
         <property name="_location" class="ptolemy.kernel.util.Location" value="[60.0, -25.0]">
@@ -2599,7 +2599,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[640, 182]">
             </property>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[395.0, 315.0]">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[445.0, 300.0]">
             </property>
         </entity>
         <relation name="relation4" class="ptolemy.actor.TypedIORelation">
@@ -2678,7 +2678,7 @@
         </property>
         <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.2500000000000002">
         </property>
-        <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{519.6103172110552, 425.3619660804019}">
+        <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{457.125, 424.125}">
         </property>
         <port name="inLeft" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
@@ -2759,7 +2759,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;	this.output('Debug');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;	this.output('Debug');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	while(street[street.length-1] == null) {&#10;		street.pop();&#10;	}&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -2811,7 +2811,7 @@
                 <property name="syntaxStyle" class="ptolemy.kernel.util.StringAttribute" value="text/javascript">
                 </property>
             </property>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[470.0, 275.0]">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[485.0, 275.0]">
             </property>
             <property name="Length" class="ptolemy.data.expr.Parameter" value="LengthOfStreet">
             </property>
@@ -2848,7 +2848,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	while(street[street.length-1] == null) {&#10;		street.pop();&#10;	}&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -2891,22 +2891,6 @@
                 </property>
             </port>
         </entity>
-        <entity name="TimeDelay" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[575.0, 275.0]">
-            </property>
-        </entity>
-        <entity name="TimeDelay2" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[580.0, 435.0]">
-            </property>
-        </entity>
-        <entity name="TimeDelay3" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[290.0, 555.0]">
-            </property>
-        </entity>
-        <entity name="TimeDelay4" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[280.0, 335.0]">
-            </property>
-        </entity>
         <entity name="Street 2-3" class="ptolemy.actor.lib.gui.Display">
             <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 333, 1351, 324}, maximized=false}">
             </property>
@@ -2915,39 +2899,55 @@
             <property name="_location" class="ptolemy.kernel.util.Location" value="{695, 325}">
             </property>
         </entity>
+        <entity name="MicrostepDelay" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{586.010317211055, 267.761966080402}">
+            </property>
+        </entity>
+        <entity name="MicrostepDelay2" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{300.325, 308.12500000000006}">
+            </property>
+        </entity>
+        <entity name="MicrostepDelay3" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[575.0, 435.0]">
+            </property>
+        </entity>
+        <entity name="MicrostepDelay4" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{324.325, 519.325}">
+            </property>
+        </entity>
         <relation name="relation" class="ptolemy.actor.TypedIORelation">
         </relation>
         <relation name="relation5" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation3" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation7" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation4" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation8" class="ptolemy.actor.TypedIORelation">
         </relation>
         <relation name="relation6" class="ptolemy.actor.TypedIORelation">
             <vertex name="vertex" value="{0.0, 0.0}">
             </vertex>
         </relation>
-        <relation name="relation11" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation12" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation10" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation14" class="ptolemy.actor.TypedIORelation">
-        </relation>
         <relation name="relation9" class="ptolemy.actor.TypedIORelation">
         </relation>
         <relation name="relation2" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation3" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation7" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation10" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation13" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation4" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation8" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation11" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation12" class="ptolemy.actor.TypedIORelation">
         </relation>
         <link port="inLeft" relation="relation"/>
         <link port="outRight" relation="relation7"/>
         <link port="inRight" relation="relation5"/>
         <link port="outLeft" relation="relation8"/>
-        <link port="streetFullLeft" relation="relation14"/>
+        <link port="streetFullLeft" relation="relation13"/>
         <link port="streetFullRight" relation="relation12"/>
         <link port="isFullRight" relation="relation9"/>
         <link port="isFullLeft" relation="relation2"/>
@@ -2959,27 +2959,27 @@
         <link port="JavaScript2.output" relation="relation4"/>
         <link port="JavaScript2.isFull" relation="relation2"/>
         <link port="JavaScript2.streetFull" relation="relation11"/>
-        <link port="TimeDelay.input" relation="relation3"/>
-        <link port="TimeDelay.output" relation="relation7"/>
-        <link port="TimeDelay2.input" relation="relation4"/>
-        <link port="TimeDelay2.output" relation="relation8"/>
-        <link port="TimeDelay3.input" relation="relation11"/>
-        <link port="TimeDelay3.output" relation="relation12"/>
-        <link port="TimeDelay4.input" relation="relation10"/>
-        <link port="TimeDelay4.output" relation="relation14"/>
+        <link port="MicrostepDelay.input" relation="relation3"/>
+        <link port="MicrostepDelay.output" relation="relation7"/>
+        <link port="MicrostepDelay2.input" relation="relation10"/>
+        <link port="MicrostepDelay2.output" relation="relation13"/>
+        <link port="MicrostepDelay3.input" relation="relation4"/>
+        <link port="MicrostepDelay3.output" relation="relation8"/>
+        <link port="MicrostepDelay4.input" relation="relation11"/>
+        <link port="MicrostepDelay4.output" relation="relation12"/>
     </entity>
     <entity name="Street3" class="ptolemy.actor.TypedCompositeActor">
         <property name="_location" class="ptolemy.kernel.util.Location" value="[135.0, 205.0]">
         </property>
-        <property name="LengthOfStreet" class="ptolemy.data.expr.Parameter" value="3">
+        <property name="LengthOfStreet" class="ptolemy.data.expr.Parameter" value="5">
         </property>
         <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={127, 349, 928, 617}, maximized=false}">
         </property>
         <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 500]">
         </property>
-        <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.0000000000000002">
+        <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.2500000000000002">
         </property>
-        <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{519.6103172110552, 425.3619660804019}">
+        <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{424.125, 411.75}">
         </property>
         <port name="inLeft" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
@@ -3060,7 +3060,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;	this.output('Debug');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;	this.output('Debug');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	while(street[street.length-1] == null) {&#10;		street.pop();&#10;	}&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -3149,7 +3149,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	while(street[street.length-1] == null) {&#10;		street.pop();&#10;	}&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -3200,20 +3200,20 @@
             <property name="_location" class="ptolemy.kernel.util.Location" value="{695, 325}">
             </property>
         </entity>
-        <entity name="TimeDelay3" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[290.0, 555.0]">
+        <entity name="MicrostepDelay" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{585.6103172110551, 259.36196608040194}">
             </property>
         </entity>
-        <entity name="TimeDelay2" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[580.0, 435.0]">
+        <entity name="MicrostepDelay2" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{301.5, 308.40000000000003}">
             </property>
         </entity>
-        <entity name="TimeDelay4" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[280.0, 335.0]">
+        <entity name="MicrostepDelay3" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[585.0, 430.0]">
             </property>
         </entity>
-        <entity name="TimeDelay" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[575.0, 275.0]">
+        <entity name="MicrostepDelay4" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{324.125, 520.55}">
             </property>
         </entity>
         <relation name="relation" class="ptolemy.actor.TypedIORelation">
@@ -3228,27 +3228,27 @@
         </relation>
         <relation name="relation2" class="ptolemy.actor.TypedIORelation">
         </relation>
-        <relation name="relation12" class="ptolemy.actor.TypedIORelation">
+        <relation name="relation3" class="ptolemy.actor.TypedIORelation">
         </relation>
-        <relation name="relation11" class="ptolemy.actor.TypedIORelation">
+        <relation name="relation7" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation10" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation13" class="ptolemy.actor.TypedIORelation">
         </relation>
         <relation name="relation4" class="ptolemy.actor.TypedIORelation">
         </relation>
         <relation name="relation8" class="ptolemy.actor.TypedIORelation">
         </relation>
-        <relation name="relation14" class="ptolemy.actor.TypedIORelation">
+        <relation name="relation11" class="ptolemy.actor.TypedIORelation">
         </relation>
-        <relation name="relation10" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation7" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation3" class="ptolemy.actor.TypedIORelation">
+        <relation name="relation12" class="ptolemy.actor.TypedIORelation">
         </relation>
         <link port="inLeft" relation="relation"/>
         <link port="outRight" relation="relation7"/>
         <link port="inRight" relation="relation5"/>
         <link port="outLeft" relation="relation8"/>
-        <link port="streetFullLeft" relation="relation14"/>
+        <link port="streetFullLeft" relation="relation13"/>
         <link port="streetFullRight" relation="relation12"/>
         <link port="isFullRight" relation="relation9"/>
         <link port="isFullLeft" relation="relation2"/>
@@ -3260,27 +3260,27 @@
         <link port="JavaScript2.output" relation="relation4"/>
         <link port="JavaScript2.isFull" relation="relation2"/>
         <link port="JavaScript2.streetFull" relation="relation11"/>
-        <link port="TimeDelay3.input" relation="relation11"/>
-        <link port="TimeDelay3.output" relation="relation12"/>
-        <link port="TimeDelay2.input" relation="relation4"/>
-        <link port="TimeDelay2.output" relation="relation8"/>
-        <link port="TimeDelay4.input" relation="relation10"/>
-        <link port="TimeDelay4.output" relation="relation14"/>
-        <link port="TimeDelay.input" relation="relation3"/>
-        <link port="TimeDelay.output" relation="relation7"/>
+        <link port="MicrostepDelay.input" relation="relation3"/>
+        <link port="MicrostepDelay.output" relation="relation7"/>
+        <link port="MicrostepDelay2.input" relation="relation10"/>
+        <link port="MicrostepDelay2.output" relation="relation13"/>
+        <link port="MicrostepDelay3.input" relation="relation4"/>
+        <link port="MicrostepDelay3.output" relation="relation8"/>
+        <link port="MicrostepDelay4.input" relation="relation11"/>
+        <link port="MicrostepDelay4.output" relation="relation12"/>
     </entity>
     <entity name="Street5" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[60.0, 320.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[145.0, 320.0]">
         </property>
-        <property name="LengthOfStreet" class="ptolemy.data.expr.Parameter" value="3">
+        <property name="LengthOfStreet" class="ptolemy.data.expr.Parameter" value="5">
         </property>
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-18, 480, 928, 617}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={127, 349, 928, 617}, maximized=false}">
         </property>
         <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 500]">
         </property>
         <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.2500000000000002">
         </property>
-        <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{519.6103172110552, 425.3619660804019}">
+        <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{444.74999999999994, 415.875}">
         </property>
         <port name="inLeft" class="ptolemy.actor.TypedIOPort">
             <property name="input"/>
@@ -3361,7 +3361,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;	this.output('Debug');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;	this.output('Debug');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	while(street[street.length-1] == null) {&#10;		street.pop();&#10;	}&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -3450,7 +3450,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	while(street[street.length-1] == null) {&#10;		street.pop();&#10;	}&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -3493,22 +3493,6 @@
                 </property>
             </port>
         </entity>
-        <entity name="TimeDelay" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[575.0, 275.0]">
-            </property>
-        </entity>
-        <entity name="TimeDelay2" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[580.0, 435.0]">
-            </property>
-        </entity>
-        <entity name="TimeDelay3" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[290.0, 555.0]">
-            </property>
-        </entity>
-        <entity name="TimeDelay4" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[280.0, 335.0]">
-            </property>
-        </entity>
         <entity name="Street 2-4" class="ptolemy.actor.lib.gui.Display">
             <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 333, 1351, 324}, maximized=false}">
             </property>
@@ -3517,9 +3501,39 @@
             <property name="_location" class="ptolemy.kernel.util.Location" value="{695, 325}">
             </property>
         </entity>
+        <entity name="MicrostepDelay" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{305.54999999999995, 315.07500000000005}">
+            </property>
+        </entity>
+        <entity name="MicrostepDelay2" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{585.55, 264.67500000000007}">
+            </property>
+        </entity>
+        <entity name="MicrostepDelay3" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{585.55, 423.07500000000005}">
+            </property>
+        </entity>
+        <entity name="MicrostepDelay4" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{283.15, 516.675}">
+            </property>
+        </entity>
         <relation name="relation" class="ptolemy.actor.TypedIORelation">
         </relation>
         <relation name="relation5" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation6" class="ptolemy.actor.TypedIORelation">
+            <vertex name="vertex" value="{0.0, 0.0}">
+            </vertex>
+        </relation>
+        <relation name="relation13" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation9" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation2" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation10" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation14" class="ptolemy.actor.TypedIORelation">
         </relation>
         <relation name="relation3" class="ptolemy.actor.TypedIORelation">
         </relation>
@@ -3529,23 +3543,9 @@
         </relation>
         <relation name="relation8" class="ptolemy.actor.TypedIORelation">
         </relation>
-        <relation name="relation6" class="ptolemy.actor.TypedIORelation">
-            <vertex name="vertex" value="{0.0, 0.0}">
-            </vertex>
-        </relation>
         <relation name="relation11" class="ptolemy.actor.TypedIORelation">
         </relation>
         <relation name="relation12" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation10" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation14" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation13" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation9" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation2" class="ptolemy.actor.TypedIORelation">
         </relation>
         <link port="inLeft" relation="relation"/>
         <link port="outRight" relation="relation7"/>
@@ -3564,20 +3564,20 @@
         <link port="JavaScript2.output" relation="relation4"/>
         <link port="JavaScript2.isFull" relation="relation2"/>
         <link port="JavaScript2.streetFull" relation="relation11"/>
-        <link port="TimeDelay.input" relation="relation3"/>
-        <link port="TimeDelay.output" relation="relation7"/>
-        <link port="TimeDelay2.input" relation="relation4"/>
-        <link port="TimeDelay2.output" relation="relation8"/>
-        <link port="TimeDelay3.input" relation="relation11"/>
-        <link port="TimeDelay3.output" relation="relation12"/>
-        <link port="TimeDelay4.input" relation="relation10"/>
-        <link port="TimeDelay4.output" relation="relation14"/>
         <link port="Street 2-4.input" relation="relation13"/>
+        <link port="MicrostepDelay.input" relation="relation10"/>
+        <link port="MicrostepDelay.output" relation="relation14"/>
+        <link port="MicrostepDelay2.input" relation="relation3"/>
+        <link port="MicrostepDelay2.output" relation="relation7"/>
+        <link port="MicrostepDelay3.input" relation="relation4"/>
+        <link port="MicrostepDelay3.output" relation="relation8"/>
+        <link port="MicrostepDelay4.input" relation="relation11"/>
+        <link port="MicrostepDelay4.output" relation="relation12"/>
     </entity>
     <entity name="Street6" class="ptolemy.actor.TypedCompositeActor">
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-110.0, 110.0]">
         </property>
-        <property name="LengthOfStreet" class="ptolemy.data.expr.Parameter" value="3">
+        <property name="LengthOfStreet" class="ptolemy.data.expr.Parameter" value="5">
         </property>
         <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={127, 349, 928, 617}, maximized=false}">
         </property>
@@ -3666,7 +3666,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;	this.output('Debug');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;	this.output('Debug');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	while(street[street.length-1] == null) {&#10;		street.pop();&#10;	}&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -3755,7 +3755,7 @@
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute">
             </property>
-            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
+            <property name="script" class="ptolemy.actor.parameters.PortParameter" value="var street = [];&#10;var isFull = false;&#10;var streetFull = false;&#10;var streetLength = this.getParameter('Length');&#10;&#10;exports.setup = function () {&#10;	this.input('input');&#10;	this.input('isFull');&#10;	this.output('output');&#10;	this.output('streetFull');&#10;}&#10;&#10;exports.initialize = function () {&#10;		this.addInputHandler('input', function() {&#10;		var car = this.get('input');&#10;		if(street.length &lt;= streetLength) { //wenn an CSV?! ;)&#10;			street.unshift(car);&#10;			if(street.length == streetLength) {&#10;				streetFull = true;&#10;				this.send('streetFull', streetFull);&#10;			}&#10;			setTimeout(drive, 1000, car);&#10;		}&#10;	});&#10;	&#10;	this.addInputHandler('isFull', function() {&#10;		isFull = this.get('isFull');&#10;	});&#10;}&#10;&#10;function drive(car) {&#10;	while(street[street.length-1] == null) {&#10;		street.pop();&#10;	}&#10;	if(street.indexOf(car) &lt; streetLength-1) {&#10;		if(street[street.indexOf(car)+1] == null) {&#10;			street[street.indexOf(car)+1] = street[street.indexOf(car)];&#10;			street[street.indexOf(car)] = null;&#10;		} &#10;		setTimeout(drive, 1000, car);&#10;	}&#10;	else if(!isFull) {&#10;		this.send('output', street.pop());&#10;		&#10;		if(streetFull) {&#10;			streetFull = false;&#10;			this.send('streetFull', streetFull);&#10;		}	&#10;	}&#10;}&#10;">
                 <property name="style" class="ptolemy.actor.gui.style.NoteStyle">
                     <property name="note" class="ptolemy.kernel.util.StringAttribute" value="NOTE: To see the script, invoke Open Actor">
                     </property>
@@ -3806,20 +3806,20 @@
             <property name="_location" class="ptolemy.kernel.util.Location" value="{695, 325}">
             </property>
         </entity>
-        <entity name="TimeDelay3" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[290.0, 555.0]">
+        <entity name="MicrostepDelay" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{567.6103172110551, 266.36196608040194}">
             </property>
         </entity>
-        <entity name="TimeDelay2" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[580.0, 435.0]">
+        <entity name="MicrostepDelay2" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{264.6103172110552, 318.3619660804019}">
             </property>
         </entity>
-        <entity name="TimeDelay" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[575.0, 275.0]">
+        <entity name="MicrostepDelay3" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{263.6103172110552, 536.3619660804019}">
             </property>
         </entity>
-        <entity name="TimeDelay4" class="ptolemy.actor.lib.TimeDelay">
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[280.0, 335.0]">
+        <entity name="MicrostepDelay4" class="ptolemy.actor.lib.MicrostepDelay">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[575.0, 435.0]">
             </property>
         </entity>
         <relation name="relation" class="ptolemy.actor.TypedIORelation">
@@ -3834,27 +3834,27 @@
         </relation>
         <relation name="relation2" class="ptolemy.actor.TypedIORelation">
         </relation>
-        <relation name="relation12" class="ptolemy.actor.TypedIORelation">
+        <relation name="relation3" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation7" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation10" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation13" class="ptolemy.actor.TypedIORelation">
         </relation>
         <relation name="relation11" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation12" class="ptolemy.actor.TypedIORelation">
         </relation>
         <relation name="relation4" class="ptolemy.actor.TypedIORelation">
         </relation>
         <relation name="relation8" class="ptolemy.actor.TypedIORelation">
         </relation>
-        <relation name="relation3" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation7" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation14" class="ptolemy.actor.TypedIORelation">
-        </relation>
-        <relation name="relation10" class="ptolemy.actor.TypedIORelation">
-        </relation>
         <link port="inLeft" relation="relation"/>
         <link port="outRight" relation="relation7"/>
         <link port="inRight" relation="relation5"/>
         <link port="outLeft" relation="relation8"/>
-        <link port="streetFullLeft" relation="relation14"/>
+        <link port="streetFullLeft" relation="relation13"/>
         <link port="streetFullRight" relation="relation12"/>
         <link port="isFullRight" relation="relation9"/>
         <link port="isFullLeft" relation="relation2"/>
@@ -3866,14 +3866,14 @@
         <link port="JavaScript2.output" relation="relation4"/>
         <link port="JavaScript2.isFull" relation="relation2"/>
         <link port="JavaScript2.streetFull" relation="relation11"/>
-        <link port="TimeDelay3.input" relation="relation11"/>
-        <link port="TimeDelay3.output" relation="relation12"/>
-        <link port="TimeDelay2.input" relation="relation4"/>
-        <link port="TimeDelay2.output" relation="relation8"/>
-        <link port="TimeDelay.input" relation="relation3"/>
-        <link port="TimeDelay.output" relation="relation7"/>
-        <link port="TimeDelay4.input" relation="relation10"/>
-        <link port="TimeDelay4.output" relation="relation14"/>
+        <link port="MicrostepDelay.input" relation="relation3"/>
+        <link port="MicrostepDelay.output" relation="relation7"/>
+        <link port="MicrostepDelay2.input" relation="relation10"/>
+        <link port="MicrostepDelay2.output" relation="relation13"/>
+        <link port="MicrostepDelay3.input" relation="relation11"/>
+        <link port="MicrostepDelay3.output" relation="relation12"/>
+        <link port="MicrostepDelay4.input" relation="relation4"/>
+        <link port="MicrostepDelay4.output" relation="relation8"/>
     </entity>
     <entity name="PoissonClock2" class="ptolemy.actor.lib.PoissonClock">
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-690.0, 115.0]">
@@ -3888,13 +3888,13 @@
         </property>
     </entity>
     <entity name="PoissonClock5" class="ptolemy.actor.lib.PoissonClock">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[497.3587341308594, 370.0278778076172]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[475.0, 210.0]">
         </property>
     </entity>
     <entity name="Cross-Intersection(3)" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="{-90.0, 320.0}">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-85.0, 320.0]">
         </property>
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-1288, 188, 928, 616}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={152, 403, 928, 616}, maximized=false}">
         </property>
         <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 499]">
         </property>
@@ -4464,7 +4464,7 @@
         </entity>
         <entity name="Cross 2" class="ptolemy.actor.lib.gui.Display">
             <display name="Debug"/>
-            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={506, 269, 567, 246}, maximized=false}">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={650, 427, 567, 246}, maximized=false}">
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[551, 186]">
             </property>
@@ -4632,8 +4632,6 @@
         </relation>
         <relation name="relation21" class="ptolemy.actor.TypedIORelation">
         </relation>
-        <relation name="relation17" class="ptolemy.actor.TypedIORelation">
-        </relation>
         <link port="EastOut" relation="relation5"/>
         <link port="WestIn" relation="relation7"/>
         <link port="WestOut" relation="relation4"/>
@@ -4658,7 +4656,6 @@
         <link port="setIndicatorEast.output" relation="relation9"/>
         <link port="setIndicatorNorth.car" relation="relation11"/>
         <link port="setIndicatorNorth.output" relation="relation12"/>
-        <link port="Cross 2.input" relation="relation17"/>
         <link port="T-Intersection Right-Hand-Rule.carWEST" relation="relation10"/>
         <link port="T-Intersection Right-Hand-Rule.carEAST" relation="relation9"/>
         <link port="T-Intersection Right-Hand-Rule.carSOUTH" relation="relation2"/>
@@ -4667,7 +4664,6 @@
         <link port="T-Intersection Right-Hand-Rule.OSOUTH" relation="relation6"/>
         <link port="T-Intersection Right-Hand-Rule.ONORTH" relation="relation"/>
         <link port="T-Intersection Right-Hand-Rule.carNORTH" relation="relation12"/>
-        <link port="T-Intersection Right-Hand-Rule.Debug" relation="relation17"/>
         <link port="T-Intersection Right-Hand-Rule.isFullW" relation="relation13"/>
         <link port="T-Intersection Right-Hand-Rule.isFullE" relation="relation15"/>
         <link port="T-Intersection Right-Hand-Rule.isFullS" relation="relation14"/>
@@ -4680,7 +4676,7 @@
     <entity name="T-Intersection(2)" class="ptolemy.actor.TypedCompositeActor">
         <property name="_location" class="ptolemy.kernel.util.Location" value="{-305.0, 110.0}">
         </property>
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={628, 197, 928, 616}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={152, 253, 928, 616}, maximized=false}">
         </property>
         <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 499]">
         </property>
@@ -5361,7 +5357,7 @@
         </property>
     </entity>
     <entity name="Counter5" class="ptolemy.actor.lib.Counter">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[566.9274370202997, 193.07616612420384]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{544.5687028894404, 33.04828831658665}">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
@@ -5376,17 +5372,9 @@
             <property name="displayWidth" class="ptolemy.data.expr.Parameter" value="displayWidth">
             </property>
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[406.92743702029975, 193.07616612420384]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{384.5687028894404, 33.04828831658665}">
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
-        </property>
-    </entity>
-    <entity name="Display" class="ptolemy.actor.lib.gui.Display">
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={849, 539, 668, 246}, maximized=false}">
-        </property>
-        <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[652, 186]">
-        </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[140.0, 410.0]">
         </property>
     </entity>
     <relation name="relation6" class="ptolemy.actor.TypedIORelation">
@@ -5418,6 +5406,8 @@
     <relation name="relation30" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation31" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation34" class="ptolemy.actor.TypedIORelation">
     </relation>
     <relation name="relation35" class="ptolemy.actor.TypedIORelation">
     </relation>
@@ -5523,12 +5513,6 @@
     </relation>
     <relation name="relation25" class="ptolemy.actor.TypedIORelation">
     </relation>
-    <relation name="relation69" class="ptolemy.actor.TypedIORelation">
-        <property name="width" class="ptolemy.data.expr.Parameter" value="-1">
-        </property>
-        <vertex name="vertex1" value="[181.3631765138541, 298.5062199344683]">
-        </vertex>
-    </relation>
     <link port="PoissonClock.output" relation="relation12"/>
     <link port="CSVReader.output" relation="relation13"/>
     <link port="CSVReader.trigger" relation="relation12"/>
@@ -5539,7 +5523,7 @@
     <link port="CSVReader4.output" relation="relation36"/>
     <link port="CSVReader4.trigger" relation="relation5"/>
     <link port="Cross-Intersection(4).EastOut" relation="relation25"/>
-    <link port="Cross-Intersection(4).WestIn" relation="relation69"/>
+    <link port="Cross-Intersection(4).WestIn" relation="relation34"/>
     <link port="Cross-Intersection(4).WestOut" relation="relation35"/>
     <link port="Cross-Intersection(4).SouthIn" relation="relation16"/>
     <link port="Cross-Intersection(4).SouthOut" relation="relation28"/>
@@ -5607,7 +5591,7 @@
     <link port="Street3.isFullRight" relation="relation57"/>
     <link port="Street3.isFullLeft" relation="relation51"/>
     <link port="Street5.inLeft" relation="relation22"/>
-    <link port="Street5.outRight" relation="relation69"/>
+    <link port="Street5.outRight" relation="relation34"/>
     <link port="Street5.inRight" relation="relation35"/>
     <link port="Street5.outLeft" relation="relation23"/>
     <link port="Street5.streetFullLeft" relation="relation33"/>
@@ -5665,5 +5649,4 @@
     <link port="Counter5.increment" relation="relation25"/>
     <link port="Counter5.output" relation="relation68"/>
     <link port="Output 5.input" relation="relation68"/>
-    <link port="Display.input" relation="relation69"/>
 </entity>
