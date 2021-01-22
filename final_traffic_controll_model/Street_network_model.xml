@@ -13,7 +13,7 @@
     <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{-76.4798994974874, 166.1206030150753}">
     </property>
     <property name="DE Director" class="ptolemy.domains.de.kernel.DEDirector">
-        <property name="synchronizeToRealTime" class="ptolemy.data.expr.Parameter" value="false">
+        <property name="synchronizeToRealTime" class="ptolemy.data.expr.Parameter" value="true">
         </property>
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-235.0, -365.0]">
         </property>
@@ -40,9 +40,9 @@
     <property name="enableBackwardTypeInference" class="ptolemy.data.expr.Parameter" value="false">
     </property>
     <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
-        <property name="text" class="ptolemy.kernel.util.StringAttribute" value="This is a simple traffic model, consisting of a few T-intersections,cross-intersections and streets.&#10;The Input ist controlled through a discrete clock, connected with a CSV-Reader, where our cars are&#10;put into the model. The key-part of the model is the analysis of the overloaded streets and intersections,&#10;if heavy traffic occurs (seen on the analysis) models can easily be configured.&#10;The minimum streetLength is 4 for 6 cars(cars.txt), 5 for 25 cars(cars_25.txt), 6 for 40 cars(cars_40.txt).&#10;&#10;Parameter &quot;StreetPlotterFlag&quot;: if 1 it shows the analysis on the plotters, if 0 only empty plotters appear.&#10;Parameter &quot;streetLength&quot;: changes the length of all streets.">
+        <property name="text" class="ptolemy.kernel.util.StringAttribute" value="This is a simple traffic model, consisting of a few T-intersections,cross-intersections and streets.&#10;The Input ist controlled through a discrete clock, connected with a CSV-Reader, where our cars are&#10;put into the model. The key-part of the model is the analysis of the overloaded streets and intersections,&#10;if heavy traffic occurs (seen on the analysis) models can easily be configured.&#10;The minimum streetLength is 4 for 6 cars(cars.txt), 5 for 25 cars(cars_25.txt), 6 for 40 cars(cars_40.txt).&#10;&#10;Parameter &quot;StreetPlotterFlag&quot;: if 1 it shows the analysis of how many cars pass the street on the plotters,&#10;                                                 if 0 only empty plotters appear.&#10;Parameter &quot;StreetFlagAvgTime&quot;: if 1 it shows the analysis of averagetime passing a street on the display, &#10;                                                     if 0 only empty display appear&#10;Parameter &quot;streetLength&quot;: changes the length of all streets.">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-85.0, -430.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[-120.0, -470.0]">
         </property>
     </property>
     <property name="Annotation2" class="ptolemy.vergil.kernel.attributes.TextAttribute">
@@ -50,7 +50,7 @@
         </property>
         <property name="text" class="ptolemy.kernel.util.StringAttribute" value="Author: Sofia Bonini, Michael Breckner, Andrea Hofer">
         </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-85.0, -280.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[205.0, -265.0]">
         </property>
     </property>
     <property name="streetLength" class="ptolemy.data.expr.Parameter" value="8">
@@ -620,8 +620,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="17.0" max="286.0"/>
-<yRange min="0.0" max="2.0"/>
+<xRange min="17.0" max="205.0"/>
+<yRange min="0.0" max="3.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -645,13 +645,13 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="17.0" max="286.0"/>
+<xRange min="17.0" max="205.0"/>
 <yRange min="0.0" max="2.0"/>
 </plot>?>
             </configure>
         </entity>
         <entity name="AvgWaitingTime" class="ptolemy.actor.lib.gui.Display">
-            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-1928, 5, 516, 184}, maximized=false}">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 5, 516, 184}, maximized=false}">
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[500, 124]">
             </property>
@@ -1424,8 +1424,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="17.0" max="256.0"/>
-<yRange min="0.0" max="3.0"/>
+<xRange min="17.0" max="200.0"/>
+<yRange min="0.0" max="7.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -1445,8 +1445,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="-10.310636486758744" max="285.7574635377469"/>
-<yRange min="-0.136736663244" max="1.1020419979464"/>
+<xRange min="17.0" max="200.0"/>
+<yRange min="0.0" max="3.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -1487,7 +1487,7 @@
             </port>
         </entity>
         <entity name="AvgWaitingTime" class="ptolemy.actor.lib.gui.Display">
-            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-1927, 528, 502, 205}, maximized=false}">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 528, 502, 205}, maximized=false}">
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[486, 145]">
             </property>
@@ -2716,8 +2716,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="17.0" max="223.0"/>
-<yRange min="0.0" max="2.0"/>
+<xRange min="17.0" max="202.0"/>
+<yRange min="0.0" max="3.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -2741,13 +2741,13 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="17.0" max="223.0"/>
-<yRange min="0.0" max="1.0"/>
+<xRange min="17.0" max="202.0"/>
+<yRange min="0.0" max="2.0"/>
 </plot>?>
             </configure>
         </entity>
         <entity name="AvgWaitingTime" class="ptolemy.actor.lib.gui.Display">
-            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-1929, 176, 513, 186}, maximized=false}">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 176, 513, 186}, maximized=false}">
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[497, 126]">
             </property>
@@ -3380,8 +3380,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="17.0" max="275.0"/>
-<yRange min="0.0" max="2.0"/>
+<xRange min="17.0" max="200.0"/>
+<yRange min="0.0" max="3.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -3405,13 +3405,13 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="17.0" max="275.0"/>
-<yRange min="0.0" max="2.0"/>
+<xRange min="17.0" max="200.0"/>
+<yRange min="0.0" max="1.0"/>
 </plot>?>
             </configure>
         </entity>
         <entity name="AvgWaitingTime" class="ptolemy.actor.lib.gui.Display">
-            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-1926, 345, 510, 190}, maximized=false}">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 345, 510, 190}, maximized=false}">
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[494, 130]">
             </property>
@@ -4184,8 +4184,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="17.0" max="267.0"/>
-<yRange min="0.0" max="3.0"/>
+<xRange min="17.0" max="200.0"/>
+<yRange min="0.0" max="4.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -4205,8 +4205,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="17.0" max="267.0"/>
-<yRange min="0.0" max="1.0"/>
+<xRange min="17.0" max="200.0"/>
+<yRange min="0.0" max="2.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -4247,7 +4247,7 @@
             </port>
         </entity>
         <entity name="AvgWaitingTime" class="ptolemy.actor.lib.gui.Display">
-            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-1925, 723, 500, 258}, maximized=false}">
+            <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 723, 500, 258}, maximized=false}">
             </property>
             <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[484, 198]">
             </property>
@@ -4626,8 +4626,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="1.0" max="303.0"/>
-<yRange min="0.0" max="5.0"/>
+<xRange min="1.0" max="205.0"/>
+<yRange min="0.0" max="7.0"/>
 </plot>?>
                 </configure>
             </entity>
@@ -5465,8 +5465,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="1.0" max="229.0"/>
-<yRange min="0.0" max="2.0"/>
+<xRange min="1.0" max="185.0"/>
+<yRange min="0.0" max="3.0"/>
 </plot>?>
                 </configure>
             </entity>
@@ -6304,8 +6304,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="20.0" max="229.0"/>
-<yRange min="0.0" max="2.0"/>
+<xRange min="20.0" max="203.0"/>
+<yRange min="0.0" max="4.0"/>
 </plot>?>
                 </configure>
             </entity>
@@ -7143,8 +7143,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="26.0" max="284.0"/>
-<yRange min="0.0" max="3.0"/>
+<xRange min="26.0" max="216.0"/>
+<yRange min="0.0" max="4.0"/>
 </plot>?>
                 </configure>
             </entity>
@@ -7982,7 +7982,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="20.0" max="240.0"/>
+<xRange min="20.0" max="199.0"/>
 <yRange min="0.0" max="3.0"/>
 </plot>?>
                 </configure>
@@ -8821,7 +8821,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="1.0" max="225.0"/>
+<xRange min="1.0" max="208.0"/>
 <yRange min="0.0" max="3.0"/>
 </plot>?>
                 </configure>
@@ -9660,7 +9660,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="20.0" max="265.0"/>
+<xRange min="20.0" max="198.0"/>
 <yRange min="0.0" max="4.0"/>
 </plot>?>
                 </configure>
@@ -10499,7 +10499,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="1.0" max="279.0"/>
+<xRange min="1.0" max="209.0"/>
 <yRange min="0.0" max="3.0"/>
 </plot>?>
                 </configure>
@@ -11338,7 +11338,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="26.0" max="218.0"/>
+<xRange min="26.0" max="170.0"/>
 <yRange min="0.0" max="2.0"/>
 </plot>?>
                 </configure>
@@ -12177,7 +12177,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="20.0" max="273.0"/>
+<xRange min="20.0" max="217.0"/>
 <yRange min="0.0" max="4.0"/>
 </plot>?>
                 </configure>
@@ -13016,7 +13016,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="1.0" max="292.0"/>
+<xRange min="1.0" max="236.0"/>
 <yRange min="0.0" max="4.0"/>
 </plot>?>
                 </configure>
