@@ -4,13 +4,13 @@
 <entity name="Street_network_model" class="ptolemy.actor.TypedCompositeActor">
     <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="11.0.1_20180619">
     </property>
-    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-8, -8, 1382, 744}, maximized=true}">
+    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-8, -8, 1936, 1056}, maximized=true}">
     </property>
-    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1154, 627]">
+    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1708, 939]">
     </property>
     <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="0.8000000000000042">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{-577.5050251256281, 96.12060301507529}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{151.2587939698493, 164.4422110552763}">
     </property>
     <property name="DE Director" class="ptolemy.domains.de.kernel.DEDirector">
         <property name="synchronizeToRealTime" class="ptolemy.data.expr.Parameter" value="false">
@@ -72,7 +72,7 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-290.0, -285.0]">
         </property>
     </property>
-    <property name="StreetFlagAvgTime" class="ptolemy.data.expr.Parameter" value="0">
+    <property name="StreetFlagAvgTime" class="ptolemy.data.expr.Parameter" value="1">
         <property name="_hideName" class="ptolemy.kernel.util.SingletonAttribute">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.ValueIcon">
@@ -91,7 +91,7 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-290.0, -305.0]">
         </property>
     </property>
-    <property name="IntersectionFlagAvgTime" class="ptolemy.data.expr.Parameter" value="0">
+    <property name="IntersectionFlagAvgTime" class="ptolemy.data.expr.Parameter" value="1">
         <property name="_hideName" class="ptolemy.kernel.util.SingletonAttribute">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.ValueIcon">
@@ -2215,7 +2215,7 @@
         </port>
     </entity>
     <entity name="streetExtension" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-203.408203125, -140.107421875]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{-205.0, -140.0}">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">
@@ -2241,11 +2241,11 @@
                 </property>
             </property>
         </property>
-        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="streetLength">
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="8">
         </property>
         <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
         </property>
-        <property name="duration" class="ptolemy.data.expr.Parameter" value="16">
+        <property name="duration" class="ptolemy.data.expr.Parameter" value="10">
         </property>
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
             <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more controll to jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts.&#10;The AvgTime Actor computes the average waiting time in this street and&#10;is for analysis purposes.">
@@ -3080,11 +3080,11 @@
                 </property>
             </property>
         </property>
-        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="streetLength">
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="8">
         </property>
         <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
         </property>
-        <property name="duration" class="ptolemy.data.expr.Parameter" value="16">
+        <property name="duration" class="ptolemy.data.expr.Parameter" value="10">
         </property>
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
             <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more controll to jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts.&#10;The AvgTime Actor computes the average waiting time in this street and&#10;is for analysis purposes.">
@@ -3919,11 +3919,11 @@
                 </property>
             </property>
         </property>
-        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="streetLength">
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="5">
         </property>
         <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
         </property>
-        <property name="duration" class="ptolemy.data.expr.Parameter" value="16">
+        <property name="duration" class="ptolemy.data.expr.Parameter" value="8">
         </property>
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
             <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more controll to jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts.&#10;The AvgTime Actor computes the average waiting time in this street and&#10;is for analysis purposes.">
@@ -4758,11 +4758,11 @@
                 </property>
             </property>
         </property>
-        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="streetLength">
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="8">
         </property>
         <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
         </property>
-        <property name="duration" class="ptolemy.data.expr.Parameter" value="16">
+        <property name="duration" class="ptolemy.data.expr.Parameter" value="10">
         </property>
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
             <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more controll to jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts.&#10;The AvgTime Actor computes the average waiting time in this street and&#10;is for analysis purposes.">
@@ -5597,11 +5597,11 @@
                 </property>
             </property>
         </property>
-        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="streetLength">
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="3">
         </property>
         <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
         </property>
-        <property name="duration" class="ptolemy.data.expr.Parameter" value="16">
+        <property name="duration" class="ptolemy.data.expr.Parameter" value="5">
         </property>
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
             <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more controll to jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts.&#10;The AvgTime Actor computes the average waiting time in this street and&#10;is for analysis purposes.">
@@ -6436,11 +6436,11 @@
                 </property>
             </property>
         </property>
-        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="streetLength">
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="8">
         </property>
         <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
         </property>
-        <property name="duration" class="ptolemy.data.expr.Parameter" value="16">
+        <property name="duration" class="ptolemy.data.expr.Parameter" value="10">
         </property>
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
             <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more controll to jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts.&#10;The AvgTime Actor computes the average waiting time in this street and&#10;is for analysis purposes.">
@@ -7249,7 +7249,7 @@
         <link port="TimeDelay4.output" relation="relation5"/>
     </entity>
     <entity name="streetExtension7" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[423.3768635658754, 270.1242047027112]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[425.0, 270.0]">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">
@@ -7275,11 +7275,11 @@
                 </property>
             </property>
         </property>
-        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="streetLength">
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="5">
         </property>
         <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
         </property>
-        <property name="duration" class="ptolemy.data.expr.Parameter" value="16">
+        <property name="duration" class="ptolemy.data.expr.Parameter" value="8">
         </property>
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
             <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more controll to jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts.&#10;The AvgTime Actor computes the average waiting time in this street and&#10;is for analysis purposes.">
@@ -8114,11 +8114,11 @@
                 </property>
             </property>
         </property>
-        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="streetLength">
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="8">
         </property>
         <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
         </property>
-        <property name="duration" class="ptolemy.data.expr.Parameter" value="16">
+        <property name="duration" class="ptolemy.data.expr.Parameter" value="10">
         </property>
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
             <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more controll to jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts.&#10;The AvgTime Actor computes the average waiting time in this street and&#10;is for analysis purposes.">
@@ -8953,11 +8953,11 @@
                 </property>
             </property>
         </property>
-        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="streetLength">
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="5">
         </property>
         <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
         </property>
-        <property name="duration" class="ptolemy.data.expr.Parameter" value="16">
+        <property name="duration" class="ptolemy.data.expr.Parameter" value="8">
         </property>
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
             <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more controll to jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts.&#10;The AvgTime Actor computes the average waiting time in this street and&#10;is for analysis purposes.">
@@ -9792,11 +9792,11 @@
                 </property>
             </property>
         </property>
-        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="streetLength">
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="3">
         </property>
         <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
         </property>
-        <property name="duration" class="ptolemy.data.expr.Parameter" value="16">
+        <property name="duration" class="ptolemy.data.expr.Parameter" value="5">
         </property>
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
             <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more controll to jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts.&#10;The AvgTime Actor computes the average waiting time in this street and&#10;is for analysis purposes.">
@@ -10631,11 +10631,11 @@
                 </property>
             </property>
         </property>
-        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="streetLength">
+        <property name="streetLength" class="ptolemy.data.expr.Parameter" value="8">
         </property>
         <property name="analysisFlag" class="ptolemy.data.expr.Parameter" value="StreetPlotterFlag">
         </property>
-        <property name="duration" class="ptolemy.data.expr.Parameter" value="16">
+        <property name="duration" class="ptolemy.data.expr.Parameter" value="10">
         </property>
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
             <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more controll to jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts.&#10;The AvgTime Actor computes the average waiting time in this street and&#10;is for analysis purposes.">
