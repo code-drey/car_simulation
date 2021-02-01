@@ -4,13 +4,13 @@
 <entity name="Street_network_model" class="ptolemy.actor.TypedCompositeActor">
     <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="11.0.1_20180619">
     </property>
-    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-8, -8, 1382, 744}, maximized=true}">
+    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-8, -8, 1936, 1056}, maximized=true}">
     </property>
-    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1154, 627]">
+    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1708, 939]">
     </property>
-    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="0.8000000000000042">
+    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="0.6400000000000033">
     </property>
-    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{-213.1231155778894, 131.1206030150754}">
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{333.44974874371894, 74.18592964824131}">
     </property>
     <property name="DE Director" class="ptolemy.domains.de.kernel.DEDirector">
         <property name="synchronizeToRealTime" class="ptolemy.data.expr.Parameter" value="false">
@@ -40,7 +40,7 @@
     <property name="enableBackwardTypeInference" class="ptolemy.data.expr.Parameter" value="false">
     </property>
     <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
-        <property name="text" class="ptolemy.kernel.util.StringAttribute" value="This is a simple traffic model, consisting of a few T-intersections,cross-intersections and streets.&#10;The Input is controlled through a discrete clock, connected with a CSV-Reader, where our cars are&#10;put into the model. The key-part of the model is the analysis of the overloaded streets and intersections,&#10;if heavy traffic occurs (seen on the analysis) models can easily be configured. If the TimeFlag's are 1, it is recommanded to turn on&#10;'synchronizeToRealTime' in the DE Director to get efficient results.&#10;&#10;Parameter &quot;StreetPlotterFlag&quot;: if 1 it shows the analysis of how many cars pass the street on the plotters, if 0 only empty plotters appear.&#10;Parameter &quot;StreetFlagAvgTime&quot;: if 1 it shows the analysis of averagetime passing a street on the display, if 0 not&#10;Parameter &quot;IntersectionFlagAvgTime&quot;: if 1 it shows the analysis of averagetime passing an intersection on the display, if 0 not&#10;Parameter &quot;streetLength&quot;: changes the length of all streets, if it is wished, that all streets have the same length (not recommanded)">
+        <property name="text" class="ptolemy.kernel.util.StringAttribute" value="This is a simple traffic model, consisting of a few T-intersections,cross-intersections and streets.&#10;The Input is controlled through a discrete clock, connected with a CSV-Reader, where our cars are&#10;put into the model. The key-part of the model is the analysis of the overloaded streets and intersections,&#10;if heavy traffic occurs (seen on the analysis) models can easily be configured. If the TimeFlag's are 1, it is recommanded to turn on&#10;'synchronizeToRealTime' in the DE Director to get efficient results.&#10;&#10;Parameter &quot;StreetPlotterFlag&quot;: if 1 it shows the analysis of how many cars pass the street on the plotters, if 0 only empty plotters appear.&#10;Parameter &quot;StreetFlagAvgTime&quot;: if 1 it shows the analysis of averagetime passing a street on the display, if 0 not&#10;Parameter &quot;IntersectionFlagAvgTime&quot;: if 1 it shows the analysis of averagetime passing an intersection on the display, if 0 not">
         </property>
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-85.0, -465.0]">
         </property>
@@ -53,26 +53,7 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-85.0, -280.0]">
         </property>
     </property>
-    <property name="streetLength" class="ptolemy.data.expr.Parameter" value="8">
-        <property name="_hideName" class="ptolemy.kernel.util.SingletonAttribute">
-        </property>
-        <property name="_icon" class="ptolemy.vergil.icon.ValueIcon">
-            <property name="_color" class="ptolemy.actor.gui.ColorAttribute" value="{0.0, 0.0, 1.0, 1.0}">
-            </property>
-        </property>
-        <property name="_smallIconDescription" class="ptolemy.kernel.util.SingletonConfigurableAttribute">
-            <configure>
-      <svg>
-        <text x="20" style="font-size:14; font-family:SansSerif; fill:blue" y="20">-P-</text>
-      </svg>
-    </configure>
-        </property>
-        <property name="_editorFactory" class="ptolemy.vergil.toolbox.VisibleParameterEditorFactory">
-        </property>
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-290.0, -265.0]">
-        </property>
-    </property>
-    <property name="StreetFlagAvgTime" class="ptolemy.data.expr.Parameter" value="0">
+    <property name="StreetFlagAvgTime" class="ptolemy.data.expr.Parameter" value="1">
         <property name="_hideName" class="ptolemy.kernel.util.SingletonAttribute">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.ValueIcon">
@@ -91,7 +72,7 @@
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-290.0, -305.0]">
         </property>
     </property>
-    <property name="IntersectionFlagAvgTime" class="ptolemy.data.expr.Parameter" value="0">
+    <property name="IntersectionFlagAvgTime" class="ptolemy.data.expr.Parameter" value="1">
         <property name="_hideName" class="ptolemy.kernel.util.SingletonAttribute">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.ValueIcon">
@@ -641,8 +622,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="11.0" max="199.0"/>
-<yRange min="0.0" max="3.0"/>
+<xRange min="11.0" max="238.3830225607"/>
+<yRange min="0.0" max="4.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -666,7 +647,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="11.0" max="199.0"/>
+<xRange min="11.0" max="238.3830225607"/>
 <yRange min="0.0" max="2.0"/>
 </plot>?>
             </configure>
@@ -1449,8 +1430,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="11.0" max="183.0"/>
-<yRange min="0.0" max="6.0"/>
+<xRange min="11.0" max="213.8157625522"/>
+<yRange min="0.0" max="5.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -1470,8 +1451,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="11.0" max="183.0"/>
-<yRange min="0.0" max="3.0"/>
+<xRange min="11.0" max="213.8157625522"/>
+<yRange min="0.0" max="4.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -1717,11 +1698,19 @@
                 </property>
             </property>
         </property>
-        <property name="discreteClockPeriod" class="ptolemy.data.expr.Parameter" value="6.0">
+        <property name="poissonMeanTime" class="ptolemy.data.expr.Parameter" value="6">
+        </property>
+        <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
+            <property name="textColor" class="ptolemy.actor.gui.ColorAttribute" value="{0.0, 0.0, 0.0, 1.0}">
+            </property>
+            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="The Parameter poissonMeanTime is the the Time Interval&#10;in which a car can appear.">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[270.0, 530.0]">
+            </property>
         </property>
         <port name="output" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[465.0, 155.0]">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[570.0, 645.0]">
             </property>
         </port>
         <entity name="CSVReader" class="ptolemy.actor.lib.io.CSVReader">
@@ -1729,7 +1718,7 @@
             </property>
             <property name="separator" class="ptolemy.data.expr.StringParameter" value="tab">
             </property>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[335.0, 165.0]">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[470.0, 655.0]">
             </property>
             <port name="output" class="ptolemy.actor.TypedIOPort">
                 <property name="output"/>
@@ -1737,42 +1726,20 @@
                 </property>
             </port>
         </entity>
-        <entity name="DiscreteClock" class="ptolemy.actor.lib.DiscreteClock">
-            <property name="period" class="ptolemy.actor.parameters.PortParameter" value="discreteClockPeriod">
+        <entity name="PoissonClock" class="ptolemy.actor.lib.PoissonClock">
+            <property name="meanTime" class="ptolemy.data.expr.Parameter" value="poissonMeanTime">
             </property>
-            <doc>Create periodic timed events.</doc>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[212.75, 155.0]">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[355.0, 645.0]">
             </property>
-            <port name="trigger" class="ptolemy.actor.TypedIOPort">
-                <property name="input"/>
-                <property name="multiport"/>
-                <property name="_hide" class="ptolemy.data.expr.SingletonParameter" value="true">
-                </property>
-            </port>
-            <port name="period" class="ptolemy.actor.parameters.ParameterPort">
-                <property name="input"/>
-                <property name="_hide" class="ptolemy.data.expr.SingletonParameter" value="true">
-                </property>
-            </port>
-            <port name="start" class="ptolemy.actor.TypedIOPort">
-                <property name="input"/>
-                <property name="_hide" class="ptolemy.data.expr.SingletonParameter" value="true">
-                </property>
-            </port>
-            <port name="stop" class="ptolemy.actor.TypedIOPort">
-                <property name="input"/>
-                <property name="_hide" class="ptolemy.data.expr.SingletonParameter" value="true">
-                </property>
-            </port>
         </entity>
-        <relation name="relation" class="ptolemy.actor.TypedIORelation">
-        </relation>
         <relation name="relation2" class="ptolemy.actor.TypedIORelation">
+        </relation>
+        <relation name="relation3" class="ptolemy.actor.TypedIORelation">
         </relation>
         <link port="output" relation="relation2"/>
         <link port="CSVReader.output" relation="relation2"/>
-        <link port="CSVReader.trigger" relation="relation"/>
-        <link port="DiscreteClock.output" relation="relation"/>
+        <link port="CSVReader.trigger" relation="relation3"/>
+        <link port="PoissonClock.output" relation="relation3"/>
     </entity>
     <entity name="carInput (5)" class="ptolemy.actor.TypedCompositeActor">
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-498.33323669433594, 60.00000190734863]">
@@ -1793,7 +1760,7 @@
                 </property>
             </property>
         </property>
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={219, 75, 928, 617}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={152, 75, 928, 617}, maximized=false}">
         </property>
         <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 500]">
         </property>
@@ -1801,41 +1768,21 @@
         </property>
         <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{417.8205087939699, 225.36008165829145}">
         </property>
-        <property name="discreteClockPeriod" class="ptolemy.data.expr.Parameter" value="6.0">
+        <property name="poissonMeanTime" class="ptolemy.data.expr.Parameter" value="6">
+        </property>
+        <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
+            <property name="textColor" class="ptolemy.actor.gui.ColorAttribute" value="{0.0, 0.0, 0.0, 1.0}">
+            </property>
+            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="The Parameter poissonMeanTime is the the Time Interval&#10;in which a car can appear.">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[160.0, 45.0]">
+            </property>
         </property>
         <port name="output" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[495.0, 220.0]">
             </property>
         </port>
-        <entity name="DiscreteClock" class="ptolemy.actor.lib.DiscreteClock">
-            <property name="period" class="ptolemy.actor.parameters.PortParameter" value="discreteClockPeriod">
-            </property>
-            <doc>Create periodic timed events.</doc>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[215.0, 220.0]">
-            </property>
-            <port name="trigger" class="ptolemy.actor.TypedIOPort">
-                <property name="input"/>
-                <property name="multiport"/>
-                <property name="_hide" class="ptolemy.data.expr.SingletonParameter" value="true">
-                </property>
-            </port>
-            <port name="period" class="ptolemy.actor.parameters.ParameterPort">
-                <property name="input"/>
-                <property name="_hide" class="ptolemy.data.expr.SingletonParameter" value="true">
-                </property>
-            </port>
-            <port name="start" class="ptolemy.actor.TypedIOPort">
-                <property name="input"/>
-                <property name="_hide" class="ptolemy.data.expr.SingletonParameter" value="true">
-                </property>
-            </port>
-            <port name="stop" class="ptolemy.actor.TypedIOPort">
-                <property name="input"/>
-                <property name="_hide" class="ptolemy.data.expr.SingletonParameter" value="true">
-                </property>
-            </port>
-        </entity>
         <entity name="CSVReader" class="ptolemy.actor.lib.io.CSVReader">
             <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="cars5_25.txt">
             </property>
@@ -1849,17 +1796,23 @@
                 </property>
             </port>
         </entity>
-        <relation name="relation" class="ptolemy.actor.TypedIORelation">
-        </relation>
+        <entity name="PoissonClock" class="ptolemy.actor.lib.PoissonClock">
+            <property name="meanTime" class="ptolemy.data.expr.Parameter" value="poissonMeanTime">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[235.0, 220.0]">
+            </property>
+        </entity>
         <relation name="relation2" class="ptolemy.actor.TypedIORelation">
         </relation>
+        <relation name="relation" class="ptolemy.actor.TypedIORelation">
+        </relation>
         <link port="output" relation="relation2"/>
-        <link port="DiscreteClock.output" relation="relation"/>
         <link port="CSVReader.output" relation="relation2"/>
         <link port="CSVReader.trigger" relation="relation"/>
+        <link port="PoissonClock.output" relation="relation"/>
     </entity>
     <entity name="carInput (4)" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[-370.0, 260.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{-370.0, 260.0}">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="ellipse" class="ptolemy.vergil.kernel.attributes.EllipseAttribute">
@@ -1877,7 +1830,7 @@
                 </property>
             </property>
         </property>
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={219, 75, 928, 617}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={152, 75, 928, 617}, maximized=false}">
         </property>
         <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 500]">
         </property>
@@ -1885,41 +1838,21 @@
         </property>
         <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{417.8205087939699, 225.36008165829145}">
         </property>
-        <property name="discreteClockPeriod" class="ptolemy.data.expr.Parameter" value="6.0">
+        <property name="poissonMeanTime" class="ptolemy.data.expr.Parameter" value="6">
+        </property>
+        <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
+            <property name="textColor" class="ptolemy.actor.gui.ColorAttribute" value="{0.0, 0.0, 0.0, 1.0}">
+            </property>
+            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="The Parameter poissonMeanTime is the the Time Interval&#10;in which a car can appear.">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[175.0, 115.0]">
+            </property>
         </property>
         <port name="output" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[495.0, 220.0]">
             </property>
         </port>
-        <entity name="DiscreteClock" class="ptolemy.actor.lib.DiscreteClock">
-            <property name="period" class="ptolemy.actor.parameters.PortParameter" value="discreteClockPeriod">
-            </property>
-            <doc>Create periodic timed events.</doc>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[215.0, 220.0]">
-            </property>
-            <port name="trigger" class="ptolemy.actor.TypedIOPort">
-                <property name="input"/>
-                <property name="multiport"/>
-                <property name="_hide" class="ptolemy.data.expr.SingletonParameter" value="true">
-                </property>
-            </port>
-            <port name="period" class="ptolemy.actor.parameters.ParameterPort">
-                <property name="input"/>
-                <property name="_hide" class="ptolemy.data.expr.SingletonParameter" value="true">
-                </property>
-            </port>
-            <port name="start" class="ptolemy.actor.TypedIOPort">
-                <property name="input"/>
-                <property name="_hide" class="ptolemy.data.expr.SingletonParameter" value="true">
-                </property>
-            </port>
-            <port name="stop" class="ptolemy.actor.TypedIOPort">
-                <property name="input"/>
-                <property name="_hide" class="ptolemy.data.expr.SingletonParameter" value="true">
-                </property>
-            </port>
-        </entity>
         <entity name="CSVReader" class="ptolemy.actor.lib.io.CSVReader">
             <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="cars4_25.txt">
             </property>
@@ -1933,14 +1866,20 @@
                 </property>
             </port>
         </entity>
-        <relation name="relation" class="ptolemy.actor.TypedIORelation">
-        </relation>
+        <entity name="PoissonClock" class="ptolemy.actor.lib.PoissonClock">
+            <property name="meanTime" class="ptolemy.data.expr.Parameter" value="poissonMeanTime">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[230.0, 220.0]">
+            </property>
+        </entity>
         <relation name="relation2" class="ptolemy.actor.TypedIORelation">
         </relation>
+        <relation name="relation" class="ptolemy.actor.TypedIORelation">
+        </relation>
         <link port="output" relation="relation2"/>
-        <link port="DiscreteClock.output" relation="relation"/>
         <link port="CSVReader.output" relation="relation2"/>
         <link port="CSVReader.trigger" relation="relation"/>
+        <link port="PoissonClock.output" relation="relation"/>
     </entity>
     <entity name="carInput (3)" class="ptolemy.actor.TypedCompositeActor">
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-485.0, 485.0]">
@@ -1961,7 +1900,7 @@
                 </property>
             </property>
         </property>
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={219, 75, 928, 617}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={152, 75, 928, 617}, maximized=false}">
         </property>
         <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 500]">
         </property>
@@ -1969,41 +1908,21 @@
         </property>
         <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{417.8205087939699, 225.36008165829145}">
         </property>
-        <property name="discreteClockPeriod" class="ptolemy.data.expr.Parameter" value="6.0">
+        <property name="poissonMeanTime" class="ptolemy.data.expr.Parameter" value="6">
+        </property>
+        <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
+            <property name="textColor" class="ptolemy.actor.gui.ColorAttribute" value="{0.0, 0.0, 0.0, 1.0}">
+            </property>
+            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="The Parameter poissonMeanTime is the the Time Interval&#10;in which a car can appear.">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[155.0, 75.0]">
+            </property>
         </property>
         <port name="output" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[495.0, 220.0]">
             </property>
         </port>
-        <entity name="DiscreteClock" class="ptolemy.actor.lib.DiscreteClock">
-            <property name="period" class="ptolemy.actor.parameters.PortParameter" value="discreteClockPeriod">
-            </property>
-            <doc>Create periodic timed events.</doc>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[215.0, 220.0]">
-            </property>
-            <port name="trigger" class="ptolemy.actor.TypedIOPort">
-                <property name="input"/>
-                <property name="multiport"/>
-                <property name="_hide" class="ptolemy.data.expr.SingletonParameter" value="true">
-                </property>
-            </port>
-            <port name="period" class="ptolemy.actor.parameters.ParameterPort">
-                <property name="input"/>
-                <property name="_hide" class="ptolemy.data.expr.SingletonParameter" value="true">
-                </property>
-            </port>
-            <port name="start" class="ptolemy.actor.TypedIOPort">
-                <property name="input"/>
-                <property name="_hide" class="ptolemy.data.expr.SingletonParameter" value="true">
-                </property>
-            </port>
-            <port name="stop" class="ptolemy.actor.TypedIOPort">
-                <property name="input"/>
-                <property name="_hide" class="ptolemy.data.expr.SingletonParameter" value="true">
-                </property>
-            </port>
-        </entity>
         <entity name="CSVReader" class="ptolemy.actor.lib.io.CSVReader">
             <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="cars3_25.txt">
             </property>
@@ -2017,17 +1936,23 @@
                 </property>
             </port>
         </entity>
-        <relation name="relation" class="ptolemy.actor.TypedIORelation">
-        </relation>
+        <entity name="PoissonClock" class="ptolemy.actor.lib.PoissonClock">
+            <property name="meanTime" class="ptolemy.data.expr.Parameter" value="poissonMeanTime">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[220.0, 220.0]">
+            </property>
+        </entity>
         <relation name="relation2" class="ptolemy.actor.TypedIORelation">
         </relation>
+        <relation name="relation" class="ptolemy.actor.TypedIORelation">
+        </relation>
         <link port="output" relation="relation2"/>
-        <link port="DiscreteClock.output" relation="relation"/>
         <link port="CSVReader.output" relation="relation2"/>
         <link port="CSVReader.trigger" relation="relation"/>
+        <link port="PoissonClock.output" relation="relation"/>
     </entity>
     <entity name="carInput (2)" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[1030.0, 320.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{1030.0, 320.0}">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="ellipse" class="ptolemy.vergil.kernel.attributes.EllipseAttribute">
@@ -2045,7 +1970,7 @@
                 </property>
             </property>
         </property>
-        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={219, 75, 928, 617}, maximized=false}">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={152, 75, 928, 617}, maximized=false}">
         </property>
         <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[700, 500]">
         </property>
@@ -2055,41 +1980,23 @@
         </property>
         <property name="_flipPortsHorizontal" class="ptolemy.data.expr.Parameter" value="true">
         </property>
-        <property name="discreteClockPeriod" class="ptolemy.data.expr.Parameter" value="6.0">
+        <property name="DocAttribute" class="ptolemy.vergil.basic.DocAttribute">
+        </property>
+        <property name="poissonMeanTime" class="ptolemy.data.expr.Parameter" value="6">
+        </property>
+        <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
+            <property name="textColor" class="ptolemy.actor.gui.ColorAttribute" value="{0.0, 0.0, 0.0, 1.0}">
+            </property>
+            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="The Parameter poissonMeanTime is the the Time Interval&#10;in which a car can appear.">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[175.0, 80.0]">
+            </property>
         </property>
         <port name="output" class="ptolemy.actor.TypedIOPort">
             <property name="output"/>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[480.0, 210.0]">
             </property>
         </port>
-        <entity name="DiscreteClock" class="ptolemy.actor.lib.DiscreteClock">
-            <property name="period" class="ptolemy.actor.parameters.PortParameter" value="discreteClockPeriod">
-            </property>
-            <doc>Create periodic timed events.</doc>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[225.0, 210.0]">
-            </property>
-            <port name="trigger" class="ptolemy.actor.TypedIOPort">
-                <property name="input"/>
-                <property name="multiport"/>
-                <property name="_hide" class="ptolemy.data.expr.SingletonParameter" value="true">
-                </property>
-            </port>
-            <port name="period" class="ptolemy.actor.parameters.ParameterPort">
-                <property name="input"/>
-                <property name="_hide" class="ptolemy.data.expr.SingletonParameter" value="true">
-                </property>
-            </port>
-            <port name="start" class="ptolemy.actor.TypedIOPort">
-                <property name="input"/>
-                <property name="_hide" class="ptolemy.data.expr.SingletonParameter" value="true">
-                </property>
-            </port>
-            <port name="stop" class="ptolemy.actor.TypedIOPort">
-                <property name="input"/>
-                <property name="_hide" class="ptolemy.data.expr.SingletonParameter" value="true">
-                </property>
-            </port>
-        </entity>
         <entity name="CSVReader" class="ptolemy.actor.lib.io.CSVReader">
             <property name="fileOrURL" class="ptolemy.actor.parameters.FilePortParameter" value="cars2_25.txt">
             </property>
@@ -2105,14 +2012,20 @@
                 </property>
             </port>
         </entity>
-        <relation name="relation" class="ptolemy.actor.TypedIORelation">
-        </relation>
+        <entity name="PoissonClock" class="ptolemy.actor.lib.PoissonClock">
+            <property name="meanTime" class="ptolemy.data.expr.Parameter" value="poissonMeanTime">
+            </property>
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[235.0, 210.0]">
+            </property>
+        </entity>
         <relation name="relation2" class="ptolemy.actor.TypedIORelation">
         </relation>
+        <relation name="relation" class="ptolemy.actor.TypedIORelation">
+        </relation>
         <link port="output" relation="relation2"/>
-        <link port="DiscreteClock.output" relation="relation"/>
         <link port="CSVReader.output" relation="relation2"/>
         <link port="CSVReader.trigger" relation="relation"/>
+        <link port="PoissonClock.output" relation="relation"/>
     </entity>
     <entity name="carCounter (5)" class="ptolemy.actor.lib.Counter">
         <property name="_location" class="ptolemy.kernel.util.Location" value="[-500.0, 135.0]">
@@ -2248,7 +2161,7 @@
         <property name="duration" class="ptolemy.data.expr.Parameter" value="10">
         </property>
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
-            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more control to the jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts. This first layer&#10;of the model is only for analysis purposes.&#10;The AvgTime Actor computes the average waiting time in this street.">
+            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more control to the jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts. This first layer&#10;of the model is only for analysis purposes.&#10;The AvgTime Actor computes the average waiting time in this street. If the average Time is 1&#10;, than no car had to wait.">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[565.0, -200.0]">
             </property>
@@ -2500,8 +2413,6 @@
                 </port>
                 <port name="warning" class="ptolemy.actor.TypedIOPort">
                     <property name="output"/>
-                    <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-                    </property>
                 </port>
             </entity>
             <entity name="StreetInputOutput" class="ptolemy.actor.lib.gui.TimedPlotter">
@@ -2520,7 +2431,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="1.0" max="210.0"/>
+<xRange min="1.0" max="249.3830225607"/>
 <yRange min="0.0" max="5.0"/>
 </plot>?>
                 </configure>
@@ -2595,8 +2506,6 @@
                 </port>
                 <port name="warning" class="ptolemy.actor.TypedIOPort">
                     <property name="output"/>
-                    <property name="defaultValue" class="ptolemy.data.expr.Parameter">
-                    </property>
                 </port>
             </entity>
             <entity name="Queue" class="ptolemy.domains.de.lib.Queue">
@@ -3626,7 +3535,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="11.0" max="185.0"/>
+<xRange min="11.0" max="223.3830225607"/>
 <yRange min="0.0" max="3.0"/>
 </plot>?>
             </configure>
@@ -3651,8 +3560,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="11.0" max="185.0"/>
-<yRange min="0.0" max="1.0"/>
+<xRange min="11.0" max="223.3830225607"/>
+<yRange min="0.0" max="2.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -4294,7 +4203,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="11.0" max="196.0"/>
+<xRange min="11.0" max="209.01739008520002"/>
 <yRange min="0.0" max="3.0"/>
 </plot>?>
             </configure>
@@ -4319,8 +4228,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="11.0" max="196.0"/>
-<yRange min="0.0" max="1.0"/>
+<xRange min="11.0" max="209.01739008520002"/>
+<yRange min="0.0" max="2.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -5102,8 +5011,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="11.0" max="182.0"/>
-<yRange min="0.0" max="4.0"/>
+<xRange min="11.0" max="223.3830225607"/>
+<yRange min="0.0" max="5.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -5123,8 +5032,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="11.0" max="182.0"/>
-<yRange min="0.0" max="2.0"/>
+<xRange min="11.0" max="223.3830225607"/>
+<yRange min="0.0" max="4.0"/>
 </plot>?>
             </configure>
         </entity>
@@ -5285,9 +5194,9 @@
         <property name="duration" class="ptolemy.data.expr.Parameter" value="10">
         </property>
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
-            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more control to the jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts. This first layer&#10;of the model is only for analysis purposes.&#10;The AvgTime Actor computes the average waiting time in this street.">
+            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more control to the jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts. This first layer&#10;of the model is only for analysis purposes.&#10;The AvgTime Actor computes the average waiting time in this street. If the average Time is 1&#10;, than no car had to wait.">
             </property>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[565.0, -200.0]">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="[560.0, -225.0]">
             </property>
         </property>
         <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 0, 1386, 788}, maximized=false}">
@@ -5555,8 +5464,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="1.0" max="167.0"/>
-<yRange min="0.0" max="2.0"/>
+<xRange min="1.0" max="157.0520076161"/>
+<yRange min="0.0" max="4.0"/>
 </plot>?>
                 </configure>
             </entity>
@@ -6162,7 +6071,7 @@
         <property name="duration" class="ptolemy.data.expr.Parameter" value="10">
         </property>
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
-            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more control to the jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts. This first layer&#10;of the model is only for analysis purposes.&#10;The AvgTime Actor computes the average waiting time in this street.">
+            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more control to the jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts. This first layer&#10;of the model is only for analysis purposes.&#10;The AvgTime Actor computes the average waiting time in this street. If the average Time is 1&#10;, than no car had to wait.">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[565.0, -200.0]">
             </property>
@@ -6432,8 +6341,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="14.0" max="196.0"/>
-<yRange min="0.0" max="3.0"/>
+<xRange min="14.0" max="234.3830225607"/>
+<yRange min="0.0" max="2.0"/>
 </plot>?>
                 </configure>
             </entity>
@@ -7039,7 +6948,7 @@
         <property name="duration" class="ptolemy.data.expr.Parameter" value="10">
         </property>
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
-            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more control to the jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts. This first layer&#10;of the model is only for analysis purposes.&#10;The AvgTime Actor computes the average waiting time in this street.">
+            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more control to the jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts. This first layer&#10;of the model is only for analysis purposes.&#10;The AvgTime Actor computes the average waiting time in this street. If the average Time is 1&#10;, than no car had to wait.">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[565.0, -200.0]">
             </property>
@@ -7309,8 +7218,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="20.0" max="193.0"/>
-<yRange min="0.0" max="3.0"/>
+<xRange min="18.0751699954" max="234.3830225607"/>
+<yRange min="0.0" max="4.0"/>
 </plot>?>
                 </configure>
             </entity>
@@ -7533,7 +7442,7 @@
                 </property>
             </entity>
             <entity name="Display" class="ptolemy.actor.lib.gui.Display">
-                <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={503, 261, 430, 246}, maximized=false}">
+                <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={503, 261, 549, 246}, maximized=false}">
                 </property>
                 <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[414, 186]">
                 </property>
@@ -7916,7 +7825,7 @@
         <property name="duration" class="ptolemy.data.expr.Parameter" value="10">
         </property>
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
-            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more control to the jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts. This first layer&#10;of the model is only for analysis purposes.&#10;The AvgTime Actor computes the average waiting time in this street.">
+            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more control to the jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts. This first layer&#10;of the model is only for analysis purposes.&#10;The AvgTime Actor computes the average waiting time in this street. If the average Time is 1&#10;, than no car had to wait.">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[565.0, -200.0]">
             </property>
@@ -8186,7 +8095,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="14.0" max="183.0"/>
+<xRange min="14.0" max="221.3830225607"/>
 <yRange min="0.0" max="3.0"/>
 </plot>?>
                 </configure>
@@ -8793,9 +8702,9 @@
         <property name="duration" class="ptolemy.data.expr.Parameter" value="10">
         </property>
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
-            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more control to the jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts. This first layer&#10;of the model is only for analysis purposes.&#10;The AvgTime Actor computes the average waiting time in this street.">
+            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more control to the jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts. This first layer&#10;of the model is only for analysis purposes.&#10;The AvgTime Actor computes the average waiting time in this street. If the average Time is 1&#10;, than no car had to wait.">
             </property>
-            <property name="_location" class="ptolemy.kernel.util.Location" value="[565.0, -200.0]">
+            <property name="_location" class="ptolemy.kernel.util.Location" value="{565.0, -200.0}">
             </property>
         </property>
         <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={0, 0, 1386, 788}, maximized=false}">
@@ -9063,8 +8972,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="1.0" max="186.0"/>
-<yRange min="0.0" max="2.0"/>
+<xRange min="1.0" max="224.8157625522"/>
+<yRange min="0.0" max="5.0"/>
 </plot>?>
                 </configure>
             </entity>
@@ -9670,7 +9579,7 @@
         <property name="duration" class="ptolemy.data.expr.Parameter" value="10">
         </property>
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
-            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more control to the jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts. This first layer&#10;of the model is only for analysis purposes.&#10;The AvgTime Actor computes the average waiting time in this street.">
+            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more control to the jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts. This first layer&#10;of the model is only for analysis purposes.&#10;The AvgTime Actor computes the average waiting time in this street. If the average Time is 1&#10;, than no car had to wait.">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[565.0, -200.0]">
             </property>
@@ -9940,7 +9849,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="14.0" max="181.0"/>
+<xRange min="14.0" max="221.3830225607"/>
 <yRange min="0.0" max="4.0"/>
 </plot>?>
                 </configure>
@@ -10514,7 +10423,7 @@
         <link port="TimeDelay4.output" relation="relation5"/>
     </entity>
     <entity name="streetExtension8" class="ptolemy.actor.TypedCompositeActor">
-        <property name="_location" class="ptolemy.kernel.util.Location" value="[795.0, 270.0]">
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[845.0, 270.0]">
         </property>
         <property name="_icon" class="ptolemy.vergil.icon.EditorIcon">
             <property name="rectangle" class="ptolemy.vergil.kernel.attributes.RectangleAttribute">
@@ -10547,7 +10456,7 @@
         <property name="duration" class="ptolemy.data.expr.Parameter" value="10">
         </property>
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
-            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more control to the jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts. This first layer&#10;of the model is only for analysis purposes.&#10;The AvgTime Actor computes the average waiting time in this street.">
+            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more control to the jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts. This first layer&#10;of the model is only for analysis purposes.&#10;The AvgTime Actor computes the average waiting time in this street. If the average Time is 1&#10;, than no car had to wait.">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[565.0, -200.0]">
             </property>
@@ -10817,8 +10726,8 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="1.0" max="185.0"/>
-<yRange min="0.0" max="3.0"/>
+<xRange min="1.0" max="197.396820276"/>
+<yRange min="0.0" max="5.0"/>
 </plot>?>
                 </configure>
             </entity>
@@ -11424,7 +11333,7 @@
         <property name="duration" class="ptolemy.data.expr.Parameter" value="10">
         </property>
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
-            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more control to the jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts. This first layer&#10;of the model is only for analysis purposes.&#10;The AvgTime Actor computes the average waiting time in this street.">
+            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more control to the jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts. This first layer&#10;of the model is only for analysis purposes.&#10;The AvgTime Actor computes the average waiting time in this street. If the average Time is 1&#10;, than no car had to wait.">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[565.0, -200.0]">
             </property>
@@ -11694,7 +11603,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="20.0" max="160.0"/>
+<xRange min="33.6642294787" max="198.8157625522"/>
 <yRange min="0.0" max="1.0"/>
 </plot>?>
                 </configure>
@@ -12301,7 +12210,7 @@
         <property name="duration" class="ptolemy.data.expr.Parameter" value="10">
         </property>
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
-            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more control to the jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts. This first layer&#10;of the model is only for analysis purposes.&#10;The AvgTime Actor computes the average waiting time in this street.">
+            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more control to the jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts. This first layer&#10;of the model is only for analysis purposes.&#10;The AvgTime Actor computes the average waiting time in this street. If the average Time is 1&#10;, than no car had to wait.">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[565.0, -200.0]">
             </property>
@@ -12571,7 +12480,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="14.0" max="194.0"/>
+<xRange min="14.0" max="211.8157625522"/>
 <yRange min="0.0" max="4.0"/>
 </plot>?>
                 </configure>
@@ -13178,7 +13087,7 @@
         <property name="duration" class="ptolemy.data.expr.Parameter" value="10">
         </property>
         <property name="Annotation" class="ptolemy.vergil.kernel.attributes.TextAttribute">
-            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more control to the jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts. This first layer&#10;of the model is only for analysis purposes.&#10;The AvgTime Actor computes the average waiting time in this street.">
+            <property name="text" class="ptolemy.kernel.util.StringAttribute" value="street-model that operates as an extension to the already implemented street(-queue) &#10;in the intersections to simply add more control to the jam situations. &#10;Delays are needed to avoid &quot;zero-delay-loops&quot; between the JavaScripts. This first layer&#10;of the model is only for analysis purposes.&#10;The AvgTime Actor computes the average waiting time in this street. If the average Time is 1&#10;, than no car had to wait.">
             </property>
             <property name="_location" class="ptolemy.kernel.util.Location" value="[565.0, -200.0]">
             </property>
@@ -13448,7 +13357,7 @@
 <title>TimedPlotter</title>
 <xLabel></xLabel>
 <yLabel></yLabel>
-<xRange min="1.0" max="207.0"/>
+<xRange min="1.0" max="220.01739008520002"/>
 <yRange min="0.0" max="4.0"/>
 </plot>?>
                 </configure>
