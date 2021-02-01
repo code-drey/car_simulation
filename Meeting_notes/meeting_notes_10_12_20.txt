@@ -1,5 +1,0 @@
-Meeting notes 10/12/20:
-Next steps:
--implement time delays
--implement cross intersection
--implement working street network

@@ -1,3 +1,0 @@
-carId	currentTime	delayOfcarInput	intersectionId intersectionLoad
-2	4.0	0.0	4	1
-2	5.0	1.0	4	1

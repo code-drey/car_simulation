@@ -1,2 +1,0 @@
-carId	roadMap	carSpeed	indicator
-1	{1,2,3,4}	10	0

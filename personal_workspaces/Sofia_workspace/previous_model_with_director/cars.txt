@@ -1,2 +1,0 @@
-carId	roadMap	carSpeed	fuel
-1	{2,3}	10	20
